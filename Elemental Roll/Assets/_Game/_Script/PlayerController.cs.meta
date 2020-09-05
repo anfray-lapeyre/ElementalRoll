@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: c7c46577dc63e0f4e81ec2d05602a3c7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerCamera: {instanceID: 0}
+  - fallSparks: {instanceID: 0}
+  - speedSparks: {instanceID: 0}
+  - grindSparks: {instanceID: 0}
+  - playerScore: {fileID: 11400000, guid: beff11e67763ab94da726e24865ed04e, type: 2}
+  - currentLevel: {fileID: 11400000, guid: ddfcf09eb8feb09408aea83e6aad0da4, type: 2}
+  - playerSpeed: {fileID: 11400000, guid: b731e3e82a23b7a4e96b56f785b75588, type: 2}
+  - playerRotationSpeed: {fileID: 11400000, guid: ab095c08f0c117247b6e760c47978045,
+      type: 2}
+  - LevelLoader: {fileID: 3324779465422197648, guid: 9862bcf9362beaa4493ae33da4cebaab,
+      type: 3}
+  - PauseMenu: {fileID: 4080646434662074437, guid: 921f4b5d2ca0126429bdf40491192f31,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

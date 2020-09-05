@@ -1,0 +1,1199 @@
+{ "levels" : [
+	
+	{
+		"name" : "Welcome Home",
+		"sceneName" : "WelcomeHome",
+		"objName" : "WelcomeHome",
+		"desiredAngle" : 115,
+		"time" : [999, 120, 60],
+		"bonusCount" : 1,
+		"previewScale" : 0.8,
+		"previewRotation" : [90,0,5]
+	},{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},{
+		"name" : "Spring Time",
+		"sceneName" : "Printemps",
+		"objName" : "guitar",
+		"desiredAngle" : 0,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},{
+		"name" : "River",
+		"sceneName" : "River",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Lost In The Woods",
+		"sceneName" : "Forest",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Highway To Hell",
+		"sceneName" : "Hell",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody 5",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Spring",
+		"sceneName" : "Printemps",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	},
+	{
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "guitar",
+		"desiredAngle" : 115,
+		"time" : [999, 60, 30],
+		"bonusCount" : 1,
+		"previewScale" : 4,
+		"previewRotation" : [0,180,5]
+	}
+]
+}

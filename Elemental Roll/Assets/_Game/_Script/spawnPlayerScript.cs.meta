@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 7d030e26d152b9e49a3a67260fb95d3b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - firePrefab: {fileID: 4357370175423898848, guid: 5e64b48e5b918144d9e7481620cf95bb,
+      type: 3}
+  - icePrefab: {fileID: 4357370175423898848, guid: 690184facedfaae449b501ed9419a57a,
+      type: 3}
+  - earthPrefab: {fileID: 4357370175423898848, guid: 51beeae9a327ca7488e34484ee373aa8,
+      type: 3}
+  - deathPrefab: {fileID: 4357370175423898848, guid: a1f8491dfe6de204fb8f8dcd2b1a16b5,
+      type: 3}
+  - currentPlayer: {fileID: 11400000, guid: 6044ce70c859da044a163b355c90be2b, type: 2}
+  - timeline: {instanceID: 0}
+  - cinemachineBrain: {instanceID: 0}
+  - virtualCamera: {instanceID: 0}
+  - timer: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

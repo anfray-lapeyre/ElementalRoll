@@ -1,0 +1,57 @@
+newmtl phong1SG
+illum 4
+Kd 0.00 0.42 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+bump -s 0.25 0.25 Metal_Bump.jpg -bm 0.05
+Ni 1.00
+Ks 0.45 0.45 0.45
+Ns 2.00
+newmtl phong2SG
+illum 4
+Kd 0.94 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.45 0.45 0.45
+Ns 2.00
+newmtl phong3SG
+illum 4
+Kd 0.00 0.31 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.43 0.43 0.43
+Ns 2.00
+newmtl phong4SG
+illum 4
+Kd 0.44 0.44 0.44
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.57 0.57 0.57
+Ns 4.00
+newmtl phong6SG
+illum 4
+Kd 0.09 0.52 0.94
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.20 0.20 0.20
+Ns 8.00
+newmtl phong7SG
+illum 4
+Kd 0.98 0.31 0.04
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.21 0.21 0.21
+Ns 8.00
+newmtl phong8SG
+illum 4
+Kd 0.98 0.98 0.02
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.22 0.22 0.22
+Ns 8.00

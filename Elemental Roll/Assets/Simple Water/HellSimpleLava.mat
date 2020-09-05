@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CaveSimple Water
+  m_Shader: {fileID: -6465566751694194690, guid: 27b042674da390c46a1ff4cc2317d5f2,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_29A8EAB: 2
+    - Vector1_3C2CF0EB: 0.015
+    - Vector1_53B9698E: 6.3
+    - Vector1_6D9DC178: 200
+    - Vector1_6E2824A3: 0
+    - Vector1_93DCFAA9: 200
+    - Vector1_95BBCBE0: 200
+    - Vector1_C30A2364: 140
+    - Vector1_C5543ECF: 1.09
+    - Vector1_E23798DE: 0.23
+    m_Colors:
+    - Color_A271762B: {r: 0, g: 0.005789484, b: 0.028301895, a: 1}
+    - Color_AFFD055F: {r: 0.16078432, g: 0.16078432, b: 0.16078432, a: 1}
+    - Color_E0824245: {r: 0, g: 0.059915565, b: 0.16981131, a: 0.14117648}

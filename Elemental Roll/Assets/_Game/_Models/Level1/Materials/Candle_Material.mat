@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Candle_Material
+  m_Shader: {fileID: -6465566751694194690, guid: 6790beaabb38b7c4387c41857db6e60e,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Texture2DAsset_9134F5B_Out_0:
+        m_Texture: {fileID: 2800000, guid: 540a67523524a5c4b80986e7b8068263, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_4CFF7D9A: 5
+    - Vector1_65202C56: 1.53
+    - Vector1_810DA5F6: 2
+    - Vector1_87FF2232: 1.45
+    - Vector1_8B9B656C: 1
+    - Vector1_8BD075C4: 11.7
+    - Vector1_96532726: 0.23
+    - Vector1_9CABB110: 4.76
+    - Vector1_AA16D17: 2
+    - Vector1_F4029B46: 1
+    m_Colors:
+    - Color_31A33086: {r: 0.6509434, g: 0.5697695, b: 0.497419, a: 0}
+    - Color_832A252: {r: 0.6603774, g: 0.51481974, b: 0.36756852, a: 0}

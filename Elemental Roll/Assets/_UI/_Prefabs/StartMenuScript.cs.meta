@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c53fa9a421b20894d8a080d5287b74b3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - currentLevel: {fileID: 11400000, guid: ddfcf09eb8feb09408aea83e6aad0da4, type: 2}
+  - UIFade: {instanceID: 0}
+  - LevelLoader: {fileID: 3324779465422197648, guid: 9862bcf9362beaa4493ae33da4cebaab,
+      type: 3}
+  - LivesLeft: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
+  - difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
+  - difficultyChrono: {fileID: 11400000, guid: c22cc4009fe1709468823c203c1002eb, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

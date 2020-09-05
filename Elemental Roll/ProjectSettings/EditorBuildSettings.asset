@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Game/_Scenes/MainMenu.unity
+    guid: 4550f952f55498541a024b4afe5832f0
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Cave.unity
+    guid: 8ccf90323ba8ba541928d101a42bf87e
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Forest.unity
+    guid: c52ac8155e62d814d8a0cf78e9847186
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Hell.unity
+    guid: 16f3e8de3c69e6f4392f22f8e99d0fed
+  - enabled: 1
+    path: Assets/_Game/_Scenes/LevelSelection.unity
+    guid: c098da81b8cbcbc45ae915b2d19c4dfd
+  - enabled: 1
+    path: Assets/_Game/_Scenes/LittleMelody.unity
+    guid: c32753a4b1e49dc4d96c193b60fa7c8a
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Preview Characters.unity
+    guid: 007bc79d5711c9d4787bd0a70e14d6b2
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Printemps.unity
+    guid: 623555dc26631c74097a1b8987ff1f57
+  - enabled: 1
+    path: Assets/_Game/_Scenes/River.unity
+    guid: ebef79c06e8966f4da32a426a8d1c68b
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Cutscenes/Cutscene1.unity
+    guid: f6cb5cc2585c3ff4a8947963787deba7
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/WelcomeHome.unity
+    guid: c61ef053a4438924abe666e5ae6669ba
+  m_configObjects: {}

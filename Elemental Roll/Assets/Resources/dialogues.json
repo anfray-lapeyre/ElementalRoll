@@ -1,0 +1,96 @@
+{ "dialogues" : [
+	{"character":"Fire",
+	"lines" : ["<i><b>*sigh*</b></i>  I'm so booooored...","When will I be able to take my revenge..."],
+	"next" : 1,
+	"backgroundVideo":"_Cinematic-8-3-Bored",
+	"id" : 0
+	},
+	{"character":"Fire",
+	"lines" : ["Two years ago, I was the <color=#FB5607><i><b>King of Hell</b></i></color>...", "It was fun...","I tortured people and my servants lived in fear of my <i><b>wrath</b></i>...","Until <color=#C80A93><i><b>Tim</b></i></color> came along..."],
+	"next" : 2,
+	"backgroundVideo":"_Cinematic-1",
+	"id" : 1
+	},
+	{"character":"Death",
+	"lines" : ["<color=#FB5607><i><b>Byle the King of Hell</b></i></color>, your reign of terror is over !"],
+	"next" : 3,
+	"backgroundVideo":"_Cinematic-2",
+	"id" : 2
+	 },
+	 {"character":"Fire",
+	"lines" : ["Oh really ? <color=#FB5607><i><b>Ha Ha Ha Ha</b></i></color>", "And how will you do that ?"],
+	"next" : 4,
+	"backgroundVideo":"_Cinematic-1",
+	"id" : 3
+	},
+	{"character":"Death",
+	"lines" : ["I worked with some friends to make you a little... <b><i>surprise</i></b>...", "I, <color=#C80A93><b><i>The Almighty TIM</i></b></color> ! Call upon thee the powers of <color=#C80A93><b><i>Death</i></b></color>, <color=#A46324><b><i>Earth</i></b></color> and <color=#7FF3F0><b><i>Ice</i></b></color> ! ", "Banish this <color=#FB5607><i><b>wretched soul</i></b></color>  from our realm ! Condemn him to eternal damnation in... <color=#CCCCCC><i><b>The Human World</i></b></color> !"],
+	"next" : 5,
+	"backgroundVideo":"_Cinematic-2",
+	"id" : 4
+	 },
+	 {"character":"Fire",
+	"lines" : ["NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOoooooooooooooooooo"],
+	"next" : 6,
+	"backgroundVideo":"_Cinematic-3",
+	"id" : 5
+	},
+	{"character":"Fire",
+	"lines" : ["I was cast out of my kingdom..."],
+	"next" : 7,
+	"backgroundVideo":"_Cinematic-4",
+	"id" : 6
+	},
+	{"character":"Fire",
+	"lines" : ["I flew during ten days straight, all the way to <color=#CCCCCC><i><b>the Human World</b></i></color>."],
+	"next" : 8,
+	"backgroundVideo":"_Cinematic-5",
+	"id" : 7
+	},
+	{"character":"Fire",
+	"lines" : ["Every day getting weaker than the last...", "Until the <b><i>crash</i></b>... When I met <color=#30E56A><b><i>Him</b></i></color>..."],
+	"next" : 9,
+	"backgroundVideo":"_Cinematic-6",
+	"id" : 8
+	},
+	{"character":"Wizard",
+	"lines" : ["A <color=#FB5607><i><b>Fire Elemental</b></i></color>  here ?", "Quick, get into this orb before touching the <color=#7FF3F0><b><i>Water</b></i></color>."],
+	"next" : 10,
+	"backgroundVideo":"_Cinematic-7",
+	"id" : 9
+	},
+	{"character":"Fire",
+	"lines" : ["Since then, I've been waiting on the <color=#30E56A><b><i>Wizard</i></b></color> 's desk."],
+	"next" : 11,
+	"backgroundVideo":"_Cinematic-8-2-Wait",
+	"id" : 10
+	},
+	{"character":"Fire",
+	"lines" : ["He's been gathering pieces for me to get back to my world...", "There's just one thing left to do... ACTIVATE IT !"],
+	"next" : 12,
+	"backgroundVideo":"_Cinematic-8-4-Wait",
+	"id" : 11
+	},
+	{"character":"Fire",
+	"lines" : ["I, <color=#FB5607><i><b>Byle</b></i></color>, <color=#FB5607><i><b>Ancient King of Hell</b></i></color>, call upon thee : <color=#FB5607><i><b>Demonic Fire</b></i></color> !", "Come to me ! Open the gates that will allow me to get back my <b>Kingdom</b> !"],
+	"next" : 13,
+	"backgroundVideo":"_Cinematic-8-2-Wait",
+	"id" : 12
+	},
+	{"character":"Fire",
+	"lines" : ["FINALLY !!!"],
+	"next" : 14,
+	"backgroundVideo":"_Cinematic-8-4-ActiveWait",
+	"id" : 13
+	},
+	{"character":"Fire",
+	"lines" : ["Let's go find this traitor !"],
+	"next" : -1,
+	"backgroundVideo":"_Cinematic-8-2-Go",
+	"id" : 14
+	}
+
+
+	
+]
+}
