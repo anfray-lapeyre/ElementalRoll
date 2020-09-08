@@ -45,16 +45,30 @@ public class menuControllerScript : MonoBehaviour
 
     public UIFader firstTimefade;
 
+    private AudioSource audioSource;
+    public AudioClip soundSwoosh;
+    public AudioClip soundZoom;
+
+
+    public void Awake()
+    {
+        audioSource = this.GetComponent<AudioSource>();
+        
+    }
+
     public void EnableInput()
     {
         bufferObject = Instantiate(StartText);
         input.enabled = true;
+        
     }
 
     public void OnConfirm(InputValue input)
     {
         if (!cinemachineBrain.IsBlending && !inOption)
         {
+            audioSource.clip = soundZoom;
+            audioSource.Play();
             switch (isActive)
             {
                 case OPTIONS:
@@ -86,58 +100,84 @@ public class menuControllerScript : MonoBehaviour
                 case OPTIONS:
                     if (input.Get<Vector2>().x > 0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         GoToStart();
                     }
                     else if (input.Get<Vector2>().x < -0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         GoToPlayers();
                     }else if (input.Get<Vector2>().y > 0.1f)
                     {
+                        audioSource.clip = soundZoom;
+                        audioSource.Play();
                         LoadOptionTab();
                     }
                     break;
                 case PLAYERSELECTION:
                     if (input.Get<Vector2>().x > 0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         GoToOptions();
                     }
                     else if (input.Get<Vector2>().x < -0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         GoToStart();
                     }
                     else if (input.Get<Vector2>().y > 0.1f)
                     {
+                        audioSource.clip = soundZoom;
+                        audioSource.Play();
                         ChoosePlayer();
                     }
                     break;
                 case PLAYERINSELECTION:
                     if (input.Get<Vector2>().x > 0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         PlayerSelectionGoRight(); 
                     }
                     else if (input.Get<Vector2>().x < -0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         PlayerSelectionGoLeft();
                     }
                     else if (input.Get<Vector2>().y > 0.1f)
                     {
+                        audioSource.clip = soundZoom;
+                        audioSource.Play();
                         ConfirmPlayer();
                     }else if (input.Get<Vector2>().y < -0.1f)
                     {
+                        audioSource.clip = soundZoom;
+                        audioSource.Play();
                         OutOfPlayerSelectionPanel();
                     }
                     break;
                 default: //case START
                     if (input.Get<Vector2>().x > 0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         GoToPlayers();
                     }
                     else if (input.Get<Vector2>().x < -0.1f)
                     {
+                        audioSource.clip = soundSwoosh;
+                        audioSource.Play();
                         GoToOptions();
                     }
                     else if (input.Get<Vector2>().y > 0.1f)
                     {
+                        audioSource.clip = soundZoom;
+                        audioSource.Play();
                         LoadLevelSelectionTab();
                     }
                     break;

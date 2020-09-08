@@ -42,9 +42,11 @@ public class DialogueHandler : MonoBehaviour
     public EventSystem eventSystem;
     public IntVariable LivesLeft;
 
+    private UIDialogSoundScript uiSound;
 
     public void Start()
     {
+        uiSound = this.GetComponentInParent<UIDialogSoundScript>();
         GameObject levelLoader = Instantiate(LevelLoader);
         _levelLoader = levelLoader.GetComponent<LevelLoader>();
         Invoke("waitABit", 2f);
@@ -91,6 +93,7 @@ public class DialogueHandler : MonoBehaviour
 
     private IEnumerator ReadLine()
     {
+        uiSound.Play();
         audioSource.pitch = dialogue1.interlocutor.pitch;
         foreach (string stringLine in dialogue1.lines)
         {

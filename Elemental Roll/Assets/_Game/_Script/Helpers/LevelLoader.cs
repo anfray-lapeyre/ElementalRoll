@@ -40,6 +40,7 @@ public class LevelLoader : MonoBehaviour
             CrossLevelInfo.LevelName = levelsInJson.levels[levelToLoad].name;
             CrossLevelInfo.mustPassIntro = mustPassIntro;
             CrossLevelInfo.time = levelsInJson.levels[levelToLoad].time[0];//We set speed to minimum
+            CrossLevelInfo.maxSlimes = levelsInJson.levels[levelToLoad].bonusCount;
             StartCoroutine(loadAsynchronously(levelsInJson.levels[levelToLoad].sceneName));
 
         }

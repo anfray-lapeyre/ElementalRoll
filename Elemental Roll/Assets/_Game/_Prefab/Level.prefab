@@ -289,7 +289,6 @@ MonoBehaviour:
   timeline: {fileID: 11400000, guid: 5721b85661573d9489ea2bd74431102c, type: 2}
   cinemachineBrain: {fileID: 5943424980373988161}
   virtualCamera: {fileID: 8032444398983286677}
-  desiredAngle: 250
   timer: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
   isRestarting: 0
   socle: {fileID: 7100485752721274434}
@@ -1183,7 +1182,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 13569
+    m_Bits: 29953
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

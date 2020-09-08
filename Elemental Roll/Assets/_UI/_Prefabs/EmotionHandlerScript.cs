@@ -57,6 +57,8 @@ public class EmotionHandlerScript : MonoBehaviour
 
     const float BLINKOFTEN = 4f;
     const float BLINKSOMETIMES = 10f;
+
+
     //***********************************************    FIRE    ******************************************************
     //ID -> FlameIntensity
     private float currentFlameIntensity;
@@ -102,9 +104,22 @@ public class EmotionHandlerScript : MonoBehaviour
     //Lime -275
     const float LIME = -275f;
 
+    //***********************************************    ICE    ******************************************************
+
+
+
+
+    //***********************************************    EARTH    ******************************************************
+
+
+
+
+    //***********************************************    DEATH    ******************************************************
+
+
     private CameraShakeInstance shake;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //We initialize each value to the deafult
         playerEyeMaterial.SetFloat(BIID, BIOPEN); //Blink Intensity
@@ -222,7 +237,15 @@ public class EmotionHandlerScript : MonoBehaviour
 
     }
 
-    public void goOrange()
+    public void Strong()
+    {
+        if (typeOfPlayer == 0)
+        {
+            setValue(playerMaterial, FHID, BRIGHTRED, 0.5f);
+        }
+    }
+
+    public void NormalStrength()
     {
         if (typeOfPlayer == 0)
         {
@@ -230,7 +253,7 @@ public class EmotionHandlerScript : MonoBehaviour
         }
     }
 
-    public void goBlue()
+    public void Weak()
     {
         if (typeOfPlayer == 0)
         {
@@ -265,7 +288,6 @@ public class EmotionHandlerScript : MonoBehaviour
     {
         if (shake == null)
         {
-            print("start");
             CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = new Vector3(0f, 0f, 1000f);
             CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = Vector3.zero;
 

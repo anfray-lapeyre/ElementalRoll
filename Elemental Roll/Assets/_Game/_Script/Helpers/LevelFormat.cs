@@ -13,5 +13,6 @@ public class LevelFormat
     public int bonusCount;
     public float previewScale;
     public float[] previewRotation;
+    public float[] previewPosition;
 
 }

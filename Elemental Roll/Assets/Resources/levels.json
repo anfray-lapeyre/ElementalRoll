@@ -5,7 +5,8 @@
 		"sceneName" : "WelcomeHome",
 		"objName" : "WelcomeHome",
 		"desiredAngle" : 115,
-		"time" : [999, 120, 60],
+		"time" : [999, 120, 60],  
+		"previewPosition": [0,1.5],
 		"bonusCount" : 1,
 		"previewScale" : 0.8,
 		"previewRotation" : [90,0,5]
@@ -14,7 +15,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -23,7 +25,8 @@
 		"sceneName" : "Printemps",
 		"objName" : "guitar",
 		"desiredAngle" : 0,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -32,7 +35,8 @@
 		"sceneName" : "River",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -42,7 +46,8 @@
 		"sceneName" : "Forest",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -52,7 +57,8 @@
 		"sceneName" : "Hell",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -62,7 +68,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -72,7 +79,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -82,7 +90,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -92,7 +101,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -102,7 +112,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -112,7 +123,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -122,7 +134,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -132,7 +145,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -142,7 +156,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -152,7 +167,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -162,7 +178,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -172,7 +189,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -182,7 +200,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -192,7 +211,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -202,7 +222,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -212,7 +233,8 @@
 		"sceneName" : "Printemps",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -222,7 +244,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -232,7 +255,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -242,7 +266,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -252,7 +277,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -262,7 +288,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -272,7 +299,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -282,7 +310,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -292,7 +321,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -302,7 +332,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -312,7 +343,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -322,7 +354,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -332,7 +365,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -342,7 +376,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -352,7 +387,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -362,7 +398,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -372,7 +409,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -382,7 +420,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -392,7 +431,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -402,7 +442,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -412,7 +453,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -422,7 +464,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -432,7 +475,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -442,7 +486,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -452,7 +497,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -462,7 +508,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -472,7 +519,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -482,7 +530,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -492,7 +541,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -502,7 +552,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -512,7 +563,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -522,7 +574,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -532,7 +585,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -542,7 +596,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -553,6 +608,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -562,7 +618,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -572,7 +629,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -582,7 +640,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -592,7 +651,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -602,7 +662,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -612,7 +673,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -622,7 +684,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -632,7 +695,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -642,7 +706,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -652,7 +717,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -662,7 +728,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -672,7 +739,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -682,7 +750,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -693,6 +762,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -702,7 +772,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -712,7 +783,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -722,7 +794,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -732,7 +805,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -742,7 +816,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -752,7 +827,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -762,7 +838,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -773,6 +850,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -783,6 +861,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -793,6 +872,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -803,6 +883,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -813,6 +894,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -822,7 +904,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -832,7 +915,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -842,7 +926,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -852,7 +937,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -862,7 +948,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -872,7 +959,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -882,7 +970,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -892,7 +981,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -902,7 +992,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -912,7 +1003,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -922,7 +1014,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -932,7 +1025,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -943,6 +1037,7 @@
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -952,7 +1047,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -962,7 +1058,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -972,7 +1069,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -982,7 +1080,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -992,7 +1091,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1002,7 +1102,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1011,7 +1112,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1021,7 +1123,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1031,7 +1134,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1041,7 +1145,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1051,7 +1156,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1061,7 +1167,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1071,7 +1178,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1081,7 +1189,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1091,7 +1200,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1101,7 +1211,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1110,7 +1221,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1120,7 +1232,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1130,7 +1243,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1140,7 +1254,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1150,7 +1265,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1160,7 +1276,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30],  
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1170,7 +1287,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1180,7 +1298,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]
@@ -1190,7 +1309,8 @@
 		"sceneName" : "LittleMelody",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],
+		"time" : [999, 60, 30], 
+		"previewPosition": [0,0],
 		"bonusCount" : 1,
 		"previewScale" : 4,
 		"previewRotation" : [0,180,5]

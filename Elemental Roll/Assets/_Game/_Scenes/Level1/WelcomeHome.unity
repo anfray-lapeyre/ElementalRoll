@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 368776837}
   - component: {fileID: 368776836}
   - component: {fileID: 368776835}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Desk_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465836319}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WelcomeHome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 1982695789}
   - component: {fileID: 1982695788}
   - component: {fileID: 1982695787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Desk_05__1_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 2073992766}
   - component: {fileID: 2073992765}
   - component: {fileID: 2073992764}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Desk_05__2_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,17 +1186,17 @@ PrefabInstance:
     - target: {fileID: 5231898198847877674, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.706593
+      value: -13.986959
       objectReference: {fileID: 0}
     - target: {fileID: 5231898198847877674, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.830002
+      value: -4.8380013
       objectReference: {fileID: 0}
     - target: {fileID: 5231898198847877674, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3879685
+      value: -6.1534452
       objectReference: {fileID: 0}
     - target: {fileID: 5759121499111231081, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}

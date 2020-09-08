@@ -31,8 +31,15 @@ public class SettingsControllerScript : MonoBehaviour
 
     private UIFader fader;
 
+    private AudioSource audioSource;
+    public AudioClip soundClick;
+    public AudioClip soundMoveDown;
+    public AudioClip soundMoveUp;
+    public AudioClip soundSwoosh;
+
     private void Awake()
     {
+        audioSource = this.GetComponent<AudioSource>();
         if (Time.timeScale > 0.01f)
         {
             fader = this.GetComponent<UIFader>();
@@ -73,21 +80,29 @@ public class SettingsControllerScript : MonoBehaviour
 
     public void setVolume(float volume)
     {
+        audioSource.clip = soundClick;
+        audioSource.Play();
         audioMixer.SetFloat("GlobalVolume", volume);
     }
 
     public void setMusicVolume(float volume)
     {
+        audioSource.clip = soundClick;
+        audioSource.Play();
         audioMixer.SetFloat("MusicVolume", volume);
     }
 
     public void setSoundVolume(float volume)
     {
+        audioSource.clip = soundClick;
+        audioSource.Play();
         audioMixer.SetFloat("SoundVolume", volume);
     }
 
     public void setQuality(int qualityIndex)
     {
+        audioSource.clip = soundClick;
+        audioSource.Play();
         if (QualitySettings.GetQualityLevel() != qualityIndex)
             QualitySettings.SetQualityLevel(qualityIndex);
     }
@@ -95,6 +110,8 @@ public class SettingsControllerScript : MonoBehaviour
 
     public void SetFullScreen(bool isFullScreen)
     {
+        audioSource.clip = soundClick;
+        audioSource.Play();
         Screen.fullScreen = isFullScreen;
     }
 
@@ -103,9 +120,10 @@ public class SettingsControllerScript : MonoBehaviour
     {
         if (resolutions[resolutionIndex].width != Screen.currentResolution.width || resolutions[resolutionIndex].height != Screen.currentResolution.height)
         {
+            audioSource.clip = soundClick;
+            audioSource.Play();
             Resolution resolution = resolutions[resolutionIndex];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-
 
         }
     }
@@ -114,10 +132,15 @@ public class SettingsControllerScript : MonoBehaviour
     {
         if (inSetting)
         {
+
+            audioSource.clip = soundClick;
+            audioSource.Play();
             inSetting = false;
         }
         else
         {
+            audioSource.clip = soundSwoosh;
+            audioSource.Play();
             getBack();
         }
     }
@@ -146,5 +169,19 @@ public class SettingsControllerScript : MonoBehaviour
         }
 
     }
+
+    public void OnDirection(InputValue value)
+    {
+        if (value.Get<Vector2>().y > 0)
+        {
+            audioSource.clip = soundMoveUp;
+            audioSource.Play();
+        }else if (value.Get<Vector2>().y < 0)
+        {
+            audioSource.clip = soundMoveDown;
+            audioSource.Play();
+        }
+    }
+
 
 }

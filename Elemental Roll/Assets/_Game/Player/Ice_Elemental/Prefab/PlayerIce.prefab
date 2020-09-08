@@ -304,7 +304,13 @@ MonoBehaviour:
   playerSpeed: {fileID: 11400000, guid: b731e3e82a23b7a4e96b56f785b75588, type: 2}
   playerRotationSpeed: {fileID: 11400000, guid: ab095c08f0c117247b6e760c47978045,
     type: 2}
+  handler: {fileID: 0}
+  bonusAnimation: {fileID: 0}
   LevelLoader: {fileID: 3324779465422197648, guid: 9862bcf9362beaa4493ae33da4cebaab,
+    type: 3}
+  PauseMenu: {fileID: 4080646434662074437, guid: 921f4b5d2ca0126429bdf40491192f31,
+    type: 3}
+  victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
 --- !u!114 &2105727858131448592
 MonoBehaviour:

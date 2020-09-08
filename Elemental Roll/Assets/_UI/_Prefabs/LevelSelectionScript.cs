@@ -171,5 +171,6 @@ public class LevelSelectionScript : MonoBehaviour
     {
         activeAnimation = actualPreview.LeanScale(Vector3.one * actualLevelData.previewScale, 1f).setEaseOutElastic().id;
         actualPreview.LeanRotateAround(Vector3.up, 2160, 10f).setEaseOutExpo();
+        actualPreview.transform.position += new Vector3(actualLevelData.previewPosition[0], actualLevelData.previewPosition[1],0);
     }
 }

@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour
 
     private EmotionHandlerScript emotions;
 
+    public GameObject victoryText;
+
+
     private void Start()
     {
         emotions = this.GetComponent<EmotionHandlerScript>();
@@ -72,7 +75,6 @@ public class PlayerController : MonoBehaviour
 
         GameObject levelLoader = Instantiate(LevelLoader);
         _levelLoader = levelLoader.GetComponent<LevelLoader>();
-
 
     }
 
@@ -353,6 +355,10 @@ public class PlayerController : MonoBehaviour
                 playerScore.SetValue(playerScore.value + 300);
                 finishedLevel = true;
                 Invoke("PropellUp", 1.5f);
+                outroAnimationScript victory = Instantiate(victoryText).GetComponent<outroAnimationScript>();
+                victory.slimesCollected=bonusGathered;
+                victory.totalSlimes = CrossLevelInfo.maxSlimes;
+                victory.time = CrossLevelInfo.time - handler.time.value;
             }
         }
     }

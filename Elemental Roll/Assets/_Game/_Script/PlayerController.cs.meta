@@ -13,10 +13,13 @@ MonoImporter:
   - playerSpeed: {fileID: 11400000, guid: b731e3e82a23b7a4e96b56f785b75588, type: 2}
   - playerRotationSpeed: {fileID: 11400000, guid: ab095c08f0c117247b6e760c47978045,
       type: 2}
+  - handler: {instanceID: 0}
+  - bonusAnimation: {instanceID: 0}
   - LevelLoader: {fileID: 3324779465422197648, guid: 9862bcf9362beaa4493ae33da4cebaab,
       type: 3}
   - PauseMenu: {fileID: 4080646434662074437, guid: 921f4b5d2ca0126429bdf40491192f31,
       type: 3}
+  - livesLeft: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
