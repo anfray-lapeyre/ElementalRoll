@@ -9,6 +9,8 @@ public class iceElementScript : MonoBehaviour
     private float baseYValue;
     private Rigidbody player;
     private bool needsResetRotation = false;
+
+    public GameObject[] playerParts;
     // Start is called before the first frame update
     void Start()
     {

@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     public FloatVariable maxPowerTime;
     public float powerTime= 500f;
     public GameObject Boom;
+    private int invokingTime;
     private void Start()
     {
         emotions = this.GetComponent<EmotionHandlerScript>();
@@ -124,13 +125,21 @@ public class PlayerController : MonoBehaviour
             powerGauge.value = 0f;
             switch (power)
             {
-                case 1:
+                case 1: //Ice
+                    //Upward propulsion
+                    emotions.PowerUp();
+                    if (Gamepad.current != null)
+                    {
+                        Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+                    }
+                    invokingTime = 15;
+                    InvokeIce();
                     break;
                 case 2:
                     break;
                 case 3:
                     break;
-                default:
+                default: //Fire
                     //Upward propulsion
                     emotions.PowerUp();
                     player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
@@ -143,6 +152,20 @@ public class PlayerController : MonoBehaviour
                     Destroy(instantiatedBoom, 2f);
                     break;
             }
+        }
+    }
+
+    public void InvokeIce()
+    {
+        if (invokingTime > 0)
+        {
+            invokingTime--;
+            if (player.velocity.y < 0)
+                player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+            GameObject instantiatedPlatform = Instantiate(Boom);
+            instantiatedPlatform.transform.position = this.transform.position - Vector3.up * 0.55f + new Vector3(player.velocity.normalized.x, 0F, player.velocity.normalized.z);
+            Destroy(instantiatedPlatform, 5.5f);
+            Invoke("InvokeIce", 0.1f);
         }
     }
 
