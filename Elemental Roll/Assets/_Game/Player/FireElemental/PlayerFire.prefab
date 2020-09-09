@@ -313,6 +313,11 @@ MonoBehaviour:
     type: 3}
   victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
+  powerGauge: {fileID: 11400000, guid: 8ef19eaf355c52b4a858f253f16b71c6, type: 2}
+  power: 0
+  maxPowerTime: {fileID: 11400000, guid: 20592417207e2244b9b76848f44d5c42, type: 2}
+  powerTime: 5
+  Boom: {fileID: 3992283936593801526, guid: 19489a5f289d3a74ab47727a4f49c2e6, type: 3}
 --- !u!114 &2105727858131448592
 MonoBehaviour:
   m_ObjectHideFlags: 0

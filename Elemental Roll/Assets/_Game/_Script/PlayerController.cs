@@ -51,7 +51,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject victoryText;
 
-
+    public FloatVariable powerGauge;
+    public int power = 0;//0=Fire; Ice=1; Rock =2; Death =3
+    public FloatVariable maxPowerTime;
+    public float powerTime= 500f;
+    public GameObject Boom;
     private void Start()
     {
         emotions = this.GetComponent<EmotionHandlerScript>();
@@ -75,7 +79,8 @@ public class PlayerController : MonoBehaviour
 
         GameObject levelLoader = Instantiate(LevelLoader);
         _levelLoader = levelLoader.GetComponent<LevelLoader>();
-
+        powerGauge.value = powerTime;
+        maxPowerTime.value = powerTime;
     }
 
     public void OnMove(InputValue value)
@@ -109,6 +114,35 @@ public class PlayerController : MonoBehaviour
         {
             if (hasControls)
                 Restart();
+        }
+    }
+
+    public void OnSpecialAction(InputValue value)
+    {
+        if (powerGauge.value >= powerTime)
+        {
+            powerGauge.value = 0f;
+            switch (power)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    //Upward propulsion
+                    emotions.PowerUp();
+                    player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
+                    if (Gamepad.current != null)
+                    {
+                        Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+                    }
+                    GameObject instantiatedBoom = Instantiate(Boom);
+                    instantiatedBoom.transform.position = this.transform.position;
+                    Destroy(instantiatedBoom, 2f);
+                    break;
+            }
         }
     }
 
@@ -161,10 +195,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (!finishedLevel)
         {
+            if (powerGauge.value < powerTime)
+            {
+                powerGauge.value += Time.fixedDeltaTime;
+            }
             //We handle the player's movement
-            if(hasControls)
+            if (hasControls)
                 handleMovement();
             //We update the speed base on the sum of the player's velocity vector
             playerSpeed.SetValue((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) + Mathf.Abs(player.velocity.z)) * 3f);
