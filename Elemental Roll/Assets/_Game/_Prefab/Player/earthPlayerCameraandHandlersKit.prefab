@@ -620,6 +620,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 14080
       objectReference: {fileID: 0}
+    - target: {fileID: 6814988298960048664, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
+        type: 3}
+      propertyPath: m_Name
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 7485942884591036350, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r

@@ -5,20 +5,23 @@ using System.Text;
 using System.Globalization;
 using TMPro;
 using UnityEngine.InputSystem;
-using UnityEngine.Video;
 using UnityEngine.EventSystems;
+using UnityEngine.Timeline;
+using Cinemachine;
+using UnityEngine.Playables;
+using UnityEngine.InputSystem;
 
 
-public class DialogueHandler : MonoBehaviour
+
+public class CharacterDialogueHandler : MonoBehaviour
 {
     private Dialogue dialogue1;
     public int startId;
-    public SoundStorageScript soundStorage;
+    public SoundStorageScript soundStorage; 
     private AudioSource audioSource;
     private Dictionary<string, Dictionary<string, AudioClip>> values;
-    private Dictionary<string, VideoClip> videoValues;
-    public VideoClip[] videos;
-    private VideoPlayer videoPlayer;
+    private Dictionary<string, PlayableDirector> timelineValues;
+    public PlayableDirector[] timelines;
     public Canvas DialoguePanel;
     private Canvas instantiatedDialoguePanel;
     private TextMeshProUGUI m_TextMeshPro;
@@ -38,17 +41,16 @@ public class DialogueHandler : MonoBehaviour
     private LevelLoader _levelLoader; //Instantiated child
 
 
-    public GameObject SaveSelectionScreen;
     public EventSystem eventSystem;
     public IntVariable LivesLeft;
+
 
     public void Start()
     {
         GameObject levelLoader = Instantiate(LevelLoader);
         _levelLoader = levelLoader.GetComponent<LevelLoader>();
         Invoke("waitABit", 2f);
-        videoPlayer = this.GetComponent<VideoPlayer>();
-        videoPlayer.isLooping = true;
+
         loadVideos();
 
     }
@@ -64,10 +66,10 @@ public class DialogueHandler : MonoBehaviour
 
     private void loadVideos()
     {
-        videoValues = new Dictionary<string, VideoClip>();
-        foreach (VideoClip video in videos)
+        timelineValues = new Dictionary<string, PlayableDirector>();
+        foreach (PlayableDirector timeline in timelines)
         {
-            videoValues.Add(video.name, video);
+            timelineValues.Add(timeline.name, timeline);
         }
     }
 
@@ -232,17 +234,21 @@ public class DialogueHandler : MonoBehaviour
         //Plus tard on chargera un JSON
         string loadedJsonFile = Resources.Load<TextAsset>("dialogues").text;
         DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
-        fader.FadeIn(0.3f);
-        Invoke("afterFaded", 0.4f);
         
+
         int dialogueID = findDialogueByID(_dialogueID);
         startId = dialoguesInJson.dialogues[dialogueID].next;
         if (startId < 0)
         {
             waitForVideoToFinish = true;
-            videoPlayer.isLooping = false;
+            //videoPlayer.isLooping = false;
+        }
+        if (videoValue != "" && timelineValues[videoValue].playableGraph.IsValid())
+        {
+            timelineValues[videoValue].playableGraph.GetRootPlayable(0).SetSpeed(100);
         }
         videoValue = dialoguesInJson.dialogues[dialogueID].backgroundVideo;
+        timelineValues[videoValue].Play();
         Character dialogueCharacter = new Character();
         switch (dialoguesInJson.dialogues[dialogueID].character)
         {
@@ -277,29 +283,18 @@ public class DialogueHandler : MonoBehaviour
         return -1;
     }
 
-    public void afterFaded()
-    {
-        videoPlayer.clip = videoValues[videoValue];
-        videoPlayer.Play();
-        Invoke("fadeAgain", 0.5f);
-    }
 
-    public void fadeAgain()
-    {
-        fader.FadeOut(0.3f);
-
-    }
 
 
 
     private void Update()
     {
-        if (waitForVideoToFinish && videoPlayer.isPaused && !levelIsLoaded)
+        /*if (waitForVideoToFinish && videoPlayer.isPaused && !levelIsLoaded)
         {
             _levelLoader.ShowLoader();
             Invoke("OutOfSave", 0.5f);
             levelIsLoaded = true;
-        }
+        }*/
     }
 
 

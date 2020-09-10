@@ -89,8 +89,60 @@
 	"backgroundVideo":"_Cinematic-8-2-Go",
 	"id" : 14
 	}
-
-
-	
+	,
+	{"character":"Fire",
+	"lines" : ["...","It seems that I have enough power now...","Should I try summoning... <color=#7FF3F0><b><i>It</i></b></color> ?"],
+	"next" : 16,
+	"backgroundVideo":"Ponder_Before",
+	"id" : 15
+	},
+	{"character":"Fire",
+	"lines" : ["<color=#7FF3F0><b><i>Water Elemental</i></b></color> ! I summon thee ! "],
+	"next" : 17,
+	"backgroundVideo":"Invocation",
+	"id" : 16
+	},
+	{"character":"Ice",
+	"lines" : ["<b>WHO DARES TO SUMMON ME,  <color=#7FF3F0><i>THE ALL POWERFUL EMPEROR OF THE SEA</i></color> ?!</b>"],
+	"next" : 18,
+	"backgroundVideo":"Tracy_Angry",
+	"id" : 17
+	},
+	{"character":"Fire",
+	"lines" : ["Hello <color=#7FF3F0><b><i>Tracy</i></b></color>. Remember <color=#FB5607><i><b>Me</b></i></color> ?"],
+	"next" : 19,
+	"backgroundVideo":"Fire_Angry",
+	"id" : 18
+	},
+	{"character":"Ice",
+	"lines" : ["Oh ! Hi <color=#FB5607><i><b>Byle</b></i></color> how have you been ?","*mutters*<i><color=#C80A93><b>Tim</b></color>, do you hear me ? Please Invoke me back...</i>"],
+	"next" : 20,
+	"backgroundVideo":"Tracy_Worried",
+	"id" : 19
+	},
+	{"character":"Fire",
+	"lines" : ["No need to call that <color=#C80A93><b><i>demon</i></b></color>. He will not hear you here.", "You are now in <color=#FB5607><i><b>MY REALM</b></i></color> ! Forget about leaving..."],
+	"next" : 21,
+	"backgroundVideo":"Fire_Trap",
+	"id" : 20
+	},
+	{"character":"Ice",
+	"lines" : ["I'M SO SORRY !!", "<color=#C80A93><b><i>Tim</i></b></color> threatened my life ! I couldn't fight back... I didn't want to betray you...", "Ever since, I've been regretting my actions..."],
+	"next" : 22,
+	"backgroundVideo":"Ice_Weeping",
+	"id" : 21
+	},
+	{"character":"Fire",
+	"lines" : ["Well, that's a good thing, because you are now <b>MINE</b> !", "If you ever think of betraying me again, <color=#FB5607><i><b>I'LL EXTINGUISH YOU</b></i></color> !"],
+	"next" : 23,
+	"backgroundVideo":"Fire_In_Power",
+	"id" : 22
+	},
+	{"character":"Ice",
+	"lines" : ["Yes <color=#FB5607><i><b>My Lord</b></i></color> ! Sorry <color=#FB5607><i><b>My Lord</b></i></color> !"],
+	"next" : -1,
+	"backgroundVideo":"Ice_In_Power",
+	"id" : 23
+	}
 ]
 }

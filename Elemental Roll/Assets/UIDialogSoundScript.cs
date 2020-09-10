@@ -14,6 +14,5 @@ public class UIDialogSoundScript : MonoBehaviour
     public void Play()
     {
         audioSource.Play();
-        print("SOUND");
     }
 }

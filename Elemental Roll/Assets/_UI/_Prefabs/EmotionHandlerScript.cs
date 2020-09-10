@@ -105,7 +105,7 @@ public class EmotionHandlerScript : MonoBehaviour
     const float LIME = -275f;
 
     //***********************************************    ICE    ******************************************************
-
+    private iceElementScript iceParts;
 
 
 
@@ -130,12 +130,16 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             playerMaterial.SetFloat(FHID, DEFAULTRED);
             playerMaterial.SetFloat(FIID, FIDEFAULT);
+        }else if(typeOfPlayer == 1)
+        {
+            iceParts = this.GetComponentInChildren<iceElementScript>();
+            NormalStrength();
         }
 
         //We start the blinking cycle
 
         Invoke("Blink", Random.Range(BLINKOFTEN,BLINKSOMETIMES));
-        
+
     }
 
     public void Worried()
@@ -148,6 +152,10 @@ public class EmotionHandlerScript : MonoBehaviour
         if (typeOfPlayer == 0)
         {
             setValue(playerMaterial, FIID, FIWEAK, 0.3f);
+        }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.Tighten();
         }
 
     }
@@ -163,6 +171,11 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             setValue(playerMaterial, FIID, FISTRONG, 0.3f);
         }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.Enlarge();
+        }
+
     }
 
     public void ReallyAngry()
@@ -175,6 +188,11 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             setValue(playerMaterial, FIID, FIVERYSTRONG, 0.3f);
         }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.EnlargeMax();
+        }
+
     }
 
     public void Tired()
@@ -192,6 +210,11 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             setValue(playerMaterial, FIID, FIVERYWEAK, 0.3f);
         }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.TightenMin();
+        }
+
     }
 
 
@@ -205,6 +228,10 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             setValue(playerMaterial, FIID, FIDEFAULT, 0.3f);
             setValue(playerMaterial, FHID, DEFAULTRED, 0.5f);
+        }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.backToNormal();
         }
 
     }
@@ -232,6 +259,11 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             LeanTween.value(playerMaterial.GetFloat(FIID), FIVERYSTRONG * 1.5f, 0.5f).setLoopPingPong(1).setEaseOutElastic().setOnUpdate((float currentValue) => { playerMaterial.SetFloat(FIID, currentValue); });
         }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.Enlarge();
+            Invoke("NormalStrength", 0.5f);
+        }
         setValue(playerEyeMaterial, EAID, EALARGE, 0.5f, true);
 
 
@@ -243,6 +275,10 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             setValue(playerMaterial, FHID, BRIGHTRED, 0.5f);
         }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.Enlarge();
+        }
     }
 
     public void NormalStrength()
@@ -251,6 +287,10 @@ public class EmotionHandlerScript : MonoBehaviour
         {
             setValue(playerMaterial, FHID, DEFAULTRED, 0.5f);
         }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.backToNormal();
+        }
     }
 
     public void Weak()
@@ -258,6 +298,10 @@ public class EmotionHandlerScript : MonoBehaviour
         if (typeOfPlayer == 0)
         {
             setValue(playerMaterial, FHID, LIGHTBLUE, 0.5f);
+        }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.Tighten();
         }
     }
 

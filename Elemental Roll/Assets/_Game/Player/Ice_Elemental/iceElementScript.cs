@@ -11,9 +11,20 @@ public class iceElementScript : MonoBehaviour
     private bool needsResetRotation = false;
 
     public GameObject[] playerParts;
+    private Vector3[] startOffset;
+    private Quaternion[] startRotation;
+    private int placement; //0=Tight; 1=Normal; 2= Large
     // Start is called before the first frame update
     void Start()
     {
+        startOffset = new Vector3[playerParts.Length];
+        startRotation = new Quaternion[playerParts.Length];
+        for(int i=0; i < playerParts.Length; i++)
+        {
+            startOffset[i] = playerParts[i].transform.localPosition;
+            startRotation[i] = playerParts[i].transform.localRotation;
+        }
+
         transform.eulerAngles = new Vector3(0, 180, 0);
         baseYValue = transform.position.y;
         player = transform.GetComponentInParent<Rigidbody>();
@@ -25,7 +36,7 @@ public class iceElementScript : MonoBehaviour
         float yangle = Mathf.Atan2(player.velocity.x, player.velocity.z) * Mathf.Rad2Deg + 180f;
         if (playerSpeed.value < 80f)
         {
-            transform.eulerAngles = new Vector3(Mathf.Sin(Time.fixedTime * 4) * rotationSpeed.value * 2f, yangle,0);
+            transform.eulerAngles = new Vector3(Mathf.Sin(Time.fixedTime * 4) * rotationSpeed.value * 2, yangle,0);
             if (!needsResetRotation)
             {
                 needsResetRotation = true;
@@ -40,5 +51,72 @@ public class iceElementScript : MonoBehaviour
             }
             transform.localPosition =new Vector3(transform.localPosition.x,Mathf.Clamp( baseYValue -(playerSpeed.value - 79f) / 100f, -0.15f,0) , transform.localPosition.z);
         }
+
+        switch (placement)
+        {
+            case 0:
+
+                for (int i = 0; i < playerParts.Length; i++)
+                {
+                   playerParts[i].transform.localPosition = Vector3.Lerp(playerParts[i].transform.localPosition, startOffset[i] * 0.85f , Time.deltaTime * 4f);
+
+                }
+                break;
+            case 1:
+                for (int i = 0; i < playerParts.Length; i++)
+                {
+                   playerParts[i].transform.localPosition = Vector3.Lerp(playerParts[i].transform.localPosition, startOffset[i]*0.93f, Time.deltaTime * 4f);
+
+                }
+                break;
+            case 2:
+
+                for (int i = 0; i < playerParts.Length; i++)
+                {
+                    playerParts[i].transform.localPosition = Vector3.Lerp(playerParts[i].transform.localPosition, startOffset[i] * 1.1f, Time.deltaTime * 4f);
+
+                }
+                break;
+            case 3:
+                for (int i = 0; i < playerParts.Length; i++)
+                {
+                    playerParts[i].transform.localPosition = Vector3.Lerp(playerParts[i].transform.localPosition, startOffset[i] * 1.3f, Time.deltaTime * 4f);
+
+                }
+                break;
+            default:
+                for (int i = 0; i < playerParts.Length; i++)
+                {
+                   playerParts[i].transform.localPosition = Vector3.Lerp(playerParts[i].transform.localPosition, startOffset[i] * 1.5f , Time.deltaTime * 4f);
+
+                }
+                break;
+        }
+    }
+
+    public void TightenMin()
+    {
+        placement = 0;
+    }
+
+    public void Tighten()
+    {
+        placement = 1;
+    }
+
+    public void backToNormal()
+    {
+        placement = 2;
+        
+    }
+
+    public void Enlarge()
+    {
+        placement = 3;
+    }
+
+    public void EnlargeMax()
+    {
+        placement = 4;
     }
 }

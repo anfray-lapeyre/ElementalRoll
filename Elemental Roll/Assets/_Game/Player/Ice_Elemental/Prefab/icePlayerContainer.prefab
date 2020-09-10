@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 727857914824327739}
   - component: {fileID: 10664417520439140}
   m_Layer: 0
-  m_Name: Ice Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
