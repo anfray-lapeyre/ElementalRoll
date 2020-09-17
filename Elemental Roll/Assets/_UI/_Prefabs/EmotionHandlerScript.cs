@@ -251,10 +251,12 @@ public class EmotionHandlerScript : MonoBehaviour
 
     public void PowerUp()
     {
-        CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = Vector3.zero;
-        CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = new Vector3(0f, 2f, 0f);
-        CameraShaker.GetInstance("FaceCamera").ShakeOnce(1f, 0.5f, 1f, 1f);
-
+        if (CameraShaker.GetInstance("FaceCamera") != null)
+        {
+            CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = Vector3.zero;
+            CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = new Vector3(0f, 2f, 0f);
+            CameraShaker.GetInstance("FaceCamera").ShakeOnce(1f, 0.5f, 1f, 1f);
+        }
         if (typeOfPlayer == 0)
         {
             LeanTween.value(playerMaterial.GetFloat(FIID), FIVERYSTRONG * 1.5f, 0.5f).setLoopPingPong(1).setEaseOutElastic().setOnUpdate((float currentValue) => { playerMaterial.SetFloat(FIID, currentValue); });
@@ -321,10 +323,13 @@ public class EmotionHandlerScript : MonoBehaviour
 
     public void Shock()
     {
-        CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = new Vector3(0f, 0f, 1000f);
-        CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = Vector3.zero;
+        if (CameraShaker.GetInstance("FaceCamera") != null)
+        {
+            CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = new Vector3(0f, 0f, 1000f);
+            CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = Vector3.zero;
 
-        CameraShaker.GetInstance("FaceCamera").ShakeOnce(1f, 0.5f, 1f, 1f);
+            CameraShaker.GetInstance("FaceCamera").ShakeOnce(1f, 0.5f, 1f, 1f);
+        }
         PropellUp();
     }
 
@@ -332,10 +337,13 @@ public class EmotionHandlerScript : MonoBehaviour
     {
         if (shake == null)
         {
-            CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = new Vector3(0f, 0f, 1000f);
-            CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = Vector3.zero;
+            if (CameraShaker.GetInstance("FaceCamera") != null)
+            {
+                CameraShaker.GetInstance("FaceCamera").DefaultRotInfluence = new Vector3(0f, 0f, 1000f);
+                CameraShaker.GetInstance("FaceCamera").DefaultPosInfluence = Vector3.zero;
 
-            shake = CameraShaker.GetInstance("FaceCamera").StartShake(1f, 0.5f, 1f);
+                shake = CameraShaker.GetInstance("FaceCamera").StartShake(1f, 0.5f, 1f);
+            }
             Worried();
         }
 

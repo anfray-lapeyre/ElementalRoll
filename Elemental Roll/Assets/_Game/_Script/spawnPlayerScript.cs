@@ -43,6 +43,7 @@ public class spawnPlayerScript : MonoBehaviour
                 instantiated=Instantiate(firePrefab, transform.position+Vector3.up*15f, Quaternion.identity);
                 break;
         }
+        desiredAngle = socle.localRotation.eulerAngles.y;
         playerCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].transform.parent;
         playerCamera.Rotate(Vector3.up, desiredAngle);
         player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -64,6 +65,9 @@ public class spawnPlayerScript : MonoBehaviour
 
     public void ActivatePlayer()
     {
+        desiredAngle = socle.localRotation.eulerAngles.y;
+        playerCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].transform.parent;
+        playerCamera.Rotate(Vector3.up, desiredAngle);
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.SetActive(true);
         player.GetComponent<Rigidbody>().AddForce(-Vector3.up * 30f);

@@ -25,10 +25,6 @@ public class playerSelectionScript : MonoBehaviour
     public Material DeathMaterial;
     public GameObject DeathSelected;
 
-    private int slimeNeededToUnlockDeath = 200;
-    private int slimeNeededToUnlockEarth = 125;
-    private int slimeNeededToUnlockIce = 50;
-
     private int selected = 0;
     private int slimecount = 0;
 
@@ -77,38 +73,38 @@ public class playerSelectionScript : MonoBehaviour
     private void UpdateIce(int slimecount)
     {
         IceText.text = slimecount + "";
-        IceMaxText.text = "/"+slimeNeededToUnlockIce;
-        IceMaterial.SetFloat("Progress", 100f * slimecount / slimeNeededToUnlockIce);//We update the slimematerial, frome 0% to 100%
+        IceMaxText.text = "/"+ActualSave.actualSave.slimesToUnlock(1);
+        IceMaterial.SetFloat("Progress", 100f * slimecount / ActualSave.actualSave.slimesToUnlock(1));//We update the slimematerial, frome 0% to 100%
     }
 
     private void UpdateEarth(int slimecount)
     {
         EarthText.text = slimecount + "";
-        EarthMaxText.text = "/" + slimeNeededToUnlockEarth;
-        EarthMaterial.SetFloat("Progress", 100f * slimecount / slimeNeededToUnlockEarth); //We update the slimematerial, frome 0% to 100%
+        EarthMaxText.text = "/" + ActualSave.actualSave.slimesToUnlock(2);
+        EarthMaterial.SetFloat("Progress", 100f * slimecount / ActualSave.actualSave.slimesToUnlock(2)); //We update the slimematerial, frome 0% to 100%
     }
 
     private void UpdateDeath(int slimecount)
     {
         DeathText.text = slimecount + "";
-        DeathMaxText.text = "/" + slimeNeededToUnlockDeath;
-        DeathMaterial.SetFloat("Progress", 100f * slimecount / slimeNeededToUnlockDeath); //We update the slimematerial, frome 0% to 100%
+        DeathMaxText.text = "/" + ActualSave.actualSave.slimesToUnlock(3);
+        DeathMaterial.SetFloat("Progress", 100f * slimecount / ActualSave.actualSave.slimesToUnlock(3)); //We update the slimematerial, frome 0% to 100%
     }
 
 
     private bool isIceUnlocked(int slimecount)
     {
-        return slimecount >= slimeNeededToUnlockIce;
+        return slimecount >= ActualSave.actualSave.slimesToUnlock(1);
     }
 
     private bool isEarthUnlocked(int slimecount)
     {
-        return slimecount >= slimeNeededToUnlockEarth;
+        return slimecount >= ActualSave.actualSave.slimesToUnlock(2);
     }
 
     private bool isDeathUnlocked(int slimecount)
     {
-        return slimecount >= slimeNeededToUnlockDeath;
+        return slimecount >= ActualSave.actualSave.slimesToUnlock(3);
     }
 
     public void confirmChoice()

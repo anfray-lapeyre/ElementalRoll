@@ -176,6 +176,11 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key2.b
       value: 0.972549
       objectReference: {fileID: 0}
+    - target: {fileID: 219399931809261339, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 313364434710612325, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: playerParts.Array.size
@@ -267,6 +272,11 @@ PrefabInstance:
       propertyPath: bonusAnimation
       value: 
       objectReference: {fileID: 816693482462883940}
+    - target: {fileID: 4351685861027533474, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5660415068324445760, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: RestPositionOffset.x
@@ -341,6 +351,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.b
       value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485942884591036350, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8017587590199013438, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}

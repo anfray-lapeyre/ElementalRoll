@@ -33,9 +33,24 @@ EditorBuildSettings:
     path: Assets/_Game/_Scenes/River.unity
     guid: ebef79c06e8966f4da32a426a8d1c68b
   - enabled: 1
+    path: Assets/_Game/_Scenes/CharacterUnlock/Tracy.unity
+    guid: d0e9ad1d6f69c834bbe72f3db18bd2c5
+  - enabled: 1
     path: Assets/_Game/_Scenes/Cutscenes/Cutscene1.unity
     guid: f6cb5cc2585c3ff4a8947963787deba7
   - enabled: 1
     path: Assets/_Game/_Scenes/Level1/WelcomeHome.unity
     guid: c61ef053a4438924abe666e5ae6669ba
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/SlopeyWay.unity
+    guid: 99db8925bf5b46c4ca71b65e1c4f7583
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/Zigzag.unity
+    guid: a8fe21b125cd6f54e81eb958410e81d1
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/SwingingBy.unity
+    guid: 5b6c331987a531045af3fed638b615f1
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/DoNotFall.unity
+    guid: df800e7ba004bac46af8325fbab59796
   m_configObjects: {}

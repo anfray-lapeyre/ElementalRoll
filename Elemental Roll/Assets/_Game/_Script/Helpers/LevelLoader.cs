@@ -20,6 +20,14 @@ public class LevelLoader : MonoBehaviour
         this.GetComponent<CanvasGroup>().alpha = 1f;
     }
 
+    public void LoadCharacterCutscene(int character)
+    {
+        if(character == 1)
+        {
+            StartCoroutine(loadAsynchronously("Tracy"));
+        }
+    }
+
     public void LoadNextLevel(int levelToLoad, bool mustPassIntro = false)
     {
         //If the current level is negative (level was chosen in level Loader), so we force the loading to reload the current level until the player quits it himself.
@@ -41,6 +49,7 @@ public class LevelLoader : MonoBehaviour
             CrossLevelInfo.mustPassIntro = mustPassIntro;
             CrossLevelInfo.time = levelsInJson.levels[levelToLoad].time[0];//We set speed to minimum
             CrossLevelInfo.maxSlimes = levelsInJson.levels[levelToLoad].bonusCount;
+
             StartCoroutine(loadAsynchronously(levelsInJson.levels[levelToLoad].sceneName));
 
         }
@@ -55,6 +64,8 @@ public class LevelLoader : MonoBehaviour
                 CrossLevelInfo.LevelName = levelsInJson.levels[levelToLoad].name;
                 CrossLevelInfo.mustPassIntro = mustPassIntro;
                 CrossLevelInfo.time = levelsInJson.levels[levelToLoad].time[difficultyChrono.value];
+                CrossLevelInfo.maxSlimes = levelsInJson.levels[levelToLoad].bonusCount;
+
                 if (difficultyLife.value == 1)
                 {
                     //We avoid any glitch where someone gets more that 5 lives

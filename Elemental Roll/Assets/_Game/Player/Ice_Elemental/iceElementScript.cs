@@ -25,31 +25,37 @@ public class iceElementScript : MonoBehaviour
             startRotation[i] = playerParts[i].transform.localRotation;
         }
 
-        transform.eulerAngles = new Vector3(0, 180, 0);
-        baseYValue = transform.position.y;
-        player = transform.GetComponentInParent<Rigidbody>();
+        if (playerSpeed != null)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            baseYValue = transform.position.y;
+            player = transform.GetComponentInParent<Rigidbody>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        float yangle = Mathf.Atan2(player.velocity.x, player.velocity.z) * Mathf.Rad2Deg + 180f;
-        if (playerSpeed.value < 80f)
+        if (playerSpeed != null)
         {
-            transform.eulerAngles = new Vector3(Mathf.Sin(Time.fixedTime * 4) * rotationSpeed.value * 2, yangle,0);
-            if (!needsResetRotation)
+            float yangle = Mathf.Atan2(player.velocity.x, player.velocity.z) * Mathf.Rad2Deg + 180f;
+            if (playerSpeed.value < 80f)
             {
-                needsResetRotation = true;
+                transform.eulerAngles = new Vector3(Mathf.Sin(Time.fixedTime * 4) * rotationSpeed.value * 2, yangle, 0);
+                if (!needsResetRotation)
+                {
+                    needsResetRotation = true;
+                }
             }
-        }
-        else
-        {
-            if (needsResetRotation)
+            else
             {
-                transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
-                needsResetRotation = false;
+                if (needsResetRotation)
+                {
+                    transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
+                    needsResetRotation = false;
+                }
+                transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(baseYValue - (playerSpeed.value - 79f) / 100f, -0.15f, 0), transform.localPosition.z);
             }
-            transform.localPosition =new Vector3(transform.localPosition.x,Mathf.Clamp( baseYValue -(playerSpeed.value - 79f) / 100f, -0.15f,0) , transform.localPosition.z);
         }
 
         switch (placement)

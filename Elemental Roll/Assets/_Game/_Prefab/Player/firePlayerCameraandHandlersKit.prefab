@@ -324,6 +324,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4357370175423898851}
     m_Modifications:
+    - target: {fileID: 219399931809261339, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365973509871102505, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2867597186770513388, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}
       propertyPath: m_VelocityScale
@@ -548,6 +558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485942884591036350, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7554815759730970300, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}

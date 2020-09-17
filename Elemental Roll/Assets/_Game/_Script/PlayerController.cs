@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     public float powerTime= 500f;
     public GameObject Boom;
     private int invokingTime;
+
+    private outroAnimationScript victory;
+
     private void Start()
     {
         emotions = this.GetComponent<EmotionHandlerScript>();
@@ -326,15 +329,42 @@ public class PlayerController : MonoBehaviour
         {
             int level = -currentLevel.value - 1;
             if (ActualSave.actualSave.levels[level].collectedSlime < bonusGathered)
+            {
+                if(ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
+                {
+                    Invoke("LoadTracy", 0.5f);
+                }else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
+                {
+                    Invoke("LoadRocky", 0.5f);
+                }else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
+                {
+                    Invoke("LoadTim", 0.5f);
+                }
                 ActualSave.actualSave.levels[level].collectedSlime = bonusGathered;
+
+            }
 
         }
         else
         {
 
             ActualSave.actualSave.levels[currentLevel.value-1].beaten = true;
-            if (ActualSave.actualSave.levels[currentLevel.value-1].collectedSlime < bonusGathered)
-                ActualSave.actualSave.levels[currentLevel.value-1].collectedSlime = bonusGathered;
+            if (ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime < bonusGathered)
+            {
+                if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
+                {
+                    Invoke("LoadTracy", 0.5f);
+                }
+                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
+                {
+                    Invoke("LoadRocky", 0.5f);
+                }
+                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
+                {
+                    Invoke("LoadTim", 0.5f);
+                }
+                ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime = bonusGathered;
+            }
             if (LevelLoader)
             {
                 LevelLoader.GetComponent<LevelLoader>().handleDifficultySaveData(currentLevel.value-1);
@@ -356,6 +386,22 @@ public class PlayerController : MonoBehaviour
         SaveSystem.SaveGame(ActualSave.actualSave, ActualSave.saveSlot);
     }
 
+    public void loadTracy()
+    {
+        LevelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(1);
+    }
+
+    public void loadRocky()
+    {
+        LevelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(2);
+
+    }
+
+    public void loadTim()
+    {
+        LevelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(3);
+    }
+
     private void PropellUp()
     {
         mustPropellUp = true;
@@ -363,7 +409,6 @@ public class PlayerController : MonoBehaviour
 
     private void IncrementBonusCount()
     {
-        bonusGathered++;
         bonusCount.text = bonusGathered + "";
     }
     
@@ -377,13 +422,19 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag == "Bonus")
         {
+            bonusGathered++;
+            if (victory != null)
+            {
+                victory.slimesCollected = bonusGathered;
+            }
             //We destroy the object and add points in the score
             Destroy(other.gameObject,0.0f);
             playerScore.SetValue(playerScore.value + 100);
             Invoke("BonusAnimation", 0.3f);
             Invoke("IncrementBonusCount", 0.5f);
             emotions.Bonus();
-        }else if(other.tag == "Respawn")
+        }
+        else if(other.tag == "Respawn")
         {
             Restart();
             /*//We respawn the player at the origin
@@ -417,7 +468,7 @@ public class PlayerController : MonoBehaviour
                 playerScore.SetValue(playerScore.value + 300);
                 finishedLevel = true;
                 Invoke("PropellUp", 1.5f);
-                outroAnimationScript victory = Instantiate(victoryText).GetComponent<outroAnimationScript>();
+                victory = Instantiate(victoryText).GetComponent<outroAnimationScript>();
                 victory.slimesCollected=bonusGathered;
                 victory.totalSlimes = CrossLevelInfo.maxSlimes;
                 victory.time = CrossLevelInfo.time - handler.time.value;

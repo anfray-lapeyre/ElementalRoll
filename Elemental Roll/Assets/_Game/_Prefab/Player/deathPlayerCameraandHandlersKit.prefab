@@ -131,6 +131,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4357370175423898851}
     m_Modifications:
+    - target: {fileID: 219399931809261339, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
       propertyPath: fallSparks
@@ -156,6 +161,11 @@ PrefabInstance:
       propertyPath: bonusAnimation
       value: 
       objectReference: {fileID: 795831451582042750}
+    - target: {fileID: 1744670429173675267, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3248359122745496791, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
       propertyPath: m_RenderPostProcessing
@@ -235,6 +245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key2.b
       value: 0.5943396
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485942884591036350, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8017587590199013438, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}

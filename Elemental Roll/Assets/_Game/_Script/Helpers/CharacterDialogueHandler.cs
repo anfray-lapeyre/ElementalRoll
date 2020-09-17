@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Timeline;
 using Cinemachine;
 using UnityEngine.Playables;
-using UnityEngine.InputSystem;
+
 
 
 
@@ -34,9 +34,6 @@ public class CharacterDialogueHandler : MonoBehaviour
     private bool faster = false;
     private bool nextDialogue=false;
 
-    private bool waitForVideoToFinish = false;
-    private bool levelIsLoaded = false;
-
     public GameObject LevelLoader; //Base
     private LevelLoader _levelLoader; //Instantiated child
 
@@ -52,6 +49,7 @@ public class CharacterDialogueHandler : MonoBehaviour
         Invoke("waitABit", 2f);
 
         loadVideos();
+        fader.FadeOut(0.5f);
 
     }
 
@@ -87,6 +85,8 @@ public class CharacterDialogueHandler : MonoBehaviour
             StartCoroutine("ReadLine");
             yield return new WaitUntil(() => nextDialogue == true);
         }
+        fader.FadeIn(0.5f);
+        Invoke("OutOfSave", 0.5f);
         
     }
 
@@ -238,11 +238,7 @@ public class CharacterDialogueHandler : MonoBehaviour
 
         int dialogueID = findDialogueByID(_dialogueID);
         startId = dialoguesInJson.dialogues[dialogueID].next;
-        if (startId < 0)
-        {
-            waitForVideoToFinish = true;
-            //videoPlayer.isLooping = false;
-        }
+
         if (videoValue != "" && timelineValues[videoValue].playableGraph.IsValid())
         {
             timelineValues[videoValue].playableGraph.GetRootPlayable(0).SetSpeed(100);
@@ -302,7 +298,7 @@ public class CharacterDialogueHandler : MonoBehaviour
     public void OutOfSave()
     {
         
-        _levelLoader.LoadNextLevel(0, false);
+        _levelLoader.LoadNextLevel(-2, false);
     }
 
 

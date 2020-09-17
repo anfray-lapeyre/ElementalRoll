@@ -11,7 +11,8 @@ public class setMaxBonusNumberScript : MonoBehaviour
         TextMeshProUGUI thisText = this.GetComponent<TextMeshProUGUI>();
         if (thisText)
         {
-            int count = GameObject.FindGameObjectsWithTag("Bonus").Length;
+            
+            int count = CrossLevelInfo.maxSlimes;
             thisText.text = "/ " + count;
         }
     }

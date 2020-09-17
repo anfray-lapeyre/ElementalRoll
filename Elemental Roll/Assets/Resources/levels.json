@@ -11,46 +11,46 @@
 		"previewScale" : 0.8,
 		"previewRotation" : [90,0,5]
 	},{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Slopey Way",
+		"sceneName" : "SlopeyWay",
+		"objName" : "SlopeyWay",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
 		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"bonusCount" : 2,
+		"previewScale" : 0.04,
+		"previewRotation" :  [0,100,90]
 	},{
-		"name" : "Spring Time",
-		"sceneName" : "Printemps",
-		"objName" : "guitar",
+		"name" : "Zigzag",
+		"sceneName" : "Zigzag",
+		"objName" : "Zigzag",
+		"desiredAngle" : 0,
+		"time" : [999, 120, 60],  
+		"previewPosition": [0.21,0.94],
+		"bonusCount" : 2,
+		"previewScale" : 0.025,
+		"previewRotation" : [0,73.41,90]
+	},{
+		"name" : "Swinging By",
+		"sceneName" : "SwingingBy",
+		"objName" : "SwingingBy",
 		"desiredAngle" : 0,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
-	},{
-		"name" : "River",
-		"sceneName" : "River",
-		"objName" : "guitar",
-		"desiredAngle" : 115,
-		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewPosition": [0,1.7],
+		"bonusCount" : 2,
+		"previewScale" : 0.015,
+		"previewRotation" : [-80,-16.49,5]
 	},
 	{
-		"name" : "Lost In The Woods",
-		"sceneName" : "Forest",
-		"objName" : "guitar",
+		"name" : "Do Not Fall",
+		"sceneName" : "DoNotFall",
+		"objName" : "DoNotFall",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewPosition": [0,2.3],
+		"bonusCount" : 2,
+		"previewScale" : 0.03,
+		"previewRotation" : [-190,-80,90]
 	},
 	{
 		"name" : "Highway To Hell",

@@ -108,6 +108,18 @@ public class SaveFileInfo
         return slimecount;
     }
 
+    public int slimesToUnlock(int character)
+    {
+        if (character == 1)
+            return 50;
+        if (character == 2)
+            return 125;
+        if (character == 3)
+            return 200;
+
+        return 0;
+    }
+
     public int NextLevel()
     {
         for(int i=0; i < this.levels.Length; i++)
