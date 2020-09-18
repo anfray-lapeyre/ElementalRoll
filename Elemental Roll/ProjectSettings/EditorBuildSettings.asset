@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/_Game/_Scenes/LevelSelection.unity
     guid: c098da81b8cbcbc45ae915b2d19c4dfd
   - enabled: 1
-    path: Assets/_Game/_Scenes/LittleMelody.unity
+    path: Assets/_Game/_Scenes/LittleMelody2.unity
     guid: c32753a4b1e49dc4d96c193b60fa7c8a
   - enabled: 1
     path: Assets/_Game/_Scenes/Preview Characters.unity
@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/Level1/DoNotFall.unity
     guid: df800e7ba004bac46af8325fbab59796
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/LittleMelody.unity
+    guid: ad66c2ea1c78b4f4d803f0f1e27a3e4a
   m_configObjects: {}

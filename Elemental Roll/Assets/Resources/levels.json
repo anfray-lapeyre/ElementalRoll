@@ -36,7 +36,7 @@
 		"objName" : "SwingingBy",
 		"desiredAngle" : 0,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,1.7],
+		"previewPosition": [0,3],
 		"bonusCount" : 2,
 		"previewScale" : 0.015,
 		"previewRotation" : [-80,-16.49,5]
@@ -47,21 +47,21 @@
 		"objName" : "DoNotFall",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,2.3],
+		"previewPosition": [0,3],
 		"bonusCount" : 2,
 		"previewScale" : 0.03,
 		"previewRotation" : [-190,-80,90]
 	},
 	{
-		"name" : "Highway To Hell",
-		"sceneName" : "Hell",
-		"objName" : "guitar",
+		"name" : "Little Melody",
+		"sceneName" : "LittleMelody",
+		"objName" : "LittleMelody",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
+		"previewPosition": [-0.25,3],
 		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewScale" : 0.03,
+		"previewRotation" : [12,90,-80]
 	},
 	{
 		"name" : "Little Melody 5",

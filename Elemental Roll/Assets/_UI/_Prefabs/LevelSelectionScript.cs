@@ -32,6 +32,8 @@ public class LevelSelectionScript : MonoBehaviour
 
     public UIFader startfading;
 
+    private bool hasBeenInvoked = false;
+
     public void Awake()
     {
          LeanTween.reset();
@@ -150,9 +152,11 @@ public class LevelSelectionScript : MonoBehaviour
             LeanTween.pause(activeAnimation);
             actualPreview.LeanScale(Vector3.zero, 0.1f);
             Destroy(actualPreview,0.2f);
+            
         }
         if (events)
         {
+            hasBeenInvoked = false;
             GameObject selected = events.currentSelectedGameObject.transform.parent.gameObject;
             actualLevelData = selected.GetComponent<levelBubbleHandlerScript>().getLevelData();
             Object prefab = Resources.Load("Levels/"+ actualLevelData.objName); // Assets/Resources/Prefabs/prefab1.FBX
@@ -167,10 +171,15 @@ public class LevelSelectionScript : MonoBehaviour
         }
     }
 
+
     public void animatePreview()
     {
-        activeAnimation = actualPreview.LeanScale(Vector3.one * actualLevelData.previewScale, 1f).setEaseOutElastic().id;
-        actualPreview.LeanRotateAround(Vector3.up, 2160, 10f).setEaseOutExpo();
-        actualPreview.transform.position += new Vector3(actualLevelData.previewPosition[0], actualLevelData.previewPosition[1],0);
+        if (!hasBeenInvoked)
+        {
+            activeAnimation = actualPreview.LeanScale(Vector3.one * actualLevelData.previewScale, 1f).setEaseOutElastic().id;
+            actualPreview.LeanRotateAround(Vector3.up, 2160, 10f).setEaseOutExpo();
+            actualPreview.transform.position += new Vector3(actualLevelData.previewPosition[0], actualLevelData.previewPosition[1], 0);
+            hasBeenInvoked = true;
+        }
     }
 }
