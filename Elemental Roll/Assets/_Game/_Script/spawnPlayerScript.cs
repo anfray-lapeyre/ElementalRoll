@@ -43,9 +43,9 @@ public class spawnPlayerScript : MonoBehaviour
                 instantiated=Instantiate(firePrefab, transform.position+Vector3.up*15f, Quaternion.identity);
                 break;
         }
-        desiredAngle = socle.localRotation.eulerAngles.y;
+        desiredAngle = socle.rotation.eulerAngles.y;
         playerCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].transform.parent;
-        playerCamera.Rotate(Vector3.up, desiredAngle);
+        //playerCamera.Rotate(Vector3.up, desiredAngle);
         player = GameObject.FindGameObjectsWithTag("Player")[0];
         player.SetActive(false);
         player.GetComponent<Rigidbody>().isKinematic = true;
@@ -58,6 +58,7 @@ public class spawnPlayerScript : MonoBehaviour
             }
             director.playableGraph.GetRootPlayable(0).SetSpeed(100);
         }
+
         SetTime();
         levelTitle = Instantiate(titleLevelPrefab);
     }
@@ -65,9 +66,12 @@ public class spawnPlayerScript : MonoBehaviour
 
     public void ActivatePlayer()
     {
-        desiredAngle = socle.localRotation.eulerAngles.y;
+        desiredAngle = socle.rotation.eulerAngles.y;
+        print(socle.rotation.eulerAngles.y);
+        print(socle.localRotation.eulerAngles.y);
         playerCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].transform.parent;
-        playerCamera.Rotate(Vector3.up, desiredAngle);
+        //playerCamera.Rotate(Vector3.up, desiredAngle - 260.4645f);
+        player.transform.parent.parent.Rotate(Vector3.up, desiredAngle);
         player.GetComponent<Rigidbody>().isKinematic = false;
         player.SetActive(true);
         player.GetComponent<Rigidbody>().AddForce(-Vector3.up * 30f);

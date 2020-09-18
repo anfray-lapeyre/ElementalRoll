@@ -64,26 +64,26 @@
 		"previewRotation" : [12,90,-80]
 	},
 	{
-		"name" : "Little Melody 5",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Out Of The Library",
+		"sceneName" : "OutOfTheLibrary",
+		"objName" : "OutOfTheLibrary",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewPosition": [1.5,2],
+		"bonusCount" : 2,
+		"previewScale" : 0.03,
+		"previewRotation" : [0,-176.55,0]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Falling Books",
+		"sceneName" : "FallingBooks",
+		"objName" : "FallingBooks",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
+		"time" : [999, 60, 25],  
+		"previewPosition": [0.5,3],
 		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewScale" : 0.02,
+		"previewRotation" : [0,-130,0]
 	},
 	{
 		"name" : "Little Melody",
