@@ -86,70 +86,70 @@
 		"previewRotation" : [0,-130,0]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Getting Down",
+		"sceneName" : "GettingDown",
+		"objName" : "GettingDown",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"time" : [999, 90, 45],  
+		"previewPosition": [0.1,0],
+		"bonusCount" : 2,
+		"previewScale" : 0.04,
+		"previewRotation" : [0,-90,90]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Damocles",
+		"sceneName" : "Damocles",
+		"objName" : "Damocles",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
 		"previewPosition": [0,0],
 		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewScale" : 0.03,
+		"previewRotation" : [0,-40,80]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Back And Forth",
+		"sceneName" : "BackAndForth",
+		"objName" : "BackAndForth",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
+		"previewPosition": [0,3],
 		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewScale" : 0.03,
+		"previewRotation" : [0,210,-90]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "On The Edge",
+		"sceneName" : "OnTheEdge",
+		"objName" : "OnTheEdge",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
+		"previewPosition": [0,5],
 		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewScale" : 0.05,
+		"previewRotation" : [0,210,-90]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Around The Mill",
+		"sceneName" : "AroundTheMill",
+		"objName" : "AroundTheMill",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewPosition": [0,5],
+		"bonusCount" : 2,
+		"previewScale" : 0.05,
+		"previewRotation" : [0,210,-90]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Round Robin",
+		"sceneName" : "RoundRobin",
+		"objName" : "RoundRobin",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
+		"previewPosition": [0,5],
 		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewScale" : 0.05,
+		"previewRotation" : [0,210,-90]
 	},
 	{
 		"name" : "Little Melody",

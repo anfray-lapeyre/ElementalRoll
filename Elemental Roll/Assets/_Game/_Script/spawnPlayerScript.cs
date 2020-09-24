@@ -67,8 +67,7 @@ public class spawnPlayerScript : MonoBehaviour
     public void ActivatePlayer()
     {
         desiredAngle = socle.rotation.eulerAngles.y;
-        print(socle.rotation.eulerAngles.y);
-        print(socle.localRotation.eulerAngles.y);
+
         playerCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0].transform.parent;
         //playerCamera.Rotate(Vector3.up, desiredAngle - 260.4645f);
         player.transform.parent.parent.Rotate(Vector3.up, desiredAngle);
