@@ -152,26 +152,26 @@
 		"previewRotation" : [0,210,-90]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Weird Staircase",
+		"sceneName" : "AWeirdStaircase",
+		"objName" : "AWeirdStaircase",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"previewPosition": [0,3.5],
+		"bonusCount" : 2,
+		"previewScale" : 0.04,
+		"previewRotation" : [0,210,-90]
 	},
 	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "What A Mess",
+		"sceneName" : "WhatAMess",
+		"objName" : "WhatAMess",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"time" : [999, 60, 45],  
+		"previewPosition": [0,2],
+		"bonusCount" : 2,
+		"previewScale" : 0.02,
+		"previewRotation" : [0,210,-90]
 	},
 	{
 		"name" : "Little Melody",

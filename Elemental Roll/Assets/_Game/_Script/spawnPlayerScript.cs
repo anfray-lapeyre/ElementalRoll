@@ -138,7 +138,7 @@ public class spawnPlayerScript : MonoBehaviour
 
     public void OnRestart(InputValue input)
     {
-        LoadNextLevel();
+        //LoadNextLevel();
         PlayableDirector director = cinemachineBrain.gameObject.GetComponent<PlayableDirector>();
         if (!director.playableGraph.IsValid())
         {

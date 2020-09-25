@@ -9,6 +9,7 @@ using EZCameraShake;
 
 public class PlayerController : MonoBehaviour
 {
+    private bool loading = false;
     public float speedModifier = 1f;
     public float invertSpeedModifier = 2f;
     public float jumpForce = 11f;
@@ -174,9 +175,10 @@ public class PlayerController : MonoBehaviour
 
     public void Restart()
     {
-        if (!finishedLevel)
+        if (!finishedLevel && !loading)
         {
             _levelLoader.LoadNextLevel(Mathf.Abs(currentLevel.value), true);//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
+            loading = true;
         }
             
     }
