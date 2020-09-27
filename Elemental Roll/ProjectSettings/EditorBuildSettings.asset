@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/Level1/NoHesitation.unity
     guid: ede3b4c973b6cf547b4d16077145f7a1
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/PiggyBack.unity
+    guid: 948ef4767be9f3c4da3dcca5ff489e62
   m_configObjects: {}

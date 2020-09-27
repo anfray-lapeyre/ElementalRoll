@@ -1,0 +1,879 @@
+fileFormatVersion: 2
+guid: e88ea37d49059204dbbe324dd2f882aa
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: -2509208791731833073
+    second: _PendulumCOllision|book__1_|book__1_|book__1_|PendulumAnimation|Base
+      Layer|book__1
+  - first:
+      74: -1868881728860629054
+    second: _PendulumCOllision|book__1_|book__1_|book__2_|PendulumAnimation|Base
+      Layer|book__1
+  - first:
+      74: -5283832012130895904
+    second: _PendulumCOllision|book__1_|book__1_|book|PendulumAnimation|Base Layer|book__1_|bo
+  - first:
+      74: -1776868734856503364
+    second: _PendulumCOllision|book__1_|book__1_|Cube__1_|PendulumAnimation|Base
+      Layer|book__1
+  - first:
+      74: 8119597695979646834
+    second: _PendulumCOllision|book__1_|book__1_|Cube|PendulumAnimation|Base Layer|book__1_|Cu
+  - first:
+      74: -6317727618721104399
+    second: _PendulumCOllision|book__1_|book__1_|Desk_04|PendulumAnimation|Base Layer|book__1_
+  - first:
+      74: -6823323750012183761
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__1_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -5241558678656758303
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__2_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 9189456939424084292
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__3_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -2955288187852866082
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__4_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 3445133124825872154
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__5_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 1141808512214455849
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__6_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -2715316004730878709
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou__7_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 4257190918768225644
+    second: _PendulumCOllision|book__1_|book__1_|Metal_Clou|PendulumAnimation|Base
+      Layer|book_
+  - first:
+      74: 5323866602583980188
+    second: '_PendulumCOllision|book__1_|book__1_|PendulumContainer__1_|PendulumAnimation|Base '
+  - first:
+      74: 6171930093290524700
+    second: _PendulumCOllision|book__1_|book__1_|Pendulum|PendulumAnimation|Base
+      Layer|book__1
+  - first:
+      74: -1262303437243927667
+    second: _PendulumCOllision|book__2_|book__2_|book__1_|PendulumAnimation|Base
+      Layer|book__2
+  - first:
+      74: 9003266001632215752
+    second: _PendulumCOllision|book__2_|book__2_|book__2_|PendulumAnimation|Base
+      Layer|book__2
+  - first:
+      74: 6685529335293471796
+    second: _PendulumCOllision|book__2_|book__2_|book|PendulumAnimation|Base Layer|book__2_|bo
+  - first:
+      74: 8374897756260039882
+    second: _PendulumCOllision|book__2_|book__2_|Cube__1_|PendulumAnimation|Base
+      Layer|book__2
+  - first:
+      74: -5333694959648488488
+    second: _PendulumCOllision|book__2_|book__2_|Cube|PendulumAnimation|Base Layer|book__2_|Cu
+  - first:
+      74: 2874121414610126838
+    second: _PendulumCOllision|book__2_|book__2_|Desk_04|PendulumAnimation|Base Layer|book__2_
+  - first:
+      74: -7353309224368781168
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__1_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -8973210773772306877
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__2_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 8657377866266849837
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__3_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -8662727611405382362
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__4_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 472693260463881538
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__5_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: 3797761328936874224
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__6_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -8648312711200224822
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou__7_|PendulumAnimation|Base
+      Layer|b
+  - first:
+      74: -7670684165252975550
+    second: _PendulumCOllision|book__2_|book__2_|Metal_Clou|PendulumAnimation|Base
+      Layer|book_
+  - first:
+      74: -1124011758349977714
+    second: '_PendulumCOllision|book__2_|book__2_|PendulumContainer__1_|PendulumAnimation|Base '
+  - first:
+      74: -4653648650212521779
+    second: _PendulumCOllision|book__2_|book__2_|Pendulum|PendulumAnimation|Base
+      Layer|book__2
+  - first:
+      74: -8963619219761983722
+    second: _PendulumCOllision|book|book|book__1_|PendulumAnimation|Base Layer|book|book__1_|P
+  - first:
+      74: 5679532424553676345
+    second: _PendulumCOllision|book|book|book__2_|PendulumAnimation|Base Layer|book|book__2_|P
+  - first:
+      74: 6570060041956440948
+    second: _PendulumCOllision|book|book|book|PendulumAnimation|Base Layer|book|book|PendulumA
+  - first:
+      74: -74102972853024779
+    second: _PendulumCOllision|book|book|Cube__1_|PendulumAnimation|Base Layer|book|Cube__1_|P
+  - first:
+      74: -5331888980154348201
+    second: _PendulumCOllision|book|book|Cube|PendulumAnimation|Base Layer|book|Cube|PendulumA
+  - first:
+      74: 4097698446446729975
+    second: _PendulumCOllision|book|book|Desk_04|PendulumAnimation|Base Layer|book|Desk_04|Pen
+  - first:
+      74: -367329919750300037
+    second: _PendulumCOllision|book|book|Metal_Clou__1_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: -3172371296076234872
+    second: _PendulumCOllision|book|book|Metal_Clou__2_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: -8175429173477294608
+    second: _PendulumCOllision|book|book|Metal_Clou__3_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: 8842584709317182512
+    second: _PendulumCOllision|book|book|Metal_Clou__4_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: -2345577526314280784
+    second: _PendulumCOllision|book|book|Metal_Clou__5_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: -3721158554278524281
+    second: _PendulumCOllision|book|book|Metal_Clou__6_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: 4334574427739373711
+    second: _PendulumCOllision|book|book|Metal_Clou__7_|PendulumAnimation|Base Layer|book|Meta
+  - first:
+      74: -1113211790984774052
+    second: _PendulumCOllision|book|book|Metal_Clou|PendulumAnimation|Base Layer|book|Metal_Cl
+  - first:
+      74: -3766537247857980523
+    second: _PendulumCOllision|book|book|PendulumContainer__1_|PendulumAnimation|Base
+      Layer|bo
+  - first:
+      74: -3033608517851709922
+    second: _PendulumCOllision|book|book|Pendulum|PendulumAnimation|Base Layer|book|Pendulum|P
+  - first:
+      74: -1443527149575840407
+    second: _PendulumCOllision|Cube__1_|Cube__1_|book__1_|PendulumAnimation|Base
+      Layer|Cube__1
+  - first:
+      74: -7127629535477088610
+    second: _PendulumCOllision|Cube__1_|Cube__1_|book__2_|PendulumAnimation|Base
+      Layer|Cube__1
+  - first:
+      74: -8366270587265136008
+    second: _PendulumCOllision|Cube__1_|Cube__1_|book|PendulumAnimation|Base Layer|Cube__1_|bo
+  - first:
+      74: -4364304291597624482
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Cube__1_|PendulumAnimation|Base
+      Layer|Cube__1
+  - first:
+      74: 9061111677984550820
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Cube|PendulumAnimation|Base Layer|Cube__1_|Cu
+  - first:
+      74: 1925194079843166215
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Desk_04|PendulumAnimation|Base Layer|Cube__1_
+  - first:
+      74: 1567881536006665271
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__1_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: -1237082742013006404
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__2_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: 5371374569125517640
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__3_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: 7800290230892102530
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__4_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: 7517873696127330735
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__5_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: -807947591059615379
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__6_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: 8439532383605187511
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou__7_|PendulumAnimation|Base
+      Layer|C
+  - first:
+      74: -5191301072824474093
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Metal_Clou|PendulumAnimation|Base
+      Layer|Cube_
+  - first:
+      74: -113039877800386552
+    second: '_PendulumCOllision|Cube__1_|Cube__1_|PendulumContainer__1_|PendulumAnimation|Base '
+  - first:
+      74: 5596595515841352627
+    second: _PendulumCOllision|Cube__1_|Cube__1_|Pendulum|PendulumAnimation|Base
+      Layer|Cube__1
+  - first:
+      74: -5136626235365808012
+    second: _PendulumCOllision|Cube|Cube|book__1_|PendulumAnimation|Base Layer|Cube|book__1_|P
+  - first:
+      74: 2138227237026106074
+    second: _PendulumCOllision|Cube|Cube|book__2_|PendulumAnimation|Base Layer|Cube|book__2_|P
+  - first:
+      74: 8637959573903912906
+    second: _PendulumCOllision|Cube|Cube|book|PendulumAnimation|Base Layer|Cube|book|PendulumA
+  - first:
+      74: 767434751951808715
+    second: _PendulumCOllision|Cube|Cube|Cube__1_|PendulumAnimation|Base Layer|Cube|Cube__1_|P
+  - first:
+      74: 1677351043005919644
+    second: _PendulumCOllision|Cube|Cube|Cube|PendulumAnimation|Base Layer|Cube|Cube|PendulumA
+  - first:
+      74: -4521428510718488418
+    second: _PendulumCOllision|Cube|Cube|Desk_04|PendulumAnimation|Base Layer|Cube|Desk_04|Pen
+  - first:
+      74: 439726502305401767
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__1_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: -877747329905198731
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__2_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: -7345652299972401723
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__3_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: 8595612232936192338
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__4_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: 405535820987493954
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__5_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: -2420402948372832286
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__6_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: -3370422441406359079
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou__7_|PendulumAnimation|Base Layer|Cube|Meta
+  - first:
+      74: 3942782385413501864
+    second: _PendulumCOllision|Cube|Cube|Metal_Clou|PendulumAnimation|Base Layer|Cube|Metal_Cl
+  - first:
+      74: 7489715204563553178
+    second: _PendulumCOllision|Cube|Cube|PendulumContainer__1_|PendulumAnimation|Base
+      Layer|Cu
+  - first:
+      74: -5298809604095854172
+    second: _PendulumCOllision|Cube|Cube|Pendulum|PendulumAnimation|Base Layer|Cube|Pendulum|P
+  - first:
+      74: -807384140935811282
+    second: _PendulumCOllision|Desk_04|Desk_04|book__1_|PendulumAnimation|Base Layer|Desk_04|b
+  - first:
+      74: 3250751812764980095
+    second: _PendulumCOllision|Desk_04|Desk_04|book__2_|PendulumAnimation|Base Layer|Desk_04|b
+  - first:
+      74: -372394798562082408
+    second: _PendulumCOllision|Desk_04|Desk_04|book|PendulumAnimation|Base Layer|Desk_04|book|
+  - first:
+      74: -5711893886847039500
+    second: _PendulumCOllision|Desk_04|Desk_04|Cube__1_|PendulumAnimation|Base Layer|Desk_04|C
+  - first:
+      74: 5982789150244284170
+    second: _PendulumCOllision|Desk_04|Desk_04|Cube|PendulumAnimation|Base Layer|Desk_04|Cube|
+  - first:
+      74: 5262796953134821524
+    second: _PendulumCOllision|Desk_04|Desk_04|Desk_04|PendulumAnimation|Base Layer|Desk_04|De
+  - first:
+      74: -5535729591788327894
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__1_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: 122513570304680713
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__2_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: 6356984603487742937
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__3_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: -3465057242167048248
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__4_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: 1616304950170727169
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__5_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: 5417030500120516275
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__6_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: -3572992462313882612
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou__7_|PendulumAnimation|Base
+      Layer|Des
+  - first:
+      74: -8472187138847577324
+    second: _PendulumCOllision|Desk_04|Desk_04|Metal_Clou|PendulumAnimation|Base
+      Layer|Desk_04
+  - first:
+      74: -4611668952386295994
+    second: _PendulumCOllision|Desk_04|Desk_04|PendulumContainer__1_|PendulumAnimation|Base
+      La
+  - first:
+      74: -7854931068367561473
+    second: _PendulumCOllision|Desk_04|Desk_04|Pendulum|PendulumAnimation|Base Layer|Desk_04|P
+  - first:
+      74: 5780364614913753884
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: 2544961612545890261
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: -6936633366647155335
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: -8737692723464958959
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -3623327757415327378
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 564977118414776216
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: -7576522692641420962
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: 7720257351239257113
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: -5770667106735902106
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: 2075836157408172882
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: 7571906318765049542
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: -7810674968266684109
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: 4731536269102618131
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: -1168785328875779015
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: 1538048511026044931
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: -6027156467328119902
+    second: _PendulumCOllision|Metal_Clou__1_|Metal_Clou__1_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: 5398669013476117161
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -5021049421661518726
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: 1082845636474979137
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 1891339347307707109
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -4751463710541553602
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: -6715375706588763323
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: -7657565167872050102
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: -7695465304495123057
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: 8270665489045153681
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: -5677241398811905058
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: 1399368272402379270
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: 6564779737467492269
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: -8450510039123807102
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: -1740357363105745397
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: -6793138087715149876
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: 4968638394991485207
+    second: _PendulumCOllision|Metal_Clou__2_|Metal_Clou__2_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: -7005663329322138997
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: 6224896498477695731
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: -2735514451788030245
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: -5204546611256008574
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -3871834848520551139
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: -5459301302140743161
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: 7604386555416523644
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: -4923765023916777728
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: 2686775117809116619
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: -4121421863100591404
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: -7877710769404460880
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: -1834737234202161027
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: 5225736295360187512
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: -8616050908163395560
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: 3029210453949527181
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: 8786148436270751822
+    second: _PendulumCOllision|Metal_Clou__3_|Metal_Clou__3_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: 6497981449659623074
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -681554722339669287
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: 8613914716930121914
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 6108644335681611000
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -4082825997331200940
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 4603483395259151232
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: 4150315297894137396
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: 2533076648813695162
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: -4444699318366554960
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: 7375153711416368582
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: -7027863411746155090
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: 5872542620656807019
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: -7850057451094303282
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: 2831480225832985493
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: -5826751850249001736
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: 7123705526650150964
+    second: _PendulumCOllision|Metal_Clou__4_|Metal_Clou__4_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: 1397037563751592754
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -7022613957011769668
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: 6417590368970728962
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 8997280045464798221
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -7304023400245033783
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 5412756553826278453
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: -4650889652055033916
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: 2068999122754542556
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: 6210564906268716448
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: 1880855514292921430
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: -3384182536781637884
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: 4516182131246499762
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: -1853051787628605820
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: 7983211844903575457
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: -3897452578111394132
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: -3090018360889655560
+    second: _PendulumCOllision|Metal_Clou__5_|Metal_Clou__5_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: -3663585622400541556
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: 7383225976801329122
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: -274099506299909456
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: -1426351032253115439
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -7380738518430425907
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 4576062475028347558
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: -9210552793997818141
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: 5771621333070294635
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: 8124542887597933542
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: -3762644679482291052
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: -1931151818661682577
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: -6754255796624865903
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: 4202717595661028166
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: 4116602563746470231
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: 5872383786143669586
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: 734310697179200035
+    second: _PendulumCOllision|Metal_Clou__6_|Metal_Clou__6_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: 691407897641129838
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|book__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: 4185951024809487242
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|book__2_|PendulumAnimation|Base
+      L
+  - first:
+      74: 6423216912231258747
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|book|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 694100991105421017
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Cube__1_|PendulumAnimation|Base
+      L
+  - first:
+      74: -1773005125135761712
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Cube|PendulumAnimation|Base
+      Layer
+  - first:
+      74: 3547835301556682181
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Desk_04|PendulumAnimation|Base
+      La
+  - first:
+      74: -1113208184423324991
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__1_|PendulumAnimation|
+  - first:
+      74: -8327325459073663967
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__2_|PendulumAnimation|
+  - first:
+      74: -4055079819999809218
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__3_|PendulumAnimation|
+  - first:
+      74: 1988997708437741256
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__4_|PendulumAnimation|
+  - first:
+      74: -2543657094131144552
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__5_|PendulumAnimation|
+  - first:
+      74: -87557004864657110
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__6_|PendulumAnimation|
+  - first:
+      74: 3399793802445537352
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou__7_|PendulumAnimation|
+  - first:
+      74: 2967852254300184594
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Metal_Clou|PendulumAnimation|Base
+  - first:
+      74: 2631890899284537236
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|PendulumContainer__1_|PendulumAni
+  - first:
+      74: -384416845301474167
+    second: _PendulumCOllision|Metal_Clou__7_|Metal_Clou__7_|Pendulum|PendulumAnimation|Base
+      L
+  - first:
+      74: 4188741981769989929
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|book__1_|PendulumAnimation|Base
+      Layer|Met
+  - first:
+      74: -7658074281749820621
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|book__2_|PendulumAnimation|Base
+      Layer|Met
+  - first:
+      74: 7498176801671285642
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|book|PendulumAnimation|Base
+      Layer|Metal_C
+  - first:
+      74: -2884905079754235420
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Cube__1_|PendulumAnimation|Base
+      Layer|Met
+  - first:
+      74: -78755302264938090
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Cube|PendulumAnimation|Base
+      Layer|Metal_C
+  - first:
+      74: -3026998299576325313
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Desk_04|PendulumAnimation|Base
+      Layer|Meta
+  - first:
+      74: 726616160999766222
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__1_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: 7144598531508680558
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__2_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: 5976047781621659236
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__3_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: -7677687087923957806
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__4_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: -7148147924762951677
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__5_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: 6888003842024576882
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__6_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: -3542795478834902232
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou__7_|PendulumAnimation|Base
+      Lay
+  - first:
+      74: 1562032871559079571
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Metal_Clou|PendulumAnimation|Base
+      Layer|M
+  - first:
+      74: -1814922891007202420
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|PendulumContainer__1_|PendulumAnimation|B
+  - first:
+      74: 8860418258722866392
+    second: _PendulumCOllision|Metal_Clou|Metal_Clou|Pendulum|PendulumAnimation|Base
+      Layer|Met
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

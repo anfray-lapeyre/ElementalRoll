@@ -60,9 +60,13 @@ public class PlayerController : MonoBehaviour
     private int invokingTime;
 
     private outroAnimationScript victory;
+    private SphereCollider playerCollider;
 
+    private Transform StartParent;
     private void Start()
     {
+        StartParent = this.transform.parent;
+        playerCollider = this.GetComponent<SphereCollider>();
         emotions = this.GetComponent<EmotionHandlerScript>();
         // We get the player's rigidbody's component
         player = GetComponent<Rigidbody>();
@@ -146,6 +150,10 @@ public class PlayerController : MonoBehaviour
                 default: //Fire
                     //Upward propulsion
                     emotions.PowerUp();
+                    if (player.velocity.y < 0)
+                    {
+                        player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+                    }
                     player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
                     if (Gamepad.current != null)
                     {
@@ -216,6 +224,31 @@ public class PlayerController : MonoBehaviour
         //If the player is going fast enough, we amplify the speed in order to give a sensation of higher "horse power"
         float speedAmplifier = (Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) > 10f) ? Mathf.Min((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y))/10f,5f) : 1f;
 
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, playerCollider.bounds.extents.y + 0.1f))
+        {
+            GameObject RaycastReturn = hit.collider.gameObject;
+            if (RaycastReturn.GetComponent<Rigidbody>())
+            {
+                movement += RaycastReturn.GetComponent<Rigidbody>().velocity * Time.fixedDeltaTime; //simpleMovingPlatformScript handling
+                /*if (RaycastReturn.GetComponent<HingeJoint>())
+                {
+                }
+               */
+            }
+
+            if (RaycastReturn.GetComponent<simpleRotatingPlatformScript>())
+            {
+                //Make the object parent here ! 
+                this.transform.SetParent(RaycastReturn.transform, true);
+            }
+            else
+            {
+                this.transform.SetParent(StartParent, true);
+            }
+
+        }
+
         //We add it to the player's rigidbody as a Force
         player.AddForce(movement * speedModifier * speedAmplifier);
 
@@ -223,7 +256,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        
         if (!finishedLevel)
         {
             if (powerGauge.value < powerTime)
