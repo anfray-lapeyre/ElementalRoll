@@ -111,9 +111,9 @@ public class SaveFileInfo
     public int slimesToUnlock(int character)
     {
         if (character == 1)
-            return 50;
+            return 35;
         if (character == 2)
-            return 125;
+            return 100;
         if (character == 3)
             return 200;
 

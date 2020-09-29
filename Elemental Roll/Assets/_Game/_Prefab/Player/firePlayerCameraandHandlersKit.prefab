@@ -339,6 +339,11 @@ PrefabInstance:
       propertyPath: m_VelocityScale
       value: 0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 3841864822334282315, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6325307188310716272, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -568,6 +573,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FireElemental
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017587590092889991, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017587590092889991, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8017587590092890009, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}

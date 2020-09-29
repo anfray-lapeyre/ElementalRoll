@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class simpleRotatingPlatformScript : MonoBehaviour
 {
@@ -21,6 +23,7 @@ public class simpleRotatingPlatformScript : MonoBehaviour
         startRotation = this.transform.rotation;
     }
 
+#if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
         if (this.GetComponent<MeshFilter>())
@@ -31,12 +34,12 @@ public class simpleRotatingPlatformScript : MonoBehaviour
             {
                 if (backAndForth)
                 {
-                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(startRotation.eulerAngles.x + ((horizontal) ? Mathf.Sin((float)EditorApplication.timeSinceStartup * speed) * amplitude/2f : 0), startRotation.eulerAngles.y + ((vertical) ? Mathf.Sin((float)EditorApplication.timeSinceStartup * speed) * amplitude/2f : 0), startRotation.eulerAngles.z + ((depth) ? Mathf.Sin((float)EditorApplication.timeSinceStartup * speed) * amplitude/2f : 0)), this.transform.localScale);
+                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(transform.rotation.eulerAngles.x + ((horizontal) ? Mathf.Sin((float)EditorApplication.timeSinceStartup * speed) * amplitude/2f : 0), transform.rotation.eulerAngles.y + ((vertical) ? Mathf.Sin((float)EditorApplication.timeSinceStartup * speed) * amplitude/2f : 0), transform.rotation.eulerAngles.z + ((depth) ? Mathf.Sin((float)EditorApplication.timeSinceStartup * speed) * amplitude/2f : 0)), this.transform.localScale);
 
                 }
                 else
                 {
-                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(startRotation.eulerAngles.x + ((horizontal) ? Mathf.Sin(((float)EditorApplication.timeSinceStartup * speed) % (Mathf.PI) - Mathf.PI / 2f) * amplitude/2f + amplitude/2f : 0), startRotation.eulerAngles.y + ((vertical) ? Mathf.Sin(((float)EditorApplication.timeSinceStartup * speed) % (Mathf.PI) - Mathf.PI / 2f) * amplitude/2f + amplitude/2f : 0), startRotation.eulerAngles.z + ((depth) ? Mathf.Sin(((float)EditorApplication.timeSinceStartup * speed) % (Mathf.PI) - Mathf.PI / 2f) * amplitude/2f + amplitude/2f : 0)), this.transform.localScale);
+                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(transform.rotation.eulerAngles.x + ((horizontal) ? Mathf.Sin(((float)EditorApplication.timeSinceStartup * speed) % (Mathf.PI) - Mathf.PI / 2f) * amplitude/2f + amplitude/2f : 0), transform.rotation.eulerAngles.y + ((vertical) ? Mathf.Sin(((float)EditorApplication.timeSinceStartup * speed) % (Mathf.PI) - Mathf.PI / 2f) * amplitude/2f + amplitude/2f : 0), transform.rotation.eulerAngles.z + ((depth) ? Mathf.Sin(((float)EditorApplication.timeSinceStartup * speed) % (Mathf.PI) - Mathf.PI / 2f) * amplitude/2f + amplitude/2f : 0)), this.transform.localScale);
                     //.MovePosition(startPosition + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
                 }
             }
@@ -45,12 +48,12 @@ public class simpleRotatingPlatformScript : MonoBehaviour
                 if (backAndForth)
                 {
 
-                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(startRotation.eulerAngles.x + ((horizontal) ? (amplitude / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + amplitude/2f : 0), startRotation.eulerAngles.y + ((vertical) ? (amplitude / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + amplitude/2f : 0), startRotation.eulerAngles.z + ((depth) ? (amplitude / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + amplitude/2f : 0)), this.transform.localScale);
+                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(transform.rotation.eulerAngles.x + ((horizontal) ? (amplitude / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + amplitude/2f : 0), transform.rotation.eulerAngles.y + ((vertical) ? (amplitude / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + amplitude/2f : 0), transform.rotation.eulerAngles.z + ((depth) ? (amplitude / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + amplitude/2f : 0)), this.transform.localScale);
 
                 }
                 else
                 {
-                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(startRotation.eulerAngles.x + ((horizontal) ? (float)EditorApplication.timeSinceStartup * speed * 50f : 0), startRotation.eulerAngles.y + ((vertical) ? (float)EditorApplication.timeSinceStartup * speed * 50f : 0), startRotation.eulerAngles.z + ((depth) ? (float)EditorApplication.timeSinceStartup * speed * 50f : 0)), this.transform.localScale);
+                    Gizmos.DrawWireMesh(myMesh, this.transform.position, Quaternion.Euler(transform.rotation.eulerAngles.x + ((horizontal) ? (float)EditorApplication.timeSinceStartup * speed * 50f : 0), transform.rotation.eulerAngles.y + ((vertical) ? (float)EditorApplication.timeSinceStartup * speed * 50f : 0), transform.rotation.eulerAngles.z + ((depth) ? (float)EditorApplication.timeSinceStartup * speed * 50f : 0)), this.transform.localScale);
 
 
                     //this.transform.localRotation = Quaternion.Euler();
@@ -59,6 +62,7 @@ public class simpleRotatingPlatformScript : MonoBehaviour
             }
         }
     }
+#endif
 
     // Update is called once per frame
     void FixedUpdate()
@@ -81,7 +85,7 @@ public class simpleRotatingPlatformScript : MonoBehaviour
         {
             if (backAndForth)
             {
-                this.transform.localEulerAngles = new Vector3(startRotation.eulerAngles.x + ((horizontal) ? (2f * (amplitude/2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + (amplitude/2f) : 0), startRotation.eulerAngles.y + ((vertical) ? (2f * (amplitude/2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + (amplitude/2f) : 0), startRotation.eulerAngles.z + ((depth) ? (2f * (amplitude/2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (float)EditorApplication.timeSinceStartup)) + (amplitude/2f) : 0));
+                this.transform.localEulerAngles = new Vector3(startRotation.eulerAngles.x + ((horizontal) ? (2f * (amplitude/2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * Time.fixedTime)) + (amplitude/2f) : 0), startRotation.eulerAngles.y + ((vertical) ? (2f * (amplitude/2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * Time.fixedTime)) + (amplitude/2f) : 0), startRotation.eulerAngles.z + ((depth) ? (2f * (amplitude/2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * Time.fixedTime)) + (amplitude/2f) : 0));
             }
             else
             {

@@ -147,4 +147,10 @@ public class spawnPlayerScript : MonoBehaviour
         director.playableGraph.GetRootPlayable(0).SetSpeed(100);
         
     }
+
+
+    public void OnSpecialAction(InputValue input)
+    {
+        OnRestart(input);
+    }
 }

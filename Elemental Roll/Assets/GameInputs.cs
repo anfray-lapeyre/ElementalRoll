@@ -20,7 +20,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""91195726-8329-4d84-ae26-ac01856f5fe0"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -28,7 +28,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""f3538674-8fd1-4824-bd48-543473365942"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -36,15 +36,15 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Restart"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""fa5052f2-47be-4a60-a51c-49eeed789a20"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
                     ""name"": ""LookMouse"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""ca4d3520-b212-4f47-88c6-20aefe6c5058"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -52,7 +52,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""SpecialAction"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""13b6ea9b-3654-4df9-b48d-0fced84ed53a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -60,7 +60,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Pause"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""db94d7a4-aff3-43b0-bfa3-5899a8b3ebc8"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -206,7 +206,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -217,7 +217,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -225,10 +225,10 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1f67ad06-9783-4771-ad4b-141685757110"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -239,7 +239,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/backspace"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -261,7 +261,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""SpecialAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -272,7 +272,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""SpecialAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -307,7 +307,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Direction"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""86dbd9ed-9636-4217-a37b-15acec38b74e"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -315,7 +315,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Return"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""c18c3892-d5c3-407c-a5ad-f0c9c8d9239b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -323,7 +323,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Confirm"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""3ed7f8a8-78fe-434d-a885-355090c9fa03"",
                     ""expectedControlType"": """",
                     ""processors"": """",

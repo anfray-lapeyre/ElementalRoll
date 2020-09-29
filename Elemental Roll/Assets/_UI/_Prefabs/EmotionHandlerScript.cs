@@ -353,7 +353,6 @@ public class EmotionHandlerScript : MonoBehaviour
     {
         if (shake != null)
         {
-            print("Stop");
             shake.StartFadeOut(1f);
             shake = null;
             NormalMood();

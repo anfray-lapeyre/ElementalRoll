@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/LevelSelection.unity
     guid: c098da81b8cbcbc45ae915b2d19c4dfd
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Preview Characters.unity
     guid: 007bc79d5711c9d4787bd0a70e14d6b2
   - enabled: 1
@@ -74,4 +74,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/Level1/PiggyBack.unity
     guid: 948ef4767be9f3c4da3dcca5ff489e62
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/Sauteing.unity
+    guid: 93ad28769e194064cbbc2560cdad58d8
+  - enabled: 1
+    path: Assets/_Game/_Scenes/Level1/GettingOut.unity
+    guid: b7197d75347417c4faf4964ba35771a8
   m_configObjects: {}

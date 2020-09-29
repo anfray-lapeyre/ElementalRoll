@@ -109,4 +109,9 @@ public class StartMenuScript : MonoBehaviour
         }
  
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

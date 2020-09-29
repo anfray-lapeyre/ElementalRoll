@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class simpleMovingPlatformScript : MonoBehaviour
 {
@@ -38,6 +37,7 @@ public class simpleMovingPlatformScript : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawLine(this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad ) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad ) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad) : Vector3.zero), this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero));
     }
+
     // Update is called once per frame
     void FixedUpdate()
     {

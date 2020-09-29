@@ -49,6 +49,8 @@ public class menuControllerScript : MonoBehaviour
     public AudioClip soundSwoosh;
     public AudioClip soundZoom;
 
+    public bool inTransition = false;
+
 
     public void Awake()
     {
@@ -93,96 +95,108 @@ public class menuControllerScript : MonoBehaviour
 
     public void OnDirection(InputValue input)
     {
-        if (!cinemachineBrain.IsBlending && !inOption)
+        if (!inTransition)
         {
-            switch (isActive)
+            if (!cinemachineBrain.IsBlending && !inOption)
             {
-                case OPTIONS:
-                    if (input.Get<Vector2>().x > 0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        GoToStart();
-                    }
-                    else if (input.Get<Vector2>().x < -0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        GoToPlayers();
-                    }else if (input.Get<Vector2>().y > 0.1f)
-                    {
-                        audioSource.clip = soundZoom;
-                        audioSource.Play();
-                        LoadOptionTab();
-                    }
-                    break;
-                case PLAYERSELECTION:
-                    if (input.Get<Vector2>().x > 0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        GoToOptions();
-                    }
-                    else if (input.Get<Vector2>().x < -0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        GoToStart();
-                    }
-                    else if (input.Get<Vector2>().y > 0.1f)
-                    {
-                        audioSource.clip = soundZoom;
-                        audioSource.Play();
-                        ChoosePlayer();
-                    }
-                    break;
-                case PLAYERINSELECTION:
-                    if (input.Get<Vector2>().x > 0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        PlayerSelectionGoRight(); 
-                    }
-                    else if (input.Get<Vector2>().x < -0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        PlayerSelectionGoLeft();
-                    }
-                    else if (input.Get<Vector2>().y > 0.1f)
-                    {
-                        audioSource.clip = soundZoom;
-                        audioSource.Play();
-                        ConfirmPlayer();
-                    }else if (input.Get<Vector2>().y < -0.1f)
-                    {
-                        audioSource.clip = soundZoom;
-                        audioSource.Play();
-                        OutOfPlayerSelectionPanel();
-                    }
-                    break;
-                default: //case START
-                    if (input.Get<Vector2>().x > 0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        GoToPlayers();
-                    }
-                    else if (input.Get<Vector2>().x < -0.1f)
-                    {
-                        audioSource.clip = soundSwoosh;
-                        audioSource.Play();
-                        GoToOptions();
-                    }
-                    else if (input.Get<Vector2>().y > 0.1f)
-                    {
-                        audioSource.clip = soundZoom;
-                        audioSource.Play();
-                        LoadLevelSelectionTab();
-                    }
-                    break;
+                switch (isActive)
+                {
+                    case OPTIONS:
+                        if (input.Get<Vector2>().x > 0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            GoToStart();
+                        }
+                        else if (input.Get<Vector2>().x < -0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            GoToPlayers();
+                        }
+                        else if (input.Get<Vector2>().y > 0.1f)
+                        {
+                            audioSource.clip = soundZoom;
+                            audioSource.Play();
+                            LoadOptionTab();
+                        }
+                        break;
+                    case PLAYERSELECTION:
+                        if (input.Get<Vector2>().x > 0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            GoToOptions();
+                        }
+                        else if (input.Get<Vector2>().x < -0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            GoToStart();
+                        }
+                        else if (input.Get<Vector2>().y > 0.1f)
+                        {
+                            audioSource.clip = soundZoom;
+                            audioSource.Play();
+                            ChoosePlayer();
+                        }
+                        break;
+                    case PLAYERINSELECTION:
+                        if (input.Get<Vector2>().x > 0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            PlayerSelectionGoRight();
+                        }
+                        else if (input.Get<Vector2>().x < -0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            PlayerSelectionGoLeft();
+                        }
+                        else if (input.Get<Vector2>().y > 0.1f)
+                        {
+                            audioSource.clip = soundZoom;
+                            audioSource.Play();
+                            ConfirmPlayer();
+                        }
+                        else if (input.Get<Vector2>().y < -0.1f)
+                        {
+                            audioSource.clip = soundZoom;
+                            audioSource.Play();
+                            OutOfPlayerSelectionPanel();
+                        }
+                        break;
+                    default: //case START
+                        if (input.Get<Vector2>().x > 0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            GoToPlayers();
+                        }
+                        else if (input.Get<Vector2>().x < -0.1f)
+                        {
+                            audioSource.clip = soundSwoosh;
+                            audioSource.Play();
+                            GoToOptions();
+                        }
+                        else if (input.Get<Vector2>().y > 0.1f)
+                        {
+                            audioSource.clip = soundZoom;
+                            audioSource.Play();
+                            LoadLevelSelectionTab();
+                        }
+                        break;
+                }
             }
+            inTransition = true;
+            Invoke("notInTransition", 0.2f);
         }
+    }
+
+    public void notInTransition()
+    {
+        inTransition = false;
     }
 
     public void checkSave()

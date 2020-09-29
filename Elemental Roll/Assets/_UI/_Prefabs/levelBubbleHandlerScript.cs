@@ -91,7 +91,7 @@ public class levelBubbleHandlerScript : MonoBehaviour
 
         Color actualColor;
         float value;
-        switch (levelNb/20)
+        switch ((levelNb-1)/20)
         {
             case 0:
                 actualColor = firstColor;

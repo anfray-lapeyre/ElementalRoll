@@ -6,8 +6,11 @@ public class BonusController : MonoBehaviour
 {
     public GameObject bonusAnimation;
 
-    private void OnTriggerEnter()
+    private void OnTriggerEnter(Collider other)
     {
-        Instantiate(bonusAnimation);
+        if (other.tag == "Player")
+        {
+            Instantiate(bonusAnimation);
+        }
     }
 }

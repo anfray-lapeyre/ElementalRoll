@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
     private SphereCollider playerCollider;
 
     private Transform StartParent;
+
+    private int characterUnlocked = 0;
     private void Start()
     {
         StartParent = this.transform.parent;
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
+
         if (!inOptions)
         {
             moveHorizontal = value.Get<Vector2>().x;
@@ -119,6 +122,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRestart(InputValue value)
     {
+
         if (!inOptions)
         {
             if (hasControls)
@@ -351,13 +355,64 @@ public class PlayerController : MonoBehaviour
     {
         if (finishedLevel)
         {
-            
+            if(characterUnlocked==0) //If characterUnlocked is at zero, either there is no unlocked character, or we still haven't calculated it, so we calculate
+                characterUnlocked = isACharacterUnlocked(); //This ensures that when a character is unlocked, it is always considered
+            print("Before here !");
             SaveProgress();
-            _levelLoader.ShowLoader();
-            _levelLoader.LoadNextLevel(Mathf.Abs(currentLevel.value));//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
+            if (characterUnlocked==0) //If no character is unlocked, we can load the level. If a character is loaded, we do not want to do that
+            {
+                print("here !");
+                _levelLoader.ShowLoader();
+                _levelLoader.LoadNextLevel(Mathf.Abs(currentLevel.value));//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
+            }
         }
     }
-    
+
+    private int isACharacterUnlocked()
+    {
+        if (currentLevel.value < 0)
+        {
+            int level = -currentLevel.value - 1;
+            if (ActualSave.actualSave.levels[level].collectedSlime < bonusGathered)
+            {
+                if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
+                {
+                    return 1;
+                }
+                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
+                {
+                    return 2;
+                }
+                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
+                {
+                    return 3;
+                }
+            }
+        }
+        else
+        {
+
+            if (ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime < bonusGathered)
+            {
+
+                if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
+                {
+                    return 1;
+
+                }
+                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
+                {
+                    return 2;
+                }
+                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
+                {
+                    return 3;
+                }
+            }
+        }
+        return 0;
+    }
+
     private void SaveProgress()
     {
         if (currentLevel.value < 0)
@@ -365,19 +420,22 @@ public class PlayerController : MonoBehaviour
             int level = -currentLevel.value - 1;
             if (ActualSave.actualSave.levels[level].collectedSlime < bonusGathered)
             {
-                if(ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
+                print("Character Unlocked ! ");
+                if (characterUnlocked==1)
                 {
-                    Invoke("LoadTracy", 0.5f);
-                }else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
+                    print("Tracy Unlocked !");
+                    Invoke("loadTracy", 0.5f);
+                }else if (characterUnlocked == 2)
                 {
-                    Invoke("LoadRocky", 0.5f);
-                }else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
+                    Invoke("loadRocky", 0.5f);
+                }else if (characterUnlocked == 3)
                 {
-                    Invoke("LoadTim", 0.5f);
+                    Invoke("loadTim", 0.5f);
                 }
                 ActualSave.actualSave.levels[level].collectedSlime = bonusGathered;
 
             }
+            //ActualSave.actualSave.levels[level].collectedSlime = 0;//Take it out after
 
         }
         else
@@ -386,17 +444,18 @@ public class PlayerController : MonoBehaviour
             ActualSave.actualSave.levels[currentLevel.value-1].beaten = true;
             if (ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime < bonusGathered)
             {
-                if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
+
+                if (characterUnlocked == 1)
                 {
-                    Invoke("LoadTracy", 0.5f);
+                    Invoke("loadTracy", 0.5f);
                 }
-                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
+                else if (characterUnlocked == 2)
                 {
-                    Invoke("LoadRocky", 0.5f);
+                    Invoke("loadRocky", 0.5f);
                 }
-                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
+                else if (characterUnlocked == 3)
                 {
-                    Invoke("LoadTim", 0.5f);
+                    Invoke("loadTim", 0.5f);
                 }
                 ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime = bonusGathered;
             }
@@ -423,18 +482,20 @@ public class PlayerController : MonoBehaviour
 
     public void loadTracy()
     {
-        LevelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(1);
+        _levelLoader.ShowLoader();
+        _levelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(1);
     }
 
     public void loadRocky()
     {
-        LevelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(2);
-
+        _levelLoader.ShowLoader();
+        _levelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(2);
     }
 
     public void loadTim()
     {
-        LevelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(3);
+        _levelLoader.ShowLoader();
+        _levelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(3);
     }
 
     private void PropellUp()
@@ -449,7 +510,6 @@ public class PlayerController : MonoBehaviour
     
     private void BonusAnimation()
     {
-
         bonusAnimation.Play();
     }
 

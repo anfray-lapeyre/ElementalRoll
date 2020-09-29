@@ -45,7 +45,7 @@ public class UIParticleSystem : MonoBehaviour {
     /// <summary>
     /// Play Particle Effect On Awake
     /// </summary>
-    public bool PlayOnAwake = true;
+    public bool PlayOnAwake = false;
 
     /// <summary>
     /// Gravity
@@ -98,8 +98,9 @@ public class UIParticleSystem : MonoBehaviour {
     {
         if (ParticlePool == null)
             Init();
-        if (PlayOnAwake)
+        /*if (PlayOnAwake)
             Play();
+            */
     }
 
     private void Init()
@@ -128,6 +129,8 @@ public class UIParticleSystem : MonoBehaviour {
     {
         IsPlaying = true;
         StartCoroutine(CoPlay());
+        print("BIM");
+
     }
 
     private IEnumerator CoPlay()

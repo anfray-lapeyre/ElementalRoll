@@ -196,30 +196,30 @@
 		"previewRotation" : [0,0,90]
 	},
 	{
-		"name" : "Little Melody Next",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
+		"name" : "Sauteing",
+		"sceneName" : "Sauteing",
+		"objName" : "Sauteing",
 		"desiredAngle" : 115,
-		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
+		"time" : [999, 90, 60],  
+		"previewPosition": [0,1.5],
+		"bonusCount" : 3,
+		"previewScale" : 0.02,
+		"previewRotation" : [0,0,90]
+	},
+	{
+		"name" : "Getting Out",
+		"sceneName" : "GettingOut",
+		"objName" : "GettingOut",
+		"desiredAngle" : 115,
+		"time" : [999, 90, 60],  
+		"previewPosition": [0,1.5],
+		"bonusCount" : 3,
+		"previewScale" : 0.02,
+		"previewRotation" : [0,0,90]
 	},
 	{
 		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
-		"objName" : "guitar",
-		"desiredAngle" : 115,
-		"time" : [999, 60, 30],  
-		"previewPosition": [0,0],
-		"bonusCount" : 1,
-		"previewScale" : 4,
-		"previewRotation" : [0,180,5]
-	},
-	{
-		"name" : "Little Melody",
-		"sceneName" : "LittleMelody",
+		"sceneName" : "MainMenu",
 		"objName" : "guitar",
 		"desiredAngle" : 115,
 		"time" : [999, 60, 30],  
