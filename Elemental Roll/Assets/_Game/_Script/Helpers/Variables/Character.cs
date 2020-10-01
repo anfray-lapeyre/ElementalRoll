@@ -37,6 +37,6 @@ public class Character
 
     public Character Wizard()
     {
-        return new Character("Wizard", 0.65f);
+        return new Character("A Wizard Passing By", 0.65f);
     }
 }

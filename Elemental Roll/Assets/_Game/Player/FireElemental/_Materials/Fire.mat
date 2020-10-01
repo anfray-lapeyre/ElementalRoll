@@ -64,7 +64,7 @@ Material:
     m_Floats:
     - Boolean_9EF195DB: 0
     - FlameHue: 0
-    - FlameIntensity: 0.005822074
+    - FlameIntensity: 0.008
     - Vector1_45928080: 0.0232
     - Vector1_62314106: 0.2
     - Vector1_69300BA: 6

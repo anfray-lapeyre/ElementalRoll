@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 8940796761971758505}
-  m_IndirectSpecularColor: {r: 0.0030345325, g: 0.29302892, b: 0.30843887, a: 1}
+  m_IndirectSpecularColor: {r: 0.003265817, g: 0.29205608, b: 0.31029207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 10c7264148297e0469e47c1280ac437a,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1991,22 +1991,22 @@ PrefabInstance:
     - target: {fileID: 2106975707568707528, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.2089373
+      value: -0.015878312
       objectReference: {fileID: 0}
     - target: {fileID: 2106975707568707528, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.02372908
+      value: 0.7553532
       objectReference: {fileID: 0}
     - target: {fileID: 2106975707568707528, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.09150895
+      value: -0.15074341
       objectReference: {fileID: 0}
     - target: {fileID: 2106975707568707528, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.97334903
+      value: -0.63754684
       objectReference: {fileID: 0}
     - target: {fileID: 2106975707568707528, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
@@ -2040,6 +2040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
       propertyPath: m_Events.m_Signals.Array.data[7]
       value: 
       objectReference: {fileID: 11400000, guid: 421a8a4a88a8b0e4498592134a1a4651,
@@ -2068,6 +2073,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 68887043}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playerIsNotPlaying
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2677904006712061889, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}

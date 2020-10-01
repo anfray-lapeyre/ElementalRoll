@@ -174,7 +174,7 @@
 		"previewRotation" : [0,210,-90]
 	},
 	{
-		"name" : "No Hesitation",
+		"name" : "Hesitation",
 		"sceneName" : "NoHesitation",
 		"objName" : "NoHesitation",
 		"desiredAngle" : 115,
@@ -196,7 +196,7 @@
 		"previewRotation" : [0,0,90]
 	},
 	{
-		"name" : "Sauteing",
+		"name" : "Minimap Only",
 		"sceneName" : "Sauteing",
 		"objName" : "Sauteing",
 		"desiredAngle" : 115,

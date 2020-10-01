@@ -1490,6 +1490,7 @@ GameObject:
   - component: {fileID: 473891526963089383}
   - component: {fileID: 5150646979886436995}
   - component: {fileID: 5785948056041021915}
+  - component: {fileID: 7918757937961957738}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1557,6 +1558,37 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
+--- !u!114 &7918757937961957738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288677285240815472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: fef83863030a1a6449b0d94eec1aec28,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 5785948056041021915}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 1829d131-6e23-4422-8f05-823f28243d4e
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &170063815018176672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1679,6 +1711,11 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 5785948056041021915}
+    - target: {fileID: 8633664224580001668, guid: 2836e248a5501084f95d9bc0385d6429,
+        type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2836e248a5501084f95d9bc0385d6429, type: 3}
 --- !u!224 &4698127960445885086 stripped

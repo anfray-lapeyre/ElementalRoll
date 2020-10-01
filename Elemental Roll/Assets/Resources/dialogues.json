@@ -53,7 +53,7 @@
 	"backgroundVideo":"_Cinematic-6",
 	"id" : 8
 	},
-	{"character":"Wizard",
+	{"character":"A Wizard Passing By",
 	"lines" : ["A <color=#FB5607><i><b>Fire Elemental</b></i></color>  here ?", "Quick, get into this orb before touching the <color=#7FF3F0><b><i>Water</b></i></color>."],
 	"next" : 10,
 	"backgroundVideo":"_Cinematic-7",
@@ -84,7 +84,7 @@
 	"id" : 13
 	},
 	{"character":"Fire",
-	"lines" : ["Let's go find this traitor !"],
+	"lines" : ["I'm still not able to go back in one warp. But I'll get better with every jump !","Let's go find this traitor !"],
 	"next" : -1,
 	"backgroundVideo":"_Cinematic-8-2-Go",
 	"id" : 14

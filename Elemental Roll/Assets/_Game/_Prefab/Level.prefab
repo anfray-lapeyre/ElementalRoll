@@ -292,6 +292,7 @@ MonoBehaviour:
   timer: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
   isRestarting: 0
   socle: {fileID: 7100485752721274434}
+  isPlaying: 0
 --- !u!114 &2587054836311683571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,6 +649,7 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 2509bb750ea4cc14fb68f17dce55fc5d, type: 2}
+    - {fileID: 11400000, guid: 1d8fc9cb61d0dfa4d8f5b2cba5721522, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:

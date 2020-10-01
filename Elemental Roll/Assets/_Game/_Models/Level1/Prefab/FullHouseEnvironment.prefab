@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8940796760585689927}
   - component: {fileID: 8940796760585689944}
-  - component: {fileID: 8940796760585689926}
   m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
@@ -93,23 +92,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &8940796760585689926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8940796760585689945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07126f1da4e6a0f4287dd1ff613ee121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveform: 5
-  baseStart: 1
-  amplitude: 0.03
-  phase: 0
-  frequency: 1e-17
 --- !u!1 &8940796760630244718
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +512,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8940796761273433463}
-  m_LocalRotation: {x: -0.09410037, y: 0.5854632, z: 0.06866918, w: 0.80228585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -33.54, y: -16.75, z: 7}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
@@ -1325,10 +1307,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8940796762247364594}
     m_Modifications:
+    - target: {fileID: 1547095640153166432, guid: a6caaff4ab184f2449a8bbc5478b3f6e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1974741111726190836, guid: a6caaff4ab184f2449a8bbc5478b3f6e,
         type: 3}
       propertyPath: m_Name
       value: IceSocle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704148232453656171, guid: a6caaff4ab184f2449a8bbc5478b3f6e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664720671570137566, guid: a6caaff4ab184f2449a8bbc5478b3f6e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5986351007456282049, guid: a6caaff4ab184f2449a8bbc5478b3f6e,
         type: 3}
@@ -1584,6 +1581,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8940796762247364594}
     m_Modifications:
+    - target: {fileID: 734102999408685128, guid: 7242d340fc1e14d499d6b8a014f44679,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 820113544983298120, guid: 7242d340fc1e14d499d6b8a014f44679,
         type: 3}
       propertyPath: m_Name
@@ -1654,10 +1656,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4237744300291107907, guid: 7242d340fc1e14d499d6b8a014f44679,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5502175015460988905, guid: 7242d340fc1e14d499d6b8a014f44679,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6914159282232701942, guid: 7242d340fc1e14d499d6b8a014f44679,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7242d340fc1e14d499d6b8a014f44679, type: 3}
@@ -1754,6 +1766,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8940796762247364594}
     m_Modifications:
+    - target: {fileID: 1336839255868600485, guid: 6b757bbc2e5b0b34ebc0770e3346df4c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482076085812751534, guid: 6b757bbc2e5b0b34ebc0770e3346df4c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2532066607373917358, guid: 6b757bbc2e5b0b34ebc0770e3346df4c,
         type: 3}
       propertyPath: m_Name
@@ -1793,6 +1815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.645
+      objectReference: {fileID: 0}
+    - target: {fileID: 8626102998908727056, guid: 6b757bbc2e5b0b34ebc0770e3346df4c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9190234762115013311, guid: 6b757bbc2e5b0b34ebc0770e3346df4c,
         type: 3}
@@ -3048,6 +3075,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VictoryGateContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697980222032027062, guid: f17c0d2b0ee014d449a94fe13b741100,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.8800001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697980222032027062, guid: f17c0d2b0ee014d449a94fe13b741100,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.00000012397766
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697980222032027062, guid: f17c0d2b0ee014d449a94fe13b741100,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 1.0400006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f17c0d2b0ee014d449a94fe13b741100, type: 3}

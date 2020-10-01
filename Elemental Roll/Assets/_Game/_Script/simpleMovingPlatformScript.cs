@@ -14,13 +14,13 @@ public class simpleMovingPlatformScript : MonoBehaviour
     public bool vertical = false;
     public bool depth = false;
 
-    private Rigidbody rigidbody;
+    private Rigidbody playerRigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
-        rigidbody.isKinematic = true;
+        playerRigidbody = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
+        playerRigidbody.isKinematic = true;
         startPosition = this.transform.position;
     }
 
@@ -41,6 +41,6 @@ public class simpleMovingPlatformScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rigidbody.MovePosition(startPosition + ((horizontal) ? this.transform.right*amplitude * Mathf.Sin(Time.fixedTime * speed + delay*Mathf.Deg2Rad) : Vector3.zero) +  ((vertical) ? this.transform.up* amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero) +  ((depth) ? this.transform.forward *amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+        playerRigidbody.MovePosition(startPosition + ((horizontal) ? this.transform.right*amplitude * Mathf.Sin(Time.fixedTime * speed + delay*Mathf.Deg2Rad) : Vector3.zero) +  ((vertical) ? this.transform.up* amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero) +  ((depth) ? this.transform.forward *amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
     }
 }

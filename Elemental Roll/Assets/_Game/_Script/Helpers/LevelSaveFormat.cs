@@ -14,5 +14,6 @@ public class LevelSaveFormat
     public bool beatinInDifficultTime;
     public int collectedSlime;
     public float bestTime;
+    public bool hasUsedPower;
 
 }

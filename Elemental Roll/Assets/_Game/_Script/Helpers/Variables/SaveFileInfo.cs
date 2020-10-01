@@ -28,6 +28,7 @@ public class SaveFileInfo
             levels[i].beatinInNormalTime = false;
             levels[i].bestTime = 999f;
             levels[i].collectedSlime = 0;
+            levels[i].hasUsedPower = false;
         }
     }
 

@@ -64,7 +64,13 @@ public class PlayerController : MonoBehaviour
 
     private Transform StartParent;
 
+    private bool hasUsedPower = false;
+
+    private float finalTime = 999f;
+
     private int characterUnlocked = 0;
+    private bool hasPlayerTouched = false;
+
     private void Start()
     {
         StartParent = this.transform.parent;
@@ -132,41 +138,46 @@ public class PlayerController : MonoBehaviour
 
     public void OnSpecialAction(InputValue value)
     {
-        if (powerGauge.value >= powerTime)
+        if (hasControls)
         {
-            powerGauge.value = 0f;
-            switch (power)
+            if (powerGauge.value >= powerTime)
             {
-                case 1: //Ice
-                    //Upward propulsion
-                    emotions.PowerUp();
-                    if (Gamepad.current != null)
-                    {
-                        Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-                    }
-                    invokingTime = 15;
-                    InvokeIce();
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                default: //Fire
-                    //Upward propulsion
-                    emotions.PowerUp();
-                    if (player.velocity.y < 0)
-                    {
-                        player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
-                    }
-                    player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
-                    if (Gamepad.current != null)
-                    {
-                        Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-                    }
-                    GameObject instantiatedBoom = Instantiate(Boom);
-                    instantiatedBoom.transform.position = this.transform.position;
-                    Destroy(instantiatedBoom, 2f);
-                    break;
+                powerGauge.value = 0f;
+                hasUsedPower = true;
+                hasPlayerTouched = true;
+                switch (power)
+                {
+                    case 1: //Ice
+                            //Upward propulsion
+                        emotions.PowerUp();
+                        if (Gamepad.current != null)
+                        {
+                            Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+                        }
+                        invokingTime = 15;
+                        InvokeIce();
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    default: //Fire
+                             //Upward propulsion
+                        emotions.PowerUp();
+                        if (player.velocity.y < 0)
+                        {
+                            player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+                        }
+                        player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
+                        if (Gamepad.current != null)
+                        {
+                            Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+                        }
+                        GameObject instantiatedBoom = Instantiate(Boom);
+                        instantiatedBoom.transform.position = this.transform.position;
+                        Destroy(instantiatedBoom, 2f);
+                        break;
+                }
             }
         }
     }
@@ -218,7 +229,10 @@ public class PlayerController : MonoBehaviour
 
         //We put that in a vector organized as a velocity, to apply it as a force
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
+        if(!hasPlayerTouched && movement.magnitude != 0f)
+        {
+            hasPlayerTouched = true;
+        }
         //We rotate it in accordance to the camera, for the force to be applied in a logical manner
         movement = RotateY(movement, Mathf.Deg2Rad * playerCamera.transform.rotation.eulerAngles.y);
 
@@ -226,7 +240,12 @@ public class PlayerController : MonoBehaviour
         movement = new Vector3(Mathf.Sign(player.velocity.x) == Mathf.Sign(movement.x) ? movement.x : movement.x * invertSpeedModifier, movement.y, Mathf.Sign(player.velocity.z) == Mathf.Sign(movement.z) ? movement.z : movement.z * invertSpeedModifier);
 
         //If the player is going fast enough, we amplify the speed in order to give a sensation of higher "horse power"
-        float speedAmplifier = (Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) > 10f) ? Mathf.Min((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y))/10f,5f) : 1f;
+        float speedAmplifier = Mathf.Max(Mathf.Min(Mathf.Exp(Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y)) / 2f, 1.3f), 0);
+        if(moveHorizontal!= 0f && moveVertical == 0f && Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y)>10f)
+        {
+            speedAmplifier /= 2f;
+        }
+
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, playerCollider.bounds.extents.y + 0.1f))
@@ -269,12 +288,21 @@ public class PlayerController : MonoBehaviour
             }
             //We handle the player's movement
             if (hasControls)
+            {
                 handleMovement();
-            //We update the speed base on the sum of the player's velocity vector
-            playerSpeed.SetValue((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) + Mathf.Abs(player.velocity.z)) * 3f);
-            playerRotationSpeed.SetValue(Mathf.Abs(player.angularVelocity.x) + Mathf.Abs(player.angularVelocity.y) + Mathf.Abs(player.angularVelocity.z));
-            //checkGravity();
-            lastVelocity = player.velocity;
+                //We update the speed base on the sum of the player's velocity vector
+                if (hasPlayerTouched)
+                {
+                    playerSpeed.SetValue((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) + Mathf.Abs(player.velocity.z)) * 3f);
+                    playerRotationSpeed.SetValue(Mathf.Abs(player.angularVelocity.x) + Mathf.Abs(player.angularVelocity.y) + Mathf.Abs(player.angularVelocity.z));
+                    //checkGravity();
+                    lastVelocity = player.velocity;
+                }
+                else
+                {
+                    player.velocity = player.velocity * 0.2f;
+                }
+            }
         }
         else
         {
@@ -317,8 +345,8 @@ public class PlayerController : MonoBehaviour
         grindEmission.enabled = isEmittingGrindSparks;
 
         bool isEmittingSpeedSparks = false;
-        var emission = speedSparks.emission;
-        if (playerSpeed.value >= 40f)
+        ParticleSystem.EmissionModule emission = speedSparks.emission;
+        if (playerSpeed.value >= 60f)
         {
             CameraShaker.GetInstance("MainCamera").ShakeOnce(Mathf.Min((playerSpeed.value-40f)/100f,0.3f), 4f, 0.1f, 0.1f);
             isEmittingSpeedSparks = true;
@@ -357,11 +385,9 @@ public class PlayerController : MonoBehaviour
         {
             if(characterUnlocked==0) //If characterUnlocked is at zero, either there is no unlocked character, or we still haven't calculated it, so we calculate
                 characterUnlocked = isACharacterUnlocked(); //This ensures that when a character is unlocked, it is always considered
-            print("Before here !");
             SaveProgress();
             if (characterUnlocked==0) //If no character is unlocked, we can load the level. If a character is loaded, we do not want to do that
             {
-                print("here !");
                 _levelLoader.ShowLoader();
                 _levelLoader.LoadNextLevel(Mathf.Abs(currentLevel.value));//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
             }
@@ -420,10 +446,8 @@ public class PlayerController : MonoBehaviour
             int level = -currentLevel.value - 1;
             if (ActualSave.actualSave.levels[level].collectedSlime < bonusGathered)
             {
-                print("Character Unlocked ! ");
                 if (characterUnlocked==1)
                 {
-                    print("Tracy Unlocked !");
                     Invoke("loadTracy", 0.5f);
                 }else if (characterUnlocked == 2)
                 {
@@ -432,8 +456,15 @@ public class PlayerController : MonoBehaviour
                 {
                     Invoke("loadTim", 0.5f);
                 }
+                if (ActualSave.actualSave.levels[level].hasUsedPower)
+                {
+                    ActualSave.actualSave.levels[level].hasUsedPower = hasUsedPower;
+                }
                 ActualSave.actualSave.levels[level].collectedSlime = bonusGathered;
-
+                if (ActualSave.actualSave.levels[level].bestTime > finalTime)
+                {
+                    ActualSave.actualSave.levels[level].bestTime = finalTime;
+                }
             }
             //ActualSave.actualSave.levels[level].collectedSlime = 0;//Take it out after
 
@@ -457,7 +488,15 @@ public class PlayerController : MonoBehaviour
                 {
                     Invoke("loadTim", 0.5f);
                 }
+                if (ActualSave.actualSave.levels[currentLevel.value - 1].hasUsedPower)
+                {
+                    ActualSave.actualSave.levels[currentLevel.value - 1].hasUsedPower = hasUsedPower;
+                }
                 ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime = bonusGathered;
+                if (ActualSave.actualSave.levels[currentLevel.value - 1].bestTime > finalTime)
+                {
+                    ActualSave.actualSave.levels[currentLevel.value - 1].bestTime = finalTime;
+                }
             }
             if (LevelLoader)
             {
@@ -468,13 +507,16 @@ public class PlayerController : MonoBehaviour
             {
                 //In case there's an error and Level Loader is not spawned, we'll assume it's our fault and give max completion
                 Debug.LogError("There has been an error, LevelLoader is not instantiated.");
-                ActualSave.actualSave.levels[currentLevel.value].beatenInDifficultLife=true;
-                ActualSave.actualSave.levels[currentLevel.value].beatenInEasyLife = true;
-                ActualSave.actualSave.levels[currentLevel.value].beatenInNormalLife = true;
-                ActualSave.actualSave.levels[currentLevel.value].beatinInDifficultTime = true;
-                ActualSave.actualSave.levels[currentLevel.value].beatinInEasyTime = true;
-                ActualSave.actualSave.levels[currentLevel.value].beatinInNormalTime = true;
+                ActualSave.actualSave.levels[currentLevel.value-1].beatenInDifficultLife=true;
+                ActualSave.actualSave.levels[currentLevel.value-1].beatenInEasyLife = true;
+                ActualSave.actualSave.levels[currentLevel.value-1].beatenInNormalLife = true;
+                ActualSave.actualSave.levels[currentLevel.value-1].beatinInDifficultTime = true;
+                ActualSave.actualSave.levels[currentLevel.value-1].beatinInEasyTime = true;
+                ActualSave.actualSave.levels[currentLevel.value-1].beatinInNormalTime = true;
+                ActualSave.actualSave.levels[currentLevel.value-1].hasUsedPower = false;
+
             }
+
         }
 
         SaveSystem.SaveGame(ActualSave.actualSave, ActualSave.saveSlot);
@@ -566,7 +608,8 @@ public class PlayerController : MonoBehaviour
                 victory = Instantiate(victoryText).GetComponent<outroAnimationScript>();
                 victory.slimesCollected=bonusGathered;
                 victory.totalSlimes = CrossLevelInfo.maxSlimes;
-                victory.time = CrossLevelInfo.time - handler.time.value;
+                finalTime = CrossLevelInfo.time - handler.time.value;
+                victory.time = finalTime;
             }
         }
     }

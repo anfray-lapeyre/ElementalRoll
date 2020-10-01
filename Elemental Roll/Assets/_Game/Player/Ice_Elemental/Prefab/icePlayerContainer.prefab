@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4224955895566349836}
-  damping: 2
+  damping: 3
 --- !u!114 &1193702692914111447
 MonoBehaviour:
   m_ObjectHideFlags: 0

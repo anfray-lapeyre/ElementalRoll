@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 8940796761971758505}
-  m_IndirectSpecularColor: {r: 0.0030345325, g: 0.29302892, b: 0.30843887, a: 1}
+  m_IndirectSpecularColor: {r: 0.003265817, g: 0.29205608, b: 0.31029207, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -146,7 +146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46224412}
   m_LocalRotation: {x: 0.053901784, y: 0.70192266, z: -0.7081985, w: 0.053424124}
-  m_LocalPosition: {x: 21.27, y: 9.771172, z: 4.2}
+  m_LocalPosition: {x: 21.31, y: 9.77, z: 3.94}
   m_LocalScale: {x: 0.19999991, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1462344171}
@@ -5464,7 +5464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412134841}
   m_LocalRotation: {x: 0.35718083, y: 0.6066338, z: -0.6123515, w: 0.35978204}
-  m_LocalPosition: {x: 12.46, y: 9.71, z: -2.17}
+  m_LocalPosition: {x: 12.48, y: 9.71, z: -2.18}
   m_LocalScale: {x: 0.19999991, y: 1.6, z: 1}
   m_Children:
   - {fileID: 738982195}
@@ -7633,7 +7633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988203169}
   m_LocalRotation: {x: 0.35718083, y: 0.6066338, z: -0.6123515, w: 0.35978204}
-  m_LocalPosition: {x: 14.38, y: 9.73, z: 1.28}
+  m_LocalPosition: {x: 14.38, y: 9.76, z: 1.28}
   m_LocalScale: {x: 0.19999991, y: 1.6, z: 1}
   m_Children:
   - {fileID: 98036286}
@@ -7751,7 +7751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060327380}
   m_LocalRotation: {x: 0.053901784, y: 0.70192266, z: -0.7081985, w: 0.053424124}
-  m_LocalPosition: {x: 25.69, y: 9.771172, z: 4.87}
+  m_LocalPosition: {x: 25.71, y: 9.77, z: 4.72}
   m_LocalScale: {x: 0.19999991, y: 1.5, z: 1}
   m_Children:
   - {fileID: 82674511}
@@ -8591,6 +8591,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
       propertyPath: m_Events.m_Signals.Array.data[7]
       value: 
       objectReference: {fileID: 11400000, guid: 421a8a4a88a8b0e4498592134a1a4651,
@@ -8619,6 +8624,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 68887043}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playerIsNotPlaying
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587054836311683571, guid: 65d78ca5f0b489044bcf067f52a090a2,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[3].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2677904006712061889, guid: 65d78ca5f0b489044bcf067f52a090a2,
         type: 3}

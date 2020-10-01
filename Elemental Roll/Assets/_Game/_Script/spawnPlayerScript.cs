@@ -23,6 +23,7 @@ public class spawnPlayerScript : MonoBehaviour
     public bool isRestarting = false;
     private GameObject levelTitle;
     public Transform socle;
+    public bool isPlaying = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,6 +58,8 @@ public class spawnPlayerScript : MonoBehaviour
                 director.Play();
             }
             director.playableGraph.GetRootPlayable(0).SetSpeed(100);
+            isPlaying = true;
+            Invoke("DisableYourself", 0.1f);
         }
 
         SetTime();
@@ -81,6 +84,11 @@ public class spawnPlayerScript : MonoBehaviour
     public void activateUI()
     {
         playerCamera.gameObject.GetComponent<UIFader>().FadeIn();
+    }
+
+    public void playerIsNotPlaying()
+    {
+        isPlaying = false;
     }
 
     public void deactivateUI()
@@ -138,19 +146,31 @@ public class spawnPlayerScript : MonoBehaviour
 
     public void OnRestart(InputValue input)
     {
-        LoadNextLevel();
-        PlayableDirector director = cinemachineBrain.gameObject.GetComponent<PlayableDirector>();
-        if (!director.playableGraph.IsValid())
+        if (!isPlaying)
         {
-            director.Play();
+
+            LoadNextLevel();
+            PlayableDirector director = cinemachineBrain.gameObject.GetComponent<PlayableDirector>();
+            if (!director.playableGraph.IsValid())
+            {
+                director.Play();
+            }
+            director.playableGraph.GetRootPlayable(0).SetSpeed(100);
+            isPlaying = true;
+            Invoke("DisableYourself", 0.1f);
         }
-        director.playableGraph.GetRootPlayable(0).SetSpeed(100);
-        
     }
 
 
     public void OnSpecialAction(InputValue input)
     {
-        OnRestart(input);
+        if(!isPlaying)
+            OnRestart(input);
+    }
+
+
+    public void DisableYourself()
+    {
+        this.enabled = false;
     }
 }

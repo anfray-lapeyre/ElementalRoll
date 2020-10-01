@@ -4768,7 +4768,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: 1829d131-6e23-4422-8f05-823f28243d4e
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &6760313148118808943
@@ -5342,6 +5342,11 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 3867057566974735836}
+    - target: {fileID: 8633664224580001668, guid: 2836e248a5501084f95d9bc0385d6429,
+        type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2836e248a5501084f95d9bc0385d6429, type: 3}
 --- !u!224 &9036231615341478843 stripped

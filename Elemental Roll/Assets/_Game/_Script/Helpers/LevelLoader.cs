@@ -82,6 +82,8 @@ public class LevelLoader : MonoBehaviour
                         livesLeft.value = livesLeft.value - 1;
                         if (livesLeft.value < 0)
                         {
+                            currentLevel.value--;
+                            cancelLevelProgress(levelToLoad);
                             livesLeft.value = 5;
                             LoadNextLevel(Mathf.Max(0, levelToLoad - 1), false);
                             return;
@@ -101,6 +103,7 @@ public class LevelLoader : MonoBehaviour
 
                         if (livesLeft.value < 0)
                         {
+                            cancelAllProgress();
                             livesLeft.value = 5;
                             currentLevel.value = 0;
                             LoadNextLevel(0);
@@ -130,6 +133,39 @@ public class LevelLoader : MonoBehaviour
 
 
     }
+
+    private void cancelLevelProgress(int leveltoErase)
+    {
+        ActualSave.actualSave.levels[leveltoErase].collectedSlime = 0;
+        ActualSave.actualSave.levels[leveltoErase].bestTime = 999f;
+        ActualSave.actualSave.levels[leveltoErase].beaten = false;
+        ActualSave.actualSave.levels[leveltoErase].beatenInNormalLife = false;
+        ActualSave.actualSave.levels[leveltoErase].beatenInDifficultLife = false;
+        ActualSave.actualSave.levels[leveltoErase].beatenInEasyLife = false;
+        ActualSave.actualSave.levels[leveltoErase].beatinInEasyTime = false;
+        ActualSave.actualSave.levels[leveltoErase].beatinInNormalTime = false;
+        ActualSave.actualSave.levels[leveltoErase].beatinInDifficultTime = false;
+        SaveSystem.SaveGame(ActualSave.actualSave, ActualSave.saveSlot);
+    }
+
+    private void cancelAllProgress()
+    {
+        for (int leveltoErase = 0; leveltoErase < ActualSave.actualSave.levels.Length; leveltoErase++)
+        {
+            ActualSave.actualSave.levels[leveltoErase].collectedSlime = 0;
+            ActualSave.actualSave.levels[leveltoErase].bestTime = 999f;
+            ActualSave.actualSave.levels[leveltoErase].beaten = false;
+            ActualSave.actualSave.levels[leveltoErase].beatenInNormalLife = false;
+            ActualSave.actualSave.levels[leveltoErase].beatenInDifficultLife = false;
+            ActualSave.actualSave.levels[leveltoErase].beatenInEasyLife = false;
+            ActualSave.actualSave.levels[leveltoErase].beatinInEasyTime = false;
+            ActualSave.actualSave.levels[leveltoErase].beatinInNormalTime = false;
+            ActualSave.actualSave.levels[leveltoErase].beatinInDifficultTime = false;
+        }
+
+        SaveSystem.SaveGame(ActualSave.actualSave, ActualSave.saveSlot);
+    }
+
 
     public void handleDifficultySaveData(int _currentLevel)
     {
