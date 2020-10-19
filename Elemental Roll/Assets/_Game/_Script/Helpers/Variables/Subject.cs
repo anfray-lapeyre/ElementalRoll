@@ -5,14 +5,26 @@ using UnityEngine;
 public class Subject : MonoBehaviour
 {
 
-    private  Observer[] observers;
-    private int numObservers=0;
+    protected Observer[] observers;
+    protected int numObservers=0;
+
+    protected void Awake()
+    {
+        observers = new Observer[20];
+    }
 
     public void addObserver(Observer _observer)
     {
-        observers[numObservers] = _observer;
-        _observer.ID = numObservers;
-        numObservers++;
+        if (_observer.ID < 0)
+        {
+            observers[numObservers] = _observer;
+            _observer.ID = numObservers;
+            numObservers++;
+        }
+        else
+        {
+            Debug.Log("This Observer is already observing a subject ! ");
+        }
     }
 
     public void removeObserver(Observer _observer)
@@ -23,7 +35,17 @@ public class Subject : MonoBehaviour
         //Then replace it with the last observer
         observers[newID] = observers[numObservers];
         //And change its own ID
-        //And change its own ID
         observers[newID].ID = newID;
+        //And we reset the one removed
+  
+        _observer.ID = -1;
+    }
+
+    public void Notify( Object notifiedEvent)
+    {
+        for (int i = 0; i < numObservers; i++)
+        {
+            observers[i].OnNotify(this.gameObject, notifiedEvent);
+        }
     }
 }
