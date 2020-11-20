@@ -4,17 +4,56 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.InputSystem;
 
-public class passCinematicScript : MonoBehaviour
+public class passCinematicScript : Observer
 {
     private bool isEnabled = true;
-    public void OnRestart(InputValue input)
+    private GameObject persistantHandler;
+
+
+    private void Awake()
     {
-        passCinematic();
+        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        persistantHandler.GetComponent<InputHandler>().addObserver(this);
     }
 
-    public void OnSpecialAction(InputValue input)
+
+    override public void OnNotify(GameObject entity, object notifiedEvent)
     {
-        passCinematic();
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+                //OnDirection(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                OnSpecialAction(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                OnRestart(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                //OnPause(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+                //OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                //OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnRestart(bool input)
+    {
+        if(input)
+            passCinematic();
+    }
+
+    public void OnSpecialAction(bool input)
+    {
+        if(input)
+            passCinematic();
     }
 
     private void passCinematic()

@@ -80,4 +80,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/Level1/GettingOut.unity
     guid: b7197d75347417c4faf4964ba35771a8
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 4ee3bfd2fdaf11e4aa636743c8c0dcde,
+      type: 2}

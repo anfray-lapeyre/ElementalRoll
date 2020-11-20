@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
 public class chooseSaveScript : MonoBehaviour
 {
     public GameObject firstSave;
@@ -26,7 +25,7 @@ public class chooseSaveScript : MonoBehaviour
     public GameObject secondDelete;
     public GameObject thirdDelete;
 
-    public EventSystem eventSystem;
+    public UIStateMachine stateMachine;
     public GameObject ConfirmChoiceWindow;
     private SaveFileInfo[] saves;
 
@@ -36,9 +35,12 @@ public class chooseSaveScript : MonoBehaviour
     private StartMenuScript target;
 
     private bool isNew = false;
+    private GameObject persistantHandler;
 
     private void Awake()
     {
+        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        //persistantHandler.GetComponent<InputHandler>().addObserver(this);
         this.gameObject.GetComponent<UIFader>().FadeIn(0.5f);
         Invoke("StopTime", 0.6f);
         RefreshBubbles();
@@ -123,16 +125,19 @@ public class chooseSaveScript : MonoBehaviour
     {
         ActualSave.saveSlot = 2;
         HandleSelect();
+        ActualSave.actualSave.fillWithBeaten(100);
     }
 
     private void HandleSelect()
     {
         if (saves[ActualSave.saveSlot] == null)
         {
-            eventSystem.enabled = false;
+            stateMachine.subject.removeObserver(stateMachine);
+
             ActualSave.actualSave = new SaveFileInfo();
 
             GameObject difficultyChoice = Instantiate(chooseDifficulty, this.transform);
+            difficultyChoice.GetComponentInChildren<UIStateMachine>().mustWait = true;
             difficultyChoice.GetComponent<difficultySettingsScript>().isInitialDifficultyChoice();
             choosesDifficulty = true;
             
@@ -169,11 +174,12 @@ public class chooseSaveScript : MonoBehaviour
     {
         if(saves[ActualSave.saveSlot] != null)
         {
-            eventSystem.enabled = false;
-
+            stateMachine.subject.removeObserver(stateMachine);
             GameObject confirmPanel = Instantiate(ConfirmChoiceWindow, this.transform);
             confirmPanel.GetComponent<confirmDifficultyChoiceScript>().setStartText(2);
-            
+            confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait = true;
+            stateMachine.mustWait = true;
+            Debug.Log("Open Delete panel");
         }
 
     }
@@ -183,7 +189,7 @@ public class chooseSaveScript : MonoBehaviour
 
     public void hasConfirmedSettings()
     {
-        eventSystem.enabled = true;
+        persistantHandler.GetComponent<InputHandler>().addObserver(stateMachine);
         //The player chose an empty slot
         if (choosesDifficulty)
         {
@@ -199,13 +205,18 @@ public class chooseSaveScript : MonoBehaviour
             switch (ActualSave.saveSlot)
             {
                 case 1:
-                    eventSystem.SetSelectedGameObject(secondSave.GetComponentInChildren<buttonShowTextScript>().gameObject);
+                    stateMachine.changeActiveObject(secondSave.GetComponentInChildren<buttonShowTextScript>().GetComponent<UIButton>());
+                    //eventSystem.SetSelectedGameObject(secondSave.GetComponentInChildren<buttonShowTextScript>().gameObject);
                     break;
                 case 2:
-                    eventSystem.SetSelectedGameObject(thirdSave.GetComponentInChildren<buttonShowTextScript>().gameObject);
+                    stateMachine.changeActiveObject(thirdSave.GetComponentInChildren<buttonShowTextScript>().GetComponent<UIButton>());
+
+                    //eventSystem.SetSelectedGameObject(thirdSave.GetComponentInChildren<buttonShowTextScript>().gameObject);
                     break;
                 default:
-                    eventSystem.SetSelectedGameObject(firstSave.GetComponentInChildren<buttonShowTextScript>().gameObject);
+                    stateMachine.changeActiveObject(firstSave.GetComponentInChildren<buttonShowTextScript>().GetComponent<UIButton>());
+
+                    //eventSystem.SetSelectedGameObject(firstSave.GetComponentInChildren<buttonShowTextScript>().gameObject);
                     break;
             }
             RefreshBubbles();
@@ -216,7 +227,8 @@ public class chooseSaveScript : MonoBehaviour
 
     public void hasCancelledSettings()
     {
-        eventSystem.enabled = true;
+        persistantHandler.GetComponent<InputHandler>().addObserver(stateMachine);
+
     }
 
     public void StopTime()
@@ -234,7 +246,6 @@ public class chooseSaveScript : MonoBehaviour
 
     private void OnDestroy()
     {
-
         if (target)
         {
             target.OutOfSave();

@@ -39,9 +39,9 @@ public class levelBubbleHandlerScript : MonoBehaviour
     public Sprite sixthBackground;
 
 
-    public GameObject getButton()
+    public UIButton getButton()
     {
-        return button;
+        return button.GetComponent<UIButton>();
     }
 
     public void setData(LevelFormat _levelData, int _levelNb)
@@ -177,10 +177,10 @@ public class levelBubbleHandlerScript : MonoBehaviour
                 backgroundImg.color = actualColor;
                 break;
         }
-        if (!ActualSave.actualSave.levels[levelNb-1].beaten)
+        if (!ActualSave.actualSave.levels[levelNb-1].beaten && levelNb-1>0)
         {
             backgroundImg.color = new Color(0.2f,0.2f,0.2f);
-            button.GetComponent<Button>().enabled = false;
+            button.GetComponent<UIButton>().activate( false);
             button.GetComponent<Image>().enabled = false;
         }
         LeanTween.rotateAround(smallParticles.gameObject, Vector3.forward, Mathf.Sign(Random.Range(-1f,1f))*360, 40 + Random.Range(-3f, 3f)).setLoopClamp();

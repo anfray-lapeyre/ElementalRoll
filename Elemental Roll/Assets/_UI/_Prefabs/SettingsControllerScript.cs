@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class SettingsControllerScript : MonoBehaviour
+public class SettingsControllerScript : Observer
 {
 
     public AudioMixer audioMixer;
@@ -76,6 +76,35 @@ public class SettingsControllerScript : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
+
+    }
+
+    override public void OnNotify(GameObject entity, object notifiedEvent)
+    {
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+                OnDirection(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                //OnConfirm(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                OnReturn(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                //OnPause(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+                //OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                //OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
     }
 
     public void setVolume(float volume)
@@ -128,20 +157,23 @@ public class SettingsControllerScript : MonoBehaviour
         }
     }
 
-    public void OnReturn(InputValue input)
+    public void OnReturn(bool input)
     {
-        if (inSetting)
+        if (input)
         {
+            if (inSetting)
+            {
 
-            audioSource.clip = soundClick;
-            audioSource.Play();
-            inSetting = false;
-        }
-        else
-        {
-            audioSource.clip = soundSwoosh;
-            audioSource.Play();
-            getBack();
+                audioSource.clip = soundClick;
+                audioSource.Play();
+                inSetting = false;
+            }
+            else
+            {
+                audioSource.clip = soundSwoosh;
+                audioSource.Play();
+                getBack();
+            }
         }
     }
 
@@ -158,8 +190,9 @@ public class SettingsControllerScript : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    override protected void OnDestroy()
     {
+        base.OnDestroy();
         if (this.GetComponentInParent<menuControllerScript>())
         {
             this.GetComponentInParent<menuControllerScript>().OptionClose();
@@ -170,13 +203,13 @@ public class SettingsControllerScript : MonoBehaviour
 
     }
 
-    public void OnDirection(InputValue value)
+    public void OnDirection(Vector2 value)
     {
-        if (value.Get<Vector2>().y > 0)
+        if (value.y > 0)
         {
             audioSource.clip = soundMoveUp;
             audioSource.Play();
-        }else if (value.Get<Vector2>().y < 0)
+        }else if (value.y < 0)
         {
             audioSource.clip = soundMoveDown;
             audioSource.Play();

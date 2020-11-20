@@ -15,4 +15,13 @@ public class Observer : MonoBehaviour
    virtual public void OnNotify(GameObject entity, object notifiedEvent) { }
     [HideInInspector]
     public int ID=-1;
+    public Subject subject;
+
+    virtual protected void OnDestroy()
+    {
+        if(subject != null)
+        {
+            subject.removeObserver(this);
+        }
+    }
 }

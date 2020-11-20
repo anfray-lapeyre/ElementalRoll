@@ -15,6 +15,7 @@ TagManager:
   - AudioBump
   - BonusCount
   - VictoryGate
+  - PersistentObject
   layers:
   - Default
   - TransparentFX

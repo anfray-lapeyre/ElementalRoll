@@ -36,11 +36,11 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Restart"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""fa5052f2-47be-4a60-a51c-49eeed789a20"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""LookMouse"",
@@ -54,17 +54,33 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""name"": ""SpecialAction"",
                     ""type"": ""PassThrough"",
                     ""id"": ""13b6ea9b-3654-4df9-b48d-0fced84ed53a"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""Pause"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""db94d7a4-aff3-43b0-bfa3-5899a8b3ebc8"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""TopView"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad0264c2-53e5-4a6d-8d0a-d6fcdaaf73e5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""EagleView"",
+                    ""type"": ""Button"",
+                    ""id"": ""c74cbc7d-8c26-4b7b-9ae2-96d45c1c6551"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -296,6 +312,83 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da72bc85-8a80-4a52-8091-f3637f246567"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TopView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9de3a923-d876-4505-90b9-8b5a5cf4d728"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TopView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""37624cdb-735f-426e-af88-004f71323c1d"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TopView"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""67d005d4-ec75-4a4f-92b0-2e7565250b65"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TopView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""9e38719c-ff34-4462-a2e5-be5b322614c5"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TopView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eadf1ca0-bd9d-466d-86f1-17e4e195a194"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EagleView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""144e3058-d133-4dcd-892b-ae0c989ef003"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EagleView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -559,6 +652,8 @@ public class @GameInputs : IInputActionCollection, IDisposable
         m_Gameplay_LookMouse = m_Gameplay.FindAction("LookMouse", throwIfNotFound: true);
         m_Gameplay_SpecialAction = m_Gameplay.FindAction("SpecialAction", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_TopView = m_Gameplay.FindAction("TopView", throwIfNotFound: true);
+        m_Gameplay_EagleView = m_Gameplay.FindAction("EagleView", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Direction = m_Menu.FindAction("Direction", throwIfNotFound: true);
@@ -619,6 +714,8 @@ public class @GameInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_LookMouse;
     private readonly InputAction m_Gameplay_SpecialAction;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_TopView;
+    private readonly InputAction m_Gameplay_EagleView;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -629,6 +726,8 @@ public class @GameInputs : IInputActionCollection, IDisposable
         public InputAction @LookMouse => m_Wrapper.m_Gameplay_LookMouse;
         public InputAction @SpecialAction => m_Wrapper.m_Gameplay_SpecialAction;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @TopView => m_Wrapper.m_Gameplay_TopView;
+        public InputAction @EagleView => m_Wrapper.m_Gameplay_EagleView;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -656,6 +755,12 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @TopView.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTopView;
+                @TopView.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTopView;
+                @TopView.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTopView;
+                @EagleView.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEagleView;
+                @EagleView.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEagleView;
+                @EagleView.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEagleView;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -678,6 +783,12 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @TopView.started += instance.OnTopView;
+                @TopView.performed += instance.OnTopView;
+                @TopView.canceled += instance.OnTopView;
+                @EagleView.started += instance.OnEagleView;
+                @EagleView.performed += instance.OnEagleView;
+                @EagleView.canceled += instance.OnEagleView;
             }
         }
     }
@@ -757,6 +868,8 @@ public class @GameInputs : IInputActionCollection, IDisposable
         void OnLookMouse(InputAction.CallbackContext context);
         void OnSpecialAction(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnTopView(InputAction.CallbackContext context);
+        void OnEagleView(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using EZCameraShake;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Observer
 {
     private bool loading = false;
     public float speedModifier = 1f;
@@ -71,8 +71,12 @@ public class PlayerController : MonoBehaviour
     private int characterUnlocked = 0;
     private bool hasPlayerTouched = false;
 
+    private GameObject persistantHandler;
+
     private void Start()
     {
+        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        persistantHandler.GetComponent<InputHandler>().addObserver(this);
         StartParent = this.transform.parent;
         playerCollider = this.GetComponent<SphereCollider>();
         emotions = this.GetComponent<EmotionHandlerScript>();
@@ -100,13 +104,40 @@ public class PlayerController : MonoBehaviour
         maxPowerTime.value = powerTime;
     }
 
-    public void OnMove(InputValue value)
+    override public void OnNotify(GameObject entity, object notifiedEvent)
+    {
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+                OnMove(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                OnSpecialAction(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                OnRestart(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                OnPause(((PauseCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+                OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnMove(Vector2 value)
     {
 
         if (!inOptions)
         {
-            moveHorizontal = value.Get<Vector2>().x;
-            moveVertical = value.Get<Vector2>().y;
+            moveHorizontal = value.x;
+            moveVertical = value.y;
         }
     }
 
@@ -126,57 +157,62 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnRestart(InputValue value)
+    public void OnRestart(bool value)
     {
-
-        if (!inOptions)
+        if (value)
         {
-            if (hasControls)
-                Restart();
+            if (!inOptions)
+            {
+                if (hasControls)
+                    Restart();
+            }
         }
     }
 
-    public void OnSpecialAction(InputValue value)
+    public void OnSpecialAction(bool value)
     {
-        if (hasControls)
+        if (value)
         {
-            if (powerGauge.value >= powerTime)
+            if (hasControls)
             {
-                powerGauge.value = 0f;
-                hasUsedPower = true;
-                hasPlayerTouched = true;
-                switch (power)
+                if (powerGauge.value >= powerTime)
                 {
-                    case 1: //Ice
-                            //Upward propulsion
-                        emotions.PowerUp();
-                        if (Gamepad.current != null)
-                        {
-                            Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-                        }
-                        invokingTime = 15;
-                        InvokeIce();
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    default: //Fire
-                             //Upward propulsion
-                        emotions.PowerUp();
-                        if (player.velocity.y < 0)
-                        {
-                            player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
-                        }
-                        player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
-                        if (Gamepad.current != null)
-                        {
-                            Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-                        }
-                        GameObject instantiatedBoom = Instantiate(Boom);
-                        instantiatedBoom.transform.position = this.transform.position;
-                        Destroy(instantiatedBoom, 2f);
-                        break;
+                    powerGauge.value = 0f;
+                    hasUsedPower = true;
+                    hasPlayerTouched = true;
+                    switch (power)
+                    {
+                        case 1: //Ice
+                                //Upward propulsion
+                            emotions.PowerUp();
+                            if (Gamepad.current != null)
+                            {
+                                Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+                            }
+                            invokingTime = 15;
+                            InvokeIce();
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        default: //Fire
+                                 //Upward propulsion
+                            emotions.PowerUp();
+                            if (player.velocity.y < 0)
+                            {
+                                player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+                            }
+                            player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
+                            if (Gamepad.current != null)
+                            {
+                                Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+                            }
+                            GameObject instantiatedBoom = Instantiate(Boom);
+                            instantiatedBoom.transform.position = this.transform.position;
+                            Destroy(instantiatedBoom, 2f);
+                            break;
+                    }
                 }
             }
         }
@@ -206,12 +242,15 @@ public class PlayerController : MonoBehaviour
             
     }
 
-    public void OnPause(InputValue value)
+    public void OnPause(bool value)
     {
-        if (!inOptions)
+        if (value)
         {
-            Instantiate(PauseMenu, this.transform);
-            inOptions = true;
+            if (!inOptions)
+            {
+                Instantiate(PauseMenu, this.transform);
+                inOptions = true;
+            }
         }
         
     }

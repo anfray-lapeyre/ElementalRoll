@@ -9,7 +9,7 @@ using UnityEngine.Video;
 using UnityEngine.EventSystems;
 
 
-public class DialogueHandler : MonoBehaviour
+public class DialogueHandler : Observer
 {
     private Dialogue dialogue1;
     public int startId;
@@ -39,11 +39,12 @@ public class DialogueHandler : MonoBehaviour
 
 
     public GameObject SaveSelectionScreen;
-    public EventSystem eventSystem;
     public IntVariable LivesLeft;
 
     public void Start()
     {
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
+
         GameObject levelLoader = Instantiate(LevelLoader);
         _levelLoader = levelLoader.GetComponent<LevelLoader>();
         Invoke("waitABit", 2f);
@@ -314,15 +315,49 @@ public class DialogueHandler : MonoBehaviour
     //INPUT
 
 
-    public void OnConfirm(InputValue value)
+    override public void OnNotify(GameObject entity, object notifiedEvent)
     {
-        nextLine = true;
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+               // OnDirection(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                OnConfirm(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                OnReturn(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                //OnPause(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+                //OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                //OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
     }
 
-    public void OnReturn(InputValue value)
+
+    public void OnConfirm(bool value)
     {
-        faster = true;
-        nextLine = true;
+        if (value)
+        {
+            nextLine = true;
+        }
+    }
+
+    public void OnReturn(bool value)
+    {
+        if (value)
+        {
+            faster = true;
+            nextLine = true;
+        }
     }
 
 }

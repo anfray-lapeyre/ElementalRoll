@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-
-public class UISoundScript : MonoBehaviour
+public class UISoundScript : Observer
 {
     private AudioSource audioSource;
     public AudioClip soundClick;
@@ -13,41 +11,76 @@ public class UISoundScript : MonoBehaviour
 
     private void Awake()
     {
+
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
         audioSource = this.GetComponent<AudioSource>();
     }
 
-    public void OnDirection(InputValue value)
+    override public void OnNotify(GameObject entity, object notifiedEvent)
     {
-        if (value.Get<Vector2>().y > 0)
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+                OnDirection(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                OnConfirm(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                OnReturn(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                OnReturn(((PauseCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+                //OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                //OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnDirection(Vector2 value)
+    {
+        if (value.y > 0)
         {
             audioSource.clip = soundMoveUp;
             audioSource.Play();
         }
-        else if (value.Get<Vector2>().y < 0)
+        else if (value.y < 0)
         {
             audioSource.clip = soundMoveDown;
             audioSource.Play();
-        }else if (value.Get<Vector2>().x > 0)
+        }else if (value.x > 0)
         {
             audioSource.clip = soundMoveUp;
             audioSource.Play();
         }
-        else if (value.Get<Vector2>().x < 0)
+        else if (value.x < 0)
         {
             audioSource.clip = soundMoveDown;
             audioSource.Play();
         }
     }
 
-    public void OnConfirm(InputValue value)
+    public void OnConfirm(bool value)
     {
-        audioSource.clip = soundClick;
-        audioSource.Play();
+        if (value)
+        {
+            audioSource.clip = soundClick;
+            audioSource.Play();
+        }
     }
 
-    public void OnReturn(InputValue value)
+    public void OnReturn(bool value)
     {
-        audioSource.clip = soundClick;
-        audioSource.Play();
+        if (value)
+        {
+            audioSource.clip = soundClick;
+            audioSource.Play();
+        }
     }
 }

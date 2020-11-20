@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UnitTestObserver : Observer
 {
-    public Subject subject;
     // Start is called before the first frame update
     void Start()
     {

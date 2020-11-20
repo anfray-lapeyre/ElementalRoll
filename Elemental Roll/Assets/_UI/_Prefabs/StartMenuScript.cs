@@ -19,9 +19,13 @@ public class StartMenuScript : MonoBehaviour
 
     public GameObject chooseSave;
     public UIFader firstTimefade;
+    private GameObject persistantHandler;
+
 
     private void Awake()
     {
+        //persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        //persistantHandler.GetComponent<InputHandler>().addObserver(this);
         currentLevel.value = ActualSave.actualSave.NextLevel();
         difficultyLife.value = ActualSave.actualSave.chosenLivesDifficulty;
         difficultyChrono.value = ActualSave.actualSave.chosenTimeDifficulty;
@@ -45,8 +49,7 @@ public class StartMenuScript : MonoBehaviour
         //Instantiate(UIFade);
         //UIFade.GetComponent<UIFader>().FadeIn();
 
-        eventSystem.enabled = false;
-
+        //this.subject.removeObserver(this);
         GameObject confirmPanel = Instantiate(ConfirmChoiceWindow, this.transform);
         confirmPanel.GetComponent<confirmDifficultyChoiceScript>().setStartText(2);
 
@@ -54,7 +57,7 @@ public class StartMenuScript : MonoBehaviour
 
     public void hasConfirmedSettings()
     {
-        eventSystem.enabled = true;
+       // persistantHandler.GetComponent<InputHandler>().addObserver(this);
 
         ActualSave.actualSave = new SaveFileInfo();
         SaveSystem.SaveGame(ActualSave.actualSave, ActualSave.saveSlot);
@@ -66,7 +69,8 @@ public class StartMenuScript : MonoBehaviour
 
     public void hasCancelledSettings()
     {
-        eventSystem.enabled = true;
+        //persistantHandler.GetComponent<InputHandler>().addObserver(this);
+
     }
 
     public void SpawnLevelSelection()
@@ -77,13 +81,17 @@ public class StartMenuScript : MonoBehaviour
 
     public void LoadGame()
     {
+        //this.subject.removeObserver(this);
         GameObject g = Instantiate(chooseSave, this.transform.parent);
-        eventSystem.enabled = false;
+
+
         g.GetComponent<chooseSaveScript>().SetTarget(this);
     }
 
     public void OutOfSave(bool isNew = false)
     {
+        //persistantHandler.GetComponent<InputHandler>().addObserver(this);
+
         if (isNew)
         {
             firstTimefade.FadeIn(2f);
@@ -101,6 +109,7 @@ public class StartMenuScript : MonoBehaviour
     {
         if (!isClosing)
         {
+
             isClosing = true;
             this.GetComponentInParent<menuControllerScript>().StartMenuClose();
             this.GetComponent<UIFader>().FadeOut();

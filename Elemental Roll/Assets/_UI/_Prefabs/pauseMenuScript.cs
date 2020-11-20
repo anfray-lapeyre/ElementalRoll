@@ -7,13 +7,16 @@ using TMPro;
 
 public class pauseMenuScript : MonoBehaviour
 {
-    public EventSystem eventSystem;
     public GameObject optionsButton;
     public GameObject difficultyButton;
     public GameObject OptionsMenu;
     public GameObject DifficultyMenu;
     public IntVariable currentLevel;
     public Button quitGameButton;
+    public UIStateMachine stateMachine;
+
+    private GameObject persistantHandler;
+
 
     bool inOption = true;
     public GameObject LevelLoader; // Base
@@ -21,21 +24,14 @@ public class pauseMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
+        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
         LeanTween.alphaCanvas(this.GetComponent<CanvasGroup>(), 1f, 0.2f);
         Invoke("stopTime", 0.2f);
         if(currentLevel.value < 0)
         {
-            difficultyButton.GetComponent<Button>().interactable = false;
+            difficultyButton.GetComponent<UIButton>().isActive = false;
             difficultyButton.GetComponentInChildren<TMP_Text>().color = new Color(0.1f, 0.1f, 0.1f);
-            Navigation optionsNav = optionsButton.GetComponent<Button>().navigation;
-            optionsNav.selectOnDown = quitGameButton; ;
-
-            Navigation getBackNav = quitGameButton.navigation;
-            getBackNav.selectOnUp = optionsButton.GetComponent<Button>();
-
-            optionsButton.GetComponent<Button>().navigation = optionsNav;
-            quitGameButton.navigation = getBackNav;
+        
         }
     }
 
@@ -51,7 +47,8 @@ public class pauseMenuScript : MonoBehaviour
         if (!inOption)
         {
             Instantiate(OptionsMenu, this.transform);
-            eventSystem.enabled = false;
+            stateMachine.subject.removeObserver(stateMachine);
+
             inOption = true;
         }
     }
@@ -61,7 +58,8 @@ public class pauseMenuScript : MonoBehaviour
         if (!inOption)
         {
             Instantiate(DifficultyMenu, this.transform);
-            eventSystem.enabled = false;
+            stateMachine.subject.removeObserver(stateMachine);
+
             inOption = true;
         }
     }
@@ -69,7 +67,7 @@ public class pauseMenuScript : MonoBehaviour
     public void OptionClose()
     {
         inOption = false;
-        eventSystem.enabled = true;
+        persistantHandler.GetComponent<InputHandler>().addObserver(stateMachine);
     }
 
     public void MainMenu()

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
-public class menuControllerScript : MonoBehaviour
+public class menuControllerScript : Observer
 {
     public PlayableDirector timeline;
     private passCinematicScript passCinematic;
@@ -24,7 +24,6 @@ public class menuControllerScript : MonoBehaviour
     public playerSelectionScript playerSelection;
 
 
-    public PlayerInput input;
     private int isActive = 0;
     private const int START = 0;
     private const int OPTIONS = 1;
@@ -55,36 +54,68 @@ public class menuControllerScript : MonoBehaviour
     public void Awake()
     {
         audioSource = this.GetComponent<AudioSource>();
-        
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
+
+    }
+
+
+    override public void OnNotify(GameObject entity, object notifiedEvent)
+    {
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+                OnDirection(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                OnConfirm(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                //OnRestart(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                //OnPause(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+                //OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                //OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
     }
 
     public void EnableInput()
     {
         bufferObject = Instantiate(StartText);
-        input.enabled = true;
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
         
     }
 
-    public void OnConfirm(InputValue input)
+    public void OnConfirm(bool input)
     {
-        if (!cinemachineBrain.IsBlending && !inOption)
+        if (input)
         {
-            audioSource.clip = soundZoom;
-            audioSource.Play();
-            switch (isActive)
+            if (!cinemachineBrain.IsBlending && !inOption)
             {
-                case OPTIONS:
-                    LoadOptionTab();
-                    break;
-                case PLAYERSELECTION:
-                    ChoosePlayer();
-                    break;
-                case PLAYERINSELECTION:
-                    ConfirmPlayer();
-                    break;
-                default: //case START
-                    LoadLevelSelectionTab();
-                    break;
+                audioSource.clip = soundZoom;
+                audioSource.Play();
+                switch (isActive)
+                {
+                    case OPTIONS:
+                        LoadOptionTab();
+                        break;
+                    case PLAYERSELECTION:
+                        ChoosePlayer();
+                        break;
+                    case PLAYERINSELECTION:
+                        ConfirmPlayer();
+                        break;
+                    default: //case START
+                        LoadLevelSelectionTab();
+                        break;
+                }
             }
         }
     }
@@ -93,7 +124,7 @@ public class menuControllerScript : MonoBehaviour
     //1 -> Options
     //2 -> PlayerSelection
 
-    public void OnDirection(InputValue input)
+    public void OnDirection(Vector2 input)
     {
         if (!inTransition)
         {
@@ -102,19 +133,19 @@ public class menuControllerScript : MonoBehaviour
                 switch (isActive)
                 {
                     case OPTIONS:
-                        if (input.Get<Vector2>().x > 0.1f)
+                        if (input.x > 0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             GoToStart();
                         }
-                        else if (input.Get<Vector2>().x < -0.1f)
+                        else if (input.x < -0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             GoToPlayers();
                         }
-                        else if (input.Get<Vector2>().y > 0.1f)
+                        else if (input.y > 0.1f)
                         {
                             audioSource.clip = soundZoom;
                             audioSource.Play();
@@ -122,19 +153,19 @@ public class menuControllerScript : MonoBehaviour
                         }
                         break;
                     case PLAYERSELECTION:
-                        if (input.Get<Vector2>().x > 0.1f)
+                        if (input.x > 0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             GoToOptions();
                         }
-                        else if (input.Get<Vector2>().x < -0.1f)
+                        else if (input.x < -0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             GoToStart();
                         }
-                        else if (input.Get<Vector2>().y > 0.1f)
+                        else if (input.y > 0.1f)
                         {
                             audioSource.clip = soundZoom;
                             audioSource.Play();
@@ -142,25 +173,25 @@ public class menuControllerScript : MonoBehaviour
                         }
                         break;
                     case PLAYERINSELECTION:
-                        if (input.Get<Vector2>().x > 0.1f)
+                        if (input.x > 0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             PlayerSelectionGoRight();
                         }
-                        else if (input.Get<Vector2>().x < -0.1f)
+                        else if (input.x < -0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             PlayerSelectionGoLeft();
                         }
-                        else if (input.Get<Vector2>().y > 0.1f)
+                        else if (input.y > 0.1f)
                         {
                             audioSource.clip = soundZoom;
                             audioSource.Play();
                             ConfirmPlayer();
                         }
-                        else if (input.Get<Vector2>().y < -0.1f)
+                        else if (input.y < -0.1f)
                         {
                             audioSource.clip = soundZoom;
                             audioSource.Play();
@@ -168,19 +199,19 @@ public class menuControllerScript : MonoBehaviour
                         }
                         break;
                     default: //case START
-                        if (input.Get<Vector2>().x > 0.1f)
+                        if (input.x > 0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             GoToPlayers();
                         }
-                        else if (input.Get<Vector2>().x < -0.1f)
+                        else if (input.x < -0.1f)
                         {
                             audioSource.clip = soundSwoosh;
                             audioSource.Play();
                             GoToOptions();
                         }
-                        else if (input.Get<Vector2>().y > 0.1f)
+                        else if (input.y > 0.1f)
                         {
                             audioSource.clip = soundZoom;
                             audioSource.Play();
@@ -203,12 +234,15 @@ public class menuControllerScript : MonoBehaviour
     {
         if(ActualSave.actualSave == null)
         {
-            //If no actual save is stored, it means the game is starting
-            spawnSave();
-            inOption = true;
-            //timeline.Pause();
-            passCinematic = timeline.gameObject.GetComponent<passCinematicScript>();
-            passCinematic.disable();
+            if (subject)
+            {
+                //If no actual save is stored, it means the game is starting
+                spawnSave();
+                inOption = true;
+                //timeline.Pause();
+                passCinematic = timeline.gameObject.GetComponent<passCinematicScript>();
+                passCinematic.disable();
+            }
         }
         else
         {
@@ -219,7 +253,9 @@ public class menuControllerScript : MonoBehaviour
 
     private void spawnSave()
     {
-            Instantiate(SaveSelectionScreen, this.transform);
+        subject.removeObserver(this);
+
+        Instantiate(SaveSelectionScreen, this.transform);
     }
 
     public void LaunchCinematic()
@@ -229,6 +265,7 @@ public class menuControllerScript : MonoBehaviour
 
     public void OutOfSave(bool isNew=false)
     {
+
         if (isNew)
         {
                 firstTimefade.FadeIn(1f);
@@ -237,6 +274,8 @@ public class menuControllerScript : MonoBehaviour
         }
         else
         {
+            GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
+
             inOption = false;
             passCinematic.doEnable();
             //GoToStart();
@@ -248,6 +287,7 @@ public class menuControllerScript : MonoBehaviour
 
     private void LoadLevelSelectionTab()
     {
+        subject.removeObserver(this);
         ResetPriority();
         hasStartedCamera.Priority = 20;
         inOption = true;
@@ -263,6 +303,7 @@ public class menuControllerScript : MonoBehaviour
     {
         if (!inOption)
         {
+            subject.removeObserver(this);
             inOption = true;
             ResetPriority();
             inOptionsCamera.Priority = 20;
@@ -387,6 +428,8 @@ public class menuControllerScript : MonoBehaviour
 
     public void outOfOption()
     {
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
+
         inOption = false;
     }
 

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;// Required when using Event data.
 using TMPro;
 
 
-public class buttonShowTextScript : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class buttonShowTextScript : MonoBehaviour
 {
     public TMP_Text levelName;
     public TMP_Text levelNbText;

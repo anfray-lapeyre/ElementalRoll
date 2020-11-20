@@ -8,7 +8,7 @@ public class difficultySettingsScript : MonoBehaviour
 {
 
     public GameObject LevelLoader;
-    public EventSystem eventSystem;
+    public UIStateMachine stateMachine;
     public GameObject ConfirmChoiceWindow;
 
     public IntVariable LivesDifficulty;
@@ -16,24 +16,24 @@ public class difficultySettingsScript : MonoBehaviour
     public IntVariable currentLevel;
 
 
-    public ToggleGroup TimeGroup;
-    public ToggleGroup LivesGroup;
+    public UIToggleGroup TimeGroup;
+    public UIToggleGroup LivesGroup;
 
-    public Toggle Time0;
-    public Toggle Time1;
-    public Toggle Time2;
+    public UIToggle Time0;
+    public UIToggle Time1;
+    public UIToggle Time2;
 
-    public Toggle Lives0;
-    public Toggle Lives1;
-    public Toggle Lives2;
+    public UIToggle Lives0;
+    public UIToggle Lives1;
+    public UIToggle Lives2;
 
     int iteration = 0;
 
-    public Button confirmButton;
+    public UIButton confirmButton;
 
-    public Button backButton;
+    public UIButton backButton;
     private Color disabledColor = new Color(0.1f, 0.1f, 0.1F);
-    private TMPro.TMP_Text text;
+    private TMPro.TextMeshProUGUI text;
 
     private int chosenLife;
     private int chosenTime;
@@ -49,46 +49,59 @@ public class difficultySettingsScript : MonoBehaviour
 
     private void Awake()
     {
-        text = confirmButton.GetComponentsInChildren<TMPro.TMP_Text>()[0];
+        text = confirmButton.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         text.color = disabledColor;
-        chosenLife = LivesDifficulty.value;
-        chosenTime = TimeDifficulty.value;
-        TimeGroup.SetAllTogglesOff();
-        LivesGroup.SetAllTogglesOff();
-        switch (LivesDifficulty.value)
-        {
-            case 1:
-                Lives1.isOn = true;
-                break;
-            case 2:
-                Lives2.isOn = true;
-                break;
-            default:
-                Lives0.isOn = true;
-                break;
-        }
-        switch (TimeDifficulty.value)
-        {
-            case 1:
-                Time1.isOn = true;
-                break;
-            case 2:
-                Time2.isOn = true;
-                break;
-            default:
-                Time0.isOn = true;
-                break;
-        }
 
-        TimeGroup.allowSwitchOff = false;
-        LivesGroup.allowSwitchOff = false;
+
+    }
+
+    private void Start()
+    {
+        if (!initialDifficultyChoice)
+        {
+            chosenLife = LivesDifficulty.value;
+            chosenTime = TimeDifficulty.value;
+            TimeGroup.SetAllTogglesOff();
+            LivesGroup.SetAllTogglesOff();
+            switch (LivesDifficulty.value)
+            {
+                case 1:
+                    Lives1.Check();
+                    break;
+                case 2:
+                    Lives2.Check();
+
+                    break;
+                default:
+                    Lives0.Check();
+                    break;
+            }
+            switch (TimeDifficulty.value)
+            {
+                case 1:
+                    Time1.Check();
+                    break;
+                case 2:
+                    Time2.Check();
+                    break;
+                default:
+                    Time0.Check();
+                    break;
+            }
+        }
     }
 
     public void isInitialDifficultyChoice()
     {
+        chosenLife = -1;
+        chosenTime = -1;
+        text.color = disabledColor;
         initialDifficultyChoice = true;
-        confirmButton.interactable = true;
-        text.color = Color.white;
+        confirmButton.activate( false);
+        //text.color = Color.white;
+        TimeGroup.SetAllTogglesOff();
+        LivesGroup.SetAllTogglesOff();
+        Debug.Log("BIM, Initial difficulty choice");
     }
 
     public void setTimeDifficultyUnlimited( bool isToggled)
@@ -100,12 +113,12 @@ public class difficultySettingsScript : MonoBehaviour
                 chosenTime = 0;
                 if (chosenTime != TimeDifficulty.value)
                 {
-                    confirmButton.interactable = true;
+                    confirmButton.activate(true);
                     text.color = Color.white;
                 }
                 else if (chosenTime == TimeDifficulty.value && chosenLife == LivesDifficulty.value)
                 {
-                    confirmButton.interactable = false;
+                    confirmButton.activate(false);
                     text.color = disabledColor;
 
 
@@ -117,6 +130,11 @@ public class difficultySettingsScript : MonoBehaviour
             if (isToggled)
             {
                 chosenTime = 0;
+                if (chosenLife >= 0)
+                {
+                    confirmButton.activate(true);
+                    text.color = Color.white;
+                }
             }
         }
 
@@ -131,13 +149,13 @@ public class difficultySettingsScript : MonoBehaviour
                 chosenTime = 1;
                 if (chosenTime != TimeDifficulty.value)
                 {
-                    confirmButton.interactable = true;
+                    confirmButton.activate(true);
                     text.color = Color.white;
 
                 }
                 else if (chosenTime == TimeDifficulty.value && chosenLife == LivesDifficulty.value)
                 {
-                    confirmButton.interactable = false;
+                    confirmButton.activate(false);
                     text.color = disabledColor;
 
                 }
@@ -148,6 +166,11 @@ public class difficultySettingsScript : MonoBehaviour
             if (isToggled)
             {
                 chosenTime = 1;
+                if (chosenLife >= 0)
+                {
+                    confirmButton.activate(true);
+                    text.color = Color.white;
+                }
             }
         }
     }
@@ -161,13 +184,13 @@ public class difficultySettingsScript : MonoBehaviour
                 chosenTime = 2;
                 if (chosenTime != TimeDifficulty.value)
                 {
-                    confirmButton.interactable = true;
+                    confirmButton.activate(true);
                     text.color = Color.white;
 
                 }
                 else if (chosenTime == TimeDifficulty.value && chosenLife == LivesDifficulty.value)
                 {
-                    confirmButton.interactable = false;
+                    confirmButton.activate(false);
                     text.color = disabledColor;
 
                 }
@@ -178,6 +201,11 @@ public class difficultySettingsScript : MonoBehaviour
             if (isToggled)
             {
                 chosenTime = 2;
+                if (chosenLife >= 0)
+                {
+                    confirmButton.activate(true);
+                    text.color = Color.white;
+                }
             }
         }
     }
@@ -192,13 +220,13 @@ public class difficultySettingsScript : MonoBehaviour
                 chosenLife = 0;
                 if (chosenLife != LivesDifficulty.value)
                 {
-                    confirmButton.interactable = true;
+                    confirmButton.activate(true);
                     text.color = Color.white;
 
                 }
                 else if (chosenTime == TimeDifficulty.value && chosenLife == LivesDifficulty.value)
                 {
-                    confirmButton.interactable = false;
+                    confirmButton.activate(false);
                     text.color = disabledColor;
 
                 }
@@ -210,6 +238,11 @@ public class difficultySettingsScript : MonoBehaviour
             if (isToggled)
             {
                 chosenLife = 0;
+                if (chosenTime >= 0)
+                {
+                    confirmButton.activate(true);
+                    text.color = Color.white;
+                }
             }
         }
     }
@@ -223,13 +256,13 @@ public class difficultySettingsScript : MonoBehaviour
                 chosenLife = 1;
                 if (chosenLife != LivesDifficulty.value)
                 {
-                    confirmButton.interactable = true;
+                    confirmButton.activate(true);
                     text.color = Color.white;
 
                 }
                 else if (chosenTime == TimeDifficulty.value && chosenLife == LivesDifficulty.value)
                 {
-                    confirmButton.interactable = false;
+                    confirmButton.activate(false);
                     text.color = disabledColor;
 
                 }
@@ -240,6 +273,11 @@ public class difficultySettingsScript : MonoBehaviour
             if (isToggled)
             {
                 chosenLife = 1;
+                if (chosenTime >= 0)
+                {
+                    confirmButton.activate(true);
+                    text.color = Color.white;
+                }
             }
         }
     }
@@ -253,13 +291,13 @@ public class difficultySettingsScript : MonoBehaviour
                 chosenLife = 2;
                 if (chosenLife != LivesDifficulty.value)
                 {
-                    confirmButton.interactable = true;
+                    confirmButton.activate(true);
                     text.color = Color.white;
 
                 }
                 else if (chosenTime == TimeDifficulty.value && chosenLife == LivesDifficulty.value)
                 {
-                    confirmButton.interactable = false;
+                    confirmButton.activate(false);
                     text.color = disabledColor;
 
                 }
@@ -270,6 +308,11 @@ public class difficultySettingsScript : MonoBehaviour
             if (isToggled)
             {
                 chosenLife = 2;
+                if (chosenTime >= 0)
+                {
+                    confirmButton.activate(true);
+                    text.color = Color.white;
+                }
             }
         }
     }
@@ -292,7 +335,10 @@ public class difficultySettingsScript : MonoBehaviour
 
             confirmPanel.GetComponent<confirmDifficultyChoiceScript>().setStartText(!(chosenLife == 2 && chosenLife != LivesDifficulty.value) ? 1 : 0);
 
-            eventSystem.enabled = false;
+            confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait=true;
+            stateMachine.subject.removeObserver(stateMachine);
+            stateMachine.mustWait = true;
+            //eventSystem.enabled = false;
         }
     }
 
@@ -329,14 +375,17 @@ public class difficultySettingsScript : MonoBehaviour
         }
         else
         {
-            eventSystem.enabled = true;
+            GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(stateMachine);
+            //eventSystem.enabled = true;
         }
       
     }
 
     public void hasCancelledSettings()
     {
-        eventSystem.enabled = true;
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(stateMachine);
+
+        //eventSystem.enabled = true;
     }
 
 
@@ -346,6 +395,7 @@ public class difficultySettingsScript : MonoBehaviour
         if (initialDifficultyChoice)
         {
             this.GetComponentInParent<chooseSaveScript>().hasCancelledSettings();
+            this.GetComponentInParent<chooseSaveScript>().stateMachine.mustWait = true;
         }
         Destroy(this.gameObject);
     }

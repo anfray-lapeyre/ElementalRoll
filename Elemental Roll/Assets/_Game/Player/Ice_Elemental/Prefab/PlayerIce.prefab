@@ -172,7 +172,6 @@ GameObject:
   - component: {fileID: 2105727858131448588}
   - component: {fileID: 2105727858131448591}
   - component: {fileID: 2105727858131448590}
-  - component: {fileID: 2105727858131448592}
   - component: {fileID: 8548735534333662015}
   m_Layer: 0
   m_Name: PlayerIce
@@ -289,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c46577dc63e0f4e81ec2d05602a3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: -1
   speedModifier: 3
   invertSpeedModifier: 2
   jumpForce: 550
@@ -317,72 +317,6 @@ MonoBehaviour:
   maxPowerTime: {fileID: 11400000, guid: 20592417207e2244b9b76848f44d5c42, type: 2}
   powerTime: 15
   Boom: {fileID: 3992283936593801526, guid: e8c13b2549a448245b7bb4737d2058b9, type: 3}
---- !u!114 &2105727858131448592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105727858131448585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: fef83863030a1a6449b0d94eec1aec28,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2105727858131448585}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 91195726-8329-4d84-ae26-ac01856f5fe0
-    m_ActionName: Gameplay/Move[/DualShock4GamepadHID/dpad,/DualShock4GamepadHID/leftStick,/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s,/Keyboard/leftArrow,/Keyboard/a,/Keyboard/rightArrow,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f3538674-8fd1-4824-bd48-543473365942
-    m_ActionName: Gameplay/Look[/DualShock4GamepadHID/rightStick,/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fa5052f2-47be-4a60-a51c-49eeed789a20
-    m_ActionName: Gameplay/Restart[/DualShock4GamepadHID/select,/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 86dbd9ed-9636-4217-a37b-15acec38b74e
-    m_ActionName: Menu/Direction[/DualShock4GamepadHID/dpad,/DualShock4GamepadHID/leftStick,/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s,/Keyboard/leftArrow,/Keyboard/a,/Keyboard/rightArrow,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c18c3892-d5c3-407c-a5ad-f0c9c8d9239b
-    m_ActionName: Menu/Return[/DualShock4GamepadHID/buttonWest,/Keyboard/backspace]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3ed7f8a8-78fe-434d-a885-355090c9fa03
-    m_ActionName: Menu/Confirm[/DualShock4GamepadHID/buttonSouth,/Keyboard/enter]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &8548735534333662015
 MonoBehaviour:
   m_ObjectHideFlags: 0

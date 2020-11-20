@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
 
 public class confirmDifficultyChoiceScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class confirmDifficultyChoiceScript : MonoBehaviour
     public TMP_Text normalText;
     public TMP_Text hardcoreText;
     public TMP_Text saveText;
+
 
     public void Confirm()
     {
@@ -25,6 +27,7 @@ public class confirmDifficultyChoiceScript : MonoBehaviour
 
     public void Cancel()
     {
+        Debug.Log("Cancel");
         if (this.GetComponentInParent<difficultySettingsScript>() != null)
             this.GetComponentInParent<difficultySettingsScript>().hasCancelledSettings();
         else if (this.GetComponentInParent<StartMenuScript>() != null)
