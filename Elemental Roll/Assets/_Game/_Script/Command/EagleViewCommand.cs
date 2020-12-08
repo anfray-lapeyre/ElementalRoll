@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class EagleViewCommand : Command
 {
     private bool pressed = false;
+
     override public void execute(object value) {
         InputValue input = value as InputValue;
         pressed = input.isPressed;

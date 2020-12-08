@@ -10,7 +10,7 @@ public class passCinematicScript : Observer
     private GameObject persistantHandler;
 
 
-    private void Awake()
+    private void Start()
     {
         persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
         persistantHandler.GetComponent<InputHandler>().addObserver(this);
@@ -62,6 +62,7 @@ public class passCinematicScript : Observer
         {
             PlayableDirector director = this.gameObject.GetComponent<PlayableDirector>();
             director.playableGraph.GetRootPlayable(0).SetSpeed(10000);
+            
         }
 
     }

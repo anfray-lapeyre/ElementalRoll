@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Command
+public class Command : MonoBehaviour
 {
     virtual public void execute(object value) { }
 }

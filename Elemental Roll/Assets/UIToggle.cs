@@ -10,22 +10,25 @@ public class UIToggle : UIButton
     public Sprite uncheckedImage;
     public Sprite checkedImage;
     public Color uncheckedColor;
+    public Color normalCheckedColor;
+    public Color selectedCheckedColor;
+    public Color pressedCheckedColor;
     public Color checkedColor;
     public bool isChecked=false;
     public UIToggleGroup toggleGroup;
 
     override protected void Awake()
     {
-        toggleGroup.PopulateToggles(this);
+        if(toggleGroup)toggleGroup.PopulateToggles(this);
         //Debug.Break();
         if (targetGraphic != null)
         {
             //baseImageColor = targetGraphic.color;
             if (isActive)
-                targetGraphic.color = normalColor *baseImageColor* ((isChecked) ? checkedColor : uncheckedColor);
+                targetGraphic.color = ((isChecked) ? normalCheckedColor * checkedColor : normalColor * baseImageColor * uncheckedColor);
             else
             {
-                targetGraphic.color = disabledColor * baseImageColor * ((isChecked) ? checkedColor : uncheckedColor);
+                targetGraphic.color = disabledColor *((isChecked) ? checkedColor : baseImageColor * uncheckedColor);
             }
             if (isChecked)
             {
@@ -55,7 +58,7 @@ public class UIToggle : UIButton
                 {
                     toggleGroup.select(this);
                 }
-                colorTransition(selectedColor * ((isChecked) ? checkedColor : uncheckedColor));
+                colorTransition( ((isChecked) ? selectedCheckedColor * checkedColor : selectedColor * uncheckedColor));
                 actualState = newState;
                 return this;
             case UNSELECTED://It is already unselected, so there should be no problem, just OK
@@ -87,7 +90,7 @@ public class UIToggle : UIButton
         }
     }
 
-    protected new UIButton changeWhenSelected(int newState)
+    protected override UIButton changeWhenSelected(int newState)
     {
 
         if (!isActive)
@@ -101,7 +104,7 @@ public class UIToggle : UIButton
                 return this;
             case UNSELECTED: //Not a normal case, but if a script asks a button to unselected, we should be OK
                 //LeanTween. (targetGraphic, normalColor, transitionSpeed);
-                colorTransition(normalColor * ((isChecked) ? checkedColor : uncheckedColor));
+                colorTransition(((isChecked) ? normalCheckedColor * checkedColor : normalColor * uncheckedColor));
                 actualState = newState;
                 return this;
             case GOLEFT:
@@ -117,6 +120,10 @@ public class UIToggle : UIButton
 
     }
 
+     override protected void launchSelected()
+    {
+
+    }
 
     override protected UIButton moveToNext(UIButton nextButton, int wantedState)
     {
@@ -125,7 +132,7 @@ public class UIToggle : UIButton
             if (actualState != SELECTED)
             {
                 actualState = SELECTED;
-                colorTransition(selectedColor * ((isChecked)? checkedColor : uncheckedColor));
+                colorTransition(((isChecked)? selectedCheckedColor * checkedColor : selectedColor * uncheckedColor));
             }
             return this;
         }
@@ -133,7 +140,7 @@ public class UIToggle : UIButton
         if (nextSelected != null)
         {
             //A button has been selected, so we deselect ourselves and return the selected button
-            colorTransition(normalColor * ((isChecked) ? checkedColor : uncheckedColor));
+            colorTransition(((isChecked) ? normalCheckedColor * checkedColor : normalColor * uncheckedColor));
             actualState = UNSELECTED;
             return nextSelected;
         }
@@ -149,6 +156,10 @@ public class UIToggle : UIButton
             {
                 Check();
             }
+            else
+            {
+                Uncheck();
+            }
         }
 
     }
@@ -158,22 +169,46 @@ public class UIToggle : UIButton
         targetGraphic.sprite = checkedImage;
 
         isChecked = true;
-        colorTransition(selectedColor * checkedColor);
+        colorTransition(selectedCheckedColor * checkedColor);
 
-        toggleGroup.select(this);
+        if (toggleGroup) toggleGroup.select(this);
         BaseEventData eventData = new BaseEventData(EventSystem.current);
 
-        customCallback.Invoke(eventData);
-        Debug.Log("Checked");
+        whenSelected.Invoke(eventData);
     }
 
     public void Uncheck()
     {
-        Debug.Log("Unchecked");
 
         targetGraphic.sprite = uncheckedImage;
-        colorTransition(normalColor * uncheckedColor);
+        colorTransition(((actualState == SELECTED)? selectedColor : normalColor) * uncheckedColor);
         isChecked = false;
+        if (toggleGroup) toggleGroup.select(null);
+        BaseEventData eventData = new BaseEventData(EventSystem.current);
+
+        whenDeselected.Invoke(eventData);
+    }
+
+
+    override protected void colorTransition(Color toColor)
+    {
+
+        if (targetGraphic != null)
+        {
+            if (Time.timeScale >= 0.1f)
+            {
+                LeanTween.value(targetGraphic.gameObject, targetGraphic.color, toColor, transitionSpeed).setOnUpdate((Color _value) =>
+                {
+                        targetGraphic.color = _value * baseImageColor;
+
+                });
+            }
+            else
+            {
+                targetGraphic.color = toColor * baseImageColor;
+
+            }
+        }
     }
 
 }

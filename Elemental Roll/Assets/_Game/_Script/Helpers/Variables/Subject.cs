@@ -55,4 +55,21 @@ public class Subject : MonoBehaviour
             observers[i].OnNotify(this.gameObject, notifiedEvent);
         }
     }
+
+
+    protected void InvokeRealTime(string functionName, float delay)
+    {
+        StartCoroutine(InvokeRealTimeHelper(functionName, delay));
+    }
+
+    private IEnumerator InvokeRealTimeHelper(string functionName, float delay)
+    {
+        float timeElapsed = 0f;
+        while (timeElapsed < delay)
+        {
+            timeElapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        SendMessage(functionName);
+    }
 }

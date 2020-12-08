@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 11400000, guid: ddfcf09eb8feb09408aea83e6aad0da4, type: 2}
   bar: {fileID: 263814748}
-  scrollRect: {fileID: 0}
+  scrollRect: {fileID: 1859338595}
   stateMachine: {fileID: 1726016920}
   levelsContainer: {fileID: 1859338594}
   horizontalContainer: {fileID: 5772479799807378671, guid: 3538512d5b2782b428ab03949b451b46,

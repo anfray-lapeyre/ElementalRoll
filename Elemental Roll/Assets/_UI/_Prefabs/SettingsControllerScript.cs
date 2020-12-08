@@ -12,16 +12,16 @@ public class SettingsControllerScript : Observer
     public AudioMixer audioMixer;
     private Resolution[] resolutions;
     public Color highlightColor = Color.black;
-    public Toggle fullScreenToggle;
-    public TMP_Dropdown resolutionDropdown;
-    public TMP_Dropdown qualityDropdown;
+    public UIToggle fullScreenToggle;
+    public UIDropDown resolutionDropdown;
+    public UIDropDown qualityDropdown;
     public Image fillBackground;
 
-    public Slider VolumeSlider;
-    public Slider MusicVolumeSlider;
-    public Slider SoundVolumeSlider;
+    public UIValueSlider VolumeSlider;
+    public UIValueSlider MusicVolumeSlider;
+    public UIValueSlider SoundVolumeSlider;
 
-    public Button backButton;
+    public UIButton backButton;
 
     private bool inSetting = false;
 
@@ -36,6 +36,8 @@ public class SettingsControllerScript : Observer
     public AudioClip soundMoveDown;
     public AudioClip soundMoveUp;
     public AudioClip soundSwoosh;
+
+    public UIStateMachine stateMachine;
 
     private void Awake()
     {
@@ -52,8 +54,28 @@ public class SettingsControllerScript : Observer
             this.GetComponent<CanvasGroup>().alpha = 1f;
         }
 
+        if (Screen.fullScreen)
+        {
+            fullScreenToggle.Check();
+        }
+        else
+        {
+            fullScreenToggle.Uncheck();
+        }
 
-        fullScreenToggle.isOn = Screen.fullScreen;
+        //SOUND SLIDERS INITIALIZATION
+        float value;
+        audioMixer.GetFloat("GlobalVolume", out value);
+        VolumeSlider.value = value;
+        VolumeSlider.Refresh();
+
+        audioMixer.GetFloat("MusicVolume", out value);
+        MusicVolumeSlider.value = value;
+        MusicVolumeSlider.Refresh();
+
+        audioMixer.GetFloat("SoundVolume", out value);
+        SoundVolumeSlider.value = value;
+        SoundVolumeSlider.Refresh();
 
         qualityDropdown.value = QualitySettings.GetQualityLevel();
 
@@ -107,54 +129,63 @@ public class SettingsControllerScript : Observer
         }
     }
 
-    public void setVolume(float volume)
+    public void setVolume()
     {
+
         audioSource.clip = soundClick;
         audioSource.Play();
-        audioMixer.SetFloat("GlobalVolume", volume);
+        
+        audioMixer.SetFloat("GlobalVolume", VolumeSlider.value);
     }
 
-    public void setMusicVolume(float volume)
+    public void setMusicVolume()
     {
+
         audioSource.clip = soundClick;
         audioSource.Play();
-        audioMixer.SetFloat("MusicVolume", volume);
+        audioMixer.SetFloat("MusicVolume", MusicVolumeSlider.value);
     }
 
-    public void setSoundVolume(float volume)
+    public void setSoundVolume()
     {
         audioSource.clip = soundClick;
         audioSource.Play();
-        audioMixer.SetFloat("SoundVolume", volume);
+        audioMixer.SetFloat("SoundVolume", SoundVolumeSlider.value);
     }
 
-    public void setQuality(int qualityIndex)
+    public void setQuality()
     {
         audioSource.clip = soundClick;
         audioSource.Play();
-        if (QualitySettings.GetQualityLevel() != qualityIndex)
-            QualitySettings.SetQualityLevel(qualityIndex);
+        if (QualitySettings.GetQualityLevel() != qualityDropdown.value)
+            QualitySettings.SetQualityLevel(qualityDropdown.value);
+        stateMachine.mustWait = true;
     }
 
 
     public void SetFullScreen(bool isFullScreen)
     {
-        audioSource.clip = soundClick;
-        audioSource.Play();
-        Screen.fullScreen = isFullScreen;
-    }
-
-
-    public void SetResolution(int resolutionIndex)
-    {
-        if (resolutions[resolutionIndex].width != Screen.currentResolution.width || resolutions[resolutionIndex].height != Screen.currentResolution.height)
+        if (audioSource != null)
         {
             audioSource.clip = soundClick;
             audioSource.Play();
-            Resolution resolution = resolutions[resolutionIndex];
+        }
+        Screen.fullScreen = isFullScreen;
+        stateMachine.mustWait = true;
+    }
+
+
+    public void SetResolution()
+    {
+        if (resolutions[resolutionDropdown.value].width != Screen.currentResolution.width || resolutions[resolutionDropdown.value].height != Screen.currentResolution.height)
+        {
+            audioSource.clip = soundClick;
+            audioSource.Play();
+            Resolution resolution = resolutions[resolutionDropdown.value];
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
         }
+        stateMachine.mustWait = true;
     }
 
     public void OnReturn(bool input)

@@ -23,15 +23,17 @@ public class UIAutoScrollDropDown : MonoBehaviour
 
     public void resetScrollBar()
     {
-        if (eventSystem.firstSelected.GetType().ToString() == "UIDropDownItem")
-        {
-            UIDropDownItem firstSelect = eventSystem.firstSelected as UIDropDownItem;
-            bar.value = Mathf.Max(0,Mathf.FloorToInt((((float)firstSelect.value)/dropdown.options.Length)* bar.nbSteps -0.2f));
-            Debug.Log("firstselect : "+firstSelect.value + " bar : " +bar.nbSteps);
-            Debug.Log(((((float)firstSelect.value) / dropdown.options.Length) * bar.nbSteps - 0.2f));
-        }
-        oldSelected = dropdown.value;
-        bar.Refresh();
+
+            if (eventSystem.firstSelected.GetType().ToString() == "UIDropDownItem")
+            {
+                UIDropDownItem firstSelect = eventSystem.firstSelected as UIDropDownItem;
+                if(bar)
+                     bar.value = Mathf.Max(0, Mathf.FloorToInt((((float)firstSelect.value) / dropdown.options.Count) * bar.nbSteps - 0.2f));
+
+            }
+            oldSelected = dropdown.value;
+            if(bar)
+                bar.Refresh();
     }
 
     // Update is called once per frame
@@ -57,10 +59,15 @@ public class UIAutoScrollDropDown : MonoBehaviour
                     if (currentSelected != oldSelected)
                     {
 
-                         bar.value = Mathf.Max(0, Mathf.FloorToInt((((float)firstSelect.value) / dropdown.options.Length) * bar.nbSteps - 0.2f));
-                         oldSelected = currentSelected;
-                           bar.Refresh();
-                    }
+                    
+                        oldSelected = currentSelected;
+
+                        if (bar)
+                        {
+                            bar.value = Mathf.Max(0, Mathf.FloorToInt((((float)firstSelect.value) / dropdown.options.Count) * bar.nbSteps - 0.2f));
+                            bar.Refresh();
+                        }
+                }
             }
 
         }

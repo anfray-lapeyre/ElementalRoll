@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -630,7 +630,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191441323}
-  m_LocalRotation: {x: 0.55696565, y: 0.41870296, z: -0.3855725, w: 0.6048231}
+  m_LocalRotation: {x: 0.5569657, y: 0.4187029, z: -0.3855724, w: 0.6048232}
   m_LocalPosition: {x: 0.5, y: 5.16, z: -2.725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2517,13 +2517,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1273325153}
-    characterCount: 4
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3561,6 +3561,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1839592440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6800909101603772854, guid: f7d79f588225d8541bb23c00e9d4caf2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6800909101940760678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1839592441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839592440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29a1faeaa8a96d94dbe3f85a00762553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  output: 
+  stack: 
+  maxLines: 30
 --- !u!1 &1877646773
 GameObject:
   m_ObjectHideFlags: 3
@@ -23237,10 +23258,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6800909101603772853, guid: f7d79f588225d8541bb23c00e9d4caf2,
+        type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Gamepad
+      objectReference: {fileID: 0}
     - target: {fileID: 6800909101603772854, guid: f7d79f588225d8541bb23c00e9d4caf2,
         type: 3}
       propertyPath: m_Name
       value: PersistentObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800909101603772855, guid: f7d79f588225d8541bb23c00e9d4caf2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d79f588225d8541bb23c00e9d4caf2, type: 3}

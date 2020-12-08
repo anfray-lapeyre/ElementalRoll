@@ -29,7 +29,7 @@ public class UISlider : UIButton
     {
         handle = targetGraphic.gameObject.GetComponent<RectTransform>();
         handle.sizeDelta = new Vector2(handle.sizeDelta.x, this.GetComponent<RectTransform>().sizeDelta.y * size);
-        handle.anchoredPosition = new Vector2(handle.anchoredPosition.x, Mathf.Max(-this.GetComponent<RectTransform>().sizeDelta.y + handle.sizeDelta.y / 2,Mathf.Min(-handle.sizeDelta.y / 2 , -handle.sizeDelta.y / 2 - ( this.GetComponent<RectTransform>().sizeDelta.y / nbSteps)*value)));
+        handle.anchoredPosition = new Vector2(handle.anchoredPosition.x, Mathf.Max(-this.GetComponent<RectTransform>().sizeDelta.y + handle.sizeDelta.y / 2,Mathf.Min(-handle.sizeDelta.y / 2 , -handle.sizeDelta.y / 2 - ( this.GetComponent<RectTransform>().sizeDelta.y / (nbSteps+3))*value)));
         contentToScroll.anchoredPosition = new Vector2(contentToScroll.anchoredPosition.x, Mathf.Max(-contentToScroll.sizeDelta.y / 2f, Mathf.Min(contentToScroll.sizeDelta.y / 2 - scrollContainer.sizeDelta.y, -contentToScroll.sizeDelta.y / 2 + ((contentToScroll.sizeDelta.y - scrollContainer.sizeDelta.y) / (nbSteps - 1))*value)));
     }
 
@@ -41,24 +41,18 @@ public class UISlider : UIButton
             {
                 case GOUP:
                     value = Mathf.Max(0, value - 1);
-                    //We move the handle up
-                    handle.anchoredPosition = new Vector2(handle.anchoredPosition.x, Mathf.Min(handle.anchoredPosition.y + this.GetComponent<RectTransform>().sizeDelta.y / nbSteps, - handle.sizeDelta.y / 2));
-                    //We move the content down
-                    contentToScroll.anchoredPosition = new Vector2(contentToScroll.anchoredPosition.x, Mathf.Max(contentToScroll.anchoredPosition.y - (contentToScroll.sizeDelta.y - scrollContainer.sizeDelta.y) / (nbSteps-1),-contentToScroll.sizeDelta.y/2f));
+                    Refresh();
                     break;
                 case GODOWN:
                     value = Mathf.Min(nbSteps-1, value + 1);
 
-                    //We move the handle down
-                    handle.anchoredPosition = new Vector2(handle.anchoredPosition.x, Mathf.Max(handle.anchoredPosition.y - this.GetComponent<RectTransform>().sizeDelta.y/nbSteps, -this.GetComponent<RectTransform>().sizeDelta.y + handle.sizeDelta.y/2));
-                    //We move the content up
-                    contentToScroll.anchoredPosition = new Vector2(contentToScroll.anchoredPosition.x, Mathf.Min(contentToScroll.anchoredPosition.y + (contentToScroll.sizeDelta.y -scrollContainer.sizeDelta.y)/ (nbSteps-1), contentToScroll.sizeDelta.y/2 - scrollContainer.sizeDelta.y));
+                    Refresh();
 
                     break;
                 case GOLEFT:
                     if (isSliderFromLevelSelection)
                     {
-                        Invoke("leaveSelected", 0.01f);
+                        InvokeRealTime("leaveSelected", 0.01f);
                         leftButton = transform.parent.GetComponent<LevelSelectionScript>().getButtonForSlider();
                         colorTransition(normalColor);
             actualState = UNSELECTED;

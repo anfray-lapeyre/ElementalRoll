@@ -41,7 +41,7 @@ public class UIButton : MonoBehaviour
 
             //colorTransition(pressedColor);
             customCallback.Invoke(eventData);
-            Invoke("GoBackToSelectedColor", 0.11f);
+            InvokeRealTime("GoBackToSelectedColor", 0.11f);
         }
     }
 
@@ -91,10 +91,7 @@ public class UIButton : MonoBehaviour
 
     virtual public UIButton changeState(int newState)
     {
-        if (!isActive)
-        { //If the button is inactive and selected, problem
-            return null;
-        }
+
 
         switch (actualState)
             {
@@ -109,6 +106,10 @@ public class UIButton : MonoBehaviour
 
     virtual protected UIButton changeWhenSelected(int newState)
     {
+        if (!isActive)
+        { //If the button is inactive and selected, problem
+            return null;
+        }
         switch (newState)
         {
             case SELECTED: //It is already selected, so there should be no problem, just OK
@@ -131,7 +132,7 @@ public class UIButton : MonoBehaviour
         return null;
     }
 
-    private void launchUnselected()
+    protected virtual void launchUnselected()
     {
         if (whenDeselected != null)
         {
@@ -192,7 +193,7 @@ public class UIButton : MonoBehaviour
     }
 
 
-    private void launchSelected()
+    protected virtual void launchSelected()
     {
         if (whenSelected != null)
         {
@@ -220,7 +221,7 @@ public class UIButton : MonoBehaviour
     }
 
 
-    protected void colorTransition(Color toColor)
+    protected virtual void colorTransition(Color toColor)
     {
         if (targetGraphic != null)
         {
@@ -243,5 +244,23 @@ public class UIButton : MonoBehaviour
     {
         isActive = val;
         colorTransition((val) ? normalColor : disabledColor);
+    }
+
+
+
+    public void InvokeRealTime(string functionName, float delay)
+    {
+        StartCoroutine(InvokeRealTimeHelper(functionName, delay));
+    }
+
+    private IEnumerator InvokeRealTimeHelper(string functionName, float delay)
+    {
+        float timeElapsed = 0f;
+        while (timeElapsed < delay)
+        {
+            timeElapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        SendMessage(functionName);
     }
 }

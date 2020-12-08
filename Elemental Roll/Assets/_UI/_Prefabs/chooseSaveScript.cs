@@ -179,7 +179,6 @@ public class chooseSaveScript : MonoBehaviour
             confirmPanel.GetComponent<confirmDifficultyChoiceScript>().setStartText(2);
             confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait = true;
             stateMachine.mustWait = true;
-            Debug.Log("Open Delete panel");
         }
 
     }

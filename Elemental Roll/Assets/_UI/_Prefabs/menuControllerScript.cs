@@ -51,7 +51,7 @@ public class menuControllerScript : Observer
     public bool inTransition = false;
 
 
-    public void Awake()
+    public void Start()
     {
         audioSource = this.GetComponent<AudioSource>();
         GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
@@ -64,7 +64,9 @@ public class menuControllerScript : Observer
         switch (notifiedEvent.GetType().ToString())
         {
             case "MoveCommand":
-                OnDirection(((MoveCommand)notifiedEvent).getMove());
+                if (((MoveCommand)notifiedEvent).isNotJoystick()) {
+                    OnDirection(((MoveCommand)notifiedEvent).getMove());
+                }
                 break;
             case "SpellCommand":
                 OnConfirm(((SpellCommand)notifiedEvent).isPressed());
@@ -255,7 +257,8 @@ public class menuControllerScript : Observer
     {
         subject.removeObserver(this);
 
-        Instantiate(SaveSelectionScreen, this.transform);
+        GameObject tmp = Instantiate(SaveSelectionScreen, this.transform);
+        tmp.GetComponent<chooseSaveScript>().stateMachine.mustWait = true;
     }
 
     public void LaunchCinematic()
@@ -270,7 +273,7 @@ public class menuControllerScript : Observer
         {
                 firstTimefade.FadeIn(1f);
                 Invoke("LaunchCinematic", 2f);
-            
+               
         }
         else
         {

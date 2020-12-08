@@ -45,13 +45,18 @@ public class UIStateMachine : Observer
         switch (notifiedEvent.GetType().ToString())
         {
             case "MoveCommand":
-
-                OnMove(((MoveCommand)notifiedEvent).getMove());
+                if (((MoveCommand)notifiedEvent).isNotJoystick())
+                {
+                    OnMove(((MoveCommand)notifiedEvent).getMove());
+                }
+                if (mustWait)
+                    mustWait = false;
                 break;
             case "SpellCommand":
                     
                 if (((SpellCommand)notifiedEvent).isPressed())// && !waitingforButtontoUnpress)
                     {
+                    Debug.Log("Spell pressed and mustwait : " + mustWait);
                     if(!mustWait)
                         firstSelected.ExecuteFunction();
                 }

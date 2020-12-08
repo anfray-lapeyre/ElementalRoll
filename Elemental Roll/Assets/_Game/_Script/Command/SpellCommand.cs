@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class SpellCommand : Command
 {
-    private bool pressed = false;
+    protected bool pressed = false;
     override public void execute(object value) {
         InputValue input = value as InputValue;
         pressed = input.isPressed;

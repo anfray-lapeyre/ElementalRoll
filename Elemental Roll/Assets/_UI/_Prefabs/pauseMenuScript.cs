@@ -48,7 +48,7 @@ public class pauseMenuScript : MonoBehaviour
         {
             Instantiate(OptionsMenu, this.transform);
             stateMachine.subject.removeObserver(stateMachine);
-
+            stateMachine.mustWait = true;
             inOption = true;
         }
     }

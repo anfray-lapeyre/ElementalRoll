@@ -29,6 +29,10 @@ public class UIToggleGroup : MonoBehaviour
                 selected.Uncheck();
             selected = button;
         }
+        else
+        {
+            selected = null;
+        }
     }
 
     public void SetAllTogglesOff()

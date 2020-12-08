@@ -8,7 +8,7 @@ public class LevelSelectionScript : MonoBehaviour
 {
     public IntVariable currentLevel;
     public UISlider bar;
-    public ScrollRect scrollRect;
+    public RectTransform scrollRect;
     public UIStateMachine stateMachine;
 
     public GameObject levelsContainer;
@@ -179,13 +179,14 @@ public class LevelSelectionScript : MonoBehaviour
             if(ActualSave.actualSave.NextLevel() < 12)
             {
                 bar.rightButton.leftButton = uibuttons[0][(uibuttons[0][3]) ? 3 : (uibuttons[0][2]) ? 2 : (uibuttons[0][1]) ? 1 : 0];
-                bar.enabled = false;
+                bar.isActive = false;
                 Destroy(bar.gameObject);
+                scrollRect.anchoredPosition = new Vector2(scrollRect.anchoredPosition.x, -scrollRect.sizeDelta.y / 2);
             }
             else
             {
                 bar.nbSteps = size+1;
-                bar.size = 1f / size;
+                bar.size = (1f / size)*4f;
                 bar.value = 0;
                 bar.Refresh();
             }
@@ -207,10 +208,10 @@ public class LevelSelectionScript : MonoBehaviour
             if (handler.GetComponent<UIButton>() && handler.GetComponentInParent<levelBubbleHandlerScript>())
             {
                 int value = (handler.GetComponentInParent<levelBubbleHandlerScript>().getNb()-1) / 4;
-                if(bar != null && bar.enabled && value>=0 && value<=bar.nbSteps)
+                if(bar != null && bar.isActive && value>=0 && value<=bar.nbSteps)
                 {
 
-                    bar.value = Mathf.Max(0,Mathf.Min(value-1,bar.nbSteps-1));
+                    bar.value = Mathf.Max(0,Mathf.Min(value-1,bar.nbSteps));
                     bar.Refresh();
                 }
 

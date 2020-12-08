@@ -424,6 +424,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 173424445691659243}
   normalColor: {r: 0, g: 0, b: 0, a: 0.25882354}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
@@ -1043,6 +1049,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 8878959487236674313}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
@@ -1052,12 +1064,12 @@ MonoBehaviour:
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
+  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 3681460498565745836}
-  OnValueChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &8555191388295766639
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1754,6 +1766,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 5485486140357659045}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
@@ -1763,12 +1781,12 @@ MonoBehaviour:
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
+  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 3681460498565745836}
-  OnValueChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &7714371348552377715
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1876,6 +1894,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 9210469575199601218}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
@@ -1885,12 +1909,12 @@ MonoBehaviour:
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
+  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 8597818375528266459}
-  OnValueChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &2385464981966078086
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2050,6 +2074,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 8345894419946641148}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
@@ -2059,12 +2089,12 @@ MonoBehaviour:
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
+  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 3681460498565745836}
-  OnValueChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &1258001352892945588
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2791,6 +2821,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 1048204408897181852}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
@@ -2800,12 +2836,12 @@ MonoBehaviour:
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
+  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 8597818375528266459}
-  OnValueChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &7555898331778099523
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3599,6 +3635,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 7108620530227280634}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
@@ -3608,12 +3650,12 @@ MonoBehaviour:
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
+  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 8597818375528266459}
-  OnValueChange:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &1805538015278220540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3903,6 +3945,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 5821167994401245916}
   normalColor: {r: 0, g: 0, b: 0, a: 0.25882354}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
@@ -3955,7 +4003,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 2448339403168715353}
-  mustWait: 0
+  mustWait: 1
 --- !u!1 &6760313148118808943
 GameObject:
   m_ObjectHideFlags: 0
