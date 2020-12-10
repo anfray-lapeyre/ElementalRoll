@@ -125,7 +125,7 @@ public class chooseSaveScript : MonoBehaviour
     {
         ActualSave.saveSlot = 2;
         HandleSelect();
-        ActualSave.actualSave.fillWithBeaten(100);
+        //ActualSave.actualSave.fillWithBeaten(100);
     }
 
     private void HandleSelect()

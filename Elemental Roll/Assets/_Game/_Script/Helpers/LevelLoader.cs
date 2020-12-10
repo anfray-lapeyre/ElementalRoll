@@ -58,7 +58,7 @@ public class LevelLoader : MonoBehaviour
             if (levelToLoad >= 0)
             {
 
-
+                Debug.Log("Level number : " + levelToLoad);
                 string loadedJsonFile = Resources.Load<TextAsset>("levels").text;
                 LevelsContainer levelsInJson = JsonUtility.FromJson<LevelsContainer>(loadedJsonFile);
                 CrossLevelInfo.LevelName = levelsInJson.levels[levelToLoad].name;

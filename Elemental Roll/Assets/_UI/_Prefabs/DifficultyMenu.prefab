@@ -1037,6 +1037,9 @@ MonoBehaviour:
   baseImageColor: {r: 0.13333334, g: 0.93725497, b: 0.58431375, a: 1}
   customCallback:
     m_PersistentCalls:
+      m_Calls: []
+  whenSelected:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 173424446471162974}
         m_MethodName: setTimeDifficultyNormal
@@ -1049,24 +1052,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  whenSelected:
-    m_PersistentCalls:
-      m_Calls: []
   whenDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173424446471162974}
+        m_MethodName: setTimeDifficultyNormal
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   targetGraphic: {fileID: 8878959487236674313}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   transitionSpeed: 0.1
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
-  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  normalCheckedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedCheckedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  pressedCheckedColor: {r: 1, g: 1, b: 1, a: 0.5686275}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 3681460498565745836}
@@ -1754,6 +1765,9 @@ MonoBehaviour:
   baseImageColor: {r: 0.13333334, g: 0.93725497, b: 0.58431375, a: 1}
   customCallback:
     m_PersistentCalls:
+      m_Calls: []
+  whenSelected:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 173424446471162974}
         m_MethodName: setTimeDifficultyChrono
@@ -1766,24 +1780,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  whenSelected:
-    m_PersistentCalls:
-      m_Calls: []
   whenDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173424446471162974}
+        m_MethodName: setTimeDifficultyChrono
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   targetGraphic: {fileID: 5485486140357659045}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   transitionSpeed: 0.1
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
-  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  normalCheckedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedCheckedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  pressedCheckedColor: {r: 1, g: 1, b: 1, a: 0.5686275}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 3681460498565745836}
@@ -1882,6 +1904,9 @@ MonoBehaviour:
   baseImageColor: {r: 0.13333334, g: 0.93725497, b: 0.58431375, a: 1}
   customCallback:
     m_PersistentCalls:
+      m_Calls: []
+  whenSelected:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 173424446471162974}
         m_MethodName: setLivesDifficultyPerTry
@@ -1894,24 +1919,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  whenSelected:
-    m_PersistentCalls:
-      m_Calls: []
   whenDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173424446471162974}
+        m_MethodName: setLivesDifficultyPerTry
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   targetGraphic: {fileID: 9210469575199601218}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   transitionSpeed: 0.1
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
-  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  normalCheckedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedCheckedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  pressedCheckedColor: {r: 1, g: 1, b: 1, a: 0.5686275}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 8597818375528266459}
@@ -2062,6 +2095,9 @@ MonoBehaviour:
   baseImageColor: {r: 0.13333334, g: 0.93725497, b: 0.58431375, a: 1}
   customCallback:
     m_PersistentCalls:
+      m_Calls: []
+  whenSelected:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 173424446471162974}
         m_MethodName: setTimeDifficultyUnlimited
@@ -2074,24 +2110,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  whenSelected:
-    m_PersistentCalls:
-      m_Calls: []
   whenDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173424446471162974}
+        m_MethodName: setTimeDifficultyUnlimited
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   targetGraphic: {fileID: 8345894419946641148}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   transitionSpeed: 0.1
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
-  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  normalCheckedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedCheckedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  pressedCheckedColor: {r: 1, g: 1, b: 1, a: 0.5686275}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 3681460498565745836}
@@ -2809,6 +2853,9 @@ MonoBehaviour:
   baseImageColor: {r: 0.13333334, g: 0.93725497, b: 0.58431375, a: 1}
   customCallback:
     m_PersistentCalls:
+      m_Calls: []
+  whenSelected:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 173424446471162974}
         m_MethodName: setLivesDifficultyUnlimited
@@ -2821,24 +2868,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  whenSelected:
-    m_PersistentCalls:
-      m_Calls: []
   whenDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173424446471162974}
+        m_MethodName: setLivesDifficultyUnlimited
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   targetGraphic: {fileID: 1048204408897181852}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   transitionSpeed: 0.1
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
-  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  normalCheckedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedCheckedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  pressedCheckedColor: {r: 1, g: 1, b: 1, a: 0.5686275}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 8597818375528266459}
@@ -3623,6 +3678,9 @@ MonoBehaviour:
   baseImageColor: {r: 0.13333334, g: 0.93725497, b: 0.58431375, a: 1}
   customCallback:
     m_PersistentCalls:
+      m_Calls: []
+  whenSelected:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 173424446471162974}
         m_MethodName: setLivesDifficultyPerLevel
@@ -3635,24 +3693,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  whenSelected:
-    m_PersistentCalls:
-      m_Calls: []
   whenDeselected:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 173424446471162974}
+        m_MethodName: setLivesDifficultyPerLevel
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   targetGraphic: {fileID: 7108620530227280634}
   normalColor: {r: 1, g: 1, b: 1, a: 0.7411765}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.4862745}
-  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
   disabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   transitionSpeed: 0.1
   uncheckedImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   checkedImage: {fileID: 21300000, guid: 6ac2ed401d6b7ed45b75484e14e01fa0, type: 3}
   uncheckedColor: {r: 0, g: 0, b: 0, a: 1}
-  normalCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  selectedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
-  pressedCheckedColor: {r: 0, g: 0, b: 0, a: 0}
+  normalCheckedColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedCheckedColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  pressedCheckedColor: {r: 1, g: 1, b: 1, a: 0.5686275}
   checkedColor: {r: 1, g: 1, b: 1, a: 1}
   isChecked: 0
   toggleGroup: {fileID: 8597818375528266459}

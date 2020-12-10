@@ -54,14 +54,6 @@
                     "interactions": "Press(behavior=2)"
                 },
                 {
-                    "name": "EagleView",
-                    "type": "Button",
-                    "id": "c74cbc7d-8c26-4b7b-9ae2-96d45c1c6551",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)"
-                },
-                {
                     "name": "MoveVertical",
                     "type": "Value",
                     "id": "2e2b5b3c-1125-4d6d-9698-276933e3a5b0",
@@ -192,7 +184,7 @@
                 {
                     "name": "",
                     "id": "9de3a923-d876-4505-90b9-8b5a5cf4d728",
-                    "path": "<Keyboard>/z",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -208,28 +200,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "TopView",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eadf1ca0-bd9d-466d-86f1-17e4e195a194",
-                    "path": "<Gamepad>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "EagleView",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "144e3058-d133-4dcd-892b-ae0c989ef003",
-                    "path": "<Keyboard>/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "EagleView",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

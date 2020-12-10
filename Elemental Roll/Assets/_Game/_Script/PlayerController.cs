@@ -73,6 +73,11 @@ public class PlayerController : Observer
 
     private GameObject persistantHandler;
 
+    public Cinemachine.CinemachineBrain cinemachineBrain;
+
+    public Cinemachine.CinemachineVirtualCamera normalView;
+    public Cinemachine.CinemachineVirtualCamera topView;
+
     private void Start()
     {
         persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
@@ -124,7 +129,7 @@ public class PlayerController : Observer
                 OnPause(((EagleViewCommand)notifiedEvent).isPressed());
                 break;
             case "TopViewCommand":
-                OnPause(((TopViewCommand)notifiedEvent).isPressed());
+                OnTopView(((TopViewCommand)notifiedEvent).isPressed());
                 break;
             default:
                 break;
@@ -166,6 +171,20 @@ public class PlayerController : Observer
                 if (hasControls)
                     Restart();
             }
+        }
+    }
+
+    public void OnTopView(bool value)
+    {
+        if (value)
+        {
+            normalView.Priority = 10;
+            topView.Priority = 15;
+        }
+        else
+        {
+            topView.Priority = 10;
+            normalView.Priority = 15;
         }
     }
 

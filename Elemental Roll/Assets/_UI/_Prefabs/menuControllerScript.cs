@@ -277,6 +277,7 @@ public class menuControllerScript : Observer
         }
         else
         {
+            Debug.Log("Out Of Save Log : "+GameObject.FindGameObjectsWithTag("PersistentObject"));
             GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
 
             inOption = false;

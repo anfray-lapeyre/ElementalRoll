@@ -89,6 +89,12 @@ public class difficultySettingsScript : MonoBehaviour
                     break;
             }
         }
+        else
+        {
+            LivesDifficulty.value = -2;
+            TimeDifficulty.value = -2;
+            Debug.Log("Initial difficulty setting");
+        }
     }
 
     public void isInitialDifficultyChoice()
@@ -134,6 +140,7 @@ public class difficultySettingsScript : MonoBehaviour
                 {
                     confirmButton.activate(true);
                     text.color = Color.white;
+                    Debug.Log("Confirm should activate");
                 }
             }
         }

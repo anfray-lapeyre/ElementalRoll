@@ -67,14 +67,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=2)""
                 },
                 {
-                    ""name"": ""EagleView"",
-                    ""type"": ""Button"",
-                    ""id"": ""c74cbc7d-8c26-4b7b-9ae2-96d45c1c6551"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
-                },
-                {
                     ""name"": ""MoveVertical"",
                     ""type"": ""Value"",
                     ""id"": ""2e2b5b3c-1125-4d6d-9698-276933e3a5b0"",
@@ -205,7 +197,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9de3a923-d876-4505-90b9-8b5a5cf4d728"",
-                    ""path"": ""<Keyboard>/z"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -221,28 +213,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""TopView"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""eadf1ca0-bd9d-466d-86f1-17e4e195a194"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EagleView"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""144e3058-d133-4dcd-892b-ae0c989ef003"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""EagleView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -496,7 +466,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
         m_Gameplay_SpecialAction = m_Gameplay.FindAction("SpecialAction", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_TopView = m_Gameplay.FindAction("TopView", throwIfNotFound: true);
-        m_Gameplay_EagleView = m_Gameplay.FindAction("EagleView", throwIfNotFound: true);
         m_Gameplay_MoveVertical = m_Gameplay.FindAction("MoveVertical", throwIfNotFound: true);
         m_Gameplay_MoveHorizontal = m_Gameplay.FindAction("MoveHorizontal", throwIfNotFound: true);
     }
@@ -554,7 +523,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_SpecialAction;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_TopView;
-    private readonly InputAction m_Gameplay_EagleView;
     private readonly InputAction m_Gameplay_MoveVertical;
     private readonly InputAction m_Gameplay_MoveHorizontal;
     public struct GameplayActions
@@ -567,7 +535,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
         public InputAction @SpecialAction => m_Wrapper.m_Gameplay_SpecialAction;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @TopView => m_Wrapper.m_Gameplay_TopView;
-        public InputAction @EagleView => m_Wrapper.m_Gameplay_EagleView;
         public InputAction @MoveVertical => m_Wrapper.m_Gameplay_MoveVertical;
         public InputAction @MoveHorizontal => m_Wrapper.m_Gameplay_MoveHorizontal;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -597,9 +564,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @TopView.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTopView;
                 @TopView.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTopView;
                 @TopView.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTopView;
-                @EagleView.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEagleView;
-                @EagleView.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEagleView;
-                @EagleView.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEagleView;
                 @MoveVertical.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveVertical;
                 @MoveVertical.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveVertical;
                 @MoveVertical.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveVertical;
@@ -628,9 +592,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @TopView.started += instance.OnTopView;
                 @TopView.performed += instance.OnTopView;
                 @TopView.canceled += instance.OnTopView;
-                @EagleView.started += instance.OnEagleView;
-                @EagleView.performed += instance.OnEagleView;
-                @EagleView.canceled += instance.OnEagleView;
                 @MoveVertical.started += instance.OnMoveVertical;
                 @MoveVertical.performed += instance.OnMoveVertical;
                 @MoveVertical.canceled += instance.OnMoveVertical;
@@ -667,7 +628,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
         void OnSpecialAction(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnTopView(InputAction.CallbackContext context);
-        void OnEagleView(InputAction.CallbackContext context);
         void OnMoveVertical(InputAction.CallbackContext context);
         void OnMoveHorizontal(InputAction.CallbackContext context);
     }
