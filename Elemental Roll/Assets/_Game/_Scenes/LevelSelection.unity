@@ -1196,6 +1196,7 @@ MonoBehaviour:
     type: 3}
   levelPreviewContainer: {fileID: 1765721914}
   startfading: {fileID: 2106936886}
+  backButton: {fileID: 2054176350}
 --- !u!114 &1726016920
 MonoBehaviour:
   m_ObjectHideFlags: 0

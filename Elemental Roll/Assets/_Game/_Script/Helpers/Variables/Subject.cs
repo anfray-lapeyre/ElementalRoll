@@ -50,10 +50,11 @@ public class Subject : MonoBehaviour
 
     virtual public void Notify( object notifiedEvent)
     {
-        for (int i = 0; i < numObservers; i++)
+        for (int i = numObservers-1; i >= 0; i--)
         {
             observers[i].OnNotify(this.gameObject, notifiedEvent);
         }
+
     }
 
 

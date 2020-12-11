@@ -123,8 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53fa9a421b20894d8a080d5287b74b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: -1
-  subject: {fileID: 0}
   currentLevel: {fileID: 11400000, guid: ddfcf09eb8feb09408aea83e6aad0da4, type: 2}
   UIFade: {fileID: 4685930364478046096, guid: bc3456814e10ab04c9efba1ed09a99ce, type: 3}
   isClosing: 0
@@ -257,6 +255,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   upButton: {fileID: 5429525397259504476}
   downButton: {fileID: 3312505399985975036}
+  baseImageColor: {r: 0, g: 0, b: 0, a: 0}
   customCallback:
     m_PersistentCalls:
       m_Calls:
@@ -271,6 +270,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 4832962663199323826}
   normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   pressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.6627451}
@@ -370,6 +375,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   upButton: {fileID: 6277220514790692540}
   downButton: {fileID: 5429525397259504476}
+  baseImageColor: {r: 0, g: 0, b: 0, a: 0}
   customCallback:
     m_PersistentCalls:
       m_Calls:
@@ -384,6 +390,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 4832962663304531608}
   normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   pressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.6627451}
@@ -483,6 +495,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   upButton: {fileID: 1547604004919291971}
   downButton: {fileID: 4945570572762710239}
+  baseImageColor: {r: 0, g: 0, b: 0, a: 0}
   customCallback:
     m_PersistentCalls:
       m_Calls:
@@ -497,6 +510,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 4832962663319535613}
   normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   pressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.6627451}
@@ -753,6 +772,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   upButton: {fileID: 4945570572762710239}
   downButton: {fileID: 8096306218231163882}
+  baseImageColor: {r: 0, g: 0, b: 0, a: 0}
   customCallback:
     m_PersistentCalls:
       m_Calls:
@@ -767,6 +787,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 4832962663517095653}
   normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   pressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.6627451}
@@ -976,7 +1002,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 3312505399985975036}
-  waitingforButtontoUnpress: 1
+  onReturn: {fileID: 1547604004919291971}
 --- !u!1 &4832962663732394644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,6 +1326,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   upButton: {fileID: 3312505399985975036}
   downButton: {fileID: 6277220514790692540}
+  baseImageColor: {r: 0, g: 0, b: 0, a: 0}
   customCallback:
     m_PersistentCalls:
       m_Calls:
@@ -1314,6 +1341,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 4832962664184714226}
   normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   pressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.6627451}
@@ -2010,6 +2043,7 @@ MonoBehaviour:
   rightButton: {fileID: 0}
   upButton: {fileID: 8096306218231163882}
   downButton: {fileID: 1547604004919291971}
+  baseImageColor: {r: 0, g: 0, b: 0, a: 0}
   customCallback:
     m_PersistentCalls:
       m_Calls:
@@ -2024,6 +2058,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 6836391288824760869}
   normalColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   pressedColor: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0.6627451}

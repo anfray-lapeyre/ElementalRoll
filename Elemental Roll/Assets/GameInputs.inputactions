@@ -68,6 +68,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "MoveJoystick",
+                    "type": "Value",
+                    "id": "ba0ccb55-9882-4472-a992-e1865a4b166a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -89,17 +97,6 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Restart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3185a498-3c36-489c-aaea-101bd7431c1c",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
                     "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -195,7 +192,18 @@
                 {
                     "name": "",
                     "id": "51ba5470-71e7-4d5f-9f7c-a34608004017",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TopView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc6231d3-340b-428e-b1ce-b75a77df39c7",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -411,6 +419,17 @@
                     "action": "MoveHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "de8c3561-f382-4075-983e-474ed113b24c",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone(min=0.5,max=0.5),NormalizeVector2",
+                    "groups": "Gamepad",
+                    "action": "MoveJoystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

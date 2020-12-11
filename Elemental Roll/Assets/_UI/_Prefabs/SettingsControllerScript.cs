@@ -113,7 +113,7 @@ public class SettingsControllerScript : Observer
                 //OnConfirm(((SpellCommand)notifiedEvent).isPressed());
                 break;
             case "RestartCommand":
-                OnReturn(((RestartCommand)notifiedEvent).isPressed());
+                //OnReturn(((RestartCommand)notifiedEvent).isPressed());
                 break;
             case "PauseCommand":
                 //OnPause(((RestartCommand)notifiedEvent).isPressed());
@@ -159,7 +159,7 @@ public class SettingsControllerScript : Observer
         audioSource.Play();
         if (QualitySettings.GetQualityLevel() != qualityDropdown.value)
             QualitySettings.SetQualityLevel(qualityDropdown.value);
-        stateMachine.mustWait = true;
+        //stateMachine.mustWait = true;
     }
 
 
@@ -171,7 +171,7 @@ public class SettingsControllerScript : Observer
             audioSource.Play();
         }
         Screen.fullScreen = isFullScreen;
-        stateMachine.mustWait = true;
+        //stateMachine.mustWait = true;
     }
 
 
@@ -185,12 +185,12 @@ public class SettingsControllerScript : Observer
             Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
         }
-        stateMachine.mustWait = true;
+        //stateMachine.mustWait = true;
     }
 
     public void OnReturn(bool input)
     {
-        if (input)
+        if (input && audioSource.enabled)
         {
             if (inSetting)
             {

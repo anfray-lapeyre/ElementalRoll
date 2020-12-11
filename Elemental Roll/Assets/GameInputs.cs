@@ -81,6 +81,14 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""MoveJoystick"",
+                    ""type"": ""Value"",
+                    ""id"": ""ba0ccb55-9882-4472-a992-e1865a4b166a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -102,17 +110,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Restart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3185a498-3c36-489c-aaea-101bd7431c1c"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Restart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -208,7 +205,18 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""51ba5470-71e7-4d5f-9f7c-a34608004017"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TopView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc6231d3-340b-428e-b1ce-b75a77df39c7"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -424,6 +432,17 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de8c3561-f382-4075-983e-474ed113b24c"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.5,max=0.5),NormalizeVector2"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveJoystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -468,6 +487,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
         m_Gameplay_TopView = m_Gameplay.FindAction("TopView", throwIfNotFound: true);
         m_Gameplay_MoveVertical = m_Gameplay.FindAction("MoveVertical", throwIfNotFound: true);
         m_Gameplay_MoveHorizontal = m_Gameplay.FindAction("MoveHorizontal", throwIfNotFound: true);
+        m_Gameplay_MoveJoystick = m_Gameplay.FindAction("MoveJoystick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -525,6 +545,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_TopView;
     private readonly InputAction m_Gameplay_MoveVertical;
     private readonly InputAction m_Gameplay_MoveHorizontal;
+    private readonly InputAction m_Gameplay_MoveJoystick;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -537,6 +558,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
         public InputAction @TopView => m_Wrapper.m_Gameplay_TopView;
         public InputAction @MoveVertical => m_Wrapper.m_Gameplay_MoveVertical;
         public InputAction @MoveHorizontal => m_Wrapper.m_Gameplay_MoveHorizontal;
+        public InputAction @MoveJoystick => m_Wrapper.m_Gameplay_MoveJoystick;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,6 +592,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @MoveHorizontal.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveHorizontal;
                 @MoveHorizontal.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveHorizontal;
                 @MoveHorizontal.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveHorizontal;
+                @MoveJoystick.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveJoystick;
+                @MoveJoystick.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveJoystick;
+                @MoveJoystick.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveJoystick;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -598,6 +623,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @MoveHorizontal.started += instance.OnMoveHorizontal;
                 @MoveHorizontal.performed += instance.OnMoveHorizontal;
                 @MoveHorizontal.canceled += instance.OnMoveHorizontal;
+                @MoveJoystick.started += instance.OnMoveJoystick;
+                @MoveJoystick.performed += instance.OnMoveJoystick;
+                @MoveJoystick.canceled += instance.OnMoveJoystick;
             }
         }
     }
@@ -630,5 +658,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
         void OnTopView(InputAction.CallbackContext context);
         void OnMoveVertical(InputAction.CallbackContext context);
         void OnMoveHorizontal(InputAction.CallbackContext context);
+        void OnMoveJoystick(InputAction.CallbackContext context);
     }
 }

@@ -26,7 +26,7 @@ public class pauseMenuScript : MonoBehaviour
     {
         persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
         LeanTween.alphaCanvas(this.GetComponent<CanvasGroup>(), 1f, 0.2f);
-        Invoke("stopTime", 0.2f);
+        InvokeRealTime("stopTime", 0.2f);
         if(currentLevel.value < 0)
         {
             difficultyButton.GetComponent<UIButton>().isActive = false;
@@ -46,9 +46,9 @@ public class pauseMenuScript : MonoBehaviour
     {
         if (!inOption)
         {
-            Instantiate(OptionsMenu, this.transform);
             stateMachine.subject.removeObserver(stateMachine);
-            stateMachine.mustWait = true;
+            Instantiate(OptionsMenu, this.transform);
+            //stateMachine.mustWait = true;
             inOption = true;
         }
     }
@@ -57,14 +57,19 @@ public class pauseMenuScript : MonoBehaviour
     {
         if (!inOption)
         {
-            Instantiate(DifficultyMenu, this.transform);
             stateMachine.subject.removeObserver(stateMachine);
+            Instantiate(DifficultyMenu, this.transform);
 
             inOption = true;
         }
     }
 
     public void OptionClose()
+    {
+        InvokeRealTime("OptionCloseAsync", 0.1f);
+    }
+
+    public void OptionCloseAsync()
     {
         inOption = false;
         persistantHandler.GetComponent<InputHandler>().addObserver(stateMachine);
@@ -99,5 +104,21 @@ public class pauseMenuScript : MonoBehaviour
     {
         if(this.GetComponentInParent<PlayerController>())
             this.GetComponentInParent<PlayerController>().QuitOptions();
+    }
+
+    protected void InvokeRealTime(string functionName, float delay)
+    {
+        StartCoroutine(InvokeRealTimeHelper(functionName, delay));
+    }
+
+    private IEnumerator InvokeRealTimeHelper(string functionName, float delay)
+    {
+        float timeElapsed = 0f;
+        while (timeElapsed < delay)
+        {
+            timeElapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        SendMessage(functionName);
     }
 }

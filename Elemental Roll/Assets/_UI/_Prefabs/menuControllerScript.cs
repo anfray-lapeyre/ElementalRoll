@@ -223,7 +223,7 @@ public class menuControllerScript : Observer
                 }
             }
             inTransition = true;
-            Invoke("notInTransition", 0.2f);
+            InvokeRealTime("notInTransition", 0.2f);
         }
     }
 
@@ -258,7 +258,7 @@ public class menuControllerScript : Observer
         subject.removeObserver(this);
 
         GameObject tmp = Instantiate(SaveSelectionScreen, this.transform);
-        tmp.GetComponent<chooseSaveScript>().stateMachine.mustWait = true;
+        //tmp.GetComponent<chooseSaveScript>().stateMachine.mustWait = true;
     }
 
     public void LaunchCinematic()
@@ -272,12 +272,11 @@ public class menuControllerScript : Observer
         if (isNew)
         {
                 firstTimefade.FadeIn(1f);
-                Invoke("LaunchCinematic", 2f);
+                InvokeRealTime("LaunchCinematic", 2f);
                
         }
         else
         {
-            Debug.Log("Out Of Save Log : "+GameObject.FindGameObjectsWithTag("PersistentObject"));
             GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
 
             inOption = false;
@@ -295,7 +294,7 @@ public class menuControllerScript : Observer
         ResetPriority();
         hasStartedCamera.Priority = 20;
         inOption = true;
-        Invoke("InstantiateStartPanel", 0.5f);
+        InvokeRealTime("InstantiateStartPanel", 0.5f);
     }
 
     private void InstantiateStartPanel()
@@ -311,7 +310,7 @@ public class menuControllerScript : Observer
             inOption = true;
             ResetPriority();
             inOptionsCamera.Priority = 20;
-            Invoke("InstantiateOptionPanel", 0.5f);
+            InvokeRealTime("InstantiateOptionPanel", 0.5f);
         }
     }
 
@@ -326,7 +325,7 @@ public class menuControllerScript : Observer
         {
             ResetPriority();
             PlayerInSelectionCamera.Priority = 20;
-            Invoke("InstantiatePlayerSelectionPanel", 0.5f);
+            InvokeRealTime("InstantiatePlayerSelectionPanel", 0.5f);
             isActive = PLAYERINSELECTION;
         }
     }
@@ -342,7 +341,7 @@ public class menuControllerScript : Observer
         ResetPriority();
         PlayerSelectionCamera.Priority = 20;
         isActive = PLAYERSELECTION;
-        Invoke("spawnChoosePlayerText", 0.5f);
+        InvokeRealTime("spawnChoosePlayerText", 0.5f);
         playerSelection.QuitSelection();
     }
 
@@ -352,7 +351,7 @@ public class menuControllerScript : Observer
         {
             ResetPriority();
             StartCamera.Priority = 20;
-            Invoke("spawnStartText", 0.5f);
+            InvokeRealTime("spawnStartText", 0.5f);
             isActive = START;
         }
     }
@@ -368,7 +367,7 @@ public class menuControllerScript : Observer
         {
             ResetPriority();
             Transition_OptionsCamera.Priority = 20;
-            Invoke("TransitionOption",0.2f);
+            InvokeRealTime("TransitionOption",0.2f);
             isActive = OPTIONS;
         }
     }
@@ -377,7 +376,7 @@ public class menuControllerScript : Observer
     {
         ResetPriority();
         OptionsCamera.Priority = 20;
-        Invoke("spawnOptionText", 0.5f);
+        InvokeRealTime("spawnOptionText", 0.5f);
     }
 
     private void spawnOptionText()
@@ -392,7 +391,7 @@ public class menuControllerScript : Observer
             ResetPriority();
             PlayerSelectionCamera.Priority = 20;
             isActive = PLAYERSELECTION;
-            Invoke("spawnChoosePlayerText", 0.5f);
+            InvokeRealTime("spawnChoosePlayerText", 0.5f);
         }
     }
 
@@ -424,10 +423,10 @@ public class menuControllerScript : Observer
 
     public void OptionClose()
     {
-        Invoke("outOfOption", 1f);
+        InvokeRealTime("outOfOption", 1f);
         ResetPriority();
         OptionsCamera.Priority = 20;
-        Invoke("spawnOptionText", 0f);
+        InvokeRealTime("spawnOptionText", 0f);
     }
 
     public void outOfOption()
@@ -439,10 +438,10 @@ public class menuControllerScript : Observer
 
     public void StartMenuClose()
     {
-        Invoke("outOfOption", 1f);
+        InvokeRealTime("outOfOption", 1f);
         ResetPriority();
         StartCamera.Priority = 20;
-        Invoke("spawnStartText", 0.5f);
+        InvokeRealTime("spawnStartText", 0.5f);
     }
 
     private void UpdateProgress()
@@ -463,7 +462,7 @@ public class menuControllerScript : Observer
     private void ConfirmPlayer()
     {
         playerSelection.confirmChoice();
-        Invoke("OutOfPlayerSelectionPanel", 0.3f);
+        InvokeRealTime("OutOfPlayerSelectionPanel", 0.3f);
     }
 
 }

@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BonusMaterial
+    second: {fileID: 2100000, guid: 68c537a562e033c4c91bf3a96362bbb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: LevelMaterial
     second: {fileID: 2100000, guid: 2fea6546b71e2cc4c98d88acde0fb5c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lit
+    second: {fileID: 2100000, guid: 68c537a562e033c4c91bf3a96362bbb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MiniMapBonusIconMaterial
+    second: {fileID: 2100000, guid: 68c537a562e033c4c91bf3a96362bbb5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -18,7 +33,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WoodMaterial
-    second: {fileID: 2100000, guid: b237f81c2ce410746ab794257b9541db, type: 2}
+    second: {fileID: 2100000, guid: 615ee3d482c40fb41b10f1b7bf31eeb7, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

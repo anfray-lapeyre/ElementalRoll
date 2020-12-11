@@ -21,6 +21,8 @@ public class UIDropDown : UIButton
     public int value=0;
     public RectTransform Content;
     public GameObject Scrollbar;
+
+    private UIButton getBackButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class UIDropDown : UIButton
 
     override public void ExecuteFunction()
     {
-        stateMachine.mustWait = true;
+        //stateMachine.mustWait = true;
         if (isActive)
         {
             if (Content == null)
@@ -92,6 +94,34 @@ public class UIDropDown : UIButton
                 
             }
             Scrollbar.GetComponent<UIAutoScrollDropDown>().resetScrollBar();
+
+            getBackButton = stateMachine.onReturn;
+            stateMachine.onReturn = this;
+        }
+    }
+
+    public void getBack()
+    {
+        this.changeState(UIButton.SELECTED);
+        stateMachine.firstSelected = this;
+        for (int i = 0; i < listItems.Length; i++)
+        {
+            Destroy(listItems[i].gameObject);
+        }
+        Scrollbar.SetActive(false);
+        setGetBackButton();
+        
+    }
+
+    public void setGetBackButton()
+    {
+        if (getBackButton)
+        {
+            stateMachine.onReturn = getBackButton;
+        }
+        else
+        {
+            stateMachine.onReturn = null;
         }
     }
 
@@ -118,6 +148,7 @@ public class UIDropDown : UIButton
         Scrollbar.SetActive(false);
         BaseEventData eventData = new BaseEventData(EventSystem.current);
         whenDeselected.Invoke(eventData);
+        setGetBackButton();
     }
 
     public void ClearOptions()

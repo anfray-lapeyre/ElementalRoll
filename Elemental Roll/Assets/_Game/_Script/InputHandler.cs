@@ -16,6 +16,8 @@ public class InputHandler : Subject
     Command buttonY;
     //Move -> CommandLeftStick
     Command leftStick;
+    //Move -> CommandLeftStick for Menu
+    Command leftStickMenu;
     //Pause -> CommandStart
     Command buttonStart;
 
@@ -30,60 +32,47 @@ public class InputHandler : Subject
 
         buttonStart = this.gameObject.AddComponent<PauseCommand>();
         leftStick = this.gameObject.AddComponent<MoveCommand>(); 
+        leftStickMenu = this.gameObject.AddComponent<MoveCommand>();
+        leftStickMenu.name = "leftStickMenu";
+        (leftStickMenu as MoveCommand).isMenuController = true;
         buttonA = this.gameObject.AddComponent<SpellCommand>(); 
         buttonB = this.gameObject.AddComponent<RestartCommand>(); 
         buttonX = this.gameObject.AddComponent<TopViewCommand>(); 
         buttonY = this.gameObject.AddComponent<EagleViewCommand>(); 
         timeBetweenTwoMove = maxTimeBetweenTwoMove;
-        Debug.Log("Bien s'passer");
+
     }
 
 
     public void OnRestart(InputValue value) // CommandB
     {
         Debug.Log("Restart");
-            buttonB.execute(value);
+        buttonB.execute(value);
             Notify(buttonB);
-        
     }
 
     public void OnSpecialAction(InputValue value) //CommandA
     {
         Debug.Log("SpecialAction");
-
         buttonA.execute(value);
             Notify(buttonA);
-        
     }
 
     public void OnMove(InputValue value) //CommandLeftStick
     {
-        (leftStick as MoveCommand).setJoystick(false);
         leftStick.execute(value);
-        Debug.Log("Move + : "+value.Get<Vector2>());
+       // Debug.Log("Move + : "+value.Get<Vector2>());
         Notify(leftStick);
-            if ((leftStick as MoveCommand).isMoving()) {
-                InvokeRealTime("MoveAgain", timeBetweenTwoMove);
-                hasStoppedMoving = false;
-            }
-            else
-            {
-                this.StopAllCoroutines();
-                timeBetweenTwoMove = maxTimeBetweenTwoMove;
-
-                hasStoppedMoving = true;
-            }
 
     }
 
     public void OnMoveJoystick(InputValue value)
     {
-        (leftStick as MoveCommand).setJoystick(true);
+        (leftStickMenu as MoveCommand).setJoystickMenu(true);
 
-        leftStick.execute(value);
-        Debug.Log("Move + : " + value.Get<Vector2>());
-        Notify(leftStick);
-        if ((leftStick as MoveCommand).isMoving())
+        leftStickMenu.execute(value);
+        Notify(leftStickMenu);
+        if ((leftStickMenu as MoveCommand).isMoving())
         {
             InvokeRealTime("MoveAgain", timeBetweenTwoMove);
             hasStoppedMoving = false;
@@ -99,9 +88,16 @@ public class InputHandler : Subject
 
     public void OnMoveHorizontal(InputValue value)
     {
+        (leftStickMenu as MoveCommand).setJoystickMenu(false);
+
+
         (leftStick as MoveCommand).executeHorizontal(value);
         Notify(leftStick);
-        if ((leftStick as MoveCommand).isMoving())
+
+
+        (leftStickMenu as MoveCommand).executeHorizontal(value);
+        Notify(leftStickMenu);
+        if ((leftStickMenu as MoveCommand).isMoving())
         {
             InvokeRealTime("MoveAgain", timeBetweenTwoMove);
             hasStoppedMoving = false;
@@ -117,9 +113,14 @@ public class InputHandler : Subject
 
     public void OnMoveVertical(InputValue value)
     {
+        (leftStickMenu as MoveCommand).setJoystickMenu(false);
+
         (leftStick as MoveCommand).executeVertical(value);
         Notify(leftStick);
-        if ((leftStick as MoveCommand).isMoving())
+
+        (leftStickMenu as MoveCommand).executeVertical(value);
+        Notify(leftStickMenu);
+        if ((leftStickMenu as MoveCommand).isMoving())
         {
             InvokeRealTime("MoveAgain", timeBetweenTwoMove);
             hasStoppedMoving = false;
@@ -135,9 +136,9 @@ public class InputHandler : Subject
 
     public void MoveAgain()
     {
-        if((leftStick as MoveCommand).isMoving() && !hasStoppedMoving)
+        if((leftStickMenu as MoveCommand).isMoving() && !hasStoppedMoving)
         {
-            Notify(leftStick);
+            Notify(leftStickMenu);
             timeBetweenTwoMove = Mathf.Max(timeBetweenTwoMove / 2f , minTimeBetweenTwoMove);
             InvokeRealTime( "MoveAgain", timeBetweenTwoMove);
             

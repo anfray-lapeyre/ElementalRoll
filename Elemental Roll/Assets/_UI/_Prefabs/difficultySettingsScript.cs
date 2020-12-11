@@ -342,9 +342,9 @@ public class difficultySettingsScript : MonoBehaviour
 
             confirmPanel.GetComponent<confirmDifficultyChoiceScript>().setStartText(!(chosenLife == 2 && chosenLife != LivesDifficulty.value) ? 1 : 0);
 
-            confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait=true;
+            //confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait=true;
             stateMachine.subject.removeObserver(stateMachine);
-            stateMachine.mustWait = true;
+            //stateMachine.mustWait = true;
             //eventSystem.enabled = false;
         }
     }
@@ -402,7 +402,7 @@ public class difficultySettingsScript : MonoBehaviour
         if (initialDifficultyChoice)
         {
             this.GetComponentInParent<chooseSaveScript>().hasCancelledSettings();
-            this.GetComponentInParent<chooseSaveScript>().stateMachine.mustWait = true;
+            //this.GetComponentInParent<chooseSaveScript>().stateMachine.mustWait = true;
         }
         Destroy(this.gameObject);
     }
@@ -418,6 +418,8 @@ public class difficultySettingsScript : MonoBehaviour
             }
             else if (this.GetComponentInParent<pauseMenuScript>())
             {
+                Debug.Log("Calling Options Close");
+
                 this.GetComponentInParent<pauseMenuScript>().OptionClose();
             }
         }

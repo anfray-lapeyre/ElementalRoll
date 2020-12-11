@@ -1507,7 +1507,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 399086832356497210}
-  mustWait: 1
+  onReturn: {fileID: 399086832356497210}
 --- !u!1001 &170063815018176672
 PrefabInstance:
   m_ObjectHideFlags: 0

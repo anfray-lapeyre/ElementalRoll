@@ -9,7 +9,7 @@ public class EagleViewCommand : Command
 
     override public void execute(object value) {
         InputValue input = value as InputValue;
-        pressed = input.isPressed;
+        pressed = (input.Get<float>() > 0.05f);
         //Debug.Log("Eagle View : " + pressed);
     }
 

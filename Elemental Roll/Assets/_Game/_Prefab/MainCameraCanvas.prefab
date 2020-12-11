@@ -829,6 +829,7 @@ GameObject:
   - component: {fileID: 3412353939714580277}
   - component: {fileID: 7189580749671238281}
   - component: {fileID: 8927844633390372122}
+  - component: {fileID: 1207531348539842474}
   m_Layer: 5
   m_Name: livesLeft
   m_TagString: Untagged
@@ -989,6 +990,19 @@ MonoBehaviour:
   Text: {fileID: 7189580749671238281}
   Variable: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
   AlwaysUpdate: 0
+--- !u!114 &1207531348539842474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077337767856139478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &1394043133990270797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1280,6 @@ GameObject:
   - component: {fileID: 4434978445115468176}
   - component: {fileID: 628648464752918734}
   - component: {fileID: 8235517399665150720}
-  - component: {fileID: 9044222517201060281}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -1334,19 +1347,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9044222517201060281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1598002262072059820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &1824202109323173852
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1358,7 @@ GameObject:
   - component: {fileID: 8074095275335087369}
   - component: {fileID: 9133210882739980764}
   - component: {fileID: 7169545369351118684}
+  - component: {fileID: 4946975315119907947}
   m_Layer: 5
   m_Name: x
   m_TagString: Untagged
@@ -1503,6 +1504,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4946975315119907947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824202109323173852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &1956047504693671636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2377,6 +2391,7 @@ GameObject:
   - component: {fileID: 1628268876125805031}
   - component: {fileID: 1175885796046249719}
   - component: {fileID: 1235293275870631378}
+  - component: {fileID: 6452566850251141222}
   m_Layer: 5
   m_Name: xShadow
   m_TagString: Untagged
@@ -2522,6 +2537,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6452566850251141222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3497907127758213825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &3775613780219607447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,6 +2809,7 @@ GameObject:
   - component: {fileID: 3600574778740136460}
   - component: {fileID: 1634581974997987957}
   - component: {fileID: 6307225777185631659}
+  - component: {fileID: 1025997488548645299}
   m_Layer: 5
   m_Name: livesLeftShadow
   m_TagString: Untagged
@@ -2941,6 +2970,19 @@ MonoBehaviour:
   Text: {fileID: 1634581974997987957}
   Variable: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
   AlwaysUpdate: 0
+--- !u!114 &1025997488548645299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4588629363137517075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &4968390477556345575
 GameObject:
   m_ObjectHideFlags: 0

@@ -4069,7 +4069,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 2448339403168715353}
-  mustWait: 1
+  onReturn: {fileID: 2448339403168715353}
 --- !u!1 &6760313148118808943
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,7 +68,7 @@ public class UISoundScript : Observer
 
     public void OnConfirm(bool value)
     {
-        if (value)
+        if (value && audioSource.enabled)
         {
             audioSource.clip = soundClick;
             audioSource.Play();
@@ -77,7 +77,7 @@ public class UISoundScript : Observer
 
     public void OnReturn(bool value)
     {
-        if (value)
+        if (value && audioSource.enabled)
         {
             audioSource.clip = soundClick;
             audioSource.Play();

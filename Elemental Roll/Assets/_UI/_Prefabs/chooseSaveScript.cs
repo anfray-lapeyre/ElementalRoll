@@ -137,7 +137,7 @@ public class chooseSaveScript : MonoBehaviour
             ActualSave.actualSave = new SaveFileInfo();
 
             GameObject difficultyChoice = Instantiate(chooseDifficulty, this.transform);
-            difficultyChoice.GetComponentInChildren<UIStateMachine>().mustWait = true;
+            //difficultyChoice.GetComponentInChildren<UIStateMachine>().mustWait = true;
             difficultyChoice.GetComponent<difficultySettingsScript>().isInitialDifficultyChoice();
             choosesDifficulty = true;
             
@@ -177,8 +177,8 @@ public class chooseSaveScript : MonoBehaviour
             stateMachine.subject.removeObserver(stateMachine);
             GameObject confirmPanel = Instantiate(ConfirmChoiceWindow, this.transform);
             confirmPanel.GetComponent<confirmDifficultyChoiceScript>().setStartText(2);
-            confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait = true;
-            stateMachine.mustWait = true;
+            //confirmPanel.GetComponentInChildren<UIStateMachine>().mustWait = true;
+            //stateMachine.mustWait = true;
         }
 
     }

@@ -198,6 +198,7 @@ public class levelBubbleHandlerScript : MonoBehaviour
 
     public void askForHandlePreview()
     {
+
         this.transform.parent.parent.parent.gameObject.GetComponent<LevelSelectionScript>().HandlePreview();
     }
 

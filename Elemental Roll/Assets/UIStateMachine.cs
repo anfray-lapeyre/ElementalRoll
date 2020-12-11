@@ -8,7 +8,7 @@ public class UIStateMachine : Observer
     public UIButton firstSelected;
     private GameObject persistantHandler;
 
-    public bool mustWait = false;
+    public UIButton onReturn;
 
     private void Awake()
     {
@@ -37,6 +37,7 @@ public class UIStateMachine : Observer
                 firstSelected.changeState(UIButton.UNSELECTED);
                 firstSelected = newActiveObject;
             }
+
         }
     }
 
@@ -45,29 +46,31 @@ public class UIStateMachine : Observer
         switch (notifiedEvent.GetType().ToString())
         {
             case "MoveCommand":
-                if (((MoveCommand)notifiedEvent).isNotJoystick())
+                if (((MoveCommand)notifiedEvent).isMenuController)
                 {
                     OnMove(((MoveCommand)notifiedEvent).getMove());
                 }
-                if (mustWait)
-                    mustWait = false;
                 break;
             case "SpellCommand":
-                    
-                if (((SpellCommand)notifiedEvent).isPressed())// && !waitingforButtontoUnpress)
+                Debug.Log("Spell is pressed : " + ((SpellCommand)notifiedEvent).isPressed());
+                    if (((SpellCommand)notifiedEvent).isPressed())// && !waitingforButtontoUnpress)
                     {
-                    Debug.Log("Spell pressed and mustwait : " + mustWait);
-                    if(!mustWait)
-                        firstSelected.ExecuteFunction();
-                }
-                else
-                {
-                    if (mustWait)
-                        mustWait = false;
-                }
+                        Debug.Log("Spell pressed");
+                            firstSelected.ExecuteFunction();
+                    }
                 break;
             case "RestartCommand":
-                //OnRestart(((RestartCommand)notifiedEvent).isPressed());
+                if (onReturn && ((RestartCommand)notifiedEvent).isPressed())
+                {
+                    switch (onReturn.GetType().ToString()) {
+                        case "UIButton":
+                            onReturn.ExecuteFunction();
+                            break;
+                        case "UIDropDown":
+                            (onReturn as UIDropDown).getBack();
+                            break;
+                    }
+                }
                 break;
             case "PauseCommand":
                 //OnPause(((RestartCommand)notifiedEvent).isPressed());

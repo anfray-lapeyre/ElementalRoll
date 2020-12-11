@@ -86,7 +86,7 @@ public class StartMenuScript : MonoBehaviour
 
 
         g.GetComponent<chooseSaveScript>().SetTarget(this);
-        g.GetComponent<chooseSaveScript>().stateMachine.mustWait = true;
+        //g.GetComponent<chooseSaveScript>().stateMachine.mustWait = true;
     }
 
     public void OutOfSave(bool isNew = false)

@@ -173,7 +173,7 @@ public class UIButton : MonoBehaviour
         switch (newState)
         {
             case SELECTED:
-                launchSelected();
+                Invoke("launchSelected", 0.1f);
 
                 colorTransition(selectedColor);
                 actualState = newState;
@@ -215,7 +215,7 @@ public class UIButton : MonoBehaviour
         {
             colorTransition(selectedColor);
             actualState = SELECTED;
-            launchSelected();
+            Invoke("launchSelected",0.1f);
             return this;
         }
     }

@@ -36,6 +36,8 @@ public class LevelSelectionScript : MonoBehaviour
 
     private UIButton[][] uibuttons;
 
+    public UIButton backButton;
+
     public void Awake()
     {
 
@@ -182,6 +184,7 @@ public class LevelSelectionScript : MonoBehaviour
                 bar.isActive = false;
                 Destroy(bar.gameObject);
                 scrollRect.anchoredPosition = new Vector2(scrollRect.anchoredPosition.x, -scrollRect.sizeDelta.y / 2);
+                backButton.leftButton = (uibuttons[0][3]) ? uibuttons[0][2]: (uibuttons[0][2]) ? uibuttons[0][1] : uibuttons[0][0];
             }
             else
             {

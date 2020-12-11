@@ -48,13 +48,13 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 11
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
-    OrthographicSize: 5
+    FieldOfView: 60
+    OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -776,6 +776,11 @@ PrefabInstance:
       propertyPath: bonusAnimation
       value: 
       objectReference: {fileID: 7938885022992359685}
+    - target: {fileID: 8017587590092890009, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: normalView
+      value: 
+      objectReference: {fileID: 6054021671003678002}
     - target: {fileID: 8017587590636918763, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

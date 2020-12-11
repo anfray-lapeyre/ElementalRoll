@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3895a87d554414f81a06df7b8b291a, type: 3}
   m_Name: DifficultyLife
   m_EditorClassIdentifier: 
-  value: 1
+  value: 0

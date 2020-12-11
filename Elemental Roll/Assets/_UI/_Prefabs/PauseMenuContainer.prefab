@@ -267,6 +267,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 6112976005721194265}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.0627451}
@@ -381,6 +387,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 6112976005839666666}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.0627451}
@@ -725,6 +737,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 6112976006712867184}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.0627451}
@@ -912,6 +930,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 6112976007014179297}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 0.0627451}
@@ -1121,7 +1145,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 3359739164157570978}
-  mustWait: 0
+  onReturn: {fileID: 4450917756396782235}
 --- !u!1 &7545137955398167014
 GameObject:
   m_ObjectHideFlags: 0

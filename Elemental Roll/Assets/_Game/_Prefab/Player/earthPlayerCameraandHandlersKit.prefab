@@ -800,6 +800,16 @@ PrefabInstance:
       propertyPath: bonusAnimation
       value: 
       objectReference: {fileID: 7699007912237086009}
+    - target: {fileID: 8995394325580503408, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
+        type: 3}
+      propertyPath: cinemachineBrain
+      value: 
+      objectReference: {fileID: 6408734785645928205}
+    - target: {fileID: 8995394325580503408, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
+        type: 3}
+      propertyPath: normalView
+      value: 
+      objectReference: {fileID: 5684824788748295749}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2541c0fbb1126e04e8f2ef203eff6b84, type: 3}
 --- !u!4 &4192068831998187433 stripped
@@ -820,9 +830,33 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 6154460309582920618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5684824788748295749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1985391503450793455, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
+    type: 3}
+  m_PrefabInstance: {fileID: 6154460309582920618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &2495662914095905433 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8632108806888964403, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
     type: 3}
   m_PrefabInstance: {fileID: 6154460309582920618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6408734785645928205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 979936843966669991, guid: 2541c0fbb1126e04e8f2ef203eff6b84,
+    type: 3}
+  m_PrefabInstance: {fileID: 6154460309582920618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
