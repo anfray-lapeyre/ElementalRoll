@@ -679,7 +679,8 @@ public class PlayerController : Observer
         {
             //We enable controls and start timer
             hasControls = true;
-            handler.startRunning();
+            if(handler)
+                handler.startRunning();
         }
         /*Falldown particles*/
         if(Mathf.Abs(lastVelocity.y) > 1f)

@@ -64,8 +64,8 @@ Material:
     m_Floats:
     - BlinkIntensity: 0
     - EyeAperture: 0.09
-    - EyeBrowIntensity: 0
-    - EyeBrowOrientation: 1.52
+    - EyeBrowIntensity: 0.9
+    - EyeBrowOrientation: 1.34
     - Vector1_8316F640: 0.063
     - Vector1_C9DD82ED: 0.232
     - Vector1_D893657D: 0

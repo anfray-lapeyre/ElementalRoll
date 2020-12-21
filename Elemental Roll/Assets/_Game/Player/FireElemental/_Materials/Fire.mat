@@ -63,8 +63,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Boolean_9EF195DB: 0
-    - FlameHue: 0
-    - FlameIntensity: 0.008
+    - FlameHue: 60
+    - FlameIntensity: 0.017
     - Vector1_45928080: 0.0232
     - Vector1_62314106: 0.2
     - Vector1_69300BA: 6

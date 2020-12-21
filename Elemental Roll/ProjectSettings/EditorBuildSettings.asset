@@ -6,75 +6,78 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Game/_Scenes/Cutscenes/Cutscene1-2.unity
+    guid: 9ca3fe907e67d5e4b83ed4891bcb9dd8
+  - enabled: 0
     path: Assets/_Game/_Scenes/MainMenu.unity
     guid: 4550f952f55498541a024b4afe5832f0
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/LevelSelection.unity
     guid: c098da81b8cbcbc45ae915b2d19c4dfd
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/CharacterUnlock/Tracy.unity
     guid: d0e9ad1d6f69c834bbe72f3db18bd2c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Cutscenes/Cutscene1.unity
     guid: f6cb5cc2585c3ff4a8947963787deba7
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/WelcomeHome.unity
     guid: c61ef053a4438924abe666e5ae6669ba
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/SlopeyWay.unity
     guid: 99db8925bf5b46c4ca71b65e1c4f7583
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/Zigzag.unity
     guid: a8fe21b125cd6f54e81eb958410e81d1
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/SwingingBy.unity
     guid: 5b6c331987a531045af3fed638b615f1
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/DoNotFall.unity
     guid: df800e7ba004bac46af8325fbab59796
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/LittleMelody.unity
     guid: ad66c2ea1c78b4f4d803f0f1e27a3e4a
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/OutOfTheLibrary.unity
     guid: 7adce7bbba9bc24458560abbb397d731
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/FallingBooks.unity
     guid: 69960d94d40a548419c9cae8a06314f3
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/GettingDown.unity
     guid: 0b9af90f9acb7354180fc79a4406d7ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/Damocles.unity
     guid: 02870e53aec6c684f99393c2e3942620
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/BackAndForth.unity
     guid: e891d1a9a0274104e81785ae2937db63
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/OnTheEdge.unity
     guid: 8f57a37812a25f440916ad8c95157dff
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/AroundTheMill.unity
     guid: c27b8685a93f4414e801f91a055ffe7b
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/RoundRobin.unity
     guid: 679902ab97127e34cac6addcf7221916
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/AWeirdStaircase.unity
     guid: 17e9e58d997200349b0b8caf8a03c9ff
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/WhatAMess.unity
     guid: 0a67490498e90b74abf6715989d71829
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/NoHesitation.unity
     guid: ede3b4c973b6cf547b4d16077145f7a1
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/PiggyBack.unity
     guid: 948ef4767be9f3c4da3dcca5ff489e62
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/Sauteing.unity
     guid: 93ad28769e194064cbbc2560cdad58d8
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Game/_Scenes/Level1/GettingOut.unity
     guid: b7197d75347417c4faf4964ba35771a8
   m_configObjects:
