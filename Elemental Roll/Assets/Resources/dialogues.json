@@ -1,7 +1,7 @@
 { "dialogues" : [
 	{"character":"Fire",
 	"lines" : ["<i><b>*sigh*</b></i>  I'm so booooored...","When will I be able to take my revenge..."],
-	"next" : 1,
+	"next" : 24,
 	"backgroundVideo":"_Cinematic-8-3-Bored",
 	"id" : 0
 	},
@@ -143,6 +143,12 @@
 	"next" : -1,
 	"backgroundVideo":"Ice_In_Power",
 	"id" : 23
+	},
+	{"character":"Fire",
+	"lines" : [""],
+	"next" : -1,
+	"backgroundVideo":"LoadCutscene1-2",
+	"id" : 24
 	}
 ]
 }

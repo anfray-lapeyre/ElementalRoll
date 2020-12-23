@@ -37,8 +37,6 @@ public class CharacterDialogueHandler : Observer
     public GameObject LevelLoader; //Base
     private LevelLoader _levelLoader; //Instantiated child
 
-
-    public EventSystem eventSystem;
     public IntVariable LivesLeft;
 
 
