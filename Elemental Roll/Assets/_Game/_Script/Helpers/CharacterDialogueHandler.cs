@@ -39,9 +39,14 @@ public class CharacterDialogueHandler : Observer
 
     public IntVariable LivesLeft;
 
+    public bool fades = false;
+    private int staticStartId;
+    private int tmp_dialogue_ID;
+    private bool dialogueMustStart = true;
 
     public void Start()
     {
+        staticStartId = startId;
         GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
 
 
@@ -109,7 +114,11 @@ public class CharacterDialogueHandler : Observer
         while (startId >= 0)
         {
             nextDialogue = false;
+            //We wait to make sure the proper dialogue is initialized
             LoadDialog(startId);
+            m_TextMeshPro.text = "";
+            yield return new WaitUntil(() => dialogueMustStart == true);
+
             StartCoroutine("ReadLine");
             yield return new WaitUntil(() => nextDialogue == true);
         }
@@ -199,6 +208,7 @@ public class CharacterDialogueHandler : Observer
 
         }
         nextDialogue = true;
+        dialogueMustStart = false;
     }
 
     private bool isVoyelle(char test)
@@ -258,13 +268,29 @@ public class CharacterDialogueHandler : Observer
 
     private void LoadDialog(int _dialogueID)
     {
+        tmp_dialogue_ID = _dialogueID;
 
+        //Plus tard on chargera un JSON
+        if (fades && _dialogueID!=staticStartId)
+        {
+            fader.FadeIn(0.3f);
+            Invoke("loadDialogueafterWait", 0.4f);
+            Invoke("afterFaded", 0.5f);
+        }
+        else
+        {
+            loadDialogueafterWait();
+        }
+       
+    }
+
+    public void loadDialogueafterWait()
+    {
         //Plus tard on chargera un JSON
         string loadedJsonFile = Resources.Load<TextAsset>("dialogues").text;
         DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
-        
 
-        int dialogueID = findDialogueByID(_dialogueID);
+        int dialogueID = findDialogueByID(tmp_dialogue_ID);
         startId = dialoguesInJson.dialogues[dialogueID].next;
 
         if (videoValue != "" && timelineValues[videoValue].playableGraph.IsValid())
@@ -273,10 +299,30 @@ public class CharacterDialogueHandler : Observer
         }
         videoValue = dialoguesInJson.dialogues[dialogueID].backgroundVideo;
         timelineValues[videoValue].Play();
+
+        if (fades && tmp_dialogue_ID != staticStartId)
+        {
+            Invoke("loadEndOfDialogueData", 0.6f);
+        }
+        else
+        {
+            loadEndOfDialogueData();
+        }
+
+    }
+
+    public void loadEndOfDialogueData()
+    {
+        string loadedJsonFile = Resources.Load<TextAsset>("dialogues").text;
+        DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
+
+        int dialogueID = findDialogueByID(tmp_dialogue_ID);
+
         Character dialogueCharacter = new Character();
         switch (dialoguesInJson.dialogues[dialogueID].character)
         {
-            case "Ice": dialogueCharacter = dialogueCharacter.Ice();
+            case "Ice":
+                dialogueCharacter = dialogueCharacter.Ice();
                 break;
             case "Earth":
                 dialogueCharacter = dialogueCharacter.Earth();
@@ -291,8 +337,9 @@ public class CharacterDialogueHandler : Observer
                 dialogueCharacter = dialogueCharacter.Fire();
                 break;
         }
-        
-        dialogue1 = new Dialogue(dialogueCharacter, dialoguesInJson.dialogues[dialogueID].lines,0);
+
+        dialogue1 = new Dialogue(dialogueCharacter, dialoguesInJson.dialogues[dialogueID].lines, 0);
+        dialogueMustStart = true;
     }
 
     public int findDialogueByID(int ID)
@@ -308,7 +355,17 @@ public class CharacterDialogueHandler : Observer
     }
 
 
+    public void afterFaded()
+    {
+        fader.FadeOut(0.3f);
 
+    }
+
+    public void fadeAgain()
+    {
+        
+
+    }
 
 
     private void Update()

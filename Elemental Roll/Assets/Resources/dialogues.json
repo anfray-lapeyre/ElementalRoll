@@ -55,7 +55,7 @@
 	},
 	{"character":"A Wizard Passing By",
 	"lines" : ["A <color=#FB5607><i><b>Fire Elemental</b></i></color>  here ?", "Quick, get into this orb before touching the <color=#7FF3F0><b><i>Water</b></i></color>."],
-	"next" : 10,
+	"next" : 25,
 	"backgroundVideo":"_Cinematic-7",
 	"id" : 9
 	},
@@ -149,6 +149,12 @@
 	"next" : -1,
 	"backgroundVideo":"LoadCutscene1-2",
 	"id" : 24
+	},
+	{"character":"Fire",
+	"lines" : [""],
+	"next" : -1,
+	"backgroundVideo":"LoadCutsceneCabin2",
+	"id" : 25
 	}
 ]
 }

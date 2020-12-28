@@ -37,6 +37,7 @@ public class firstCinematicScript : MonoBehaviour
         initialSizeRuby = gateRubyLit.transform.localScale;
     }
 
+
     public void PropellUp()
     {
         ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 10c7264148297e0469e47c1280ac437a,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -369,7 +369,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130052792}
-  m_LocalRotation: {x: 0.10129417, y: -0.026153166, z: 0.0026637854, w: 0.99450916}
+  m_LocalRotation: {x: 0.10129416, y: -0.026153203, z: 0.0026637886, w: 0.99450916}
   m_LocalPosition: {x: -20.2, y: 17.1, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -436,7 +436,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136898763}
-  m_LocalRotation: {x: 0.011419275, y: 0.86052954, z: 0.019309286, w: -0.5089065}
+  m_LocalRotation: {x: 0.011419275, y: 0.86052954, z: 0.019309284, w: -0.5089065}
   m_LocalPosition: {x: -10.7, y: 20.4, z: -10.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5558,9 +5558,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b759e1c195234419622471704a72db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emotions: {fileID: 1395726851}
-  frontCamera: {fileID: 130052793}
   whitefader: {fileID: 7435034229382808909}
+  cinematicNumber: 0
+  FirstCinematicemotions: {fileID: 1395726851}
+  frontCamera: {fileID: 130052793}
+  Hell1: {fileID: 0}
+  Hell2: {fileID: 0}
+  Hell3: {fileID: 0}
+  HELLVCAM1: {fileID: 0}
+  HELLVCAM2: {fileID: 0}
+  HELLVCAM3: {fileID: 0}
+  HellFlyingVCAM: {fileID: 0}
+  GreenFlyingVCAM: {fileID: 0}
+  BlueFlyingVCAM: {fileID: 0}
+  RiverVCAM: {fileID: 0}
+  audioSource: {fileID: 0}
+  boom: {fileID: 0}
+  openPortal: {fileID: 0}
+  closePortal: {fileID: 0}
+  gatePosition: {fileID: 0}
+  player: {fileID: 0}
+  gatePortal: {fileID: 0}
+  gateSlime: {fileID: 0}
+  gateGemMaterial: {fileID: 0}
+  particles: {fileID: 0}
+  gateParticles: {fileID: 0}
+  gateRubyLit: {fileID: 0}
+  speedmodifier: 0
+  jumpintensity: 0
+  VCAM1: {fileID: 0}
+  VCAM2: {fileID: 0}
+  VCAM3: {fileID: 0}
+  VCAM4: {fileID: 0}
+  VCAM5: {fileID: 0}
+  VCAM6: {fileID: 0}
 --- !u!4 &422166013
 Transform:
   m_ObjectHideFlags: 0
@@ -5809,6 +5840,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PersistentObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6800909101603772854, guid: f7d79f588225d8541bb23c00e9d4caf2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d79f588225d8541bb23c00e9d4caf2, type: 3}
@@ -6579,7 +6615,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847163525}
-  m_LocalRotation: {x: 0.1612285, y: -0.32686007, z: 0.056696806, w: 0.929491}
+  m_LocalRotation: {x: 0.1612285, y: -0.32686004, z: 0.056696802, w: 0.929491}
   m_LocalPosition: {x: -13.33, y: 18.08, z: -12.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6773,6 +6809,7 @@ MonoBehaviour:
   LevelLoader: {fileID: 3324779465422197648, guid: 9862bcf9362beaa4493ae33da4cebaab,
     type: 3}
   LivesLeft: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
+  fades: 0
 --- !u!1 &2110657977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,8 +6945,8 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
+    m_Style: 0
+    m_Time: 0
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []

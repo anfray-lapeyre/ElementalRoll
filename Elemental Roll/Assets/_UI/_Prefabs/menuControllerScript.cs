@@ -263,7 +263,7 @@ public class menuControllerScript : Observer
 
     public void LaunchCinematic()
     {
-        SceneManager.LoadScene("Cutscene1");
+        SceneManager.LoadScene("CutsceneCabin1");
     }
 
     public void OutOfSave(bool isNew=false)
