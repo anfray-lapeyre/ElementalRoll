@@ -272,7 +272,9 @@ public class menuControllerScript : Observer
         if (isNew)
         {
                 firstTimefade.FadeIn(1f);
-                InvokeRealTime("LaunchCinematic", 2f);
+            GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<handleMusicScript>().setVolume(0.3f, 2f);
+            Debug.Log("Working ");
+            InvokeRealTime("LaunchCinematic", 2f);
                
         }
         else

@@ -24,7 +24,7 @@ public class StartMenuScript : MonoBehaviour
 
     private void Awake()
     {
-        //persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
         //persistantHandler.GetComponent<InputHandler>().addObserver(this);
         currentLevel.value = ActualSave.actualSave.NextLevel();
         difficultyLife.value = ActualSave.actualSave.chosenLivesDifficulty;
@@ -96,6 +96,7 @@ public class StartMenuScript : MonoBehaviour
         if (isNew)
         {
             firstTimefade.FadeIn(2f);
+
             Invoke("LaunchCinematic", 2f);
         }
         else

@@ -51,7 +51,6 @@ public class CharacterDialogueHandler : Observer
         staticStartId = startId;
         GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
 
-
         GameObject levelLoader = Instantiate(LevelLoader);
         _levelLoader = levelLoader.GetComponent<LevelLoader>();
         Invoke("waitABit", 2f);
@@ -342,6 +341,7 @@ public class CharacterDialogueHandler : Observer
 
         dialogue1 = new Dialogue(dialogueCharacter, dialoguesInJson.dialogues[dialogueID].lines, 0);
         dialogueMustStart = true;
+
     }
 
     public int findDialogueByID(int ID)

@@ -66,7 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - CrystalHue: -140.5
-    - CrystalIntensity: 1.6599989
+    - CrystalIntensity: 0.1
     - Vector1_5E298A30: 1
     - Vector1_72BF8E09: 1
     - Vector1_8795192C: 0.1

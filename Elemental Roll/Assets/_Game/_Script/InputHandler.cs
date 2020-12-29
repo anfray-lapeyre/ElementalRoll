@@ -33,7 +33,6 @@ public class InputHandler : Subject
         buttonStart = this.gameObject.AddComponent<PauseCommand>();
         leftStick = this.gameObject.AddComponent<MoveCommand>(); 
         leftStickMenu = this.gameObject.AddComponent<MoveCommand>();
-        leftStickMenu.name = "leftStickMenu";
         (leftStickMenu as MoveCommand).isMenuController = true;
         buttonA = this.gameObject.AddComponent<SpellCommand>(); 
         buttonB = this.gameObject.AddComponent<RestartCommand>(); 

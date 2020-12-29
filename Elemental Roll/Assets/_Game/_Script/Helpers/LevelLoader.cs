@@ -22,7 +22,10 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadCharacterCutscene(int character)
     {
-        if(character == 1)
+        handleMusicScript persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<handleMusicScript>();
+        persistantHandler.setVolume(0.3f, 3f);
+
+        if (character == 1)
         {
             StartCoroutine(loadAsynchronously("Tracy"));
         }
@@ -43,6 +46,8 @@ public class LevelLoader : MonoBehaviour
 
             levelToLoad = -currentLevel.value-1;
 
+            updateMusic(levelToLoad);
+
             string loadedJsonFile = Resources.Load<TextAsset>("levels").text;
             LevelsContainer levelsInJson = JsonUtility.FromJson<LevelsContainer>(loadedJsonFile);
             CrossLevelInfo.LevelName = levelsInJson.levels[levelToLoad].name;
@@ -55,10 +60,13 @@ public class LevelLoader : MonoBehaviour
         }
         else
         {
+            //If level to load is bigger than zero, and the currentlevel value isnt negative, then it means that we are loading a level
             if (levelToLoad >= 0)
             {
 
                 Debug.Log("Level number : " + levelToLoad);
+
+                updateMusic(levelToLoad);
                 string loadedJsonFile = Resources.Load<TextAsset>("levels").text;
                 LevelsContainer levelsInJson = JsonUtility.FromJson<LevelsContainer>(loadedJsonFile);
                 CrossLevelInfo.LevelName = levelsInJson.levels[levelToLoad].name;
@@ -115,10 +123,14 @@ public class LevelLoader : MonoBehaviour
             }
             else if (levelToLoad == -1)
             {
+                updateMusic(0);
+
                 StartCoroutine(loadAsynchronously("LevelSelection"));
             }
             else
             {
+                updateMusic(0);
+
                 StartCoroutine(loadAsynchronously("MainMenu"));
             }
         }
@@ -133,6 +145,16 @@ public class LevelLoader : MonoBehaviour
 
 
     }
+
+    private void updateMusic(int levelToLoad)
+    {
+        //If the right musical atmosphere isnt set, we set it
+        handleMusicScript persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<handleMusicScript>();
+        persistantHandler.setVolume(1f, 3f);
+        if (persistantHandler.currentMusicAtmosphere != (levelToLoad - 1) / 20)
+            persistantHandler.changeMusic((levelToLoad - 1) / 20, 5f);
+    }
+
 
     private void cancelLevelProgress(int leveltoErase)
     {
