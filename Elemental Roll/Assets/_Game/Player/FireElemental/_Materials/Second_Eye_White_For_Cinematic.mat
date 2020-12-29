@@ -63,7 +63,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - BlinkIntensity: 0
-    - EyeAperture: 0.09
+    - EyeAperture: 0.06
     - EyeBrowIntensity: 0
     - EyeBrowOrientation: 1.52
     - Vector1_8316F640: 0.063

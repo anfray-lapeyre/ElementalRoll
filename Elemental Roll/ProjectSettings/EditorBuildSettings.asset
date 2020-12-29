@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Game/_Scenes/MainMenu.unity
     guid: 4550f952f55498541a024b4afe5832f0
   - enabled: 1
+    path: Assets/_Game/_Scenes/LevelSelection.unity
+    guid: c098da81b8cbcbc45ae915b2d19c4dfd
+  - enabled: 1
     path: Assets/_Game/_Scenes/Cutscenes/CutsceneCabin1.unity
     guid: 18bda09b721b55449a426a7b0718b454
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/_Scenes/Cutscenes/CutsceneCabin2.unity
     guid: 19ed164e1a1e7c74190182e65f7b507c
-  - enabled: 1
-    path: Assets/_Game/_Scenes/LevelSelection.unity
-    guid: c098da81b8cbcbc45ae915b2d19c4dfd
   - enabled: 1
     path: Assets/_Game/_Scenes/CharacterUnlock/Tracy.unity
     guid: d0e9ad1d6f69c834bbe72f3db18bd2c5

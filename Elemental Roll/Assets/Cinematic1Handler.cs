@@ -39,7 +39,8 @@ public class Cinematic1Handler : MonoBehaviour
     public AudioClip openPortal;
     public AudioClip closePortal;
 
-  
+    public Canvas canvas;
+
 
 
     private bool goesToGate = false;
@@ -176,6 +177,8 @@ public class Cinematic1Handler : MonoBehaviour
 
     public void LoadCutsceneCabin2()
     {
+        canvas.gameObject.SetActive(true);
+
         //WhiteFadeIn
         whitefader.FadeIn(0.5f);
         //LoadCustscene
@@ -305,5 +308,13 @@ public class Cinematic1Handler : MonoBehaviour
         {
             player.AddForce((player.position - gatePosition.transform.position) * speedmodifier);
         }
+    }
+
+    public void loadFirstLevel()
+    {
+        Debug.Log("BIM");
+        canvas.gameObject.SetActive(true);
+        SceneManager.LoadScene("WelcomeHome");
+
     }
 }

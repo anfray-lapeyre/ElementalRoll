@@ -15,6 +15,8 @@ using UnityEngine.Playables;
 
 public class CharacterDialogueHandler : Observer
 {
+
+    public int levelLoadedInTheEnd = 0;
     private Dialogue dialogue1;
     public int startId;
     public SoundStorageScript soundStorage; 
@@ -382,8 +384,9 @@ public class CharacterDialogueHandler : Observer
 
     public void OutOfSave()
     {
-        
-        _levelLoader.LoadNextLevel(-2, false);
+        Debug.Log("On arrive bien là");
+        _levelLoader.ShowLoader();
+        _levelLoader.LoadNextLevel(levelLoadedInTheEnd, false);
     }
 
 

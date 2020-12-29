@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 10c7264148297e0469e47c1280ac437a,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -369,7 +369,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130052792}
-  m_LocalRotation: {x: 0.10129416, y: -0.026153203, z: 0.0026637886, w: 0.99450916}
+  m_LocalRotation: {x: 0.10129416, y: -0.026153203, z: 0.0026637884, w: 0.99450916}
   m_LocalPosition: {x: -20.2, y: 17.1, z: -26.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -436,7 +436,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136898763}
-  m_LocalRotation: {x: 0.011419275, y: 0.86052954, z: 0.019309284, w: -0.5089065}
+  m_LocalRotation: {x: 0.011419273, y: 0.86052954, z: 0.01930928, w: -0.5089065}
   m_LocalPosition: {x: -10.7, y: 20.4, z: -10.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5576,6 +5576,7 @@ MonoBehaviour:
   boom: {fileID: 0}
   openPortal: {fileID: 0}
   closePortal: {fileID: 0}
+  canvas: {fileID: 0}
   gatePosition: {fileID: 0}
   player: {fileID: 0}
   gatePortal: {fileID: 0}
@@ -5844,7 +5845,7 @@ PrefabInstance:
     - target: {fileID: 6800909101603772854, guid: f7d79f588225d8541bb23c00e9d4caf2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d79f588225d8541bb23c00e9d4caf2, type: 3}

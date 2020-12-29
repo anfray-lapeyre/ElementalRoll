@@ -155,6 +155,12 @@
 	"next" : -1,
 	"backgroundVideo":"LoadCutsceneCabin2",
 	"id" : 25
+	},
+	{"character":"Fire",
+	"lines" : [""],
+	"next" : -1,
+	"backgroundVideo":"LoadFirstLevel",
+	"id" : 26
 	}
 ]
 }
