@@ -44,8 +44,52 @@ public static class SaveSystem
         }
         else
         {
-            //Debug.LogError("Save File not found in : " + path);
+            Debug.LogWarning("Save File not found in : " + path);
             return null;
         }
     }
+
+
+
+    public static void SaveLanguage(string _chosenLanguage)
+    {
+        LanguageFileInfo language = new LanguageFileInfo(_chosenLanguage);
+        SaveLanguage(language);
+    }
+
+    public static void SaveLanguage(LanguageFileInfo _chosenLanguage)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/language.slime";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, _chosenLanguage);
+        stream.Close();
+    }
+
+    public static void EraseLanguage(int currentSaveFile = 0)
+    {
+        string path = Application.persistentDataPath + "/language.slime";
+        File.Delete(path);
+    }
+
+
+
+    public static LanguageFileInfo LoadLanguage()
+    {
+        string path = Application.persistentDataPath + "/language.slime";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            LanguageFileInfo language = formatter.Deserialize(stream) as LanguageFileInfo;
+            stream.Close();
+            return language;
+        }
+        else
+        {
+            Debug.LogWarning("Save File not found in : " + path);
+            return null;
+        }
+    }
+
 }

@@ -1,0 +1,166 @@
+{ "dialogues" : [
+	{"character":"Fire",
+	"lines" : ["<i><b>*sigh*</b></i>  I'm so booooored...","When will I be able to take my revenge..."],
+	"next" : 24,
+	"backgroundVideo":"_Cinematic-8-3-Bored",
+	"id" : 0
+	},
+	{"character":"Fire",
+	"lines" : ["Two years ago, I was the <color=#FB5607><i><b>King of Hell</b></i></color>...", "It was fun...","I tortured people and my servants lived in fear of my <i><b>wrath</b></i>...","Until <color=#C80A93><i><b>Tim</b></i></color> came along..."],
+	"next" : 2,
+	"backgroundVideo":"_Cinematic-1",
+	"id" : 1
+	},
+	{"character":"Death",
+	"lines" : ["<color=#FB5607><i><b>Byle the King of Hell</b></i></color>, your reign of terror is over !"],
+	"next" : 3,
+	"backgroundVideo":"_Cinematic-2",
+	"id" : 2
+	 },
+	 {"character":"Fire",
+	"lines" : ["Oh really ? <color=#FB5607><i><b>Ha Ha Ha Ha</b></i></color>", "And how will you do that ?"],
+	"next" : 4,
+	"backgroundVideo":"_Cinematic-1",
+	"id" : 3
+	},
+	{"character":"Death",
+	"lines" : ["I worked with some friends to make you a little... <b><i>surprise</i></b>...", "I, <color=#C80A93><b><i>The Almighty TIM</i></b></color> ! Call upon thee the powers of <color=#C80A93><b><i>Death</i></b></color>, <color=#A46324><b><i>Earth</i></b></color> and <color=#7FF3F0><b><i>Ice</i></b></color> ! ", "Banish this <color=#FB5607><i><b>wretched soul</i></b></color>  from our realm ! Condemn him to eternal damnation in... <color=#CCCCCC><i><b>The Human World</i></b></color> !"],
+	"next" : 5,
+	"backgroundVideo":"_Cinematic-2",
+	"id" : 4
+	 },
+	 {"character":"Fire",
+	"lines" : ["NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOoooooooooooooooooo"],
+	"next" : 6,
+	"backgroundVideo":"_Cinematic-3",
+	"id" : 5
+	},
+	{"character":"Fire",
+	"lines" : ["I was cast out of my kingdom..."],
+	"next" : 7,
+	"backgroundVideo":"_Cinematic-4",
+	"id" : 6
+	},
+	{"character":"Fire",
+	"lines" : ["I flew during ten days straight, all the way to <color=#CCCCCC><i><b>the Human World</b></i></color>."],
+	"next" : 8,
+	"backgroundVideo":"_Cinematic-5",
+	"id" : 7
+	},
+	{"character":"Fire",
+	"lines" : ["Every day getting weaker than the last...", "Until the <b><i>crash</i></b>... When I met <color=#30E56A><b><i>Him</b></i></color>..."],
+	"next" : 9,
+	"backgroundVideo":"_Cinematic-6",
+	"id" : 8
+	},
+	{"character":"A Wizard Passing By",
+	"lines" : ["A <color=#FB5607><i><b>Fire Elemental</b></i></color>  here ?", "Quick, get into this orb before touching the <color=#7FF3F0><b><i>Water</b></i></color>."],
+	"next" : 25,
+	"backgroundVideo":"_Cinematic-7",
+	"id" : 9
+	},
+	{"character":"Fire",
+	"lines" : ["Since then, I've been waiting on the <color=#30E56A><b><i>Wizard</i></b></color> 's desk."],
+	"next" : 11,
+	"backgroundVideo":"_Cinematic-8-2-Wait",
+	"id" : 10
+	},
+	{"character":"Fire",
+	"lines" : ["He's been gathering pieces for me to get back to my world...", "There's just one thing left to do... ACTIVATE IT !"],
+	"next" : 12,
+	"backgroundVideo":"_Cinematic-8-4-Wait",
+	"id" : 11
+	},
+	{"character":"Fire",
+	"lines" : ["I, <color=#FB5607><i><b>Byle</b></i></color>, <color=#FB5607><i><b>Ancient King of Hell</b></i></color>, call upon thee : <color=#FB5607><i><b>Demonic Fire</b></i></color> !", "Come to me ! Open the gates that will allow me to get back my <b>Kingdom</b> !"],
+	"next" : 13,
+	"backgroundVideo":"_Cinematic-8-2-Wait",
+	"id" : 12
+	},
+	{"character":"Fire",
+	"lines" : ["FINALLY !!!"],
+	"next" : 14,
+	"backgroundVideo":"_Cinematic-8-4-ActiveWait",
+	"id" : 13
+	},
+	{"character":"Fire",
+	"lines" : ["I'm still not able to go back in one warp. But I'll get better with every jump !","Let's go find this traitor !"],
+	"next" : -1,
+	"backgroundVideo":"_Cinematic-8-2-Go",
+	"id" : 14
+	}
+	,
+	{"character":"Fire",
+	"lines" : ["...","It seems that I have enough power now...","Should I try summoning... <color=#7FF3F0><b><i>It</i></b></color> ?"],
+	"next" : 16,
+	"backgroundVideo":"Ponder_Before",
+	"id" : 15
+	},
+	{"character":"Fire",
+	"lines" : ["<color=#7FF3F0><b><i>Water Elemental</i></b></color> ! I summon thee ! "],
+	"next" : 17,
+	"backgroundVideo":"Invocation",
+	"id" : 16
+	},
+	{"character":"Ice",
+	"lines" : ["<b>WHO DARES TO SUMMON ME,  <color=#7FF3F0><i>THE ALL POWERFUL EMPEROR OF THE SEA</i></color> ?!</b>"],
+	"next" : 18,
+	"backgroundVideo":"Tracy_Angry",
+	"id" : 17
+	},
+	{"character":"Fire",
+	"lines" : ["Hello <color=#7FF3F0><b><i>Tracy</i></b></color>. Remember <color=#FB5607><i><b>Me</b></i></color> ?"],
+	"next" : 19,
+	"backgroundVideo":"Fire_Angry",
+	"id" : 18
+	},
+	{"character":"Ice",
+	"lines" : ["Oh ! Hi <color=#FB5607><i><b>Byle</b></i></color> how have you been ?","*mutters*<i><color=#C80A93><b>Tim</b></color>, do you hear me ? Please Invoke me back...</i>"],
+	"next" : 20,
+	"backgroundVideo":"Tracy_Worried",
+	"id" : 19
+	},
+	{"character":"Fire",
+	"lines" : ["No need to call that <color=#C80A93><b><i>demon</i></b></color>. He will not hear you here.", "You are now in <color=#FB5607><i><b>MY REALM</b></i></color> ! Forget about leaving..."],
+	"next" : 21,
+	"backgroundVideo":"Fire_Trap",
+	"id" : 20
+	},
+	{"character":"Ice",
+	"lines" : ["I'M SO SORRY !!", "<color=#C80A93><b><i>Tim</i></b></color> threatened my life ! I couldn't fight back... I didn't want to betray you...", "Ever since, I've been regretting my actions..."],
+	"next" : 22,
+	"backgroundVideo":"Ice_Weeping",
+	"id" : 21
+	},
+	{"character":"Fire",
+	"lines" : ["Well, that's a good thing, because you are now <b>MINE</b> !", "If you ever think of betraying me again, <color=#FB5607><i><b>I'LL EXTINGUISH YOU</b></i></color> !"],
+	"next" : 23,
+	"backgroundVideo":"Fire_In_Power",
+	"id" : 22
+	},
+	{"character":"Ice",
+	"lines" : ["Yes <color=#FB5607><i><b>My Lord</b></i></color> ! Sorry <color=#FB5607><i><b>My Lord</b></i></color> !"],
+	"next" : -1,
+	"backgroundVideo":"Ice_In_Power",
+	"id" : 23
+	},
+	{"character":"Fire",
+	"lines" : [""],
+	"next" : -1,
+	"backgroundVideo":"LoadCutscene1-2",
+	"id" : 24
+	},
+	{"character":"Fire",
+	"lines" : [""],
+	"next" : -1,
+	"backgroundVideo":"LoadCutsceneCabin2",
+	"id" : 25
+	},
+	{"character":"Fire",
+	"lines" : [""],
+	"next" : -1,
+	"backgroundVideo":"LoadFirstLevel",
+	"id" : 26
+	}
+]
+}

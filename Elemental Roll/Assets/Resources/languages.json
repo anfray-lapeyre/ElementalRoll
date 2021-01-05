@@ -1,0 +1,13 @@
+{ "languages" : [
+	{"name":"English",
+	"adress" : "dialogues.json",
+	"image":"EN.png",
+	"code" : "en_US"
+	},
+	{"name":"Français",
+	"adress" : "dialogues_FR.json",
+	"image":"FR.png",
+	"code" : "fr_FR"
+	}
+]
+}

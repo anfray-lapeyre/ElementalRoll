@@ -226,6 +226,16 @@ PrefabInstance:
       propertyPath: playerParts.Array.data[7]
       value: 
       objectReference: {fileID: 6606951259409350274}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.1370053
+      objectReference: {fileID: 0}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6711936
+      objectReference: {fileID: 0}
     - target: {fileID: 1193702692914111447, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: uiElement

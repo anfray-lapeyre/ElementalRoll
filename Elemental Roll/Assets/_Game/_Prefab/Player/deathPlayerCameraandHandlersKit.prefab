@@ -136,6 +136,16 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 875854976338298413, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.1370053
+      objectReference: {fileID: 0}
+    - target: {fileID: 875854976338298413, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6711936
+      objectReference: {fileID: 0}
     - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
       propertyPath: fallSparks

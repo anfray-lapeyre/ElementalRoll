@@ -78,11 +78,14 @@ public class PlayerController : Observer
     public Cinemachine.CinemachineVirtualCamera normalView;
     public Cinemachine.CinemachineVirtualCamera topView;
 
+    private ShoutHandlerScript shoutHandler;
+
     private void Start()
     {
         persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
         persistantHandler.GetComponent<InputHandler>().addObserver(this);
         StartParent = this.transform.parent;
+        shoutHandler = playerCamera.GetComponentInChildren<ShoutHandlerScript>();
         playerCollider = this.GetComponent<SphereCollider>();
         emotions = this.GetComponent<EmotionHandlerScript>();
         // We get the player's rigidbody's component
@@ -202,8 +205,10 @@ public class PlayerController : Observer
                     switch (power)
                     {
                         case 1: //Ice
-                                //Upward propulsion
+                                //Ice platform generation
                             emotions.PowerUp();
+                            shoutHandler.PlayAudio(true);
+
                             if (Gamepad.current != null)
                             {
                                 Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
@@ -212,12 +217,22 @@ public class PlayerController : Observer
                             InvokeIce();
                             break;
                         case 2:
+                            //Earth
+                            //No idea
+                            shoutHandler.PlayAudio(true);
+
                             break;
                         case 3:
+                            //Death 
+                            //No idea
+                            shoutHandler.PlayAudio(true);
+
+
                             break;
                         default: //Fire
                                  //Upward propulsion
                             emotions.PowerUp();
+                            shoutHandler.PlayAudio(true);
                             if (player.velocity.y < 0)
                             {
                                 player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
@@ -415,11 +430,14 @@ public class PlayerController : Observer
 
             if (playerSpeed.value > 80f)
             {
-                emotions.Roll();
+                if(emotions)
+                    emotions.Roll();
+
             }
             else
             {
-                emotions.StopRolling();
+                if(emotions)
+                    emotions.StopRolling();
             }
         }
         else
@@ -627,7 +645,10 @@ public class PlayerController : Observer
             playerScore.SetValue(playerScore.value + 100);
             Invoke("BonusAnimation", 0.3f);
             Invoke("IncrementBonusCount", 0.5f);
-            emotions.Bonus();
+            if(emotions)
+                emotions.Bonus();
+            shoutHandler.PlayAudio(true);
+
         }
         else if(other.tag == "Respawn")
         {
@@ -642,7 +663,10 @@ public class PlayerController : Observer
         else if (other.tag == "Propulser")
         {
             //Upward propulsion
-            emotions.PropellUp();
+            if(emotions)
+                emotions.PropellUp();
+            shoutHandler.PlayAudio(false);
+
             player.AddForce(new Vector3(0f,1f*jumpForce,0f));
             if (Gamepad.current != null)
             {
@@ -655,6 +679,8 @@ public class PlayerController : Observer
             // Invoke("Victory", 5f);
             if (!finishedLevel)
             {
+                shoutHandler.PlayAudio(true);
+
                 //if currentLevel is positive it means we are not in level selection mode, so we can update it
                 if (currentLevel.value >= 0)
                 {
@@ -697,7 +723,10 @@ public class PlayerController : Observer
  
             if (Mathf.Abs(lastVelocity.y) > 5f)
             {
-                emotions.Shock();
+                if(emotions)
+                    emotions.Shock();
+                shoutHandler.PlayAudio(false);
+
                 ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();
                 fallSparks.Emit(emitOverride, 10 + (int)Mathf.Min(Mathf.Abs(lastVelocity.y)/5f,20f));
                 if (Gamepad.current != null)

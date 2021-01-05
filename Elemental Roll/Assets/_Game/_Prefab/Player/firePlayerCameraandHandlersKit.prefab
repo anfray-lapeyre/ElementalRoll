@@ -510,11 +510,156 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4485856888386010004, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.6547155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485856888386010004, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2443047
+      objectReference: {fileID: 0}
+    - target: {fileID: 5416712277261484484, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: m_Name
+      value: ShoutHandler
+      objectReference: {fileID: 0}
     - target: {fileID: 6325307188310716272, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 14080
       objectReference: {fileID: 0}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ae5fd2439a7d466408d15b52d7123a61, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b7c1aadb48b4f84eb8c666602c16003, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 67592a1cb4591644b8dcc19327d344e3, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 853bbe9d68092fc45872d5fe2d4c2519, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 546248323875d0a45a1c2df7fda8ca19, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: edd83131d9295ad42a45442c5e9e8688, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 880cda8b8726159428684d025eaae94a, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 375ab4afe6972264ba7d396debb7ae17, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f9bd2a8772cf074d97086f31c161a12, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: d3536b2056a50ae499af0d0ea672d036, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 597d357cb3ef28043b729e4254e85b0f, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[11]
+      value: 
+      objectReference: {fileID: 8300000, guid: d1f1806ebc7610f4891c6c2d31fd3e03, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[12]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf5004acc34af3842b75d522e47b38cb, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[13]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b7c1aadb48b4f84eb8c666602c16003, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: negativeShouts.Array.data[14]
+      value: 
+      objectReference: {fileID: 8300000, guid: 375ab4afe6972264ba7d396debb7ae17, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 474e8f204b416c348a035df4b6cae721, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: e8d6058c80c04074c8339f8217e01b98, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 327be73f564cce247b0085dd0a682adc, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: ab6c8df8f620c264db7aead2e2555923, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4673d29cf479e574a95ec8018d3da381, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ce849e8f57a653948bce19e32e98bd67, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: d5808c21fd365904db6fd171cbf9863a, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: adb8c66baecb45e49b42eaeb6a3a42b0, type: 3}
+    - target: {fileID: 6668327074228102015, guid: 5897338baf707a545a12cea5c32b92e9,
+        type: 3}
+      propertyPath: positiveShouts.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 32ef57b23d4e75c4783aaf34b6816ae9, type: 3}
     - target: {fileID: 6671298806795471503, guid: 5897338baf707a545a12cea5c32b92e9,
         type: 3}
       propertyPath: uiElement
