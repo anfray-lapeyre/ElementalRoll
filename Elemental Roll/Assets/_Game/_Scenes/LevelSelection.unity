@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.003265817, g: 0.29205608, b: 0.31029207, a: 1}
+  m_IndirectSpecularColor: {r: 0.003262684, g: 0.2919888, b: 0.3101649, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 61222860}
   - component: {fileID: 61222862}
   - component: {fileID: 61222861}
+  - component: {fileID: 61222863}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -206,8 +207,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -5.9629445, y: 0, z: -2.098936, w: 0}
   m_textInfo:
     textComponent: {fileID: 61222861}
     characterCount: 4
@@ -278,6 +279,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61222859}
   m_CullTransparentMesh: 0
+--- !u!114 &61222863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61222859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62b90da40a8214fa9b6ac1b076b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1012
+  isUGUI: 1
 --- !u!1 &91126671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1227,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 0}
-  mustWait: 0
+  onReturn: {fileID: 0}
 --- !u!1 &1760607187
 GameObject:
   m_ObjectHideFlags: 0

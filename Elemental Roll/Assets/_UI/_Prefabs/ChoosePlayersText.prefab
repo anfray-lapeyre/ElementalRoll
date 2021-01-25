@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 982922963373292751}
   - component: {fileID: 1317328377753704759}
   - component: {fileID: 3845296484647020711}
+  - component: {fileID: 7920093076872910015}
   m_Layer: 0
   m_Name: ChoosePlayersText
   m_TagString: Untagged
@@ -218,3 +219,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde21fac3c43c0a44988a51b35e152c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7920093076872910015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151307956924440024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62b90da40a8214fa9b6ac1b076b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1015
+  isUGUI: 0

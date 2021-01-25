@@ -4978,6 +4978,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floating Island
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 21bb681b6454e3940b83b897d85b0d42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5178661895559278292, guid: 21bb681b6454e3940b83b897d85b0d42, type: 3}
     - {fileID: -1504981713932161579, guid: 21bb681b6454e3940b83b897d85b0d42, type: 3}
@@ -5080,6 +5085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floating Island (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 21bb681b6454e3940b83b897d85b0d42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21bb681b6454e3940b83b897d85b0d42, type: 3}

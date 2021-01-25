@@ -57,6 +57,7 @@ public class PlayerController : Observer
     public FloatVariable maxPowerTime;
     public float powerTime= 500f;
     public GameObject Boom;
+    public GameObject propelBoom;
     private int invokingTime;
 
     private outroAnimationScript victory;
@@ -117,7 +118,8 @@ public class PlayerController : Observer
         switch (notifiedEvent.GetType().ToString())
         {
             case "MoveCommand":
-                OnMove(((MoveCommand)notifiedEvent).getMove());
+                if(((MoveCommand)notifiedEvent).isNotJoystick())
+                    OnMove(((MoveCommand)notifiedEvent).getMove());
                 break;
             case "SpellCommand":
                 OnSpecialAction(((SpellCommand)notifiedEvent).isPressed());
@@ -129,7 +131,7 @@ public class PlayerController : Observer
                 OnPause(((PauseCommand)notifiedEvent).isPressed());
                 break;
             case "EagleViewCommand":
-                OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                //OnPause(((EagleViewCommand)notifiedEvent).isPressed());
                 break;
             case "TopViewCommand":
                 OnTopView(((TopViewCommand)notifiedEvent).isPressed());
@@ -193,7 +195,7 @@ public class PlayerController : Observer
 
     public void OnSpecialAction(bool value)
     {
-        if (value)
+        if (value && !inOptions)
         {
             if (hasControls)
             {
@@ -337,12 +339,17 @@ public class PlayerController : Observer
             {
                 //Make the object parent here ! 
                 this.transform.SetParent(RaycastReturn.transform, true);
+                Debug.Log("Depends on platform");
             }
             else
             {
                 this.transform.SetParent(StartParent, true);
             }
 
+        }
+        else
+        {
+            this.transform.SetParent(StartParent, true);
         }
 
         //We add it to the player's rigidbody as a Force
@@ -399,6 +406,7 @@ public class PlayerController : Observer
 
     private void Update()
     {
+        //Handling grind sparks. If the player is too fast and touching the ground
         RaycastHit hit;
         var grindEmission = grindSparks.emission;
         Vector3 direction = Physics.gravity;
@@ -414,9 +422,14 @@ public class PlayerController : Observer
             }
 
         }
+
        
         grindEmission.enabled = isEmittingGrindSparks;
 
+
+
+
+        //Handling speed particles
         bool isEmittingSpeedSparks = false;
         ParticleSystem.EmissionModule emission = speedSparks.emission;
         if (playerSpeed.value >= 60f)
@@ -451,8 +464,30 @@ public class PlayerController : Observer
         emission.rateOverTime = Mathf.Min(Mathf.Max((playerSpeed.value - 40f), 0f) / 5f, 15f);
         emission.enabled = isEmittingSpeedSparks;
 
+
+
+        //Handling being scared when on the border of platform
+        if(isPlayerOnBorder())
+        {
+            Debug.Log("oups, gonna fall !");
+            emotions.ReallyWorried();
+        }
+        else
+        {
+            emotions.NormalMood();
+        }
+
     }
 
+    private bool isPlayerOnBorder(){
+        RaycastHit borderhit;
+        float playerSize = playerCollider.bounds.extents.x;
+        bool result = !Physics.Raycast(transform.position + playerSize*Vector3.right, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * Vector3.left, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * Vector3.forward, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * Vector3.back, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        return result;
+    }
 
 
     public void enableVictory()
@@ -619,6 +654,19 @@ public class PlayerController : Observer
     private void PropellUp()
     {
         mustPropellUp = true;
+        emotions.PowerUp();
+        if (player.velocity.y < 0)
+        {
+            player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+        }
+        player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
+        if (Gamepad.current != null)
+        {
+            Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
+        }
+        GameObject instantiatedBoom = Instantiate(propelBoom);
+        instantiatedBoom.transform.position = this.transform.position;
+        Destroy(instantiatedBoom, 2f);
     }
 
     private void IncrementBonusCount()
@@ -703,10 +751,21 @@ public class PlayerController : Observer
         //If the player does not control, it means the level is starting
         if (!hasControls)
         {
+            if (emotions)
+                emotions.NormalMood();
             //We enable controls and start timer
             hasControls = true;
             if(handler)
                 handler.startRunning();
+            CameraShaker.GetInstance("MainCamera").ShakeOnce(Mathf.Min(Mathf.Abs(lastVelocity.y) / 7f, 5f), 3f, 0.1f, 0.1f);
+            if (bumpSource != null)
+            {
+                bumpSource.pitch = Mathf.Pow(2, (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 100f));
+                bumpSource.volume = (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 50f) * baseVolume;
+                bumpSource.Play();
+            }
+            ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();
+            fallSparks.Emit(emitOverride, 10 + (int)Mathf.Min(Mathf.Abs(lastVelocity.y) / 5f, 20f));
         }
         /*Falldown particles*/
         if(Mathf.Abs(lastVelocity.y) > 1f)

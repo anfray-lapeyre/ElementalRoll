@@ -160,6 +160,24 @@ public class EmotionHandlerScript : MonoBehaviour
 
     }
 
+    public void ReallyWorried()
+    {
+        //Really worried = eyebrows low, slightly sad and slightly large aperture, fire intensity low & blue
+        setValue(playerEyeMaterial, EAID, EALARGE, 0.3f);
+        setValue(playerEyeMaterial, EBOID, EBOTIRED, 0.3f);
+        setValue(playerEyeMaterial, EBIID, EBIAPPEARS, 0.3f);
+        if (typeOfPlayer == 0)
+        {
+            setValue(playerMaterial, FIID, FIVERYWEAK, 0.3f);
+            setValue(playerMaterial, FHID, LIGHTBLUE, 0.4f);
+
+        }
+        else if (typeOfPlayer == 1)
+        {
+            iceParts.Tighten();
+        }
+    }
+
     public void Angry()
     {
         //Angry = eyebrows low, slightly angry and normal aperture, fire intensity slightly high
@@ -227,7 +245,7 @@ public class EmotionHandlerScript : MonoBehaviour
         if (typeOfPlayer == 0)
         {
             setValue(playerMaterial, FIID, FIDEFAULT, 0.3f);
-            setValue(playerMaterial, FHID, DEFAULTRED, 0.5f);
+            setValue(playerMaterial, FHID, DEFAULTRED, 0.4f);
         }
         else if (typeOfPlayer == 1)
         {

@@ -13,7 +13,29 @@ public class LevelLoader : MonoBehaviour
     public IntVariable difficultyChrono;
     public IntVariable livesLeft;
     public IntVariable currentLevel;
+    public string loadingText;
 
+
+    private void Start()
+    {
+        if (ActualLanguage.actualLanguage != null)
+        {
+            int index = 0;
+
+            string loadedJsonFile = Resources.Load<TextAsset>(ActualLanguage.actualLanguage.chosenLanguage.name).text;
+            DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
+            for (int i = 0; i < dialoguesInJson.dialogues.Length; i++)
+            {
+                if (dialoguesInJson.dialogues[i].id == 1034)
+                    index = i;
+            }
+
+
+            loadingText = dialoguesInJson.dialogues[index].lines[0];
+
+        }
+          
+    }
 
     public void ShowLoader()
     {
@@ -234,14 +256,14 @@ public class LevelLoader : MonoBehaviour
             float progress = Mathf.Clamp(operation.progress, 0, 1);
             if(progress <0.1f || (progress >0.3f&& progress<=0.4f) || (progress > 0.6f && progress <= 0.7f))
             {
-                text.text = "Loading.";
+                text.text = loadingText+".";
             }else if ((progress >= 0.1f && progress <0.2f) || (progress > 0.4f && progress <= 0.5f) || (progress > 0.7f && progress <= 0.8f))
             {
-                text.text = "Loading..";
+                text.text = loadingText+"..";
             }
             else
             {
-                text.text = "Loading...";
+                text.text = loadingText+"...";
             }
 
             slider.value = progress;

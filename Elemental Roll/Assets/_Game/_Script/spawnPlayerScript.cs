@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 using UnityEngine.InputSystem;
 
 
-public class spawnPlayerScript : MonoBehaviour
+public class spawnPlayerScript : Observer
 {
     public GameObject firePrefab;
     public GameObject icePrefab;
@@ -24,9 +24,13 @@ public class spawnPlayerScript : MonoBehaviour
     private GameObject levelTitle;
     public Transform socle;
     public bool isPlaying = false;
+    private GameObject persistantHandler;
     // Start is called before the first frame update
     private void Awake()
     {
+        
+        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        persistantHandler.GetComponent<InputHandler>().addObserver(this);
         desiredAngle = socle.localRotation.eulerAngles.y;
         switch (ActualSave.actualSave.chosenPlayer)
         {
@@ -66,6 +70,32 @@ public class spawnPlayerScript : MonoBehaviour
         levelTitle = Instantiate(titleLevelPrefab);
     }
 
+    override public void OnNotify(GameObject entity, object notifiedEvent)
+    {
+        switch (notifiedEvent.GetType().ToString())
+        {
+            case "MoveCommand":
+                //OnMove(((MoveCommand)notifiedEvent).getMove());
+                break;
+            case "SpellCommand":
+                OnSpecialAction(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "RestartCommand":
+                OnRestart(((RestartCommand)notifiedEvent).isPressed());
+                break;
+            case "PauseCommand":
+                //OnPause(((PauseCommand)notifiedEvent).isPressed());
+                break;
+            case "EagleViewCommand":
+               // OnPause(((EagleViewCommand)notifiedEvent).isPressed());
+                break;
+            case "TopViewCommand":
+                //OnTopView(((TopViewCommand)notifiedEvent).isPressed());
+                break;
+            default:
+                break;
+        }
+    }
 
     public void ActivatePlayer()
     {
@@ -144,9 +174,9 @@ public class spawnPlayerScript : MonoBehaviour
         }
     }
 
-    public void OnRestart(InputValue input)
+    public void OnRestart(bool input)
     {
-        if (!isPlaying)
+        if (!isPlaying && input)
         {
 
             LoadNextLevel();
@@ -162,7 +192,7 @@ public class spawnPlayerScript : MonoBehaviour
     }
 
 
-    public void OnSpecialAction(InputValue input)
+    public void OnSpecialAction(bool input)
     {
         if(!isPlaying)
             OnRestart(input);

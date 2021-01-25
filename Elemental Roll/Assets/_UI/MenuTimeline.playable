@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: 1564870380671182243}
-    - {fileID: 8483147334779152256}
+    - {fileID: 7600751881793941725}
 --- !u!114 &-3959341065066653813
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
---- !u!114 &8483147334779152256
+--- !u!114 &7600751881793941725
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: CheckSave
+  m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 4.483333333333333
+  m_Time: 4.983333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 9df8b77e607d7974da7ab2e0338625a6, type: 2}
+  m_Asset: {fileID: 11400000, guid: 6f1479731bbfcde4ab795189e4c3185a, type: 2}

@@ -108,6 +108,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 3136075455685987158}
   normalColor: {r: 0.043137256, g: 0.70980394, b: 0.4431373, a: 1}
   pressedColor: {r: 0.06416872, g: 0.9716981, b: 0.60868627, a: 1}
@@ -281,6 +287,7 @@ GameObject:
   - component: {fileID: 6864370117067074554}
   - component: {fileID: 1914606385221172923}
   - component: {fileID: 5001875923800609226}
+  - component: {fileID: 3764990183986881910}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -304,7 +311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.1200004}
+  m_AnchoredPosition: {x: 0, y: -0.6}
   m_SizeDelta: {x: 0, y: -6.239999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1914606385221172923
@@ -362,14 +369,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 4098
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -426,6 +433,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3764990183986881910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208406410736320275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62b90da40a8214fa9b6ac1b076b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1004
 --- !u!1 &1376778262685116538
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +700,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 1603961896298874444}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1663,6 +1689,7 @@ GameObject:
   - component: {fileID: 3822030427914474627}
   - component: {fileID: 1310609051467794822}
   - component: {fileID: 7633061621696144168}
+  - component: {fileID: 4198776460390827205}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1686,7 +1713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.1200004}
+  m_AnchoredPosition: {x: 0, y: -0.5999995}
   m_SizeDelta: {x: 0, y: -6.239999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1310609051467794822
@@ -1744,14 +1771,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 4098
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1808,6 +1835,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4198776460390827205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298177824500357197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62b90da40a8214fa9b6ac1b076b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1004
 --- !u!1 &4452217271916102449
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,6 +2088,7 @@ GameObject:
   - component: {fileID: 2728598965250464147}
   - component: {fileID: 6355731232707344914}
   - component: {fileID: 541921200186054423}
+  - component: {fileID: 556037418469240425}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2130,14 +2171,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 4098
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -2194,6 +2235,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &556037418469240425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5163583446026237778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62b90da40a8214fa9b6ac1b076b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1005
 --- !u!1 &5212346865695383543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,6 +2502,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 8045944779479179083}
   normalColor: {r: 0.043137256, g: 0.70980394, b: 0.4431373, a: 1}
   pressedColor: {r: 0.06416872, g: 0.9716981, b: 0.60868627, a: 1}
@@ -2465,6 +2525,7 @@ GameObject:
   - component: {fileID: 1374714303530075132}
   - component: {fileID: 136909986190602337}
   - component: {fileID: 4160315971194920317}
+  - component: {fileID: 1377793188933129055}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2488,8 +2549,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -3.1200004}
-  m_SizeDelta: {x: 0, y: -6.239999}
+  m_AnchoredPosition: {x: 0, y: -0.59999955}
+  m_SizeDelta: {x: 0, y: -6.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &136909986190602337
 CanvasRenderer:
@@ -2546,14 +2607,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 4098
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -2610,6 +2671,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1377793188933129055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678406420403307705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62b90da40a8214fa9b6ac1b076b8fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1004
 --- !u!1 &6141321669329637862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,6 +2792,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 5228033277336428944}
   normalColor: {r: 0.043137256, g: 0.70980394, b: 0.4431373, a: 1}
   pressedColor: {r: 0.06416872, g: 0.9716981, b: 0.60868627, a: 1}
@@ -2886,6 +2966,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 4320275145096577819}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3015,6 +3101,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  whenSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  whenDeselected:
+    m_PersistentCalls:
+      m_Calls: []
   targetGraphic: {fileID: 5548800766483508270}
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   pressedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3228,6 +3320,7 @@ MonoBehaviour:
   ID: -1
   subject: {fileID: 0}
   firstSelected: {fileID: 150669355731440408}
+  onReturn: {fileID: 0}
 --- !u!1 &8813823390397382472
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,8 +3444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6e2d0174cd1c34fb1be899c925d5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: -1
-  subject: {fileID: 0}
   firstSave: {fileID: 1603961897322457243}
   secondSave: {fileID: 6688465612704854347}
   thirdSave: {fileID: 3291328298516794784}

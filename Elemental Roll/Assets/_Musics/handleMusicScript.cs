@@ -152,7 +152,6 @@ public class handleMusicScript : MonoBehaviour
     {
         if (volumeMustChange)
         {
-            Debug.Log(Time.fixedUnscaledDeltaTime);
             source.volume += stepVolume * Time.fixedUnscaledDeltaTime;
 
             if (Mathf.Abs(source.volume - targetVolume) <=0.01f )

@@ -10,7 +10,7 @@ public class TopViewCommand : Command
     override public void execute(object value) {
         InputValue input = value as InputValue;
         pressed = (input.Get<float>() > 0.05f);
-        //Debug.Log("TOPVIEW : "+pressed);
+
     }
 
     public bool isPressed()

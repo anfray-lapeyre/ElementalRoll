@@ -27,6 +27,7 @@ public class findPlayer : MonoBehaviour
     private bool mustIncrement = false;
     private float currentIntensity;
     private float currentHue;
+    public ParticleSystem victoryParticles;
     // Start is called before the first frame update
     public void SetGateInteraction()
     {
@@ -63,6 +64,8 @@ public class findPlayer : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        //If something enters, the player won
+        victoryParticles.Play();
         skinnedMeshRenderer = this.GetComponent<SkinnedMeshRenderer>();
         endingCam.LookAt = other.transform;
         replayCam.LookAt = other.transform;
@@ -75,6 +78,7 @@ public class findPlayer : MonoBehaviour
         mustIncrement = true;
         currentIntensity = startIntensity;
         currentHue = startHue;
+
 
     }
 

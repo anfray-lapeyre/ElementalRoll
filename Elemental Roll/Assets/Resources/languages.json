@@ -1,12 +1,12 @@
-{ "languages" : [
+﻿{ "languages" : [
 	{"name":"English",
-	"adress" : "dialogues.json",
-	"image":"EN.png",
+	"adress" : "dialogues",
+	"image":"EN",
 	"code" : "en_US"
 	},
-	{"name":"Fran�ais",
-	"adress" : "dialogues_FR.json",
-	"image":"FR.png",
+	{"name":"Français",
+	"adress" : "dialogues_FR",
+	"image":"FR",
 	"code" : "fr_FR"
 	}
 ]

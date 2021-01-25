@@ -38,6 +38,7 @@ public class menuControllerScript : Observer
     public GameObject PlayerText;
 
     public GameObject SaveSelectionScreen;
+    public GameObject LanguageSelectionScreen;
 
 
     private GameObject bufferObject;
@@ -232,6 +233,73 @@ public class menuControllerScript : Observer
         inTransition = false;
     }
 
+
+    public void checkLanguage()
+    {
+        //This is the case when we start menu for the first time in a game
+        if(ActualLanguage.actualLanguage == null)
+        {
+            //This condition makes sure the player starts the game for the first time.
+            LanguageFileInfo languageSave = SaveSystem.LoadLanguage();
+            if (languageSave == null)
+            {
+                if (subject)
+                {
+                    //If no actual save is stored, it means the game is starting
+                    spawnLanguage();
+                    inOption = true;
+                    passCinematic = timeline.gameObject.GetComponent<passCinematicScript>();
+                    passCinematic.disable();
+                }
+            }
+            else //We go there if the player starts the game after the first time
+            {
+                //In this case a language is already selected, we just have to put it in ActualLanguage
+                ActualLanguage.actualLanguage = languageSave.Clone();
+
+                //In this case, we need to update all texts now
+                RefreshAllText();
+                checkSave();
+            }
+
+        }
+        else
+        {
+            //If ActualLanguage is filled, then there is no need to do anything
+            checkSave();
+
+        }
+    }
+
+    private void RefreshAllText()
+    {
+        translateTextScript[] foundTextObjects = FindObjectsOfType(typeof(translateTextScript)) as translateTextScript[];
+        for (int i = 0; i < foundTextObjects.Length; i++)
+        {
+            foundTextObjects[i].RefreshDialog();
+        }
+    }
+
+
+    public void spawnLanguage()
+    {
+        subject.removeObserver(this);
+        GameObject tmp = Instantiate(LanguageSelectionScreen, this.transform);
+
+    }
+
+    public void OutOfLanguage()
+    {
+        GameObject.FindGameObjectsWithTag("PersistentObject")[0].GetComponent<InputHandler>().addObserver(this);
+
+        if (timeline)
+        {
+            passCinematic = timeline.gameObject.GetComponent<passCinematicScript>();
+            passCinematic.doEnable();
+        }
+        checkSave();
+    }
+
     public void checkSave()
     {
         if(ActualSave.actualSave == null)
@@ -242,8 +310,11 @@ public class menuControllerScript : Observer
                 spawnSave();
                 inOption = true;
                 //timeline.Pause();
-                passCinematic = timeline.gameObject.GetComponent<passCinematicScript>();
-                passCinematic.disable();
+                if (timeline)
+                {
+                    passCinematic = timeline.gameObject.GetComponent<passCinematicScript>();
+                    passCinematic.disable();
+                }
             }
         }
         else

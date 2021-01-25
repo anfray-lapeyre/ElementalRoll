@@ -229,12 +229,37 @@ PrefabInstance:
     - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1370053
+      value: 5.0325084
       objectReference: {fileID: 0}
     - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6711936
+      value: -2.0879195
+      objectReference: {fileID: 0}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.16388343
+      objectReference: {fileID: 0}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.806094
+      objectReference: {fileID: 0}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.15388443
+      objectReference: {fileID: 0}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5474252
+      objectReference: {fileID: 0}
+    - target: {fileID: 622187628400834060, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6541872
       objectReference: {fileID: 0}
     - target: {fileID: 1193702692914111447, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
@@ -251,6 +276,11 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3865735862240740327, guid: a193d7fab45353e40a1b8fd8313b0992,
+        type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4224955895566349835, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: fallSparks
@@ -266,12 +296,6 @@ PrefabInstance:
       propertyPath: speedSparks
       value: 
       objectReference: {fileID: 1082493625402291904}
-    - target: {fileID: 4224955895566349835, guid: a193d7fab45353e40a1b8fd8313b0992,
-        type: 3}
-      propertyPath: PauseMenu
-      value: 
-      objectReference: {fileID: 4080646434662074437, guid: 921f4b5d2ca0126429bdf40491192f31,
-        type: 3}
     - target: {fileID: 4224955895566349835, guid: a193d7fab45353e40a1b8fd8313b0992,
         type: 3}
       propertyPath: handler
@@ -872,7 +896,7 @@ PrefabInstance:
     - target: {fileID: 5094308547383058954, guid: 9e5a1651829270f40ba9b53af49ba53c,
         type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7080028713705758801, guid: 9e5a1651829270f40ba9b53af49ba53c,
         type: 3}

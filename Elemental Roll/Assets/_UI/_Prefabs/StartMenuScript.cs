@@ -107,6 +107,11 @@ public class StartMenuScript : MonoBehaviour
         }
     }
 
+    public void OutOfLanguage()
+    {
+        this.GetComponentInParent<menuControllerScript>().OutOfLanguage();
+    }
+
     public void getBack()
     {
         if (!isClosing)

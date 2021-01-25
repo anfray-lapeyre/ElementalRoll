@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: -1
+  subject: {fileID: 0}
   speedModifier: 3
   invertSpeedModifier: 2
   jumpForce: 550
@@ -318,6 +319,11 @@ MonoBehaviour:
   maxPowerTime: {fileID: 11400000, guid: 20592417207e2244b9b76848f44d5c42, type: 2}
   powerTime: 5
   Boom: {fileID: 3992283936593801526, guid: 19489a5f289d3a74ab47727a4f49c2e6, type: 3}
+  propelBoom: {fileID: 3992283936593801526, guid: 779f99be25d26fb4ab8e2d6ba2871825,
+    type: 3}
+  cinemachineBrain: {fileID: 0}
+  normalView: {fileID: 0}
+  topView: {fileID: 0}
 --- !u!114 &3184559445825639726
 MonoBehaviour:
   m_ObjectHideFlags: 0

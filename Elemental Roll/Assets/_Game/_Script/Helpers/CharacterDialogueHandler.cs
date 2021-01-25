@@ -288,7 +288,7 @@ public class CharacterDialogueHandler : Observer
     public void loadDialogueafterWait()
     {
         //Plus tard on chargera un JSON
-        string loadedJsonFile = Resources.Load<TextAsset>("dialogues").text;
+        string loadedJsonFile = Resources.Load<TextAsset>(ActualLanguage.actualLanguage.chosenLanguage.name).text;
         DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
 
         int dialogueID = findDialogueByID(tmp_dialogue_ID);
@@ -314,7 +314,7 @@ public class CharacterDialogueHandler : Observer
 
     public void loadEndOfDialogueData()
     {
-        string loadedJsonFile = Resources.Load<TextAsset>("dialogues").text;
+        string loadedJsonFile = Resources.Load<TextAsset>(ActualLanguage.actualLanguage.chosenLanguage.name).text;
         DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
 
         int dialogueID = findDialogueByID(tmp_dialogue_ID);
@@ -346,7 +346,7 @@ public class CharacterDialogueHandler : Observer
 
     public int findDialogueByID(int ID)
     {
-        string loadedJsonFile = Resources.Load<TextAsset>("dialogues").text;
+        string loadedJsonFile = Resources.Load<TextAsset>(ActualLanguage.actualLanguage.chosenLanguage.name).text;
         DialogueContainer dialoguesInJson = JsonUtility.FromJson<DialogueContainer>(loadedJsonFile);
         for(int i = 0; i < dialoguesInJson.dialogues.Length; i++)
         {

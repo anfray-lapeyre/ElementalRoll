@@ -60,7 +60,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""TopView"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""ad0264c2-53e5-4a6d-8d0a-d6fcdaaf73e5"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -88,7 +88,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""id"": ""ba0ccb55-9882-4472-a992-e1865a4b166a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -186,7 +186,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""TopView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -197,7 +197,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""TopView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -208,7 +208,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""TopView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -219,7 +219,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""TopView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -241,7 +241,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -252,7 +252,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -274,7 +274,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -285,7 +285,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -307,7 +307,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -318,7 +318,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -351,7 +351,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -362,7 +362,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -384,7 +384,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -395,7 +395,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -417,7 +417,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -428,7 +428,7 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -437,8 +437,8 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""de8c3561-f382-4075-983e-474ed113b24c"",
                     ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": ""StickDeadzone(min=0.5,max=0.5),NormalizeVector2"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""MoveJoystick"",
                     ""isComposite"": false,

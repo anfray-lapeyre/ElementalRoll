@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 8940796761971758505}
-  m_IndirectSpecularColor: {r: 0.003265817, g: 0.29205608, b: 0.31029207, a: 1}
+  m_IndirectSpecularColor: {r: 0.003262684, g: 0.2919888, b: 0.3101649, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,83 +122,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &68887041 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2677904006712061888, guid: 65d78ca5f0b489044bcf067f52a090a2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2677904006648321328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &68887043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2677904006712061890, guid: 65d78ca5f0b489044bcf067f52a090a2,
     type: 3}
   m_PrefabInstance: {fileID: 2677904006648321328}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68887041}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d030e26d152b9e49a3a67260fb95d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &68887045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68887041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: fef83863030a1a6449b0d94eec1aec28,
-    type: 3}
-  m_NotificationBehavior: 1
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 91195726-8329-4d84-ae26-ac01856f5fe0
-    m_ActionName: Gameplay/Move[/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s,/Keyboard/leftArrow,/Keyboard/a,/Keyboard/rightArrow,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f3538674-8fd1-4824-bd48-543473365942
-    m_ActionName: Gameplay/Look
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: fa5052f2-47be-4a60-a51c-49eeed789a20
-    m_ActionName: Gameplay/Restart[/Keyboard/enter,/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ca4d3520-b212-4f47-88c6-20aefe6c5058
-    m_ActionName: Gameplay/LookMouse[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 86dbd9ed-9636-4217-a37b-15acec38b74e
-    m_ActionName: Menu/Direction[/Keyboard/upArrow,/Keyboard/w,/Keyboard/downArrow,/Keyboard/s,/Keyboard/leftArrow,/Keyboard/a,/Keyboard/rightArrow,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c18c3892-d5c3-407c-a5ad-f0c9c8d9239b
-    m_ActionName: Menu/Return[/Keyboard/backspace]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3ed7f8a8-78fe-434d-a885-355090c9fa03
-    m_ActionName: Menu/Confirm[/Keyboard/enter]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &326254788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4918096894145356795, guid: 65d78ca5f0b489044bcf067f52a090a2,
@@ -496,7 +431,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2677904006648321328}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68887041}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}

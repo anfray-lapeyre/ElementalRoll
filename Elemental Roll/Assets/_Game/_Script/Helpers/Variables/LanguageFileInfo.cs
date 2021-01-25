@@ -29,7 +29,16 @@ public class LanguageFileInfo
         chosenLanguage = _chosenLanguage;
     }
 
-    public void Verbose(int count)
+    public LanguageFileInfo Clone()
+    {
+        LanguageFileInfo clone = new LanguageFileInfo();
+        clone.chosenLanguage = new LanguageSaveFormat();
+        if(chosenLanguage != null)
+            clone.chosenLanguage.name = chosenLanguage.name;
+        return clone;
+    }
+
+    public void Verbose()
     {
         Debug.Log("Language save is set to : " + chosenLanguage.name);
     }
