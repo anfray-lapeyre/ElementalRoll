@@ -3,7 +3,9 @@ guid: faba314a8f7a3f640a701a57bfed233a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - maxPowerTime: {instanceID: 0}
+  - powerTime: {fileID: 11400000, guid: 8ef19eaf355c52b4a858f253f16b71c6, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

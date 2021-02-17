@@ -16,14 +16,17 @@ public class FloatToTextSetter : MonoBehaviour
 
     private void OnEnable()
     {
-        if (isTime || isInt)
+        if (Variable != null)
         {
+            if (isTime || isInt)
+            {
 
-            Text.text = (int)Variable.value + "";
-        }
-        else
-        {
-            Text.text = Variable.value + "";
+                Text.text = (int)Variable.value + "";
+            }
+            else
+            {
+                Text.text = Variable.value + "";
+            }
         }
     }
 

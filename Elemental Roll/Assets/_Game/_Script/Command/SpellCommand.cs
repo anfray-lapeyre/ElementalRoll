@@ -10,9 +10,8 @@ public class SpellCommand : Command
     override public void execute(object value) {
 
         InputValue input = value as InputValue;
-        Debug.Log(input.Get<float>());
 
-        pressed = (input.Get<float>() >0.05f);
+        pressed = (input.Get<float>() > 0.05f);
         //Debug.Log("SPELL : " + pressed);
     }
 

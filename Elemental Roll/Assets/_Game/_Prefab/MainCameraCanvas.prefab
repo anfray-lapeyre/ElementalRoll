@@ -298,7 +298,6 @@ GameObject:
   - component: {fileID: 406666086147646320}
   - component: {fileID: 406666086147646326}
   - component: {fileID: 406666086147646321}
-  - component: {fileID: 406666086147646327}
   - component: {fileID: 406666086147646324}
   m_Layer: 5
   m_Name: MiniMapBorder
@@ -324,7 +323,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -50, y: 50}
-  m_SizeDelta: {x: 256, y: 256}
+  m_SizeDelta: {x: 280, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &406666086147646326
 CanvasRenderer:
@@ -352,7 +351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 924e7dd49dfbb6c48b1f9fa8f8215d6e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0cc2c9fe08b45e24eb3f73225e007514, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -362,21 +361,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &406666086147646327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406666086147646323}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.14901961}
-  m_EffectDistance: {x: 8, y: -8}
-  m_UseGraphicAlpha: 1
 --- !u!114 &406666086147646324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,7 +651,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406666087773901130}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -734,7 +718,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6e1e0b379f8d904da89221cd5d25945, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28b943012acbd224aa715269fe3fe952, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -988,7 +972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 7189580749671238281}
-  Variable: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 0
 --- !u!114 &1207531348539842474
 MonoBehaviour:
@@ -1002,7 +986,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &1394043133990270797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 3066532594108223435}
-  Variable: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 1
   isInt: 0
@@ -1217,7 +1200,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -200, y: -66.3}
-  m_SizeDelta: {x: 130, y: 130}
+  m_SizeDelta: {x: 105, y: 105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &167331123480249444
 CanvasRenderer:
@@ -1267,8 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faba314a8f7a3f640a701a57bfed233a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPowerTime: {fileID: 11400000, guid: 20592417207e2244b9b76848f44d5c42, type: 2}
-  powerTime: {fileID: 11400000, guid: 8ef19eaf355c52b4a858f253f16b71c6, type: 2}
+  playerNb: 0
 --- !u!1 &1598002262072059820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &1956047504693671636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85ba27c0c0d9f849a3afdb2fe634410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
   gem: {fileID: 97233081043871854}
 --- !u!1 &2929410380068998640
 GameObject:
@@ -2220,7 +2200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 3787764981295116139}
-  Variable: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 1
   isInt: 0
@@ -2549,7 +2529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &3775613780219607447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,7 +2772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 7080028713705758801}
-  Variable: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 1
   isInt: 0
@@ -2968,7 +2947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 1634581974997987957}
-  Variable: {fileID: 11400000, guid: 1c44da63271196d4bb771a8e3edc39df, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 0
 --- !u!114 &1025997488548645299
 MonoBehaviour:
@@ -2982,7 +2961,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb3c134235ee564bbe84744a9eca01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficultyLife: {fileID: 11400000, guid: 84f5ddcd2a1f9314da205ff2b5998626, type: 2}
 --- !u!1 &4968390477556345575
 GameObject:
   m_ObjectHideFlags: 0
@@ -4008,7 +3986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 2481448603330189660}
-  Variable: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 1
   isInt: 0
@@ -4353,7 +4331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 18243862798265461}
-  Variable: {fileID: 11400000, guid: b731e3e82a23b7a4e96b56f785b75588, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 0
   isInt: 1
@@ -4527,7 +4505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 8948264587683369432}
-  Variable: {fileID: 11400000, guid: b731e3e82a23b7a4e96b56f785b75588, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 0
   isInt: 1
@@ -4857,7 +4835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Text: {fileID: 224148583682171776}
-  Variable: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
+  Variable: {fileID: 0}
   AlwaysUpdate: 1
   isTime: 1
   isInt: 0

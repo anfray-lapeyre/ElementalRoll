@@ -12,7 +12,7 @@ public class InputHandler : Subject
     Command buttonA;
     //TopView -> CommandX
     Command buttonX;
-    //EagleView->CommandY
+    //SecondSpecialAction->CommandY
     Command buttonY;
     //Move -> CommandLeftStick
     Command leftStick;
@@ -20,6 +20,9 @@ public class InputHandler : Subject
     Command leftStickMenu;
     //Pause -> CommandStart
     Command buttonStart;
+
+    //1/2/3/4 or d-pad -> Swap character
+    Command swapPlayer;
 
     private float timeBetweenTwoMove;
     private float maxTimeBetweenTwoMove = 0.5f;
@@ -37,7 +40,8 @@ public class InputHandler : Subject
         buttonA = this.gameObject.AddComponent<SpellCommand>(); 
         buttonB = this.gameObject.AddComponent<RestartCommand>(); 
         buttonX = this.gameObject.AddComponent<TopViewCommand>(); 
-        buttonY = this.gameObject.AddComponent<EagleViewCommand>(); 
+        buttonY = this.gameObject.AddComponent<SecondSpecialActionCommand>();
+        swapPlayer = this.gameObject.AddComponent<SwapCharacterCommand>();
         timeBetweenTwoMove = maxTimeBetweenTwoMove;
 
     }
@@ -45,14 +49,14 @@ public class InputHandler : Subject
 
     public void OnRestart(InputValue value) // CommandB
     {
-        Debug.Log("Restart");
+        //Debug.Log("Restart");
         buttonB.execute(value);
             Notify(buttonB);
     }
 
     public void OnSpecialAction(InputValue value) //CommandA
     {
-        Debug.Log("SpecialAction");
+       // Debug.Log("SpecialAction");
         buttonA.execute(value);
             Notify(buttonA);
     }
@@ -152,7 +156,7 @@ public class InputHandler : Subject
 
     public void OnPause(InputValue value) //CommandStart
     {
-        Debug.Log("Pause");
+        //Debug.Log("Pause");
 
         buttonStart.execute(value);
             Notify(buttonStart);
@@ -161,16 +165,23 @@ public class InputHandler : Subject
 
     public void OnTopView(InputValue value) //CommandX
     {
-        Debug.Log("TopView");
+        //Debug.Log("TopView : " +value.Get<float>());
 
         buttonX.execute(value);
             Notify(buttonX);
         
     }
-
-    public void OnEagleView(InputValue value) //CommandY
+    public void OnTopViewTrigger(InputValue value) //CommandX
     {
-        Debug.Log("EagleView");
+        //Debug.Log("TopView : " + value.Get<float>());
+
+        buttonX.execute(value);
+        Notify(buttonX);
+
+    }
+    public void OnSecondSpecialAction(InputValue value) //CommandY
+    {
+        //Debug.Log("SecondSpecialAction");
 
         buttonY.execute(value);
             Notify(buttonY);
@@ -182,7 +193,10 @@ public class InputHandler : Subject
         //On  n'y touche pas pour l'instant, trop risuqé de faire des erreurs et compliquer
     }
 
-
-
+    public void OnSwapPlayer(InputValue value)
+    {
+        swapPlayer.execute(value);
+        Notify(swapPlayer);
+    }
 
 }

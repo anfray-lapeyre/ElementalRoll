@@ -9,6 +9,8 @@ public class SaveFileInfo
     public int chosenLivesDifficulty;
     public int chosenTimeDifficulty;
 
+    public PlayerStats[] stats;
+
     //New save
     public SaveFileInfo(int nbLevels = 120, int _chosenPlayer= 0)
     {
@@ -30,6 +32,11 @@ public class SaveFileInfo
             levels[i].collectedSlime = 0;
             levels[i].hasUsedPower = false;
         }
+        stats = new PlayerStats[4];
+        stats[0] = new PlayerStats();
+        stats[1] = new PlayerStats();
+        stats[2] = new PlayerStats();
+        stats[3] = new PlayerStats();
     }
 
 
@@ -41,6 +48,12 @@ public class SaveFileInfo
         chosenTimeDifficulty = 1;
         chosenLivesDifficulty = 1;
         chosenPlayer = _chosenPlayer;
+
+        stats = new PlayerStats[4];
+        stats[0] = new PlayerStats();
+        stats[1] = new PlayerStats();
+        stats[2] = new PlayerStats();
+        stats[3] = new PlayerStats();
     }
 
     //Existing save
@@ -51,6 +64,12 @@ public class SaveFileInfo
         chosenPlayer = _chosenPlayer;
         chosenTimeDifficulty = _chosenTime;
         chosenLivesDifficulty = _chosenLife;
+
+        stats = new PlayerStats[4];
+        stats[0] = new PlayerStats();
+        stats[1] = new PlayerStats();
+        stats[2] = new PlayerStats();
+        stats[3] = new PlayerStats();
     }
 
     public void fillWithBeaten(int nb)
@@ -112,11 +131,11 @@ public class SaveFileInfo
     public int slimesToUnlock(int character)
     {
         if (character == 1)
-            return 35;
+            return 5;
         if (character == 2)
-            return 100;
+            return 10;
         if (character == 3)
-            return 200;
+            return 20;
 
         return 0;
     }

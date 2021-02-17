@@ -135,16 +135,20 @@ public class spawnPlayerScript : Observer
 
     public void LoadNextLevel()
     {
-        player.GetComponent<PlayerController>().enableVictory();
+        //This is not anymore contained in PlayerController
+        //player.GetComponent<PlayerController>().enableVictory();
         
     }
 
     public void Replay()
     {
-        TimeBody replay = player.GetComponent<TimeBody>();
-        if (replay)
+        TimeBody[] replays = Resources.FindObjectsOfTypeAll(typeof(TimeBody)) as TimeBody[];
+        if (replays.Length > 0)
         {
-            replay.StartRewind();
+            for (int i = 0; i < replays.Length; i++)
+            {
+                replays[i].StartRewind();
+            }
         }
         else
         {

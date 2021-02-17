@@ -17,6 +17,11 @@ public class movingPlatformScript : MonoBehaviour
 
     public bool automatic;
 
+    void Awake()
+    {
+        TimeBody tb = this.gameObject.AddComponent<TimeBody>();
+        tb.isPlatform = true;
+    }
 
     // Start is called before the first frame update
     void Start()

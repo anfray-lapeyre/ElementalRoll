@@ -70,6 +70,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - IceHue: 0
     - Vector1_45928080: 1.07
     - Vector1_62314106: 0.05
     - Vector1_69300BA: 6

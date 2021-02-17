@@ -49,6 +49,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - EarthDisplaceIntensity: 1
+    - EarthDisplaceSpeed: -2
+    - EarthHue: 360
+    - EarthIntensity: 2
     - Vector1_10691AF1: 0
     - Vector1_3B088BA: 0.387
     - Vector1_626926DD: 1.19

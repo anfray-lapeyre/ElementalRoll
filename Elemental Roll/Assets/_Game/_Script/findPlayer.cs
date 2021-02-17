@@ -147,13 +147,15 @@ public class findPlayer : MonoBehaviour
 
     public void enableTimeBody()
     {
-        for (int i = 0; i < rigidbodies.Length; i++)
+        TimeBody[] replays = Resources.FindObjectsOfTypeAll(typeof(TimeBody)) as TimeBody[];
+        for (int i = 0; i < replays.Length; i++)
         {
-            TimeBody replay = rigidbodies[i].GetComponent<TimeBody>();
+            replays[i].StartRewind();
+            /*TimeBody replay = rigidbodies[i].GetComponent<TimeBody>();
             if (replay)
             {
                 replay.StartRewind();
-            }
+            }*/
         }
     }
 

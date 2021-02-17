@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7675739250b45e4f931bf48dbe27f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: {fileID: 11400000, guid: a25c7a2dbb5d4684bb9876af6142d6dc, type: 2}
-  playerScore: {fileID: 11400000, guid: beff11e67763ab94da726e24865ed04e, type: 2}
+  time: {fileID: 0}
+  playerScore: {fileID: 0}
   isRunning: 0
 --- !u!1 &4357370176921649551
 GameObject:
@@ -136,15 +136,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 875854976338298413, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.1370053
-      objectReference: {fileID: 0}
-    - target: {fileID: 875854976338298413, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.6711936
+      propertyPath: eyes.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
@@ -171,6 +166,42 @@ PrefabInstance:
       propertyPath: bonusAnimation
       value: 
       objectReference: {fileID: 795831451582042750}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: power
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: powerTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: eyes.Array.data[0]
+      value: 
+      objectReference: {fileID: 8814828180320121517}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: eyes.Array.data[1]
+      value: 
+      objectReference: {fileID: 8814828178566249857}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: eyes.Array.data[2]
+      value: 
+      objectReference: {fileID: 8814828178926103845}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: eyes.Array.data[3]
+      value: 
+      objectReference: {fileID: 4552641454207203276}
+    - target: {fileID: 1459625268990928532, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: Boom
+      value: 
+      objectReference: {fileID: 3992283936593801526, guid: a547d2c3ed7819c459e1d0e635883d77,
+        type: 3}
     - target: {fileID: 1744670429173675267, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
       propertyPath: playOnAwake
@@ -185,6 +216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202878173879564135, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6128790193180674013, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
         type: 3}
@@ -331,6 +367,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8219016242563738651, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7773973
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471051912987976003, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+        type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7773973
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0be04dd9c6b8724dbcffb06ee56bf29, type: 3}
 --- !u!4 &9158325027827269602 stripped
@@ -348,6 +394,30 @@ ParticleSystem:
 --- !u!198 &1393774384545133818 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 219399931809261339, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179056313374970849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4552641454207203276 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3419043764043867181, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179056313374970849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8814828180320121517 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7640452419791413580, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179056313374970849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8814828178926103845 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7640452419978788548, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
+    type: 3}
+  m_PrefabInstance: {fileID: 1179056313374970849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8814828178566249857 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7640452420437208672, guid: d0be04dd9c6b8724dbcffb06ee56bf29,
     type: 3}
   m_PrefabInstance: {fileID: 1179056313374970849}
   m_PrefabAsset: {fileID: 0}
@@ -778,7 +848,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 20ad50ea390a5e74a9115bbcd1940a45,
+      objectReference: {fileID: 21300000, guid: ad8e3886920049e43a1270131766d78e,
         type: 3}
     - target: {fileID: 8948264587683369432, guid: 9e5a1651829270f40ba9b53af49ba53c,
         type: 3}

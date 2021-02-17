@@ -129,7 +129,6 @@ public class UIParticleSystem : MonoBehaviour {
     {
         IsPlaying = true;
         StartCoroutine(CoPlay());
-        print("BIM");
 
     }
 

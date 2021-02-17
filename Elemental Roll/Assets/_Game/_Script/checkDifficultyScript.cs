@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class checkDifficultyScript : MonoBehaviour
 {
-    public IntVariable difficultyLife;
     // Start is called before the first frame update
     void Start()
     {
-        if (difficultyLife.value < 1)
+        if (ActualSave.actualSave.stats[0].DifficultyLife < 1)
         {
             Destroy(this.gameObject);
         }

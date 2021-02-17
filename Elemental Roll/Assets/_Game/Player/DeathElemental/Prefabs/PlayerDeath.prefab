@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 2105727858131448591}
   - component: {fileID: 2105727858131448590}
   - component: {fileID: 918662151075418381}
+  - component: {fileID: 1144072400566803632}
   m_Layer: 0
   m_Name: PlayerDeath
   m_TagString: Player
@@ -291,37 +292,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: -1
   subject: {fileID: 0}
-  speedModifier: 3
-  invertSpeedModifier: 2
-  jumpForce: 550
   playerCamera: {fileID: 0}
   fallSparks: {fileID: 0}
   speedSparks: {fileID: 0}
   grindSparks: {fileID: 0}
-  playerScore: {fileID: 11400000, guid: beff11e67763ab94da726e24865ed04e, type: 2}
   moveVertical: 0
   moveHorizontal: 0
-  baseVolume: 1
-  currentLevel: {fileID: 11400000, guid: ddfcf09eb8feb09408aea83e6aad0da4, type: 2}
-  playerSpeed: {fileID: 11400000, guid: b731e3e82a23b7a4e96b56f785b75588, type: 2}
-  playerRotationSpeed: {fileID: 11400000, guid: ab095c08f0c117247b6e760c47978045,
-    type: 2}
-  handler: {fileID: 0}
+  hasControls: 0
   bonusAnimation: {fileID: 0}
-  LevelLoader: {fileID: 3324779465422197648, guid: 9862bcf9362beaa4493ae33da4cebaab,
-    type: 3}
   PauseMenu: {fileID: 4080646434662074437, guid: 921f4b5d2ca0126429bdf40491192f31,
     type: 3}
   victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
-  powerGauge: {fileID: 11400000, guid: 8ef19eaf355c52b4a858f253f16b71c6, type: 2}
-  power: 0
-  maxPowerTime: {fileID: 11400000, guid: 20592417207e2244b9b76848f44d5c42, type: 2}
-  powerTime: 500
-  Boom: {fileID: 0}
+  Boom: {fileID: 3992283936593801526, guid: a547d2c3ed7819c459e1d0e635883d77, type: 3}
+  propelBoom: {fileID: 3992283936593801526, guid: a547d2c3ed7819c459e1d0e635883d77,
+    type: 3}
+  hasPlayerTouched: 0
   cinemachineBrain: {fileID: 0}
   normalView: {fileID: 0}
   topView: {fileID: 0}
+  faceCamera: {fileID: 6973263471268783925}
+  eyes:
+  - {fileID: 2741090279345598903}
+  - {fileID: 2741090280097056128}
+  - {fileID: 2741090280238180050}
+  - {fileID: 2741090279251037543}
+  playerNb: 0
+  playerCount: 0
 --- !u!114 &918662151075418381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +331,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 898e255e1f6c0104090cd7816121e6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlatform: 0
+--- !u!114 &1144072400566803632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105727858131448585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a8e64ca0d0aa44e836ea7fe3e9dd4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body:
+  - {fileID: 607353466198413256}
+  - {fileID: 7165503914945760483}
+  - {fileID: 7165503915621595365}
+  - {fileID: 7165503915651509844}
+  - {fileID: 7165503915444032950}
+  eyes:
+  - {fileID: 607353465692190584}
+  - {fileID: 607353465839207247}
+  - {fileID: 607353464638119965}
+  - {fileID: 607353465597594536}
+  playerNb: 0
+  playerMaterial: {fileID: 2100000, guid: 9dedec3d15c66334f880f180637841af, type: 2}
+  playerEyeMaterial: {fileID: 2100000, guid: c61dbfdb9745edf479bed5bd9845b3fc, type: 2}
+  typeOfPlayer: 3
+  playerSecondMaterial: {fileID: 0}
+  mainFire: {fileID: 2100000, guid: 2ba421618d8ce274db9dc41fa9f86c4d, type: 2}
 --- !u!1 &2917551071644561363
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9112305046377189677}
+  - component: {fileID: 3696122660518518264}
   m_Layer: 0
   m_Name: deathElementalContainer
   m_TagString: Untagged
@@ -664,6 +692,20 @@ Transform:
   m_Father: {fileID: 2105727858131448595}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3696122660518518264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7740744892146253216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351c590e799b5a944b6556ff4516c8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {fileID: 0}
+  playerSpeed: {fileID: 0}
 --- !u!1001 &3636278867422496062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -748,9 +790,93 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5067b0857b6dd864a9830cc52df791c4, type: 3}
+--- !u!23 &607353465839207247 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4187055312098330225, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7165503915621595365 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5838445801716710875, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2741090280238180050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1476309089161389036, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &607353464638119965 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4187055311420515619, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7165503915651509844 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5838445801888443242, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2741090279251037543 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1476309088201771097, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &607353465597594536 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4187055312407514774, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &607353466198413256 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4187055311772814070, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &6973263471268783925 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5958449719365902859, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7165503916251748055 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5838445801254245353, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2741090279345598903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1476309088140915849, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &607353465692190584 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4187055312346624582, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7165503914945760483 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5838445800513407453, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7165503915444032950 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5838445799914868872, guid: 5067b0857b6dd864a9830cc52df791c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3636278867422496062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2741090280097056128 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1476309087423316158, guid: 5067b0857b6dd864a9830cc52df791c4,
     type: 3}
   m_PrefabInstance: {fileID: 3636278867422496062}
   m_PrefabAsset: {fileID: 0}

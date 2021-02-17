@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class gateFloatScript : MonoBehaviour
 {
-    public  FloatVariable time;
     private float startTime;
     public floatScript[] rocks;
     public Material slimeMaterial;
@@ -33,26 +32,26 @@ public class gateFloatScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float modifier = 0.1f + time.value / (startTime);
+        float modifier = 0.1f + ActualSave.actualSave.stats[0].Time / (startTime);
         foreach (floatScript rock in rocks)
         {
             rock.modifier = modifier;
         }
 
         //we change wobbleIntensity
-        slimeMaterial.SetFloat("Vector1_E944F3D4", Mathf.Min(0.0005f + ((startTime - Mathf.Min(100f,time.value))/ startTime)*0.0013f,0.0005f));
+        slimeMaterial.SetFloat("Vector1_E944F3D4", Mathf.Min(0.0005f + ((startTime - Mathf.Min(100f, ActualSave.actualSave.stats[0].Time))/ startTime)*0.0013f,0.0005f));
         //then the intensity
-        if(time.value < startTime / 3 || time.value<=10f)
+        if(ActualSave.actualSave.stats[0].Time < startTime / 3 || ActualSave.actualSave.stats[0].Time <= 10f)
         {
             if (!isBaseTimeSet)
             {
                 isBaseTimeSet = true;
-                baseTime = time.value;
+                baseTime = ActualSave.actualSave.stats[0].Time;
             }
-            slimeMaterial.SetFloat("CrystalIntensity", Mathf.Min(1f+ ((baseTime - time.value) / (baseTime)) * 2f,1f));
+            slimeMaterial.SetFloat("CrystalIntensity", Mathf.Min(1f+ ((baseTime - ActualSave.actualSave.stats[0].Time) / (baseTime)) * 2f,1f));
             //And portal intensity Vector1_4D1B1B62
 
-            portalMaterial.SetFloat("Vector1_4D1B1B62", Mathf.Min(1f + ((baseTime - time.value) / (baseTime)) * 2f,1f));
+            portalMaterial.SetFloat("Vector1_4D1B1B62", Mathf.Min(1f + ((baseTime - ActualSave.actualSave.stats[0].Time) / (baseTime)) * 2f,1f));
         }
 
         //0.1 intensity CrystalIntensity
@@ -64,10 +63,10 @@ public class gateFloatScript : MonoBehaviour
         //10 baseColorIntensity
         //10000 finalIntensity
 
-        if (time.value <= 10f)
+        if (ActualSave.actualSave.stats[0].Time <= 10f)
         {
-            rubyGateMaterial.SetFloat("CrystalIntensity", Mathf.Min(0.1f + (10f-time.value),0.1f));
-            rubyGateMaterial.SetFloat("CrystalHue", Mathf.Min(0f + (10f - time.value)*10f,0.2f));
+            rubyGateMaterial.SetFloat("CrystalIntensity", Mathf.Min(0.1f + (10f- ActualSave.actualSave.stats[0].Time),0.1f));
+            rubyGateMaterial.SetFloat("CrystalHue", Mathf.Min(0f + (10f - ActualSave.actualSave.stats[0].Time) *10f,0.2f));
         }
 
     }

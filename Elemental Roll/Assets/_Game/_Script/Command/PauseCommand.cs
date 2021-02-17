@@ -9,6 +9,7 @@ public class PauseCommand : Command
     private bool pressed = false;
     override public void execute(object value) {
         InputValue input = value as InputValue;
+
         pressed = (input.Get<float>() > 0.05f);
         //Debug.Log("PAUSE : " + pressed);
     }

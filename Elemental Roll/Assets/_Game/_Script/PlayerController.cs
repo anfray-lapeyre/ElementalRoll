@@ -2,48 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 using static VectorHelper;
+using static AccelerationHelper;
 using static LevelLoader;
+using System.Linq;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 using TMPro;
 using EZCameraShake;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class PlayerController : Observer
 {
     private bool loading = false;
-    public float speedModifier = 1f;
-    public float invertSpeedModifier = 2f;
-    public float jumpForce = 11f;
+
     public GameObject playerCamera;
     private Rigidbody player;
     public ParticleSystem fallSparks;
     public ParticleSystem speedSparks;
     public ParticleSystem grindSparks;
-    public FloatVariable playerScore;
     [HideInInspector]
     public float moveVertical = 0f;
     [HideInInspector]
     public float moveHorizontal = 0f;
     private Vector3 respawnPosition;
     private AudioSource bumpSource;
-    public float baseVolume = 1f;
-
-    public IntVariable currentLevel;
 
     private Vector3 lastVelocity;
 
-    public FloatVariable playerSpeed;
-    public FloatVariable playerRotationSpeed;
-    public GameHandlerScript handler;
     private bool mustPropellUp = false;
     private bool finishedLevel = false;
-    private bool hasControls = false;
+    [HideInInspector]
+    public bool hasControls = false;
 
     private TextMeshProUGUI bonusCount;
     public UIParticleSystem bonusAnimation;
     private int bonusGathered = 0;
 
-    public GameObject LevelLoader; //Base
-    private LevelLoader _levelLoader; //Instantiated child
+    //public GameObject LevelLoader; //Base
+    //private LevelLoader _levelLoader; //Instantiated child
 
     public GameObject PauseMenu;
     private bool inOptions=false;
@@ -52,46 +50,94 @@ public class PlayerController : Observer
 
     public GameObject victoryText;
 
-    public FloatVariable powerGauge;
-    public int power = 0;//0=Fire; Ice=1; Rock =2; Death =3
-    public FloatVariable maxPowerTime;
-    public float powerTime= 500f;
     public GameObject Boom;
     public GameObject propelBoom;
     private int invokingTime;
 
-    private outroAnimationScript victory;
     private SphereCollider playerCollider;
 
     private Transform StartParent;
 
-    private bool hasUsedPower = false;
+    [HideInInspector]
+    public bool hasPlayerTouched = false;
 
-    private float finalTime = 999f;
-
-    private int characterUnlocked = 0;
-    private bool hasPlayerTouched = false;
-
-    private GameObject persistantHandler;
+    private InputHandler inputHandler;
 
     public Cinemachine.CinemachineBrain cinemachineBrain;
 
     public Cinemachine.CinemachineVirtualCamera normalView;
     public Cinemachine.CinemachineVirtualCamera topView;
 
+    public Camera faceCamera;
+
+
+    //This will contain an object that will enable our player to look somewhere in particular
+    public Transform[] eyes;
+
     private ShoutHandlerScript shoutHandler;
+    private bool isLookingDown = false;
+    //Rewinding Time for Tim
+    //Shrinking for Tracy
+    private bool isPowerInUse = false;
+
+    [HideInInspector]
+    public int playerNb;
+    [HideInInspector]
+    public int playerCount;
+    private int characterNb;
+    public Vector3 defaultGravity = new Vector3(0, -9.87f, 0);
+
+    /* ------------------------------------------------------------------------------------------- INITIALIZATION ------------------------------------------------------------------------------*/
+
+    public void updatePlayerScreenHandling(int _playerNb, int _maxPlayers)
+    {
+        playerNb = _playerNb;
+        playerCount = _maxPlayers;
+       
+        normalView.name = "MainCameraRPG" + playerNb;
+        topView.name = "TopView" + playerNb;
+        //CameraShaker.ChangeNameOfInstance(faceCamera.name, "FaceCamera"+playerNb);
+
+
+        cinemachineBrain.gameObject.layer = 15 + playerNb;
+        normalView.gameObject.layer = 15 + playerNb;
+        topView.gameObject.layer = 15 + playerNb;
+        cinemachineBrain.GetComponent<Camera>().cullingMask |= (int)Mathf.Pow(2, (15 + playerNb));
+
+        Debug.Log("Player nb : " + playerNb + " & maxPlayers : " + playerCount + " screen Placement : " + (playerNb % 2) / 2f + " screenSize : ");
+        this.transform.parent.parent.GetComponent<PlayerInstanceHandler>().UpdateUIPlacement(playerNb);
+
+        //We need to set the right render texture on the face camera to not override the others 
+        faceCamera.targetTexture = this.transform.parent.parent.GetComponent<PlayerInstanceHandler>().GetCurrentRenderTexture();
+        if(emotions == null)
+        {
+            emotions = this.GetComponent<EmotionHandlerScript>();
+        }
+        emotions.playerNb = playerNb;
+        //emotions.NormalMood();
+        Debug.Log("PlayerController : " + playerNb + " & EmotionNb : " + emotions.playerNb);
+    }
+
+
 
     private void Start()
     {
-        persistantHandler = GameObject.FindGameObjectsWithTag("PersistentObject")[0];
-        persistantHandler.GetComponent<InputHandler>().addObserver(this);
+        //This is an emergency thing. It should not ever trigger except in testing environment
+        if (ActualSave.actualSave == null)
+        {
+            ActualSave.actualSave = new SaveFileInfo();
+        }
+
+        inputHandler = this.transform.parent.parent.GetComponent<InputHandler>();
+            //GameObject.FindGameObjectsWithTag("PersistentObject")[0];
+        inputHandler.addObserver(this);
         StartParent = this.transform.parent;
         shoutHandler = playerCamera.GetComponentInChildren<ShoutHandlerScript>();
         playerCollider = this.GetComponent<SphereCollider>();
         emotions = this.GetComponent<EmotionHandlerScript>();
         // We get the player's rigidbody's component
         player = GetComponent<Rigidbody>();
-        playerRotationSpeed.SetValue(0f);
+        ActualSave.actualSave.stats[playerNb].playerRotationSpeed=0f;
         GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawn");
         if(spawners.Length>0)
         { 
@@ -104,15 +150,29 @@ public class PlayerController : Observer
         /*GameObject victory = GameObject.FindGameObjectsWithTag("Finish")[0];
         transform.LookAt(victory.transform);*/
         bumpSource = this.gameObject.GetComponentInChildren<AudioSource>();
-        baseVolume = bumpSource.volume;    
+
         bonusCount = GameObject.FindGameObjectsWithTag("BonusCount")[0].GetComponent<TextMeshProUGUI>();
 
+        characterNb = ActualSave.actualSave.stats[playerNb].activePlayer;
+        /*
         GameObject levelLoader = Instantiate(LevelLoader);
-        _levelLoader = levelLoader.GetComponent<LevelLoader>();
-        powerGauge.value = powerTime;
-        maxPowerTime.value = powerTime;
+        _levelLoader = levelLoader.GetComponent<LevelLoader>();*/
+
+
+        //updatePlayerScreenHandling(playerNb, playerCount);
+        defaultGravity = new Vector3(0, -9.87f, 0);
     }
 
+
+
+
+
+
+    /*---------------------------------------------------------------------------------------------- INPUTS ---------------------------------------------------------------------------*/
+
+
+
+    //Handle controller system notifications from our persistant subject
     override public void OnNotify(GameObject entity, object notifiedEvent)
     {
         switch (notifiedEvent.GetType().ToString())
@@ -123,6 +183,9 @@ public class PlayerController : Observer
                 break;
             case "SpellCommand":
                 OnSpecialAction(((SpellCommand)notifiedEvent).isPressed());
+                break;
+            case "SecondSpecialActionCommand":
+                OnSecondSpecialAction(((SecondSpecialActionCommand)notifiedEvent).isPressed());
                 break;
             case "RestartCommand":
                 OnRestart(((RestartCommand)notifiedEvent).isPressed());
@@ -136,11 +199,13 @@ public class PlayerController : Observer
             case "TopViewCommand":
                 OnTopView(((TopViewCommand)notifiedEvent).isPressed());
                 break;
+
             default:
                 break;
         }
     }
 
+    //----------------- Left stick, arrows or ZQSD --------------
     public void OnMove(Vector2 value)
     {
 
@@ -151,22 +216,28 @@ public class PlayerController : Observer
         }
     }
 
-    public void OnLook(InputValue value)
+
+   
+    // ------------------  Start or Escape -----------
+    public void OnPause(bool value)
     {
-        if (!inOptions)
+        if (value)
         {
-            playerCamera.GetComponent<CameraController>().OnLook(value, false);
+            if (!inOptions)
+            {
+                Instantiate(PauseMenu, this.transform);
+                inOptions = true;
+            }
         }
+
+    }
+    //Enables the inputs to be taken into account again
+    public void QuitOptions()
+    {
+        inOptions = false;
     }
 
-    public void OnLookMouse(InputValue value)
-    {
-        if (!inOptions)
-        {
-            playerCamera.GetComponent<CameraController>().OnLook(value, true);
-        }
-    }
-
+   //-------------------- B Button or Return ---------------------
     public void OnRestart(bool value)
     {
         if (value)
@@ -179,6 +250,18 @@ public class PlayerController : Observer
         }
     }
 
+    public void Restart()
+    {
+        if (!finishedLevel && !loading)
+        {
+            //_levelLoader.LoadNextLevel(Mathf.Abs(ActualSave.actualSave.stats[playerNb].currentLevel), true);//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
+            loading = true;
+        }
+
+    }
+
+
+    //------------------- On Maj or Left/Right Trigger -----------------------
     public void OnTopView(bool value)
     {
         if (value)
@@ -193,57 +276,75 @@ public class PlayerController : Observer
         }
     }
 
+    //--------------------- On Space or A Button --------------------------------
     public void OnSpecialAction(bool value)
     {
         if (value && !inOptions)
         {
             if (hasControls)
             {
-                if (powerGauge.value >= powerTime)
+                if (ActualSave.actualSave.stats[playerNb].powerTime[characterNb][0] >= ActualSave.actualSave.stats[playerNb].maxPowerTime[characterNb][0])
                 {
-                    powerGauge.value = 0f;
-                    hasUsedPower = true;
                     hasPlayerTouched = true;
-                    switch (power)
+                    switch (characterNb)
                     {
                         case 1: //Ice
                                 //Ice platform generation
-                            emotions.PowerUp();
-                            shoutHandler.PlayAudio(true);
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][0] = 0f;
 
-                            if (Gamepad.current != null)
-                            {
-                                Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-                            }
-                            invokingTime = 15;
-                            InvokeIce();
+                            //We make sure that when the power gauge reaches 0, the player cannot use the power anymore
+                            shoutHandler.PlayAudio(true);
+                            Debug.Log(Physics.gravity);
+
+                            Physics.gravity = defaultGravity * -0.4f;
+                            Debug.Log(Physics.gravity);
+                            player.velocity = new Vector3(player.velocity.x, (player.velocity.y > 3f) ? player.velocity.y / 2f : player.velocity.y, player.velocity.z);
+                            //DeathRewind();
+                            Invoke("RestoreGravity", 2.5f);
+                            GameObject bubble = Instantiate(Boom, transform);
+
+                            Destroy(bubble, 2.5f);
+                            
                             break;
                         case 2:
                             //Earth
                             //No idea
                             shoutHandler.PlayAudio(true);
+                            emotions.PowerUp();
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][0] = 0f;
 
+                            //player.AddForce(-player.velocity);
+
+                            player.isKinematic = true;
+                            GameObject instantiatedEarthBoom = Instantiate(Boom, fallSparks.transform);
+                            Destroy(instantiatedEarthBoom, 2f);
+                            Invoke("EarthMovesAgain", 1.5f);
                             break;
                         case 3:
                             //Death 
-                            //No idea
+                            //Can rewing time thrice per level
+
+                            //We remove a third of the power
+
+
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][0] = 0f;
+
+                            emotions.PowerUp();
                             shoutHandler.PlayAudio(true);
 
-
+                            rumble(0.1f, 0.8f);
+                           
                             break;
                         default: //Fire
                                  //Upward propulsion
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][0] = 0f;
+
                             emotions.PowerUp();
                             shoutHandler.PlayAudio(true);
-                            if (player.velocity.y < 0)
-                            {
-                                player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
-                            }
-                            player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
-                            if (Gamepad.current != null)
-                            {
-                                Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-                            }
+                            
+                            
+                            player.AddForce(grindSparks.transform.parent.forward * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).jumpForce*0.5f);
+                            rumble(0.1f, 0.8f);
                             GameObject instantiatedBoom = Instantiate(Boom);
                             instantiatedBoom.transform.position = this.transform.position;
                             Destroy(instantiatedBoom, 2f);
@@ -252,453 +353,256 @@ public class PlayerController : Observer
                 }
             }
         }
-    }
-
-    public void InvokeIce()
-    {
-        if (invokingTime > 0)
+        else if(!value && !inOptions && isPowerInUse)
         {
-            invokingTime--;
-            if (player.velocity.y < 0)
-                player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
-            GameObject instantiatedPlatform = Instantiate(Boom);
-            instantiatedPlatform.transform.position = this.transform.position - Vector3.up * 0.55f + new Vector3(player.velocity.normalized.x, 0F, player.velocity.normalized.z);
-            Destroy(instantiatedPlatform, 5.5f);
-            Invoke("InvokeIce", 0.1f);
+            DeathStopRewind();
         }
     }
 
-    public void Restart()
-    {
-        if (!finishedLevel && !loading)
-        {
-            _levelLoader.LoadNextLevel(Mathf.Abs(currentLevel.value), true);//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
-            loading = true;
-        }
-            
-    }
 
-    public void OnPause(bool value)
+    //--------------------- On Space or A Button --------------------------------
+    public void OnSecondSpecialAction(bool value)
     {
-        if (value)
+        if (value && !inOptions)
         {
-            if (!inOptions)
+            if (hasControls)
             {
-                Instantiate(PauseMenu, this.transform);
-                inOptions = true;
+                if (ActualSave.actualSave.stats[playerNb].powerTime[characterNb][1] >= ActualSave.actualSave.stats[playerNb].maxPowerTime[characterNb][1])
+                {
+                    hasPlayerTouched = true;
+                    switch (characterNb)
+                    {
+                        case 1: //Ice
+                                //Ice platform generation
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][1] = 0f;
+
+                            emotions.PowerUp();
+                            shoutHandler.PlayAudio(true);
+
+                            gameObject.LeanScale(Vector3.one * 0.5f, 0.2f).setEaseInElastic();
+                            isPowerInUse = true;
+                            rumble(0.1f, 0.8f);
+                            Invoke("RegainSize", 5f);
+                            break;
+                        case 2:
+                            //Earth
+                            //No idea
+                            shoutHandler.PlayAudio(true);
+                            emotions.PowerUp();
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][1] = 0f;
+
+                            //player.AddForce(-player.velocity);
+
+                            player.isKinematic = true;
+                            GameObject instantiatedEarthBoom = Instantiate(Boom, fallSparks.transform);
+                            Destroy(instantiatedEarthBoom, 2f);
+                            Invoke("EarthMovesAgain", 1.5f);
+                            break;
+                        case 3:
+                            //Death 
+                            //Can rewing time thrice per level
+
+                            //We remove a third of the power
+
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][1] = 0f;
+
+                            //We make sure that when the power gauge reaches 0, the player cannot use the power anymore
+                            shoutHandler.PlayAudio(true);
+
+                            DeathRewind();
+                            Invoke("DeathStopRewind", 3f);
+
+                            break;
+                        default: //Fire
+                                 //Upward propulsion
+                            ActualSave.actualSave.stats[playerNb].powerTime[characterNb][1] = 0f;
+
+                            emotions.PowerUp();
+                            shoutHandler.PlayAudio(true);
+                            if (player.velocity.y < 0)
+                            {
+                                player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+                            }
+                            player.AddForce(new Vector3(0f, 0.3f * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).jumpForce, 0f));
+                            rumble(0.1f, 0.8f);
+                            GameObject instantiatedBoom = Instantiate(Boom);
+                            instantiatedBoom.transform.position = this.transform.position;
+                            Destroy(instantiatedBoom, 2f);
+                            break;
+                    }
+                }
             }
         }
+        else if (!value && !inOptions && isPowerInUse)
+        {
+            DeathStopRewind();
+        }
+    }
+
+
+
+    public void RegainSize()
+    {
+        isPowerInUse = false;
+        gameObject.LeanScale(Vector3.one, 0.2f).setEaseInElastic();
+    }
+
+   
+
+    //Earth power related
+    public void EarthMovesAgain()
+    {
+        player.isKinematic = false;
+
+        player.AddForce(new Vector3(0f, -1f * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).jumpForce, 0f));
+        GameObject instantiatedBoom = Instantiate(propelBoom);
+        instantiatedBoom.transform.position = this.transform.position;
+        Destroy(instantiatedBoom, 2f);
+    }
+
+
+    //Reinstaure Gravity
+    public void RestoreGravity(){
+        Physics.gravity = defaultGravity;
+        ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();
+        fallSparks.Emit(emitOverride, 20);
         
     }
 
-    public void QuitOptions()
+    //Death power related 1/2
+    public void DeathRewind()
     {
-        inOptions = false;
+        isPowerInUse = true;
+        TimeBody[] replays = Resources.FindObjectsOfTypeAll(typeof(TimeBody)) as TimeBody[];
+        for (int i = 0; i < replays.Length; i++)
+        {
+            replays[i].StartRewindBackward();
+        }
+
+        
+        
+        Volume[] volume = Resources.FindObjectsOfTypeAll(typeof(Volume)) as Volume[];
+        if (volume.Length > 0 && volume[0].profile.TryGet(out ColorAdjustments colorAdjustments))
+        {
+
+            colorAdjustments.saturation.overrideState = true;
+            LeanTween.value(0f, -70f, 0.3f).setOnUpdate((float val) =>
+              {
+                  colorAdjustments.saturation.value = val;
+              });
+            AudioSource source = GameObject.FindGameObjectWithTag("PersistentObject").GetComponent<AudioSource>();
+            AudioSource soundSource = shoutHandler.GetComponent<AudioSource>();
+            float characterPitch = new Character().Death().pitch;
+            LeanTween.value(1f,-0.9f,0.3f).setOnUpdate((float val) =>
+            {
+               source.pitch = val;
+                soundSource.pitch = val * characterPitch;
+                
+            });
+
+
+
+
+
+        }
     }
 
-    private void handleMovement()
+
+    //Death power related 2/2
+
+    public void DeathStopRewind()
     {
-        //We get if the player is trying to move horizontally and vertically
-        //moveHorizontal = Input.GetAxis("Horizontal");
-        //moveVertical = Input.GetAxis("Vertical");
-
-        //We put that in a vector organized as a velocity, to apply it as a force
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        if(!hasPlayerTouched && movement.magnitude != 0f)
+        if (isPowerInUse)
         {
-            hasPlayerTouched = true;
-        }
-        //We rotate it in accordance to the camera, for the force to be applied in a logical manner
-        movement = RotateY(movement, Mathf.Deg2Rad * playerCamera.transform.rotation.eulerAngles.y);
-
-        //If the player is trying to go in a different direction than its actual movement, we intensify it to slow down easily
-        movement = new Vector3(Mathf.Sign(player.velocity.x) == Mathf.Sign(movement.x) ? movement.x : movement.x * invertSpeedModifier, movement.y, Mathf.Sign(player.velocity.z) == Mathf.Sign(movement.z) ? movement.z : movement.z * invertSpeedModifier);
-
-        //If the player is going fast enough, we amplify the speed in order to give a sensation of higher "horse power"
-        float speedAmplifier = Mathf.Max(Mathf.Min(Mathf.Exp(Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y)) / 2f, 1.3f), 0);
-        if(moveHorizontal!= 0f && moveVertical == 0f && Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y)>10f)
-        {
-            speedAmplifier /= 2f;
-        }
-
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, playerCollider.bounds.extents.y + 0.1f))
-        {
-            GameObject RaycastReturn = hit.collider.gameObject;
-            if (RaycastReturn.GetComponent<Rigidbody>())
+            isPowerInUse = false;
+            TimeBody[] replays = Resources.FindObjectsOfTypeAll(typeof(TimeBody)) as TimeBody[];
+            for (int i = 0; i < replays.Length; i++)
             {
-                movement += RaycastReturn.GetComponent<Rigidbody>().velocity * Time.fixedDeltaTime; //simpleMovingPlatformScript handling
-                /*if (RaycastReturn.GetComponent<HingeJoint>())
+                replays[i].StopRewind();
+            }
+            //This makes it possible again for Tim to use its powers in the old version
+            //powerTime = Mathf.Max(ActualSave.actualSave.stats[playerNb].powerGauge - 0.01f, 0.5f);
+            Volume[] volume = Resources.FindObjectsOfTypeAll(typeof(Volume)) as Volume[];
+            if (volume.Length > 0 && volume[0].profile.TryGet<ColorAdjustments>(out ColorAdjustments colorAdjustments))
+            {
+                colorAdjustments.saturation.overrideState = true;
+                LeanTween.value(-70f, 0f, 0.3f).setOnUpdate((float val) =>
                 {
-                }
-               */
-            }
+                    colorAdjustments.saturation.value = val;
+                });
+                AudioSource source = GameObject.FindGameObjectWithTag("PersistentObject").GetComponent<AudioSource>();
+                AudioSource soundSource = shoutHandler.GetComponent<AudioSource>();
+                float characterPitch = new Character().Death().pitch;
+                LeanTween.value(-0.9f, 1f, 0.3f).setOnUpdate((float val) =>
+                {
+                    source.pitch = val;
+                    soundSource.pitch = val * characterPitch;
 
-            if (RaycastReturn.GetComponent<simpleRotatingPlatformScript>())
-            {
-                //Make the object parent here ! 
-                this.transform.SetParent(RaycastReturn.transform, true);
-                Debug.Log("Depends on platform");
+                });
             }
-            else
-            {
-                this.transform.SetParent(StartParent, true);
-            }
+            //Debug.Log("disableEye : " + (int)ActualSave.actualSave.stats[playerNb].powerGauge+1);
+            //emotions.disableEye((int)ActualSave.actualSave.stats[playerNb].powerGauge+1);
 
         }
-        else
-        {
-            this.transform.SetParent(StartParent, true);
-        }
-
-        //We add it to the player's rigidbody as a Force
-        player.AddForce(movement * speedModifier * speedAmplifier);
-
     }
+
+
+
+  /* ------------------------------------------------------------------------------------------ FIXED UPDATE --------------------------------------------------------------------------*/
 
     private void FixedUpdate()
     {
         
         if (!finishedLevel)
         {
-            if (powerGauge.value < powerTime)
-            {
-                powerGauge.value += Time.fixedDeltaTime;
-            }
-            //We handle the player's movement
-            if (hasControls)
-            {
-                handleMovement();
-                //We update the speed base on the sum of the player's velocity vector
-                if (hasPlayerTouched)
-                {
-                    playerSpeed.SetValue((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) + Mathf.Abs(player.velocity.z)) * 3f);
-                    playerRotationSpeed.SetValue(Mathf.Abs(player.angularVelocity.x) + Mathf.Abs(player.angularVelocity.y) + Mathf.Abs(player.angularVelocity.z));
-                    //checkGravity();
-                    lastVelocity = player.velocity;
-                }
-                else
-                {
-                    player.velocity = player.velocity * 0.2f;
-                }
-            }
+            handlePlayerMovementAndPowerGauge();
         }
         else
         {
-            if (!mustPropellUp)
-            {
-
-                player.velocity =new Vector3(player.velocity.x/(1+0.1f/player.velocity.magnitude),player.velocity.y/1.2f, player.velocity.z /(1+0.1f / player.velocity.magnitude));
-            }
-            else
-            {
-                player.AddForce(Vector3.up * 15f);
-                if (Gamepad.current != null)
-                {
-                    Gamepad.current.SetMotorSpeeds(0.2f, 0.2f);
-                }
-                
-            }
+            handlePlayerFinalBehaviour();
         }
 
     }
+
+
+
+    /* --------------------------------------------------------------------------------------  UPDATE ----------------------------------------------------------------------------------------------*/
+
 
     private void Update()
     {
-        //Handling grind sparks. If the player is too fast and touching the ground
-        RaycastHit hit;
-        var grindEmission = grindSparks.emission;
-        Vector3 direction = Physics.gravity;
-        bool isEmittingGrindSparks = false;
-        if (Physics.Raycast(transform.position, direction, out hit, 0.67f) && playerSpeed.value > 50f)
-        {
-            isEmittingGrindSparks = true;
-            grindEmission.rateOverTime = Mathf.Min(Mathf.Max((playerSpeed.value - 50f), 0f) / 2f, 20f);
-            
-            if (Gamepad.current != null)
-            {
-                Gamepad.current.SetMotorSpeeds(1f, 1f);
-            }
+        grindParticles();
 
-        }
-
-       
-        grindEmission.enabled = isEmittingGrindSparks;
+        speedParticles();
 
 
-
-
-        //Handling speed particles
-        bool isEmittingSpeedSparks = false;
-        ParticleSystem.EmissionModule emission = speedSparks.emission;
-        if (playerSpeed.value >= 60f)
-        {
-            CameraShaker.GetInstance("MainCamera").ShakeOnce(Mathf.Min((playerSpeed.value-40f)/100f,0.3f), 4f, 0.1f, 0.1f);
-            isEmittingSpeedSparks = true;
-            if (Gamepad.current != null)
-            {
-                Gamepad.current.SetMotorSpeeds(0.2f, 0.2f);
-            }
-
-            if (playerSpeed.value > 80f)
-            {
-                if(emotions)
-                    emotions.Roll();
-
-            }
-            else
-            {
-                if(emotions)
-                    emotions.StopRolling();
-            }
-        }
-        else
-        {
-            if (Gamepad.current != null)
-            {
-                Gamepad.current.SetMotorSpeeds(0f, 0f);
-            }
-
-        }
-        emission.rateOverTime = Mathf.Min(Mathf.Max((playerSpeed.value - 40f), 0f) / 5f, 15f);
-        emission.enabled = isEmittingSpeedSparks;
-
-
-
-        //Handling being scared when on the border of platform
-        if(isPlayerOnBorder())
-        {
-            Debug.Log("oups, gonna fall !");
-            emotions.ReallyWorried();
-        }
-        else
-        {
-            emotions.NormalMood();
-        }
+        isCharacterAffraidOfCliff();
 
     }
 
-    private bool isPlayerOnBorder(){
-        RaycastHit borderhit;
-        float playerSize = playerCollider.bounds.extents.x;
-        bool result = !Physics.Raycast(transform.position + playerSize*Vector3.right, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
-        result = result || !Physics.Raycast(transform.position + playerSize * Vector3.left, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
-        result = result || !Physics.Raycast(transform.position + playerSize * Vector3.forward, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
-        result = result || !Physics.Raycast(transform.position + playerSize * Vector3.back, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
-        return result;
-    }
 
 
-    public void enableVictory()
-    {
-        if (finishedLevel)
-        {
-            if(characterUnlocked==0) //If characterUnlocked is at zero, either there is no unlocked character, or we still haven't calculated it, so we calculate
-                characterUnlocked = isACharacterUnlocked(); //This ensures that when a character is unlocked, it is always considered
-            SaveProgress();
-            if (characterUnlocked==0) //If no character is unlocked, we can load the level. If a character is loaded, we do not want to do that
-            {
-                _levelLoader.ShowLoader();
-                _levelLoader.LoadNextLevel(Mathf.Abs(currentLevel.value));//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
-            }
-        }
-    }
-
-    private int isACharacterUnlocked()
-    {
-        if (currentLevel.value < 0)
-        {
-            int level = -currentLevel.value - 1;
-            if (ActualSave.actualSave.levels[level].collectedSlime < bonusGathered)
-            {
-                if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
-                {
-                    return 1;
-                }
-                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
-                {
-                    return 2;
-                }
-                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[level].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
-                {
-                    return 3;
-                }
-            }
-        }
-        else
-        {
-
-            if (ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime < bonusGathered)
-            {
-
-                if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(1) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(1))
-                {
-                    return 1;
-
-                }
-                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(2) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(2))
-                {
-                    return 2;
-                }
-                else if (ActualSave.actualSave.getSlimesCollected() < ActualSave.actualSave.slimesToUnlock(3) && (ActualSave.actualSave.getSlimesCollected() - ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime + bonusGathered) >= ActualSave.actualSave.slimesToUnlock(3))
-                {
-                    return 3;
-                }
-            }
-        }
-        return 0;
-    }
-
-    private void SaveProgress()
-    {
-        if (currentLevel.value < 0)
-        {
-            int level = -currentLevel.value - 1;
-            if (ActualSave.actualSave.levels[level].collectedSlime < bonusGathered)
-            {
-                if (characterUnlocked==1)
-                {
-                    Invoke("loadTracy", 0.5f);
-                }else if (characterUnlocked == 2)
-                {
-                    Invoke("loadRocky", 0.5f);
-                }else if (characterUnlocked == 3)
-                {
-                    Invoke("loadTim", 0.5f);
-                }
-                if (ActualSave.actualSave.levels[level].hasUsedPower)
-                {
-                    ActualSave.actualSave.levels[level].hasUsedPower = hasUsedPower;
-                }
-                ActualSave.actualSave.levels[level].collectedSlime = bonusGathered;
-                if (ActualSave.actualSave.levels[level].bestTime > finalTime)
-                {
-                    ActualSave.actualSave.levels[level].bestTime = finalTime;
-                }
-            }
-            //ActualSave.actualSave.levels[level].collectedSlime = 0;//Take it out after
-
-        }
-        else
-        {
-
-            ActualSave.actualSave.levels[currentLevel.value-1].beaten = true;
-            if (ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime < bonusGathered)
-            {
-
-                if (characterUnlocked == 1)
-                {
-                    Invoke("loadTracy", 0.5f);
-                }
-                else if (characterUnlocked == 2)
-                {
-                    Invoke("loadRocky", 0.5f);
-                }
-                else if (characterUnlocked == 3)
-                {
-                    Invoke("loadTim", 0.5f);
-                }
-                if (ActualSave.actualSave.levels[currentLevel.value - 1].hasUsedPower)
-                {
-                    ActualSave.actualSave.levels[currentLevel.value - 1].hasUsedPower = hasUsedPower;
-                }
-                ActualSave.actualSave.levels[currentLevel.value - 1].collectedSlime = bonusGathered;
-                if (ActualSave.actualSave.levels[currentLevel.value - 1].bestTime > finalTime)
-                {
-                    ActualSave.actualSave.levels[currentLevel.value - 1].bestTime = finalTime;
-                }
-            }
-            if (LevelLoader)
-            {
-                LevelLoader.GetComponent<LevelLoader>().handleDifficultySaveData(currentLevel.value-1);
-
-            }
-            else
-            {
-                //In case there's an error and Level Loader is not spawned, we'll assume it's our fault and give max completion
-                Debug.LogError("There has been an error, LevelLoader is not instantiated.");
-                ActualSave.actualSave.levels[currentLevel.value-1].beatenInDifficultLife=true;
-                ActualSave.actualSave.levels[currentLevel.value-1].beatenInEasyLife = true;
-                ActualSave.actualSave.levels[currentLevel.value-1].beatenInNormalLife = true;
-                ActualSave.actualSave.levels[currentLevel.value-1].beatinInDifficultTime = true;
-                ActualSave.actualSave.levels[currentLevel.value-1].beatinInEasyTime = true;
-                ActualSave.actualSave.levels[currentLevel.value-1].beatinInNormalTime = true;
-                ActualSave.actualSave.levels[currentLevel.value-1].hasUsedPower = false;
-
-            }
-
-        }
-
-        SaveSystem.SaveGame(ActualSave.actualSave, ActualSave.saveSlot);
-    }
-
-    public void loadTracy()
-    {
-        _levelLoader.ShowLoader();
-        _levelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(1);
-    }
-
-    public void loadRocky()
-    {
-        _levelLoader.ShowLoader();
-        _levelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(2);
-    }
-
-    public void loadTim()
-    {
-        _levelLoader.ShowLoader();
-        _levelLoader.GetComponent<LevelLoader>().LoadCharacterCutscene(3);
-    }
-
-    private void PropellUp()
-    {
-        mustPropellUp = true;
-        emotions.PowerUp();
-        if (player.velocity.y < 0)
-        {
-            player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
-        }
-        player.AddForce(new Vector3(0f, 0.3f * jumpForce, 0f));
-        if (Gamepad.current != null)
-        {
-            Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-        }
-        GameObject instantiatedBoom = Instantiate(propelBoom);
-        instantiatedBoom.transform.position = this.transform.position;
-        Destroy(instantiatedBoom, 2f);
-    }
-
-    private void IncrementBonusCount()
-    {
-        bonusCount.text = bonusGathered + "";
-    }
-    
-    private void BonusAnimation()
-    {
-        bonusAnimation.Play();
-    }
+    /*----------------------------------------------------------------------------------------- TRIGGER HANDLING --------------------------------------------------------------------------------*/
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bonus")
         {
             bonusGathered++;
-            if (victory != null)
+            /*if (victory != null)
             {
                 victory.slimesCollected = bonusGathered;
-            }
+            }*/
             //We destroy the object and add points in the score
-            Destroy(other.gameObject,0.0f);
-            playerScore.SetValue(playerScore.value + 100);
+            Destroy(other.gameObject, 0.0f);
             Invoke("BonusAnimation", 0.3f);
             Invoke("IncrementBonusCount", 0.5f);
-            if(emotions)
+            if (emotions)
                 emotions.Bonus();
             shoutHandler.PlayAudio(true);
 
         }
-        else if(other.tag == "Respawn")
+        else if (other.tag == "Respawn")
         {
             Restart();
             /*//We respawn the player at the origin
@@ -711,16 +615,13 @@ public class PlayerController : Observer
         else if (other.tag == "Propulser")
         {
             //Upward propulsion
-            if(emotions)
+            if (emotions)
                 emotions.PropellUp();
             shoutHandler.PlayAudio(false);
 
-            player.AddForce(new Vector3(0f,1f*jumpForce,0f));
-            if (Gamepad.current != null)
-            {
-                Gamepad.current.SetMotorSpeeds(0.1f, 0.8f);
-            }
-         }
+            player.AddForce(new Vector3(0f, 1f * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).jumpForce, 0f));
+            rumble(0.1f, 0.8f);
+        }
         else if (other.tag == "Finish")
         {
             //If the player goes through the gate, Victory
@@ -728,23 +629,32 @@ public class PlayerController : Observer
             if (!finishedLevel)
             {
                 shoutHandler.PlayAudio(true);
-
-                //if currentLevel is positive it means we are not in level selection mode, so we can update it
-                if (currentLevel.value >= 0)
-                {
-                    currentLevel.value++;
-                }
-                playerScore.SetValue(playerScore.value + 300);
                 finishedLevel = true;
                 Invoke("PropellUp", 1.5f);
+
+                /*This needs to be contianed elsewhere
+
+                //if currentLevel is positive it means we are not in level selection mode, so we can update it
+                if (ActualSave.actualSave.stats[playerNb].currentLevel >= 0)
+                {
+                    ActualSave.actualSave.stats[playerNb].currentLevel++;
+                }
+                
                 victory = Instantiate(victoryText).GetComponent<outroAnimationScript>();
-                victory.slimesCollected=bonusGathered;
+                victory.slimesCollected = bonusGathered;
                 victory.totalSlimes = CrossLevelInfo.maxSlimes;
                 finalTime = CrossLevelInfo.time - handler.time.value;
                 victory.time = finalTime;
+                */
             }
         }
     }
+
+
+
+
+    /*---------------------------------------------------------------------------------------------------------- COLLISION HANDLING -----------------------------------------------------------------------------------------------------*/
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -755,57 +665,385 @@ public class PlayerController : Observer
                 emotions.NormalMood();
             //We enable controls and start timer
             hasControls = true;
-            if(handler)
-                handler.startRunning();
-            CameraShaker.GetInstance("MainCamera").ShakeOnce(Mathf.Min(Mathf.Abs(lastVelocity.y) / 7f, 5f), 3f, 0.1f, 0.1f);
+
+            CameraShaker shaker = normalView.GetComponent<CameraShaker>();
+            if(shaker != null)
+                shaker.ShakeOnce(Mathf.Min(Mathf.Abs(lastVelocity.y) / 7f, 5f), 3f, 0.1f, 0.1f);
             if (bumpSource != null)
             {
                 bumpSource.pitch = Mathf.Pow(2, (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 100f));
-                bumpSource.volume = (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 50f) * baseVolume;
+                bumpSource.volume = (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 50f) * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).baseVolume;
                 bumpSource.Play();
             }
             ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();
             fallSparks.Emit(emitOverride, 10 + (int)Mathf.Min(Mathf.Abs(lastVelocity.y) / 5f, 20f));
         }
         /*Falldown particles*/
-        if(Mathf.Abs(lastVelocity.y) > 1f)
+        if (Mathf.Abs(lastVelocity.y) > 1f)
         {
+            CameraShaker shaker = normalView.GetComponent<CameraShaker>();
 
-            CameraShaker.GetInstance("MainCamera").ShakeOnce(Mathf.Min(Mathf.Abs(lastVelocity.y) / 7f, 5f), 3f, 0.1f, 0.1f);
+            if (shaker != null)
+                shaker.ShakeOnce(Mathf.Min(Mathf.Abs(lastVelocity.y) / 7f, 5f), 3f, 0.1f, 0.1f);
             if (bumpSource != null)
             {
                 bumpSource.pitch = Mathf.Pow(2, (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 100f));
-                bumpSource.volume = (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) /50f) * baseVolume;
+                bumpSource.volume = (Mathf.Clamp(Mathf.Abs(lastVelocity.y), 0, 100) / 50f) * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).baseVolume;
                 bumpSource.Play();
             }
 
- 
+
             if (Mathf.Abs(lastVelocity.y) > 5f)
             {
-                if(emotions)
+                if (emotions)
                     emotions.Shock();
                 shoutHandler.PlayAudio(false);
 
                 ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();
-                fallSparks.Emit(emitOverride, 10 + (int)Mathf.Min(Mathf.Abs(lastVelocity.y)/5f,20f));
-                if (Gamepad.current != null)
-                {
-                    Gamepad.current.SetMotorSpeeds(1f, 1f);
-                }
-
+                fallSparks.Emit(emitOverride, 10 + (int)Mathf.Min(Mathf.Abs(lastVelocity.y) / 5f, 20f));
+                rumble(0.2f, 0.2f);
 
             }
         }
-        
-        if (Gamepad.current != null)
-        {
-            Gamepad.current.SetMotorSpeeds(0f, 0f);
-        }
+
+        rumble(0f, 0f);
 
     }
 
 
-    /* ---------------------- DISABLED -------------------------*/
+
+
+
+
+
+    /****************************************************************************** MOVEMENTS *****************************************************************/
+
+    private void handlePlayerMovementAndPowerGauge()
+    {
+        //We increment time for all the powers and cap theme to maxPower with just a little nudge on top
+        //That way, we are sure that the float comparisons with maxPower on other parts of the code will work 100%
+        if (!isPowerInUse)
+        {
+            float nudge = 0.0001f;
+            for (int i = 0; i < 4; i++)
+            {
+                ActualSave.actualSave.stats[playerNb].powerTime[i][0] = Mathf.Min(ActualSave.actualSave.stats[playerNb].powerTime[i][0] + Time.fixedDeltaTime, ActualSave.actualSave.stats[playerNb].maxPowerTime[i][0] + nudge);
+                ActualSave.actualSave.stats[playerNb].powerTime[i][1] = Mathf.Min(ActualSave.actualSave.stats[playerNb].powerTime[i][1] + Time.fixedDeltaTime, ActualSave.actualSave.stats[playerNb].maxPowerTime[i][1] + nudge);
+            }
+        }
+        //We handle the player's movement
+        if (hasControls)
+        {
+            handleMovement();
+            //We update the speed base on the sum of the player's velocity vector
+            if (hasPlayerTouched)
+            {
+                ActualSave.actualSave.stats[playerNb].playerSpeed = ((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) + Mathf.Abs(player.velocity.z)) * 3f);
+                ActualSave.actualSave.stats[playerNb].playerRotationSpeed=(Mathf.Abs(player.angularVelocity.x) + Mathf.Abs(player.angularVelocity.y) + Mathf.Abs(player.angularVelocity.z));
+                //checkGravity();
+                lastVelocity = player.velocity;
+            }
+            else
+            {
+                player.velocity = player.velocity * 0.2f;
+            }
+        }
+    }
+
+
+
+
+    private void handleMovement()
+    {
+
+
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+        //This part is to immobilize the player at the start of a game before he touches the controller
+        if (!hasPlayerTouched && movement.magnitude != 0f)
+        {
+            //Now the player can move
+            hasPlayerTouched = true;
+        }
+
+        //movement 
+        movement = applySpeedCurve(player.velocity, movement, cinemachineBrain.transform.eulerAngles.y, Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer));
+        movement += CheckIfOnPlatform();
+
+
+        //We add it to the player's rigidbody as a Force
+        player.AddForce(movement);
+
+    }
+
+
+
+
+
+
+
+
+    /************************************************************************************* END OF LEVEL BEHAVIOUR **************************************************************************/
+    //For all save and loading behaviour, see PlayerControllerOld, this has nothing to do here
+
+    //Following behaviours will only be active when the end of level behaviour container in PlayerControllerOld (loading, saving, ischaracterunlocked...) is integrated elsewhere
+    //The player propells up after accessing a gate
+
+    private void PropellUp()
+    {
+        mustPropellUp = true;
+        emotions.PowerUp();
+        if (player.velocity.y < 0)
+        {
+            player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+        }
+        player.AddForce(new Vector3(0f, 0.3f * Character.getCharacterInfo(ActualSave.actualSave.stats[playerNb].activePlayer).jumpForce, 0f));
+        rumble(1f, 0.8f);
+
+        GameObject instantiatedBoom = Instantiate(propelBoom);
+        instantiatedBoom.transform.position = this.transform.position;
+        Destroy(instantiatedBoom, 2f);
+        Invoke("BoomAgain", 7f);
+    }
+
+
+    private void handlePlayerFinalBehaviour()
+    {
+        if (!mustPropellUp)
+        {
+            //We decrease the movement of the player
+            player.velocity = new Vector3(player.velocity.x / (1 + 0.1f / player.velocity.magnitude), player.velocity.y / 1.2f, player.velocity.z / (1 + 0.1f / player.velocity.magnitude));
+        }
+        else
+        {
+            //Then Propell him up
+            player.AddForce(Vector3.up * 15f);
+            rumble(0.2f, 0.2f);
+
+
+        }
+    }
+
+    public void BoomAgain()
+    {
+        GameObject instantiatedBoom = Instantiate(propelBoom);
+        instantiatedBoom.transform.position = this.transform.position;
+        Destroy(instantiatedBoom, 2f);
+    }
+
+
+
+
+    // --------------------- BONUS BEHAVIOUR ---------------------*/
+
+    private void IncrementBonusCount()
+    {
+        bonusCount.text = bonusGathered + "";
+    }
+
+    private void BonusAnimation()
+    {
+        bonusAnimation.Play();
+    }
+
+
+
+
+
+
+
+    /* ---------------- CHECKS IF THE PLAYER IS ON A MOVING/ROTATING PLATFOM -------------------------------------*/
+    //If so, it changes the referential to the right this / Returns the value to add to movement
+    public Vector3 CheckIfOnPlatform()
+    {
+        //We will handle here the player's physical referential (if you're on a moving platform, you move with it)
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, playerCollider.bounds.extents.y + 0.1f))
+        {
+            GameObject RaycastReturn = hit.collider.gameObject;
+            //If it's a rotating platform, we make the player dependant of it
+            if (RaycastReturn.GetComponent<simpleRotatingPlatformScript>())
+            {
+                //Make the object parent here ! 
+                if (this.transform.parent != RaycastReturn.transform)
+                    this.transform.SetParent(RaycastReturn.transform, true);
+            }
+            //If it's not, we extract the player
+            else
+            {
+                if (this.transform.parent != StartParent)
+                    this.transform.SetParent(StartParent, true);
+            }
+
+            //If a moving platform, we add its movement to the player
+            if (RaycastReturn.GetComponent<Rigidbody>())
+            {
+                return RaycastReturn.GetComponent<Rigidbody>().velocity * Time.fixedDeltaTime; //simpleMovingPlatformScript handling
+            }
+
+        }
+        else
+        {
+            //In case previous screenings weren't sufficient, if the player isn't anymore on a plaftorm, we extract it
+            if (this.transform.parent != StartParent)
+                this.transform.SetParent(StartParent, true);
+        }
+        return Vector3.zero;
+    }
+
+
+    private void grindParticles()
+    {
+        //Handling grind sparks. If the player is too fast and touching the ground
+        RaycastHit hit;
+        var grindEmission = grindSparks.emission;
+        Vector3 direction = Physics.gravity;
+        bool isEmittingGrindSparks = false;
+        if (Physics.Raycast(transform.position, direction, out hit, 0.67f) && ActualSave.actualSave.stats[playerNb].playerSpeed > 50f)
+        {
+            isEmittingGrindSparks = true;
+            grindEmission.rateOverTime = Mathf.Min(Mathf.Max((ActualSave.actualSave.stats[playerNb].playerSpeed - 50f), 0f) / 2f, 20f);
+
+            rumble(1f, 1f);
+          
+
+        }
+
+        grindEmission.enabled = isEmittingGrindSparks;
+    }
+
+    private void speedParticles()
+    {
+        //Handling speed particles
+        bool isEmittingSpeedSparks = false;
+        ParticleSystem.EmissionModule emission = speedSparks.emission;
+        if (ActualSave.actualSave.stats[playerNb].playerSpeed >= 60f)
+        {
+            CameraShaker shaker = normalView.GetComponent<CameraShaker>();
+
+            if (shaker != null)
+                shaker.ShakeOnce(Mathf.Min((ActualSave.actualSave.stats[playerNb].playerSpeed - 40f) / 100f, 0.3f), 4f, 0.1f, 0.1f);
+            isEmittingSpeedSparks = true;
+            rumble(0.2f, 0.2f);
+
+            if (ActualSave.actualSave.stats[playerNb].playerSpeed > 80f)
+            {
+                if (emotions)
+                    emotions.Roll();
+
+            }
+            else
+            {
+                if (emotions)
+                    emotions.StopRolling();
+            }
+        }
+        else
+        {
+            rumble(0f, 0f);
+
+        }
+        emission.rateOverTime = Mathf.Min(Mathf.Max((ActualSave.actualSave.stats[playerNb].playerSpeed - 40f), 0f) / 5f, 15f);
+        emission.enabled = isEmittingSpeedSparks;
+    }
+
+    //If a character is at the border of a cliff, trigger an afraid expression
+    private void isCharacterAffraidOfCliff()
+    {
+
+        //Handling being scared when on the border of platform
+        if (isPlayerOnBorder())
+        {
+            if (!isLookingDown)
+            {
+                emotions.ReallyWorried();
+
+                for (int i = 0; i < eyes.Length; i++)
+                {
+                    eyes[i].localEulerAngles = (new Vector3(20, 180, 0));
+                }
+                isLookingDown = true;
+            }
+
+
+            //lookAtTransform.localPosition =
+        }
+        else
+        {
+            if (isLookingDown)
+            {
+                for (int i = 0; i < eyes.Length; i++)
+                {
+                    eyes[i].localEulerAngles = (new Vector3(0, 180, 0));
+                }
+                isLookingDown = false;
+                emotions.NormalMood();
+
+            }
+        }
+    }
+
+    //Checks if a character is at the border of a cliff
+    private bool isPlayerOnBorder()
+    {
+        RaycastHit borderhit;
+        float playerSize = playerCollider.bounds.extents.x / 1.2f;
+
+        bool result = !Physics.Raycast(transform.position + playerSize * fallSparks.transform.right, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * -fallSparks.transform.right, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * (-fallSparks.transform.right + fallSparks.transform.forward), Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * 0.8f * (fallSparks.transform.right + fallSparks.transform.forward), Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        result = result || !Physics.Raycast(transform.position + playerSize * fallSparks.transform.forward, Vector3.down, out borderhit, playerCollider.bounds.extents.y + 2f);
+        //We make sure there that the player gets worried ONLY if it is on the ground.
+        result = result && Physics.Raycast(transform.position, Physics.gravity, out borderhit, playerCollider.bounds.extents.y + 0.1f);
+        return result;
+    }
+
+
+
+
+
+
+
+    private void rumble(float low, float high)
+    {
+        Gamepad currentController = null;
+        foreach(Gamepad g in Gamepad.all)
+        {
+            if (low > 0.01f && high > 0.01f)
+
+
+            foreach(InputDevice d in inputHandler.GetComponent<PlayerInput>().user.pairedDevices)
+            {
+                if(g.deviceId == d.deviceId)
+                {
+                    currentController = g;
+                }
+            }
+        }
+        //inputHandler.GetComponent<PlayerInput>().user.pairedDevices[0].deviceId;
+        //Gamepad currentController = Gamepad.all.FirstOrDefault(g => inputHandler.GetComponent<PlayerInput>().devices.Any(d => d.deviceId == g.deviceId));
+        if(currentController != null)
+            currentController.SetMotorSpeeds(low, high);
+
+    }
+
+
+
+
+    override protected void OnDestroy()
+    {
+        base.OnDestroy();
+        if (defaultGravity != Physics.gravity)
+        {
+            Physics.gravity = defaultGravity;
+        }
+    }
+
+
+
+
+    /* -------------------------------------------------------------------------------------------- DEPRECATED ---------------------------------------------------------------------------------------------*/
     private void checkGravity()
     {
         //We launch a ray downward to check if we are close to the ground
@@ -825,5 +1063,20 @@ public class PlayerController : Observer
 
     }
 
+    public void OnLook(InputValue value)
+    {
+        if (!inOptions)
+        {
+            playerCamera.GetComponent<CameraController>().OnLook(value, false);
+        }
+    }
+
+    public void OnLookMouse(InputValue value)
+    {
+        if (!inOptions)
+        {
+            playerCamera.GetComponent<CameraController>().OnLook(value, true);
+        }
+    }
 
 }

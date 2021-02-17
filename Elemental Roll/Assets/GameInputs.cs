@@ -44,8 +44,16 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""SpecialAction"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""13b6ea9b-3654-4df9-b48d-0fced84ed53a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""SecondSpecialAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""857928b8-63f1-41b5-9b0c-fb76c47f3487"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
@@ -62,9 +70,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""name"": ""TopView"",
                     ""type"": ""Value"",
                     ""id"": ""ad0264c2-53e5-4a6d-8d0a-d6fcdaaf73e5"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""MoveVertical"",
@@ -86,6 +94,14 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""name"": ""MoveJoystick"",
                     ""type"": ""Value"",
                     ""id"": ""ba0ccb55-9882-4472-a992-e1865a4b166a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapPlayer"",
+                    ""type"": ""Value"",
+                    ""id"": ""fcab31dc-e98a-4ad6-b937-fc5828a931ef"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -182,20 +198,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""da72bc85-8a80-4a52-8091-f3637f246567"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""TopView"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9de3a923-d876-4505-90b9-8b5a5cf4d728"",
                     ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""TopView"",
@@ -205,57 +210,13 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""51ba5470-71e7-4d5f-9f7c-a34608004017"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""TopView"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cc6231d3-340b-428e-b1ce-b75a77df39c7"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""TopView"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""GamepadUpDown"",
-                    ""id"": ""a232e304-4972-4d19-abc0-4d6b06c89165"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveVertical"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""81994151-4c1f-4c04-9d82-d8a8e16cc87e"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MoveVertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""4f09a975-0621-41f1-a930-9273ec749937"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MoveVertical"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""KeyboardUpDown"",
@@ -335,39 +296,6 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""GamepadLeftRight"",
-                    ""id"": ""2dd0f533-f460-4a5c-8fa9-111784bb72d2"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MoveHorizontal"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""49bda847-8927-4f91-a0f8-cc815cb09dbb"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MoveHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""36382e97-6080-4ff0-b07d-111f70c7ae2e"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""MoveHorizontal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""KeyboardLeftRight"",
                     ""id"": ""66f380d1-01a7-41e1-928e-859f2089fba1"",
                     ""path"": ""1DAxis"",
@@ -443,6 +371,149 @@ public class @GameInputs : IInputActionCollection, IDisposable
                     ""action"": ""MoveJoystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""127fa1b6-d96d-41d3-a363-58e5645a7939"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""TopView"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""881de09e-ddb2-4ea3-898b-8eb4c66d808d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""87765f6e-76cb-4585-93fc-af2f0eeddee1"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""4f8bdef0-f544-4ead-8800-f16cddda50f7"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""09eee780-bd78-4022-aaf0-90afbb58877a"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e2fb51e1-6247-4daf-8586-36088193afc1"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Controller"",
+                    ""id"": ""c25d7247-495f-418a-af57-d0d75d327a3e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""3eab8af6-5239-4cd5-bc81-977a70013f1a"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""5766c0f9-5660-4b77-ac50-dbeea72b46b8"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f1213ebd-d04f-4bb2-958b-300a62467c8b"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5c196b10-7f36-49ce-86df-3c34dcb5f876"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SwapPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a8ecb091-1572-4c18-b0a0-75e675754b73"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SecondSpecialAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f09ee07-dd59-422b-b56e-2cb648a77f1f"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""SecondSpecialAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -483,11 +554,13 @@ public class @GameInputs : IInputActionCollection, IDisposable
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
         m_Gameplay_Restart = m_Gameplay.FindAction("Restart", throwIfNotFound: true);
         m_Gameplay_SpecialAction = m_Gameplay.FindAction("SpecialAction", throwIfNotFound: true);
+        m_Gameplay_SecondSpecialAction = m_Gameplay.FindAction("SecondSpecialAction", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_TopView = m_Gameplay.FindAction("TopView", throwIfNotFound: true);
         m_Gameplay_MoveVertical = m_Gameplay.FindAction("MoveVertical", throwIfNotFound: true);
         m_Gameplay_MoveHorizontal = m_Gameplay.FindAction("MoveHorizontal", throwIfNotFound: true);
         m_Gameplay_MoveJoystick = m_Gameplay.FindAction("MoveJoystick", throwIfNotFound: true);
+        m_Gameplay_SwapPlayer = m_Gameplay.FindAction("SwapPlayer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -541,11 +614,13 @@ public class @GameInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Look;
     private readonly InputAction m_Gameplay_Restart;
     private readonly InputAction m_Gameplay_SpecialAction;
+    private readonly InputAction m_Gameplay_SecondSpecialAction;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_TopView;
     private readonly InputAction m_Gameplay_MoveVertical;
     private readonly InputAction m_Gameplay_MoveHorizontal;
     private readonly InputAction m_Gameplay_MoveJoystick;
+    private readonly InputAction m_Gameplay_SwapPlayer;
     public struct GameplayActions
     {
         private @GameInputs m_Wrapper;
@@ -554,11 +629,13 @@ public class @GameInputs : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
         public InputAction @Restart => m_Wrapper.m_Gameplay_Restart;
         public InputAction @SpecialAction => m_Wrapper.m_Gameplay_SpecialAction;
+        public InputAction @SecondSpecialAction => m_Wrapper.m_Gameplay_SecondSpecialAction;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @TopView => m_Wrapper.m_Gameplay_TopView;
         public InputAction @MoveVertical => m_Wrapper.m_Gameplay_MoveVertical;
         public InputAction @MoveHorizontal => m_Wrapper.m_Gameplay_MoveHorizontal;
         public InputAction @MoveJoystick => m_Wrapper.m_Gameplay_MoveJoystick;
+        public InputAction @SwapPlayer => m_Wrapper.m_Gameplay_SwapPlayer;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -580,6 +657,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @SpecialAction.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpecialAction;
                 @SpecialAction.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpecialAction;
                 @SpecialAction.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpecialAction;
+                @SecondSpecialAction.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSpecialAction;
+                @SecondSpecialAction.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSpecialAction;
+                @SecondSpecialAction.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSecondSpecialAction;
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
@@ -595,6 +675,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @MoveJoystick.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveJoystick;
                 @MoveJoystick.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveJoystick;
                 @MoveJoystick.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMoveJoystick;
+                @SwapPlayer.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapPlayer;
+                @SwapPlayer.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapPlayer;
+                @SwapPlayer.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapPlayer;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -611,6 +694,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @SpecialAction.started += instance.OnSpecialAction;
                 @SpecialAction.performed += instance.OnSpecialAction;
                 @SpecialAction.canceled += instance.OnSpecialAction;
+                @SecondSpecialAction.started += instance.OnSecondSpecialAction;
+                @SecondSpecialAction.performed += instance.OnSecondSpecialAction;
+                @SecondSpecialAction.canceled += instance.OnSecondSpecialAction;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -626,6 +712,9 @@ public class @GameInputs : IInputActionCollection, IDisposable
                 @MoveJoystick.started += instance.OnMoveJoystick;
                 @MoveJoystick.performed += instance.OnMoveJoystick;
                 @MoveJoystick.canceled += instance.OnMoveJoystick;
+                @SwapPlayer.started += instance.OnSwapPlayer;
+                @SwapPlayer.performed += instance.OnSwapPlayer;
+                @SwapPlayer.canceled += instance.OnSwapPlayer;
             }
         }
     }
@@ -654,10 +743,12 @@ public class @GameInputs : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnRestart(InputAction.CallbackContext context);
         void OnSpecialAction(InputAction.CallbackContext context);
+        void OnSecondSpecialAction(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnTopView(InputAction.CallbackContext context);
         void OnMoveVertical(InputAction.CallbackContext context);
         void OnMoveHorizontal(InputAction.CallbackContext context);
         void OnMoveJoystick(InputAction.CallbackContext context);
+        void OnSwapPlayer(InputAction.CallbackContext context);
     }
 }

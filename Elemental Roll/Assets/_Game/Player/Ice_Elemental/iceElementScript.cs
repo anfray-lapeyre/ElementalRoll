@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class iceElementScript : MonoBehaviour
 {
-    public FloatVariable rotationSpeed;
-    public FloatVariable playerSpeed;
+
     private float baseYValue;
     private Rigidbody player;
     private bool needsResetRotation = false;
@@ -14,6 +13,8 @@ public class iceElementScript : MonoBehaviour
     private Vector3[] startOffset;
     private Quaternion[] startRotation;
     private int placement; //0=Tight; 1=Normal; 2= Large
+    private PlayerController playerData;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,23 +26,24 @@ public class iceElementScript : MonoBehaviour
             startRotation[i] = playerParts[i].transform.localRotation;
         }
 
-        if (playerSpeed != null)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            baseYValue = transform.position.y;
-            player = transform.GetComponentInParent<Rigidbody>();
-        }
+
+        transform.eulerAngles = new Vector3(0, 180, 0);
+        baseYValue = transform.localPosition.y;
+        player = transform.GetComponentInParent<Rigidbody>();
+        playerData = player.GetComponent<PlayerController>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playerSpeed != null)
-        {
+
             float yangle = Mathf.Atan2(player.velocity.x, player.velocity.z) * Mathf.Rad2Deg + 180f;
-            if (playerSpeed.value < 80f)
+            if (ActualSave.actualSave.stats[playerData.playerNb].playerSpeed < 80f)
             {
-                transform.eulerAngles = new Vector3(Mathf.Sin(Time.fixedTime * 4) * rotationSpeed.value * 2, yangle, 0);
+                transform.localPosition = new Vector3(transform.localPosition.x, baseYValue - ((ActualSave.actualSave.stats[playerData.playerNb].playerSpeed) / 80f) * 0.1f, transform.localPosition.z);
+
+                transform.eulerAngles = new Vector3(Mathf.Sin(Time.fixedTime * 4) * ActualSave.actualSave.stats[playerData.playerNb].playerRotationSpeed * 2, yangle, 0);
                 if (!needsResetRotation)
                 {
                     needsResetRotation = true;
@@ -54,9 +56,9 @@ public class iceElementScript : MonoBehaviour
                     transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
                     needsResetRotation = false;
                 }
-                transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(baseYValue - (playerSpeed.value - 79f) / 100f, -0.15f, 0), transform.localPosition.z);
+                transform.localPosition = new Vector3(transform.localPosition.x, Mathf.Clamp(baseYValue - (ActualSave.actualSave.stats[playerData.playerNb].playerSpeed - 79f) / 100f, -0.15f, 0), transform.localPosition.z);
             }
-        }
+        
 
         switch (placement)
         {

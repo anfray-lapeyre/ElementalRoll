@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class gateUIParticleScript : MonoBehaviour
 {
     private UIParticleSystem glow;
-    public FloatVariable time;
     private Color color;
     public GameObject gem;
     private Image gemImage;
@@ -25,17 +24,17 @@ public class gateUIParticleScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (time.value < fixedTime)
+        if (ActualSave.actualSave.stats[0].Time < fixedTime)
         {
             GradientAlphaKey[] main = glow.ColorOverLifetime.alphaKeys;
             for (int i = 0; i < main.Length; i++)
             {
                 if(i!= 0 && i!= main.Length-1)
-                 main[i].alpha = Mathf.Min(((fixedTime - Mathf.Min(time.value, fixedTime)) / fixedTime + (fixedTime-2) / 255f), 1f);
+                 main[i].alpha = Mathf.Min(((fixedTime - Mathf.Min(ActualSave.actualSave.stats[0].Time, fixedTime)) / fixedTime + (fixedTime-2) / 255f), 1f);
             }
             glow.ColorOverLifetime.alphaKeys = main;
-            glow.transform.localScale = Vector3.one* (fixedTime - Mathf.Min(time.value, fixedTime)) / (fixedTime);
+            glow.transform.localScale = Vector3.one* (fixedTime - Mathf.Min(ActualSave.actualSave.stats[0].Time, fixedTime)) / (fixedTime);
         }
-        gemImage.color = new Color(1f, 1f, 1f, Mathf.Max(Mathf.Min(time.value, 10f) / 10f - (Mathf.Sin(time.value) + 1f)/6f,0f));
+        gemImage.color = new Color(1f, 1f, 1f, Mathf.Max(Mathf.Min(ActualSave.actualSave.stats[0].Time, 10f) / 10f - (Mathf.Sin(ActualSave.actualSave.stats[0].Time) + 1f)/6f,0f));
     }
 }

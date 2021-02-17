@@ -13,8 +13,11 @@ public class simpleMovingPlatformScript : MonoBehaviour
     public bool horizontal = true;
     public bool vertical = false;
     public bool depth = false;
+    public float offset = 0f;
+
 
     private Rigidbody playerRigidbody;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,9 @@ public class simpleMovingPlatformScript : MonoBehaviour
         playerRigidbody = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
         playerRigidbody.isKinematic = true;
         startPosition = this.transform.position;
+        TimeBody tb = this.gameObject.AddComponent<TimeBody>();
+        tb.isPlatform = true;
+
     }
 
     //delay goes from -90 to 90
@@ -41,6 +47,12 @@ public class simpleMovingPlatformScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerRigidbody.MovePosition(startPosition + ((horizontal) ? this.transform.right*amplitude * Mathf.Sin(Time.fixedTime * speed + delay*Mathf.Deg2Rad) : Vector3.zero) +  ((vertical) ? this.transform.up* amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero) +  ((depth) ? this.transform.forward *amplitude * Mathf.Sin(Time.fixedTime * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+        playerRigidbody.MovePosition(startPosition + ((horizontal) ? this.transform.right*amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay*Mathf.Deg2Rad) : Vector3.zero) +  ((vertical) ? this.transform.up* amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) +  ((depth) ? this.transform.forward *amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+    }
+
+    public void AddOffset(float _offset)
+    {
+        offset += _offset * 2f;
+
     }
 }

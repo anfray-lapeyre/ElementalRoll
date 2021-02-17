@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CaveSimple Water
+  m_Name: HellSimpleLava
   m_Shader: {fileID: -6465566751694194690, guid: 27b042674da390c46a1ff4cc2317d5f2,
     type: 3}
   m_ShaderKeywords: 

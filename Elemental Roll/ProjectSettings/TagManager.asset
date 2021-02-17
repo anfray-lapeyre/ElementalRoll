@@ -32,11 +32,11 @@ TagManager:
   - VictoryGate
   - FinishPortal
   - Player
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PostProcess
+  - Player1Cam
+  - Player2Cam
+  - Player3Cam
+  - Player4Cam
   - 
   - 
   - 

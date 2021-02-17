@@ -48,7 +48,6 @@ public class MoveCommand : Command
 
     public void executeVertical(InputValue value)
     {
-        Debug.Log("MoveVertical : " + value.Get<float>());
 
         //value.Get<float>()
         movements.y = value.Get<float>();
@@ -56,7 +55,6 @@ public class MoveCommand : Command
 
     public void executeHorizontal(InputValue value)
     {
-        Debug.Log("MoveHorizontal : " + value.Get<float>());
 
         movements.x = value.Get<float>();
 

@@ -67,7 +67,7 @@ public class CameraController : MonoBehaviour
          }
 
          float realDamping = (hasCameBack) ? damping : damping / 100f;*/
-        float realDamping = damping;
+        float realDamping = 3f;
 
         //LERP
         float yangle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * realDamping);

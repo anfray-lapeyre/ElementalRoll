@@ -14,7 +14,8 @@ public class IntToTextSetter : MonoBehaviour
 
     private void OnEnable()
     {
-        Text.text = (int)Variable.value + "";
+        if(Variable)
+            Text.text = (int)Variable.value + "";
     }
 
     private void Update()
