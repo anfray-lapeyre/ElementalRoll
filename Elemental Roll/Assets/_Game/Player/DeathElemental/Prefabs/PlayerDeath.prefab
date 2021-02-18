@@ -304,7 +304,7 @@ MonoBehaviour:
     type: 3}
   victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
-  Boom: {fileID: 3992283936593801526, guid: a547d2c3ed7819c459e1d0e635883d77, type: 3}
+  Boom: {fileID: 6898469681312978036, guid: 6b365bbbb3baec8478fd1bbefde17a39, type: 3}
   propelBoom: {fileID: 3992283936593801526, guid: a547d2c3ed7819c459e1d0e635883d77,
     type: 3}
   hasPlayerTouched: 0
@@ -319,6 +319,7 @@ MonoBehaviour:
   - {fileID: 2741090279251037543}
   playerNb: 0
   playerCount: 0
+  defaultGravity: {x: 0, y: -9.87, z: 0}
 --- !u!114 &918662151075418381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlatform: 0
+  isFrozen: 0
 --- !u!114 &1144072400566803632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -704,8 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351c590e799b5a944b6556ff4516c8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: {fileID: 0}
-  playerSpeed: {fileID: 0}
 --- !u!1001 &3636278867422496062
 PrefabInstance:
   m_ObjectHideFlags: 0

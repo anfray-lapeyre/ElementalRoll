@@ -426,8 +426,8 @@ MonoBehaviour:
     type: 3}
   victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
-  Boom: {fileID: 3992283936593801526, guid: bded879e232615e44ac6c6f054e327e5, type: 3}
-  propelBoom: {fileID: 3992283936593801526, guid: a547d2c3ed7819c459e1d0e635883d77,
+  Boom: {fileID: 6894517082509416898, guid: c55ca25a67176f143bded98f7c69b8d8, type: 3}
+  propelBoom: {fileID: 3992283936593801526, guid: bded879e232615e44ac6c6f054e327e5,
     type: 3}
   hasPlayerTouched: 0
   cinemachineBrain: {fileID: 0}
@@ -439,6 +439,7 @@ MonoBehaviour:
   - {fileID: 7586546776572774682}
   playerNb: 0
   playerCount: 0
+  defaultGravity: {x: 0, y: -9.87, z: 0}
 --- !u!114 &537916231147374664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,8 +822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353ba4b622d412247abad154f437335e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: {fileID: 0}
-  playerSpeed: {fileID: 0}
 --- !u!1001 &6941091312713663779
 PrefabInstance:
   m_ObjectHideFlags: 0

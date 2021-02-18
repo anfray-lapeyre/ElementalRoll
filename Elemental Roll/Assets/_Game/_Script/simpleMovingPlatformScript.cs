@@ -14,7 +14,8 @@ public class simpleMovingPlatformScript : MonoBehaviour
     public bool vertical = false;
     public bool depth = false;
     public float offset = 0f;
-
+    [HideInInspector]
+    public bool paused = false;
 
     private Rigidbody playerRigidbody;
 
@@ -22,7 +23,9 @@ public class simpleMovingPlatformScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerRigidbody = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
+        playerRigidbody = this.gameObject.GetComponent<Rigidbody>();
+        if(playerRigidbody == null)
+            playerRigidbody = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
         playerRigidbody.isKinematic = true;
         startPosition = this.transform.position;
         TimeBody tb = this.gameObject.AddComponent<TimeBody>();
@@ -47,12 +50,16 @@ public class simpleMovingPlatformScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerRigidbody.MovePosition(startPosition + ((horizontal) ? this.transform.right*amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay*Mathf.Deg2Rad) : Vector3.zero) +  ((vertical) ? this.transform.up* amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) +  ((depth) ? this.transform.forward *amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+        if (!paused)
+        {
+            playerRigidbody.MovePosition(startPosition + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin((Time.fixedTime - offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin((Time.fixedTime - offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin((Time.fixedTime - offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+
+        }
     }
 
     public void AddOffset(float _offset)
     {
-        offset += _offset * 2f;
+        offset += _offset;
 
     }
 }

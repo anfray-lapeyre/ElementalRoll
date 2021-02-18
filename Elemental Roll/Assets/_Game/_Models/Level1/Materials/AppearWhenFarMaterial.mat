@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AppearWhenNearMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 7338025b9c633544298c7afcdb3889a6,
+  m_Name: AppearWhenFarMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 4512e7e154e153a4e930655318e7eabd,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

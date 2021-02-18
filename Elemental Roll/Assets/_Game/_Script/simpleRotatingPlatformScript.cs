@@ -17,9 +17,18 @@ public class simpleRotatingPlatformScript : MonoBehaviour
     public bool backAndForth = false;
     public bool easeInOut = false;
     public float offset = 0f;
+    private Rigidbody playerRigidbody;
+
+
+    [HideInInspector]
+    public bool paused = false;
 
     void Awake()
     {
+        playerRigidbody = this.gameObject.GetComponent<Rigidbody>();
+        if (playerRigidbody == null)
+            playerRigidbody = this.gameObject.AddComponent<Rigidbody>() as Rigidbody;
+        playerRigidbody.isKinematic = true;
         TimeBody tb = this.gameObject.AddComponent<TimeBody>();
         tb.isPlatform = true;
     }
@@ -74,37 +83,41 @@ public class simpleRotatingPlatformScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (easeInOut)
+        if (!paused)
         {
-            if (backAndForth)
+            if (easeInOut)
             {
-                this.transform.localEulerAngles = new Vector3(startRotation.eulerAngles.x + ((horizontal) ? Mathf.Sin((Time.fixedTime-offset) * speed) * (amplitude / 2f) : 0), startRotation.eulerAngles.y + ((vertical) ? Mathf.Sin((Time.fixedTime-offset) * speed) * (amplitude / 2f) : 0), startRotation.eulerAngles.z + ((depth) ? Mathf.Sin((Time.fixedTime-offset) * speed) * (amplitude / 2f) : 0));
+                if (backAndForth)
+                {
+                    playerRigidbody.MoveRotation(Quaternion.Euler(new Vector3(startRotation.eulerAngles.x + ((horizontal) ? Mathf.Sin((Time.fixedTime - offset) * speed) * (amplitude / 2f) : 0), startRotation.eulerAngles.y + ((vertical) ? Mathf.Sin((Time.fixedTime - offset) * speed) * (amplitude / 2f) : 0), startRotation.eulerAngles.z + ((depth) ? Mathf.Sin((Time.fixedTime - offset) * speed) * (amplitude / 2f) : 0))));
+                    //this.transform.localEulerAngles =;
 
+                }
+                else
+                {
+
+                    playerRigidbody.MoveRotation(Quaternion.Euler(new Vector3(startRotation.eulerAngles.x + ((horizontal) ? Mathf.Sin(((Time.fixedTime - offset) * speed) % (Mathf.PI) - Mathf.PI / 2f) * (amplitude / 2f) + (amplitude / 2f) : 0), startRotation.eulerAngles.y + ((vertical) ? Mathf.Sin(((Time.fixedTime - offset) * speed) % (Mathf.PI) - Mathf.PI / 2f) * (amplitude / 2f) + (amplitude / 2f) : 0), startRotation.eulerAngles.z + ((depth) ? Mathf.Sin(((Time.fixedTime - offset) * speed) % (Mathf.PI) - Mathf.PI / 2f) * (amplitude / 2f) + (amplitude / 2f) : 0))));
+                    //.MovePosition(startPosition + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+                }
             }
             else
             {
-
-                this.transform.localEulerAngles = new Vector3(startRotation.eulerAngles.x + ((horizontal) ? Mathf.Sin(((Time.fixedTime-offset) * speed) % (Mathf.PI) - Mathf.PI / 2f) * (amplitude / 2f) + (amplitude / 2f) : 0), startRotation.eulerAngles.y + ((vertical) ? Mathf.Sin(((Time.fixedTime-offset) * speed) % (Mathf.PI) - Mathf.PI / 2f) * (amplitude / 2f) + (amplitude / 2f) : 0), startRotation.eulerAngles.z + ((depth) ? Mathf.Sin(((Time.fixedTime-offset) * speed) % (Mathf.PI) - Mathf.PI / 2f) * (amplitude / 2f) + (amplitude / 2f) : 0));
-                //.MovePosition(startPosition + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
-            }
-        }
-        else
-        {
-            if (backAndForth)
-            {
-                this.transform.localEulerAngles = new Vector3(startRotation.eulerAngles.x + ((horizontal) ? (2f * (amplitude / 2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (Time.fixedTime-offset))) + (amplitude / 2f) : 0), startRotation.eulerAngles.y + ((vertical) ? (2f * (amplitude / 2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (Time.fixedTime-offset))) + (amplitude / 2f) : 0), startRotation.eulerAngles.z + ((depth) ? (2f * (amplitude / 2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (Time.fixedTime-offset))) + (amplitude / 2f) : 0));
-            }
-            else
-            {
-                this.transform.localEulerAngles = new Vector3(startRotation.eulerAngles.x + ((horizontal) ? (Time.fixedTime-offset) * speed * 50f : 0), startRotation.eulerAngles.y + ((vertical) ? (Time.fixedTime-offset) * speed * 50f : 0), startRotation.eulerAngles.z + ((depth) ? (Time.fixedTime-offset) * speed * 50f : 0));
-                //this.transform.localRotation = Quaternion.Euler();
-                //.MovePosition(startPosition + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+                if (backAndForth)
+                {
+                    playerRigidbody.MoveRotation(Quaternion.Euler(new Vector3(startRotation.eulerAngles.x + ((horizontal) ? (2f * (amplitude / 2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (Time.fixedTime - offset))) + (amplitude / 2f) : 0), startRotation.eulerAngles.y + ((vertical) ? (2f * (amplitude / 2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (Time.fixedTime - offset))) + (amplitude / 2f) : 0), startRotation.eulerAngles.z + ((depth) ? (2f * (amplitude / 2f) / Mathf.PI) * Mathf.Asin(Mathf.Sin((Mathf.PI * 2f * speed / 10f) * (Time.fixedTime - offset))) + (amplitude / 2f) : 0))));
+                }
+                else
+                {
+                    playerRigidbody.MoveRotation(Quaternion.Euler(new Vector3(startRotation.eulerAngles.x + ((horizontal) ? (Time.fixedTime - offset) * speed * 50f : 0), startRotation.eulerAngles.y + ((vertical) ? (Time.fixedTime - offset) * speed * 50f : 0), startRotation.eulerAngles.z + ((depth) ? (Time.fixedTime - offset) * speed * 50f : 0))));
+                    //this.transform.localRotation = Quaternion.Euler();
+                    //.MovePosition(startPosition + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin((Time.fixedTime-offset) * speed + delay * Mathf.Deg2Rad) : Vector3.zero));
+                }
             }
         }
     }
 
     public void AddOffset(float _offset){
-        offset += _offset*2f;
+        offset += _offset;
         
        }
 }

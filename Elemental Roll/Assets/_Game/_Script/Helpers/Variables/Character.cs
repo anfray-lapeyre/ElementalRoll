@@ -71,7 +71,7 @@ public class Character
                 this.invertSpeedModifier = 1f;
                 this.jumpForce = 400f;
                 this.powerTime = 8f; //Stop then Bottom Dash
-                this.secondPowerTime = 15f; //Grappling
+                this.secondPowerTime = 1f; //Grappling
                 break;
             case "Tim":
                 this.name = "Tim";
@@ -80,7 +80,7 @@ public class Character
                 this.speedModifier = 3f;
                 this.invertSpeedModifier = 2.3f;
                 this.jumpForce = 450f;
-                this.powerTime = 10f;//AOE Freeze
+                this.powerTime = 12f;//AOE Freeze
                 this.secondPowerTime = 15f; //Rewind
                 break;
             default:

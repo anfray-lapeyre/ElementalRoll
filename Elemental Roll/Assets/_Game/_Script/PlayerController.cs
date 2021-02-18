@@ -161,6 +161,16 @@ public class PlayerController : Observer
 
         //updatePlayerScreenHandling(playerNb, playerCount);
         defaultGravity = new Vector3(0, -9.87f, 0);
+
+        if (characterNb == 2)// If earth
+        {
+            //We instantiate the Grappling Gun
+            GameObject instantiatedEarthBoom = Instantiate(Boom, transform);
+            GrapplingGunScript gun = instantiatedEarthBoom.GetComponent<GrapplingGunScript>();
+            gun.gunTip = transform;
+            gun.varCamera = grindSparks.transform.parent;
+            gun.player = transform;
+        }
     }
 
 
@@ -316,7 +326,7 @@ public class PlayerController : Observer
                             //player.AddForce(-player.velocity);
 
                             player.isKinematic = true;
-                            GameObject instantiatedEarthBoom = Instantiate(Boom, fallSparks.transform);
+                            GameObject instantiatedEarthBoom = Instantiate(propelBoom, fallSparks.transform);
                             Destroy(instantiatedEarthBoom, 2f);
                             Invoke("EarthMovesAgain", 1.5f);
                             break;
@@ -326,12 +336,14 @@ public class PlayerController : Observer
 
                             //We remove a third of the power
 
-
+                            
                             ActualSave.actualSave.stats[playerNb].powerTime[characterNb][0] = 0f;
 
                             emotions.PowerUp();
                             shoutHandler.PlayAudio(true);
-
+                            //everything is handled inside after we place it
+                            GameObject instantiatedDeathBoom = Instantiate(Boom);
+                            instantiatedDeathBoom.transform.position = this.transform.position;
                             rumble(0.1f, 0.8f);
                            
                             break;
@@ -392,11 +404,10 @@ public class PlayerController : Observer
                             ActualSave.actualSave.stats[playerNb].powerTime[characterNb][1] = 0f;
 
                             //player.AddForce(-player.velocity);
+                            isPowerInUse = true;
+                            GrapplingGunScript gun = this.GetComponentInChildren<GrapplingGunScript>();
+                            gun.StartGrapple();
 
-                            player.isKinematic = true;
-                            GameObject instantiatedEarthBoom = Instantiate(Boom, fallSparks.transform);
-                            Destroy(instantiatedEarthBoom, 2f);
-                            Invoke("EarthMovesAgain", 1.5f);
                             break;
                         case 3:
                             //Death 
@@ -435,7 +446,16 @@ public class PlayerController : Observer
         }
         else if (!value && !inOptions && isPowerInUse)
         {
-            DeathStopRewind();
+            if(characterNb == 2) // Earth
+            {
+                isPowerInUse = false;
+                GrapplingGunScript gun = this.GetComponentInChildren<GrapplingGunScript>();
+                gun.StopGrapple();
+            }
+            else if (characterNb == 3) // Death
+            {
+                DeathStopRewind();
+            }
         }
     }
 

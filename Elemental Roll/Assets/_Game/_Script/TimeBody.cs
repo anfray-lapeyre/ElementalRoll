@@ -12,6 +12,7 @@ public class TimeBody : MonoBehaviour
 
     public bool isPlatform = false;
 
+    private bool isFrozen = false;
 
     List<PointInTime> pointsInTime;
 
@@ -34,12 +35,19 @@ public class TimeBody : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (isRewinding)
-            Rewind();
-        else if (isRewindingBackward)
-            RewindBackward();
+        if (!isFrozen)
+        {
+            if (isRewinding)
+                Rewind();
+            else if (isRewindingBackward)
+                RewindBackward();
+            else
+                Record();
+        }
         else
-            Record();
+        {
+            UpdateFreeze();
+        }
     }
 
     public void Rewind()
@@ -104,7 +112,19 @@ public class TimeBody : MonoBehaviour
         {
             if (!isPlatform)
                 rb.isKinematic = true;
+            else
+            {
+                if (isPlatform && TryGetComponent(out simpleRotatingPlatformScript rotatingPlatform))
+                {
+                    rotatingPlatform.paused = true;
+                }
+                if (isPlatform && TryGetComponent(out simpleMovingPlatformScript movingPlatform))
+                {
+                    movingPlatform.paused = true;
+                }
+            }
         }
+
     }
 
     public void StopRewind()
@@ -116,11 +136,13 @@ public class TimeBody : MonoBehaviour
             {
                 if (isPlatform && TryGetComponent(out simpleRotatingPlatformScript rotatingPlatform))
                 { 
-                    rotatingPlatform.AddOffset(offset);
+                    rotatingPlatform.AddOffset(offset*2f);
+                    rotatingPlatform.paused = false;
                 }
                 if (isPlatform && TryGetComponent(out simpleMovingPlatformScript movingPlatform))
                 {
-                    movingPlatform.AddOffset(offset);
+                    movingPlatform.AddOffset(offset*2f);
+                    movingPlatform.paused = false;
                 }
                 offset = 0;
                 isRewindingBackward = false;
@@ -147,5 +169,63 @@ public class TimeBody : MonoBehaviour
 
     }
 
+
+    public void Freeze()
+    {
+        isFrozen = true;
+        //This will make sure that we do not need to check pointsinTime Count in Update
+        if (pointsInTime.Count <= 0)
+        {
+            Record();
+        }
+        if (rb)
+        {
+            if (!isPlatform)
+                rb.isKinematic = true;
+        }
+        if (isPlatform && TryGetComponent(out simpleRotatingPlatformScript rotatingPlatform))
+        {
+            rotatingPlatform.paused = true;
+        }
+        if (isPlatform && TryGetComponent(out simpleMovingPlatformScript movingPlatform))
+        {
+            movingPlatform.paused = true;
+        }
+    }
+
+    public void UpdateFreeze()
+    {
+        offset += Time.fixedDeltaTime;
+        PointInTime pointInTime = pointsInTime[0];
+        transform.position = pointInTime.position;
+        transform.rotation = pointInTime.rotation;
+    }
+
+    public void StopFreeze()
+    {
+        if (isFrozen)
+        {
+            isFrozen = false;
+            if (isPlatform && TryGetComponent(out simpleRotatingPlatformScript rotatingPlatform))
+            {
+                rotatingPlatform.AddOffset(offset);
+                rotatingPlatform.paused = false;
+
+            }
+            if (isPlatform && TryGetComponent(out simpleMovingPlatformScript movingPlatform))
+            {
+                movingPlatform.AddOffset(offset);
+                movingPlatform.paused = false;
+
+            }
+            offset = 0;
+            isRewindingBackward = false;
+            if (rb && !isPlatform)
+            {
+                rb.isKinematic = false;
+                rb.velocity = pointsInTime[0].velocity;
+            }
+        }
+    }
 
 }
