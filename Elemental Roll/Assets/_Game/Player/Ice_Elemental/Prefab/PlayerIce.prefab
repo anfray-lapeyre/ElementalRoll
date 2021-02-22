@@ -303,7 +303,7 @@ MonoBehaviour:
     type: 3}
   victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
-  Boom: {fileID: 3132379761832178639, guid: 3d94ee954690d45418e2f3c1bd96c21c, type: 3}
+  Boom: {fileID: 3992283936593801526, guid: e8c13b2549a448245b7bb4737d2058b9, type: 3}
   propelBoom: {fileID: 3992283936593801526, guid: 704985791ba1e524b9da04df7aaad33d,
     type: 3}
   hasPlayerTouched: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   - {fileID: 4498162096029672000}
   playerNb: 0
   playerCount: 0
+  defaultGravity: {x: 0, y: -9.87, z: 0}
 --- !u!114 &8548735534333662015
 MonoBehaviour:
   m_ObjectHideFlags: 0

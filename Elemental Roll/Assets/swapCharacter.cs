@@ -118,7 +118,8 @@ public class swapCharacter : Observer
             playerFollower.player = actualPlayerInstance;
             playerFollower.UpdateRigid();
             actualPlayerInstance.GetComponent<PlayerController>().updatePlayerScreenHandling(playerNb, playerCount);
-
+            stopTime();
+            InvokeRealTime("startTime", 0.5f);
         }
     }
 
@@ -172,5 +173,16 @@ public class swapCharacter : Observer
         return playerNb;
     }
 
+    public void startTime()
+    {
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+    }
 
+    public void stopTime()
+    {
+        Time.timeScale = 0.5f;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+
+    }
 }

@@ -304,16 +304,11 @@ public class PlayerController : Observer
 
                             //We make sure that when the power gauge reaches 0, the player cannot use the power anymore
                             shoutHandler.PlayAudio(true);
-                            Debug.Log(Physics.gravity);
+                            invokingTime = 15;
 
-                            Physics.gravity = defaultGravity * -0.4f;
-                            Debug.Log(Physics.gravity);
-                            player.velocity = new Vector3(player.velocity.x, (player.velocity.y > 3f) ? player.velocity.y / 2f : player.velocity.y, player.velocity.z);
-                            //DeathRewind();
-                            Invoke("RestoreGravity", 2.5f);
-                            GameObject bubble = Instantiate(Boom, transform);
+                            InvokeIce();
 
-                            Destroy(bubble, 2.5f);
+
                             
                             break;
                         case 2:
@@ -390,7 +385,6 @@ public class PlayerController : Observer
 
                             emotions.PowerUp();
                             shoutHandler.PlayAudio(true);
-
                             gameObject.LeanScale(Vector3.one * 0.5f, 0.2f).setEaseInElastic();
                             isPowerInUse = true;
                             rumble(0.1f, 0.8f);
@@ -451,6 +445,7 @@ public class PlayerController : Observer
                 isPowerInUse = false;
                 GrapplingGunScript gun = this.GetComponentInChildren<GrapplingGunScript>();
                 gun.StopGrapple();
+                player.velocity = player.velocity / 4f;
             }
             else if (characterNb == 3) // Death
             {
@@ -459,7 +454,10 @@ public class PlayerController : Observer
         }
     }
 
-
+    public void SetPowerInUse( bool p)
+    {
+        isPowerInUse = p;
+    }
 
     public void RegainSize()
     {
@@ -467,7 +465,21 @@ public class PlayerController : Observer
         gameObject.LeanScale(Vector3.one, 0.2f).setEaseInElastic();
     }
 
-   
+    public void InvokeIce()
+    {
+        if (invokingTime > 0)
+        {
+            invokingTime--;
+            if (player.velocity.y < 0)
+                player.velocity = new Vector3(player.velocity.x, 0, player.velocity.z);
+            GameObject instantiatedPlatform = Instantiate(Boom);
+            instantiatedPlatform.transform.position = this.transform.position - Vector3.up * 0.55f + new Vector3(player.velocity.normalized.x, 0F, player.velocity.normalized.z);
+            Destroy(instantiatedPlatform, 5.5f);
+            Invoke("InvokeIce", 0.1f);
+        }
+    }
+
+
 
     //Earth power related
     public void EarthMovesAgain()
@@ -697,6 +709,9 @@ public class PlayerController : Observer
             }
             ParticleSystem.EmitParams emitOverride = new ParticleSystem.EmitParams();
             fallSparks.Emit(emitOverride, 10 + (int)Mathf.Min(Mathf.Abs(lastVelocity.y) / 5f, 20f));
+
+
+          
         }
         /*Falldown particles*/
         if (Mathf.Abs(lastVelocity.y) > 1f)
@@ -726,6 +741,16 @@ public class PlayerController : Observer
             }
         }
 
+        HorizontalBreakableScript h = collision.collider.GetComponent<HorizontalBreakableScript>();
+        if (h && Mathf.Abs(lastVelocity.x)+Mathf.Abs(lastVelocity.z) >=25f)
+        {
+            h.Break();
+        }
+        VerticalBreakableScript v = collision.collider.GetComponent<VerticalBreakableScript>();
+        if (v && Mathf.Abs(lastVelocity.y)>=15f)
+        {
+            v.Break();
+        }
         rumble(0f, 0f);
 
     }
@@ -1027,6 +1052,7 @@ public class PlayerController : Observer
 
     private void rumble(float low, float high)
     {
+        /*
         Gamepad currentController = null;
         foreach(Gamepad g in Gamepad.all)
         {
@@ -1045,7 +1071,7 @@ public class PlayerController : Observer
         //Gamepad currentController = Gamepad.all.FirstOrDefault(g => inputHandler.GetComponent<PlayerInput>().devices.Any(d => d.deviceId == g.deviceId));
         if(currentController != null)
             currentController.SetMotorSpeeds(low, high);
-
+            */
     }
 
 

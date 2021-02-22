@@ -69,7 +69,7 @@ public class PlayerCapsuleFollow : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, yangle, 0);
         transform.position = player.transform.position - (rotation * offset);
 
-        transform.position += ((Vector3.up).normalized) * (-playerRigid.velocity.y) / 20f;
+        transform.position += ((Vector3.up).normalized) * Mathf.Max((-playerRigid.velocity.y) / 30f,-20f);
 
 
         transform.LookAt(player.transform);

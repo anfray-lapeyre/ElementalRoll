@@ -10,12 +10,32 @@ public class GrapplingGunScript : MonoBehaviour
     public Transform gunTip, varCamera, player;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    private float lastDistance = 999f;
 
     void Awake()
     {
         lr=GetComponent<LineRenderer>();
         lr.positionCount = 0;
 
+    }
+
+    private void FixedUpdate()
+    {
+        if (joint)
+        {
+            float tmpDist = Vector3.Distance(player.position, grapplePoint);
+            if (tmpDist > lastDistance || tmpDist <=1f)
+            {
+
+                Rigidbody r = player.GetComponent<Rigidbody>();
+                if (r)
+                    r.velocity = r.velocity / 10f;
+                StopGrapple();
+                player.GetComponent<PlayerController>().SetPowerInUse(false);
+            }
+            lastDistance = Vector3.Distance(player.position, grapplePoint);
+
+        }
     }
 
     private void LateUpdate()
@@ -41,11 +61,16 @@ public class GrapplingGunScript : MonoBehaviour
             joint.maxDistance = distanceFromPoint * 0.8f;
             joint.minDistance = 1f;
 
-            joint.spring = 50f;
-            joint.damper =4f;
-            joint.massScale = 4.5f;
+            joint.spring = 1000f;
+            joint.damper =30f;
+            joint.massScale = 1f;
+            joint.connectedMassScale = 10f;
 
             lr.positionCount = 2;
+
+            Time.timeScale = 0.6f;
+            Time.fixedDeltaTime = Time.timeScale * .02f;
+
         }
     }
 
@@ -61,5 +86,9 @@ public class GrapplingGunScript : MonoBehaviour
     {
         lr.positionCount = 0;
         Destroy(joint);
+        lastDistance = 999f;
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = Time.timeScale * .02f;
+
     }
 }
