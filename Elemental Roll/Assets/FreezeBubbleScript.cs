@@ -12,7 +12,7 @@ public class FreezeBubbleScript : MonoBehaviour
     void Start()
     {
         bodies = new List<TimeBody>();
-        transform.LeanScale(Vector3.one * 15f, 2f).setEaseOutExpo();
+        transform.LeanScale(Vector3.one * 30f, 2f).setEaseOutExpo();
         Invoke("EndFreeze", 8f);
     }
 

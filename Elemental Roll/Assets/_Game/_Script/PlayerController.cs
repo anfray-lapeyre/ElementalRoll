@@ -742,7 +742,7 @@ public class PlayerController : Observer
         }
 
         HorizontalBreakableScript h = collision.collider.GetComponent<HorizontalBreakableScript>();
-        if (h && Mathf.Abs(lastVelocity.x)+Mathf.Abs(lastVelocity.z) >=25f)
+        if (h && new Vector2(lastVelocity.x,lastVelocity.z).magnitude >= 18f)
         {
             h.Break();
         }
@@ -783,7 +783,7 @@ public class PlayerController : Observer
             //We update the speed base on the sum of the player's velocity vector
             if (hasPlayerTouched)
             {
-                ActualSave.actualSave.stats[playerNb].playerSpeed = ((Mathf.Abs(player.velocity.x) + Mathf.Abs(player.velocity.y) + Mathf.Abs(player.velocity.z)) * 3f);
+                ActualSave.actualSave.stats[playerNb].playerSpeed = (player.velocity.magnitude * 2f);
                 ActualSave.actualSave.stats[playerNb].playerRotationSpeed=(Mathf.Abs(player.angularVelocity.x) + Mathf.Abs(player.angularVelocity.y) + Mathf.Abs(player.angularVelocity.z));
                 //checkGravity();
                 lastVelocity = player.velocity;
