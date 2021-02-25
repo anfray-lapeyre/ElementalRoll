@@ -262,6 +262,9 @@ public class PlayerController : Observer
 
     public void Restart()
     {
+        //This is a temporary measure for the demo
+        transform.position = Vector3.up;
+        player.velocity = Vector3.zero;
         if (!finishedLevel && !loading)
         {
             //_levelLoader.LoadNextLevel(Mathf.Abs(ActualSave.actualSave.stats[playerNb].currentLevel), true);//In case the value is negative while restarting, it means we are in level selection mode, we can put any positive value here
