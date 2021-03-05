@@ -324,6 +324,7 @@ public class PlayerController : Observer
                             //player.AddForce(-player.velocity);
 
                             player.isKinematic = true;
+                            
                             GameObject instantiatedEarthBoom = Instantiate(propelBoom, fallSparks.transform);
                             Destroy(instantiatedEarthBoom, 2f);
                             Invoke("EarthMovesAgain", 1.5f);
@@ -390,6 +391,9 @@ public class PlayerController : Observer
                             shoutHandler.PlayAudio(true);
                             gameObject.LeanScale(Vector3.one * 0.5f, 0.2f).setEaseInElastic();
                             isPowerInUse = true;
+                            GameObject instantiatedBoomIce = Instantiate(propelBoom);
+                            instantiatedBoomIce.transform.position = this.transform.position;
+                            Destroy(instantiatedBoomIce, 2f);
                             rumble(0.1f, 0.8f);
                             Invoke("RegainSize", 5f);
                             break;

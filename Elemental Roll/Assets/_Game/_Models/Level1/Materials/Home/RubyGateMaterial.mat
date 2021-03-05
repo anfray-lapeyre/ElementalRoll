@@ -48,8 +48,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_392b23441315a1859a51ba16c61a6581_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 1aee898b13650f54684cb10046430703, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_4345D883_Texture_1:
         m_Texture: {fileID: 2800000, guid: 1aee898b13650f54684cb10046430703, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_4fcea6a11bc4de80817af5193dd867cf_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 90839bd3832cd1d4f9e2ba8f8b377fa1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_840CB937_Texture_1:
@@ -62,6 +70,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_1A4DA0FD_Out_0:
         m_Texture: {fileID: 2800000, guid: e823427f93bd2a74b90ee9dc9ee84b5e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_5aefbd377cff7b87a4a560f853df0bd9_Out_0:
+        m_Texture: {fileID: 2800000, guid: e823427f93bd2a74b90ee9dc9ee84b5e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -103,6 +127,7 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0.1981132, g: 0.059889924, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+  m_BuildTextureStacks: []
 --- !u!114 &1741843339951737509
 MonoBehaviour:
   m_ObjectHideFlags: 11

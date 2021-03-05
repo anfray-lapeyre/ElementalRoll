@@ -10,5 +10,6 @@ public class VerticalBreakableScript : MonoBehaviour
     public void Break()
     {
         Destroy(this.gameObject);
+       
     }
 }

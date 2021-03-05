@@ -304,7 +304,7 @@ MonoBehaviour:
   victoryText: {fileID: 4813255734770751529, guid: 7e4cf8ff9ace8ef43935c9174a28202e,
     type: 3}
   Boom: {fileID: 3992283936593801526, guid: e8c13b2549a448245b7bb4737d2058b9, type: 3}
-  propelBoom: {fileID: 3992283936593801526, guid: 704985791ba1e524b9da04df7aaad33d,
+  propelBoom: {fileID: 8748687995501502678, guid: 5801c706205c04f4cb4eefd6284e6f61,
     type: 3}
   hasPlayerTouched: 0
   cinemachineBrain: {fileID: 0}

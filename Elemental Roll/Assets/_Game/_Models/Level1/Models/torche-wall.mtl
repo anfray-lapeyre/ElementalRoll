@@ -1,0 +1,6 @@
+newmtl LOW-POLY-COLORS
+map_Ke color-atlas-emission.png
+map_Kd color-atlas-new.png
+Kd 1 1 1
+d 1
+
