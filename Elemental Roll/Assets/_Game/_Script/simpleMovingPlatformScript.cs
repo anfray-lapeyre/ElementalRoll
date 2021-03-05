@@ -16,7 +16,6 @@ public class simpleMovingPlatformScript : MonoBehaviour
     public float offset = 0f;
     [HideInInspector]
     public bool paused = false;
-
     private Rigidbody playerRigidbody;
 
 
@@ -42,7 +41,8 @@ public class simpleMovingPlatformScript : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad ) : Vector3.zero) +  ((vertical) ?this.transform.up* amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad) : Vector3.zero) + ( (depth) ? this.transform.forward * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad) : Vector3.zero), 0.5f);
         Gizmos.DrawWireSphere(this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero) +  ((vertical) ?this.transform.up * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero) + ( (depth) ? this.transform.forward * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad) : Vector3.zero), 0.5f);
-        Gizmos.DrawWireMesh(this.GetComponent<MeshFilter>().sharedMesh, this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad  + delay*Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad + delay*Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad + delay*Mathf.Deg2Rad) : Vector3.zero), this.transform.rotation, this.transform.localScale);
+        if(this.GetComponent<MeshFilter>())
+            Gizmos.DrawWireMesh(this.GetComponent<MeshFilter>().sharedMesh, this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad  + delay*Mathf.Deg2Rad) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad + delay*Mathf.Deg2Rad) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad + delay*Mathf.Deg2Rad) : Vector3.zero), this.transform.rotation, this.transform.localScale);
         Gizmos.color = Color.white;
         Gizmos.DrawLine(this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad ) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad ) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(-90f * Mathf.Deg2Rad) : Vector3.zero), this.transform.position + ((horizontal) ? this.transform.right * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero) + ((vertical) ? this.transform.up * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero) + ((depth) ? this.transform.forward * amplitude * Mathf.Sin(90f * Mathf.Deg2Rad ) : Vector3.zero));
     }

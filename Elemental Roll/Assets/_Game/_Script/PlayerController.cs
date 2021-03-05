@@ -930,7 +930,7 @@ public class PlayerController : Observer
             //If a moving platform, we add its movement to the player
             if (RaycastReturn.GetComponent<Rigidbody>())
             {
-                return RaycastReturn.GetComponent<Rigidbody>().velocity * Time.fixedDeltaTime; //simpleMovingPlatformScript handling
+                return RaycastReturn.GetComponent<Rigidbody>().velocity * Time.fixedDeltaTime*3f; //simpleMovingPlatformScript handling
             }
 
         }
@@ -1091,6 +1091,7 @@ public class PlayerController : Observer
         {
             Physics.gravity = defaultGravity;
         }
+        faceCamera.activeTexture.Release();
     }
 
 

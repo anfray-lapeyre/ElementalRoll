@@ -13,7 +13,7 @@ public class AirFlowScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" && !player.ContainsKey(other.GetComponent<PlayerController>().playerNb))
         {
             player.Add(other.GetComponent<PlayerController>().playerNb, other.GetComponent<Rigidbody>());
         }
